@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgwr6uxxeehph"]
+
+[ext_resource type="Script" uid="uid://7jq2w2q8cnti" path="res://src/scenes/objets/boule.gd" id="1_uddsy"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_a5tgt"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="3_tdbee"]
+[ext_resource type="PackedScene" uid="uid://b57h0ye1qj2p4" path="res://Assets/Packs/FBX/Potion4.fbx" id="4_tdbee"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_sd7je"]
+height = 0.2175293
+radius = 0.018554688
+
+[node name="Node3D" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 7
+continuous_cd = true
+script = ExtResource("1_uddsy")
+metadata/_custom_type_script = "uid://d2tylielur6l1"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.19999999, 0, 0, 0, 0.19999999, 0, 0, 0, 0.19999999, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.070131496, 0)
+shape = SubResource("CylinderShape3D_sd7je")
+
+[node name="GrabPointHandLeft" parent="." instance=ExtResource("2_a5tgt")]
+transform = Transform3D(0.99719167, 0.074891716, 0, -0.074891716, 0.99719167, 0, 0, 0, 1, 0.023593023, 0.124872714, -0.08965831)
+visible = true
+
+[node name="GrabPointHandRight" parent="." instance=ExtResource("3_tdbee")]
+transform = Transform3D(0.9999439, 0.010593931, 0, -0.010593931, 0.9999439, 0, 0, 0, 1, -0.010484207, 0.12568341, -0.092014104)
+visible = true
+
+[node name="Potion4" parent="." instance=ExtResource("4_tdbee")]
+transform = Transform3D(0.23, 0, 0, 0, 0.23, 0, 0, 0, 0.23, 0, -0.043326013, 0)
