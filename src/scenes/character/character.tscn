@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://q2ddqvpmfr2x"]
+[gd_scene load_steps=10 format=3 uid="uid://q2ddqvpmfr2x"]
 
+[ext_resource type="Script" uid="uid://bustqdra0w5o3" path="res://src/scenes/character/character.gd" id="1_8lldn"]
 [ext_resource type="PackedScene" uid="uid://cy03d57iyrci" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_physics_hand.tscn" id="1_jt2v8"]
 [ext_resource type="PackedScene" uid="uid://fiul51tsyoop" path="res://addons/godot-xr-tools/functions/function_teleport.tscn" id="2_w375e"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="3_fg8a2"]
@@ -7,9 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://kcqomcjq52np" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_physics_hand.tscn" id="3_w375e"]
 [ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="4_w375e"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="5_fg8a2"]
+[ext_resource type="PackedScene" uid="uid://bnbb13d0dwsuf" path="res://src/scenes/draw_spell/draw.tscn" id="7_fg8a2"]
 
 [node name="XROrigin3D" type="XROrigin3D"]
 current = true
+script = ExtResource("1_8lldn")
 
 [node name="XRCamera3D" type="XRCamera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8064396, 0)
@@ -32,6 +35,8 @@ tracker = &"right_hand"
 [node name="MovementDirect" parent="controller_r/RightPhysicsHand" instance=ExtResource("3_jt2v8")]
 
 [node name="MovementTurn" parent="controller_r/RightPhysicsHand" instance=ExtResource("4_w375e")]
+
+[node name="Draw" parent="controller_r/RightPhysicsHand" instance=ExtResource("7_fg8a2")]
 
 [node name="FunctionPickup" parent="controller_r" instance=ExtResource("3_fg8a2")]
 
