@@ -1,0 +1,27 @@
+extends CharacterBody3D
+
+var SPEED = 7.5
+var JUMP_VELOCITY = 4.5
+@onready var cam_fps: Node3D = $Camera3D
+
+func _ready() -> void:
+	pass
+	
+func _process(delta: float) -> void:
+	if Input.is_action_pressed("jump") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var input_dir := Input.get_vector("left", "right", "forward", "backward")
+	var direction := (cam_fps.global_transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	direction = -(direction.cross(Vector3.UP)).cross(Vector3.UP).normalized()
+	
+	if direction:
+		velocity.x = direction.x * SPEED
+		velocity.z = direction.z * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.z = move_toward(velocity.z, 0, SPEED)
+		
+	move_and_slide()
