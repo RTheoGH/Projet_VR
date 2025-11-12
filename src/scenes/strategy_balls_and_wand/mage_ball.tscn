@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmn3qb23bx2l5"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fvko8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hh4nu"]
+transparency = 1
+albedo_color = Color(0.02745098, 1, 1, 0.019607844)
+emission_enabled = true
+emission = Color(0, 9.03004, 9.03004, 1)
+ao_enabled = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_6aqbr"]
+radial_segments = 32
+
+[node name="MageBall" type="Area3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_fvko8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+material_override = SubResource("StandardMaterial3D_hh4nu")
+mesh = SubResource("SphereMesh_6aqbr")
