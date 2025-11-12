@@ -1,6 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bvdjipkodp1xn"]
+[gd_scene load_steps=9 format=3 uid="uid://bvdjipkodp1xn"]
 
 [ext_resource type="PackedScene" uid="uid://dyat8ynb24ji" path="res://spells/scenes/fireball.tscn" id="1_lqrwy"]
+[ext_resource type="PackedScene" uid="uid://bfs5qsy4dw1iq" path="res://src/scenes/strategy_balls_and_wand/mage_ball_circle/mage_ball_circle.tscn" id="2_aq02j"]
+[ext_resource type="PackedScene" uid="uid://dqwjrt3lnh2p6" path="res://src/scenes/strategy_balls_and_wand/wand/wand.tscn" id="3_ucck7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_33gj2"]
 sky_top_color = Color(0.32795975, 0.3953401, 0.8315651, 1)
@@ -27,7 +29,7 @@ use_collision = true
 size = Vector3(16.164063, 1, 14.876953)
 
 [node name="Camera3D" type="Camera3D" parent="CSGBox3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.9904313, 7.7736583)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4157107, 6.5414634)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -8.224979, -0.48410362, 0)
@@ -81,3 +83,9 @@ shape = SubResource("BoxShape3D_ucck7")
 
 [node name="Fireball" parent="." instance=ExtResource("1_lqrwy")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.516127, 2.2281423, 4.7683716e-07)
+
+[node name="MageBallCircle" parent="." instance=ExtResource("2_aq02j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14649066, 1.6226025, 2.95376)
+
+[node name="Node3D" parent="MageBallCircle" instance=ExtResource("3_ucck7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.3584595, 0.03134632)

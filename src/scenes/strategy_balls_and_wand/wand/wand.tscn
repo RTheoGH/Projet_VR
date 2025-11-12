@@ -23,16 +23,18 @@ script = ExtResource("1_ft546")
 metadata/_custom_type_script = "uid://d2tylielur6l1"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.06339766, 0.0027361847)
 material_override = SubResource("StandardMaterial3D_ft546")
 mesh = SubResource("CylinderMesh_jcuqv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.06339766, 0.0027361847)
 shape = SubResource("CylinderShape3D_1eejb")
 
 [node name="GrabPointHandLeft" parent="." instance=ExtResource("2_1eejb")]
-transform = Transform3D(11.5, 0, 0, 0, 11.277069, -2.2533805, 0, 2.2533805, 11.277069, 0.111742854, -0.90766776, -0.98365474)
+transform = Transform3D(1, 0, 0, 0, 0.98061466, -0.19594613, 0, 0.19594613, 0.98061466, 0.010018587, -0.03547819, -0.08542167)
 visible = true
 
 [node name="GrabPointHandRight" parent="." instance=ExtResource("3_rxwv6")]
-transform = Transform3D(11.5, 0, 0, 0, 11.277658, -2.250428, 0, 2.250428, 11.277658, -0.08956361, -0.8911885, -0.98365474)
+transform = Transform3D(1, 0, 0, 0, 0.9806659, -0.1956894, 0, 0.1956894, 0.9806659, -0.010339141, -0.035976306, -0.08535747)
 visible = true

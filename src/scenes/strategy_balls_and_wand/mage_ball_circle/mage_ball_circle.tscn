@@ -20,15 +20,14 @@ radial_segments = 32
 [node name="MageBallCircle" type="Node3D"]
 script = ExtResource("1_lnxqx")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.0718303)
-
 [node name="finish" type="Area3D" parent="."]
+visible = false
 collision_layer = 8
 collision_mask = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="finish"]
 shape = SubResource("SphereShape3D_lnxqx")
+disabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="finish"]
 material_override = SubResource("StandardMaterial3D_5s63q")
