@@ -1,6 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bmn3qb23bx2l5"]
+[gd_scene load_steps=5 format=3 uid="uid://bmn3qb23bx2l5"]
+
+[ext_resource type="Script" uid="uid://cq6h4m3oab3cu" path="res://src/scenes/strategy_balls_and_wand/mage_ball/mage_ball.gd" id="1_hh4nu"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_fvko8"]
+radius = 0.2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hh4nu"]
 transparency = 1
@@ -10,13 +13,21 @@ emission = Color(0, 9.03004, 9.03004, 1)
 ao_enabled = true
 
 [sub_resource type="SphereMesh" id="SphereMesh_6aqbr"]
+radius = 0.2
+height = 0.4
 radial_segments = 32
 
 [node name="MageBall" type="Area3D"]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_hh4nu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_fvko8")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_hh4nu")
 mesh = SubResource("SphereMesh_6aqbr")
+skeleton = NodePath("../CollisionShape3D")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

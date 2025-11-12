@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://bfs5qsy4dw1iq"]
+
+[ext_resource type="Script" uid="uid://bemtu0ory61oe" path="res://src/scenes/strategy_balls_and_wand/mage_ball_circle/mage_ball_circle.gd" id="1_lnxqx"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_lnxqx"]
+radius = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5s63q"]
+transparency = 1
+albedo_color = Color(0.02745098, 1, 1, 0.019607844)
+emission_enabled = true
+emission = Color(0.38475823, 0.6091277, 0, 1)
+emission_energy_multiplier = 16.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_y3frd"]
+radius = 0.2
+height = 0.4
+radial_segments = 32
+
+[node name="MageBallCircle" type="Node3D"]
+script = ExtResource("1_lnxqx")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.0718303)
+
+[node name="finish" type="Area3D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="finish"]
+shape = SubResource("SphereShape3D_lnxqx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="finish"]
+material_override = SubResource("StandardMaterial3D_5s63q")
+mesh = SubResource("SphereMesh_y3frd")
+skeleton = NodePath("../CollisionShape3D")
+
+[connection signal="body_entered" from="finish" to="." method="_on_finish_body_entered"]

@@ -1,0 +1,22 @@
+extends RigidBody3D
+
+var launch_strength: float = 20.0;
+
+var explode_strength = 5.0;
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	
+	apply_central_impulse(to_global(Vector3.FORWARD * launch_strength + Vector3.UP * launch_strength / 10.0))
+	
+	
+
+func explode():
+	for b in $Area3D.get_overlapping_bodies():
+		if b is RigidBody3D:
+			b.apply_central_impulse((b.global_position - global_position) * explode_strength)
+	
+	queue_free()
+func _on_body_entered(body: Node) -> void:
+	print("esrdg")
+	explode()
