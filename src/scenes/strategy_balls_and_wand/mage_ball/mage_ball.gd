@@ -9,5 +9,6 @@ func activate() -> void:
 		pass
 
 
-func _on_body_entered(body: Node3D) -> void:
+
+func _on_wand_tip_entered(_area: Area3D) -> void:
 	activate()

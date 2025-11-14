@@ -3,15 +3,11 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bbbp2qxee7pbj"
-path="res://.godot/imported/Preview.png-0bb8d52aa7f5325c1a0cd8e9544f00ac.ctex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
 source_file="res://Assets/Packs/Universal Base Characters[Standard]/Preview.png"
-dest_files=["res://.godot/imported/Preview.png-0bb8d52aa7f5325c1a0cd8e9544f00ac.ctex"]
 
 [params]
 

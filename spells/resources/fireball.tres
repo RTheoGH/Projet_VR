@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="Spell" load_steps=2 format=3 uid="uid://bmpceqfjq1bjy"]
+[gd_resource type="Resource" script_class="Spell" load_steps=3 format=3 uid="uid://bmpceqfjq1bjy"]
 
+[ext_resource type="PackedScene" uid="uid://dyat8ynb24ji" path="res://spells/scenes/fireball.tscn" id="1_4fbm0"]
 [ext_resource type="Script" uid="uid://bj7f1dc5o8bix" path="res://src/classes/Spell.gd" id="1_iuqm1"]
 
 [resource]
 script = ExtResource("1_iuqm1")
 name = &"Fireball"
+scene = ExtResource("1_4fbm0")
 metadata/_custom_type_script = "uid://bj7f1dc5o8bix"

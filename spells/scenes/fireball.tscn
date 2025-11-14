@@ -24,14 +24,14 @@ emission_energy_multiplier = 10.0
 emission_texture = SubResource("NoiseTexture2D_c0vn8")
 
 [sub_resource type="SphereMesh" id="SphereMesh_5vjbd"]
-radius = 0.2
-height = 0.4
+radius = 0.1
+height = 0.2
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_g4jxd"]
-radius = 0.19282039
+radius = 0.09610992
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_stav5"]
-radius = 2.8487422
+radius = 1.7498424
 
 [node name="Fireball" type="RigidBody3D"]
 contact_monitor = true

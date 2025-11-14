@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cq6h4m3oab3cu" path="res://src/scenes/strategy_balls_and_wand/mage_ball/mage_ball.gd" id="1_hh4nu"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_fvko8"]
-radius = 0.2
+radius = 0.046277475
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hh4nu"]
 transparency = 1
@@ -13,8 +13,8 @@ emission = Color(0, 9.03004, 9.03004, 1)
 ao_enabled = true
 
 [sub_resource type="SphereMesh" id="SphereMesh_6aqbr"]
-radius = 0.2
-height = 0.4
+radius = 0.05
+height = 0.1
 radial_segments = 32
 
 [node name="MageBall" type="Area3D"]
@@ -30,4 +30,4 @@ material_override = SubResource("StandardMaterial3D_hh4nu")
 mesh = SubResource("SphereMesh_6aqbr")
 skeleton = NodePath("../CollisionShape3D")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_entered" from="." to="." method="_on_wand_tip_entered"]

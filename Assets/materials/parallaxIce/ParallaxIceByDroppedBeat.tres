@@ -1,0 +1,17 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://bwkidg8s7g2wx"]
+
+[ext_resource type="Shader" uid="uid://d1pytecyhi3n3" path="res://Assets/materials/parallaxIce/ParallaxIceByDroppedBeat.gdshader" id="1"]
+[ext_resource type="Texture2D" uid="uid://bjru7e7se13bf" path="res://Assets/materials/parallaxIce/ParallaxIceByDroppedBeat_albedo.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://cqd1x42fn6kut" path="res://Assets/materials/parallaxIce/ParallaxIceByDroppedBeat_normal.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://3y5tvixmtamq" path="res://Assets/materials/parallaxIce/ParallaxIceByDroppedBeat_orm.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://bvilesgqqpw8w" path="res://Assets/materials/parallaxIce/ParallaxIceByDroppedBeat_parallax.png" id="5"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1")
+shader_parameter/texture_albedo = ExtResource("2")
+shader_parameter/texture_normal = ExtResource("3")
+shader_parameter/texture_orm = ExtResource("4")
+shader_parameter/texture_parallax = ExtResource("5")
+shader_parameter/uv1_scale = Vector3(10, 15, 0)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)

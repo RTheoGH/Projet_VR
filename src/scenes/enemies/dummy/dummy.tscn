@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://dx6fo4qqqg0bj"]
+
+[ext_resource type="Script" uid="uid://c18xuqc48c2gi" path="res://src/scenes/enemies/dummy/dummy.gd" id="1_5jhb8"]
+[ext_resource type="PackedScene" uid="uid://me66ssxixr0w" path="res://Assets/Packs/FBX/Rock4.fbx" id="1_xue8s"]
+[ext_resource type="PackedScene" uid="uid://d06yfex6rn2ga" path="res://Assets/Packs/fantasyprops/Dummy.gltf" id="2_dgqso"]
+[ext_resource type="Script" uid="uid://dnwgxob85dw75" path="res://src/classes/hitbox.gd" id="4_aoudn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dgqso"]
+size = Vector3(0.5566406, 0.24743652, 0.43164063)
+
+[node name="dummy" type="Node3D"]
+script = ExtResource("1_5jhb8")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.009497881, 0.1014816, 0)
+
+[node name="Rock4" parent="StaticBody3D" instance=ExtResource("1_xue8s")]
+transform = Transform3D(1.055, 0, 0, 0, 0.72, 0, 0, 0, 1.245, 0.009470701, -0.14848438, -0.013286918)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.07122803, 0)
+shape = SubResource("BoxShape3D_dgqso")
+
+[node name="Dummy2" parent="." instance=ExtResource("2_dgqso")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.008593511, -0.003160268, 0.0045295954)
+
+[node name="Dummy" parent="Dummy2" index="0"]
+linear_damp = 0.2
+constant_force = Vector3(0, 25, 0)
+
+[node name="ConeTwistJoint3D" type="ConeTwistJoint3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16085774, 0)
+node_a = NodePath("../StaticBody3D")
+node_b = NodePath("../Dummy2/Dummy")
+swing_span = 1.5707964
+
+[node name="HitManager" type="Node3D" parent="." node_paths=PackedStringArray("linked_body")]
+script = ExtResource("4_aoudn")
+linked_body = NodePath("../Dummy2/Dummy")
+metadata/_custom_type_script = "uid://dnwgxob85dw75"
+
+[connection signal="dead" from="HitManager" to="." method="_on_hit_manager_dead"]
+[connection signal="hurt" from="HitManager" to="." method="_on_hit_manager_hurt"]
+
+[editable path="Dummy2"]

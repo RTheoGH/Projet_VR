@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bfs5qsy4dw1iq"]
+[gd_scene load_steps=12 format=3 uid="uid://bfs5qsy4dw1iq"]
 
 [ext_resource type="Script" uid="uid://bemtu0ory61oe" path="res://src/scenes/strategy_balls_and_wand/mage_ball_circle/mage_ball_circle.gd" id="1_lnxqx"]
+[ext_resource type="Shader" uid="uid://bftuhlgbixkst" path="res://Assets/ball_links.gdshader" id="2_y3frd"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_lnxqx"]
 radius = 0.2
@@ -16,6 +17,34 @@ emission_energy_multiplier = 16.0
 radius = 0.2
 height = 0.4
 radial_segments = 32
+
+[sub_resource type="Gradient" id="Gradient_y3frd"]
+colors = PackedColorArray(0, 0.40934435, 0.37561592, 0, 0.46850413, 0.72872806, 0.91014445, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5f2p7"]
+gradient = SubResource("Gradient_y3frd")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_uicjn"]
+noise_type = 2
+frequency = 0.0081
+fractal_type = 3
+fractal_octaves = 3
+fractal_gain = 1.01
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_lljmy"]
+noise = SubResource("FastNoiseLite_uicjn")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5f2p7"]
+render_priority = 0
+shader = ExtResource("2_y3frd")
+shader_parameter/color_gradient = SubResource("GradientTexture1D_5f2p7")
+shader_parameter/noiseTexture = SubResource("NoiseTexture2D_lljmy")
+shader_parameter/speed = -0.4999997862500001
+shader_parameter/variation = 1.0
+shader_parameter/width = 1.0
+
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_lnxqx"]
 
 [node name="MageBallCircle" type="Node3D"]
 script = ExtResource("1_lnxqx")
@@ -33,5 +62,9 @@ disabled = true
 material_override = SubResource("StandardMaterial3D_5s63q")
 mesh = SubResource("SphereMesh_y3frd")
 skeleton = NodePath("../CollisionShape3D")
+
+[node name="links" type="MeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_5f2p7")
+mesh = SubResource("ImmediateMesh_lnxqx")
 
 [connection signal="body_entered" from="finish" to="." method="_on_finish_body_entered"]

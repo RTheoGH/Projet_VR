@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://dqwjrt3lnh2p6"]
+[gd_scene load_steps=8 format=3 uid="uid://dqwjrt3lnh2p6"]
 
-[ext_resource type="Script" uid="uid://d2tylielur6l1" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_ft546"]
+[ext_resource type="Script" uid="uid://xc0vw1f3vfdr" path="res://src/scenes/strategy_balls_and_wand/wand/wand.gd" id="1_1eejb"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_1eejb"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="3_rxwv6"]
 
@@ -8,7 +8,7 @@
 albedo_color = Color(0.3549141, 0.22762838, 0.095910795, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_jcuqv"]
-top_radius = 0.2
+top_radius = 0.03
 bottom_radius = 0.2
 height = 3.0
 
@@ -16,19 +16,24 @@ height = 3.0
 height = 3.0
 radius = 0.2
 
-[node name="Node3D" type="RigidBody3D"]
-collision_layer = 15
-collision_mask = 15
-script = ExtResource("1_ft546")
+[sub_resource type="BoxShape3D" id="BoxShape3D_1eejb"]
+size = Vector3(0.020507813, 0.11595154, 0.01953125)
+
+[node name="Wand" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 7
+continuous_cd = true
+script = ExtResource("1_1eejb")
+press_to_hold = false
 metadata/_custom_type_script = "uid://d2tylielur6l1"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.06339766, 0.0027361847)
+transform = Transform3D(0.099999994, 0, 0, 0, 0.07202364, 0.06937288, 0, -0.06937288, 0.07202364, 0, -0.011540264, -0.046585333)
 material_override = SubResource("StandardMaterial3D_ft546")
 mesh = SubResource("CylinderMesh_jcuqv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.06339766, 0.0027361847)
+transform = Transform3D(0.099999994, 0, 0, 0, 0.07202364, 0.06937288, 0, -0.06937288, 0.07202364, 0, -0.011540264, -0.046585333)
 shape = SubResource("CylinderShape3D_1eejb")
 
 [node name="GrabPointHandLeft" parent="." instance=ExtResource("2_1eejb")]
@@ -38,3 +43,13 @@ visible = true
 [node name="GrabPointHandRight" parent="." instance=ExtResource("3_rxwv6")]
 transform = Transform3D(1, 0, 0, 0, 0.9806659, -0.1956894, 0, 0.1956894, 0.9806659, -0.010339141, -0.035976306, -0.08535747)
 visible = true
+
+[node name="tip" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.95073783, -0.30999616, 0, 0.30999616, 0.95073783, 0, 0.07774818, -0.13012066)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tip"]
+transform = Transform3D(1, 0, 0, 0, 0.48387843, 0.87513554, 0, -0.87513554, 0.48387843, 0, 0.017242473, -0.03518319)
+shape = SubResource("BoxShape3D_1eejb")
+debug_color = Color(0.9662871, 0.16612294, 0.21537918, 0.41960785)
