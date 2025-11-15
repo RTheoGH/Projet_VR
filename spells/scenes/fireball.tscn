@@ -1,19 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://dyat8ynb24ji"]
+[gd_scene load_steps=15 format=3 uid="uid://dyat8ynb24ji"]
 
 [ext_resource type="Script" uid="uid://cc3xwnfnmjqfr" path="res://spells/scenes/fireball.gd" id="1_stav5"]
-[ext_resource type="Texture2D" uid="uid://225dl5r7ui18" path="res://Assets/textures/fireball.tres" id="2_y0vcm"]
 [ext_resource type="Shader" uid="uid://jrggoe8b3bwb" path="res://src/shaders/fireball.tres" id="3_b52wv"]
 [ext_resource type="Shader" uid="uid://yoq3lj3swnys" path="res://src/shaders/fireball_head.tres" id="4_5sn28"]
 [ext_resource type="ArrayMesh" uid="uid://bqpx2sfn070fl" path="res://Assets/fireball_head_mesh.obj" id="5_wj53r"]
 [ext_resource type="Shader" uid="uid://dwhuwisktagqc" path="res://src/shaders/fireball_trail.tres" id="6_7gksg"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1d0w5"]
-albedo_color = Color(0, 0, 0, 1)
-emission_enabled = true
-emission_energy_multiplier = 10.0
-emission_texture = ExtResource("2_y0vcm")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3c2kc"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nksxf"]
 render_priority = 0
 shader = ExtResource("3_b52wv")
 
@@ -52,8 +45,7 @@ max_contacts_reported = 1
 script = ExtResource("1_stav5")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-material_override = SubResource("StandardMaterial3D_1d0w5")
-material_overlay = SubResource("ShaderMaterial_3c2kc")
+material_override = SubResource("ShaderMaterial_nksxf")
 mesh = SubResource("SphereMesh_5vjbd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
