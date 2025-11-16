@@ -22,9 +22,9 @@ func _on_function_pickup_has_picked_up(picked_up_object: Node3D) -> void:
 
 func _on_function_pickup_has_dropped() -> void:
 	if function_pickup.picked_up_object.has_method("activate"):
-		activate.connect(function_pickup.picked_up_object.activate)
+		activate.disconnect(function_pickup.picked_up_object.activate)
 	if function_pickup.picked_up_object.has_method("activate_touched"):
-		activate_touched.connect(function_pickup.picked_up_object.activate_touched)
+		activate_touched.disconnect(function_pickup.picked_up_object.activate_touched)
 
 # choisir ici quelle input correspond à quoi
 func _on_controller_button_pressed(name: String) -> void:

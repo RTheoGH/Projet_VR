@@ -17,7 +17,7 @@ height = 3.0
 radius = 0.2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1eejb"]
-size = Vector3(0.020507813, 0.11595154, 0.01953125)
+size = Vector3(0.020507813, 0.18905449, 0.01953125)
 
 [node name="Wand" type="RigidBody3D"]
 collision_layer = 4
@@ -45,11 +45,15 @@ transform = Transform3D(1, 0, 0, 0, 0.9806659, -0.1956894, 0, 0.1956894, 0.98066
 visible = true
 
 [node name="tip" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.95073783, -0.30999616, 0, 0.30999616, 0.95073783, 0, 0.07774818, -0.13012066)
+transform = Transform3D(1, 0, 0, 0, 0.66836506, -0.7438334, 0, 0.7438334, 0.66836506, 0, 0.13062927, -0.18300179)
 collision_layer = 8
 collision_mask = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="tip"]
-transform = Transform3D(1, 0, 0, 0, 0.48387843, 0.87513554, 0, -0.87513554, 0.48387843, 0, 0.017242473, -0.03518319)
+transform = Transform3D(1, 0, 0, 0, -0.018516809, 0.9998288, 0, -0.9998288, -0.018516809, 0, 0.0030570924, 0.020431846)
 shape = SubResource("BoxShape3D_1eejb")
 debug_color = Color(0.9662871, 0.16612294, 0.21537918, 0.41960785)
+
+[node name="GPUParticlesAttractorSphere3D" type="GPUParticlesAttractorSphere3D" parent="tip"]
+strength = 8.0
+radius = 0.88135165

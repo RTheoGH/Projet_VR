@@ -80,7 +80,7 @@ mesh = SubResource("BoxMesh_aq02j")
 shape = SubResource("BoxShape3D_ucck7")
 
 [node name="Fireball" parent="." instance=ExtResource("1_lqrwy")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.516127, 2.2281423, 4.7683716e-07)
+transform = Transform3D(-0.27014682, 0, 0.9628192, 0, 1, 0, -0.9628192, 0, -0.27014682, 3.516127, 2.2281423, 4.7683716e-07)
 
 [node name="MageBallCircle" parent="." instance=ExtResource("2_aq02j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14649066, 1.6226025, 2.95376)
