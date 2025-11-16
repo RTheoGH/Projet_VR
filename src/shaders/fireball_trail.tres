@@ -1,0 +1,121 @@
+[gd_resource type="VisualShader" load_steps=13 format=3 uid="uid://dwhuwisktagqc"]
+
+[ext_resource type="Texture2D" uid="uid://cuqm7j77p2kyo" path="res://Assets/textures/trail_texture.jpg" id="1_83p30"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_83p30"]
+expanded_output_ports = [0]
+source = 5
+texture_type = 2
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_siro7"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_siro7"]
+texture = ExtResource("1_83p30")
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_g11w5"]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_u3vhf"]
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_qk4hc"]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(-3, 0)]
+op_type = 0
+operator = 2
+
+[sub_resource type="Gradient" id="Gradient_g11w5"]
+offsets = PackedFloat32Array(0, 0.5056818, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.5056818, 0.5056818, 0.5056818, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_u3vhf"]
+gradient = SubResource("Gradient_g11w5")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0.67948717, 0)
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_qk4hc"]
+texture = SubResource("GradientTexture2D_u3vhf")
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_1c8xl"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_8iuh6"]
+parameter_name = "Trail_color"
+texture_type = 1
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_disabled, diffuse_lambert, specular_schlick_ggx, unshaded, shadows_disabled, ambient_light_disabled;
+
+uniform sampler2D Trail_color : source_color;
+uniform sampler2D tex_frg_2;
+uniform sampler2D tex_frg_7;
+
+
+
+void fragment() {
+	vec4 n_out10p0;
+// Texture2D:10
+	n_out10p0 = texture(Trail_color, UV);
+	float n_out10p4 = n_out10p0.a;
+
+
+// Input:3
+	float n_out3p0 = TIME;
+
+
+// VectorOp:5
+	vec2 n_in5p1 = vec2(-3.00000, 0.00000);
+	vec2 n_out5p0 = vec2(n_out3p0) * n_in5p1;
+
+
+// UVFunc:4
+	vec2 n_in4p1 = vec2(1.00000, 1.00000);
+	vec2 n_out4p0 = n_out5p0 * n_in4p1 + UV;
+
+
+// Texture2D:2
+	vec4 n_out2p0 = texture(tex_frg_2, n_out4p0);
+
+
+// Texture2D:7
+	vec4 n_out7p0 = texture(tex_frg_7, UV);
+
+
+// FloatOp:8
+	float n_out8p0 = n_out2p0.x * n_out7p0.x;
+
+
+// FloatOp:11
+	float n_out11p0 = n_out10p4 * n_out8p0;
+
+
+// Output:0
+	ALBEDO = vec3(n_out10p0.xyz);
+	ALPHA = n_out11p0;
+
+
+}
+"
+modes/cull = 2
+flags/unshaded = true
+flags/shadows_disabled = true
+flags/ambient_light_disabled = true
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_siro7")
+nodes/fragment/2/position = Vector2(-560, 280)
+nodes/fragment/3/node = SubResource("VisualShaderNodeInput_g11w5")
+nodes/fragment/3/position = Vector2(-1380, 300)
+nodes/fragment/4/node = SubResource("VisualShaderNodeUVFunc_u3vhf")
+nodes/fragment/4/position = Vector2(-880, 220)
+nodes/fragment/5/node = SubResource("VisualShaderNodeVectorOp_qk4hc")
+nodes/fragment/5/position = Vector2(-1080, 300)
+nodes/fragment/7/node = SubResource("VisualShaderNodeTexture_qk4hc")
+nodes/fragment/7/position = Vector2(-620, 620)
+nodes/fragment/8/node = SubResource("VisualShaderNodeFloatOp_1c8xl")
+nodes/fragment/8/position = Vector2(-160, 440)
+nodes/fragment/9/node = SubResource("VisualShaderNodeTexture2DParameter_8iuh6")
+nodes/fragment/9/position = Vector2(-560, -100)
+nodes/fragment/10/node = SubResource("VisualShaderNodeTexture_83p30")
+nodes/fragment/10/position = Vector2(-200, -20)
+nodes/fragment/11/node = SubResource("VisualShaderNodeFloatOp_siro7")
+nodes/fragment/11/position = Vector2(160, 240)
+nodes/fragment/connections = PackedInt32Array(4, 0, 2, 0, 3, 0, 5, 0, 5, 0, 4, 2, 2, 0, 8, 0, 7, 0, 8, 1, 9, 0, 10, 2, 11, 0, 0, 1, 8, 0, 11, 1, 10, 0, 0, 0, 10, 4, 11, 0)
