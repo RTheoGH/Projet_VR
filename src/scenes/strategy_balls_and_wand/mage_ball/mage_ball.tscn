@@ -1,21 +1,152 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmn3qb23bx2l5"]
+[gd_scene load_steps=15 format=3 uid="uid://bmn3qb23bx2l5"]
 
 [ext_resource type="Script" uid="uid://cq6h4m3oab3cu" path="res://src/scenes/strategy_balls_and_wand/mage_ball/mage_ball.gd" id="1_hh4nu"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_fvko8"]
-radius = 0.046277475
+radius = 0.07896486
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hh4nu"]
-transparency = 1
-albedo_color = Color(0.02745098, 1, 1, 0.019607844)
-emission_enabled = true
-emission = Color(0, 9.03004, 9.03004, 1)
-ao_enabled = true
+[sub_resource type="Shader" id="Shader_ohg01"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.5.1.stable's StandardMaterial3D.
+
+shader_type spatial;
+render_mode blend_sub, depth_draw_opaque, cull_disabled, diffuse_burley, specular_schlick_ggx;
+
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
+uniform ivec2 albedo_texture_size;
+uniform float point_size : hint_range(0.1, 128.0, 0.1);
+
+uniform float roughness : hint_range(0.0, 1.0);
+uniform sampler2D texture_metallic : hint_default_white, filter_linear_mipmap, repeat_enable;
+uniform vec4 metallic_texture_channel;
+uniform sampler2D texture_roughness : hint_roughness_r, filter_linear_mipmap, repeat_enable;
+
+uniform float specular : hint_range(0.0, 1.0, 0.01);
+uniform float metallic : hint_range(0.0, 1.0, 0.01);
+
+uniform sampler2D texture_emission : source_color, hint_default_black, filter_linear_mipmap, repeat_enable;
+uniform vec4 emission : source_color;
+uniform float emission_energy : hint_range(0.0, 100.0, 0.01);
+
+uniform sampler2D texture_ambient_occlusion : hint_default_white, filter_linear_mipmap, repeat_enable;
+uniform vec4 ao_texture_channel;
+uniform float ao_light_affect : hint_range(0.0, 1.0, 0.01);
+
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+uniform sampler2D noise;
+
+float fresnel(float amount, vec3 normal, vec3 view)
+{
+	return pow((1.0 - clamp(dot(normalize(normal), normalize(view)), 0.0, 1.0 )), amount);
+}
+
+void fragment() {
+	vec2 base_uv = UV;
+	ALBEDO = albedo.rgb;
+	float noise_val = texture(noise, UV + vec2(0.0, TIME / 6.0)).x;
+	float basic_fresnel = fresnel(2.0 + pow(4.0 * noise_val, 2.0), NORMAL, VIEW);
+	// Emission: Enabled
+	vec3 emission_tex = texture(texture_emission, base_uv).rgb;
+	
+	// Emission Operator: Add
+	EMISSION = 0.6 * basic_fresnel * mix(-emission.rgb, albedo.rgb, 1.0 - basic_fresnel * 1.0) * emission_energy;
+	
+	
+	ALPHA = 3.0;
+}
+"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ohg01"]
+noise_type = 3
+frequency = 0.0027
+fractal_gain = 3.35
+cellular_distance_function = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_40lok"]
+noise = SubResource("FastNoiseLite_ohg01")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_boxtp"]
+render_priority = 0
+shader = SubResource("Shader_ohg01")
+shader_parameter/albedo = Color(0, 0.5848225, 0.6772926, 0.2627451)
+shader_parameter/albedo_texture_size = Vector2i(0, 0)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/emission = Color(6.118679, 2.2690585, 1.9537387, 1)
+shader_parameter/emission_energy = 1.0
+shader_parameter/ao_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/ao_light_affect = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/noise = SubResource("NoiseTexture2D_40lok")
 
 [sub_resource type="SphereMesh" id="SphereMesh_6aqbr"]
-radius = 0.05
-height = 0.1
-radial_segments = 32
+radius = 0.075
+height = 0.15
+radial_segments = 16
+rings = 64
+
+[sub_resource type="Gradient" id="Gradient_ohg01"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.3115578, 0.53768843, 0.8291457)
+colors = PackedColorArray(0.94474036, 0.3882484, 0, 1, 0.4872561, 0.23023507, 0.020459175, 0.40177843, 0.33904293, 0.17904282, 0.02708743, 0.2079699, 0.18, 0.12411, 0.0342, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_40lok"]
+gradient = SubResource("Gradient_ohg01")
+fill = 1
+fill_from = Vector2(0.4871795, 0.47008547)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ohg01"]
+transparency = 1
+blend_mode = 1
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("GradientTexture2D_40lok")
+emission_enabled = true
+emission_energy_multiplier = 6.0
+emission_texture = SubResource("GradientTexture2D_40lok")
+billboard_mode = 1
+
+[sub_resource type="Curve" id="Curve_ohg01"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.09859155, 1), 0.0, 0.0, 0, 0, Vector2(0.9107982, 0.84269667), -1.1966289, -1.1966289, 0, 0, Vector2(0.99999, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_40lok"]
+curve = SubResource("Curve_ohg01")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_boxtp"]
+angle_min = 1.0728835e-05
+angle_max = 1.0728835e-05
+direction = Vector3(0, 1, 0)
+spread = 180.0
+flatness = 0.033
+initial_velocity_min = 0.19999999
+initial_velocity_max = 0.19999999
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -1.5000021
+linear_accel_max = -1.5000021
+radial_accel_min = -2.2351742e-06
+radial_accel_max = 5.9999976
+tangential_accel_min = -7.000002
+tangential_accel_max = 0.59999776
+damping_min = 4.0
+damping_max = 4.0
+scale_curve = SubResource("CurveTexture_40lok")
+color = Color(0.34429964, 0.44455138, 0.46373308, 1)
+hue_variation_min = -0.76
+hue_variation_max = 0.68999994
+
+[sub_resource type="QuadMesh" id="QuadMesh_boxtp"]
+size = Vector2(0.02, 0.02)
 
 [node name="MageBall" type="Area3D"]
 collision_layer = 8
@@ -26,8 +157,19 @@ script = ExtResource("1_hh4nu")
 shape = SubResource("SphereShape3D_fvko8")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-material_override = SubResource("StandardMaterial3D_hh4nu")
+material_override = SubResource("ShaderMaterial_boxtp")
 mesh = SubResource("SphereMesh_6aqbr")
 skeleton = NodePath("../CollisionShape3D")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+material_override = SubResource("StandardMaterial3D_ohg01")
+emitting = false
+amount = 40
+lifetime = 4.0
+one_shot = true
+explosiveness = 1.0
+randomness = 0.76
+process_material = SubResource("ParticleProcessMaterial_boxtp")
+draw_pass_1 = SubResource("QuadMesh_boxtp")
 
 [connection signal="area_entered" from="." to="." method="_on_wand_tip_entered"]

@@ -25,8 +25,9 @@ shape = SubResource("BoxShape3D_dgqso")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.008593511, -0.003160268, 0.0045295954)
 
 [node name="Dummy" parent="Dummy2" index="0"]
+mass = 0.1
 linear_damp = 0.2
-constant_force = Vector3(0, 25, 0)
+constant_force = Vector3(0, 3, 0)
 
 [node name="ConeTwistJoint3D" type="ConeTwistJoint3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16085774, 0)

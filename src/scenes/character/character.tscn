@@ -39,4 +39,7 @@ tracker = &"right_hand"
 
 [node name="FunctionPickup" parent="controller_r" instance=ExtResource("3_fg8a2")]
 
+[node name="Activator" type="Node" parent="controller_r"]
+script = ExtResource("4_fg8a2")
+
 [node name="PlayerBody" parent="." instance=ExtResource("5_fg8a2")]

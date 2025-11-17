@@ -5,8 +5,9 @@ extends Node3D
 const MAGE_BALL = preload("uid://bmn3qb23bx2l5")
 
 var spellbook : Dictionary[String, Spell] = {
-	"0240": preload("res://spells/resources/fireball.tres"),
-	"0": preload("res://spells/resources/fireball.tres")
+	"0430": preload("res://spells/resources/light.tres"),
+	"62516": preload("res://spells/resources/fireball.tres"),
+	"5104":  preload("res://spells/resources/antigrav.tres")
 }
 
 var spell_buffer: String = ""
@@ -60,8 +61,8 @@ func add_spell_index(ball: Node3D):
 	spell_buffer += str(ball.idx)
 	print(spell_buffer)
 	
-	$finish.visible = spellbook.has(spell_buffer)
-	$finish/CollisionShape3D.disabled = not spellbook.has(spell_buffer)
+	#$finish.visible = spellbook.has(spell_buffer)
+	#$finish/CollisionShape3D.disabled = not spellbook.has(spell_buffer)
 
 
 func _on_finish_body_entered(body: Node3D) -> void:

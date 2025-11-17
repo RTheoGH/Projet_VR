@@ -4,7 +4,7 @@
 [ext_resource type="Shader" uid="uid://bftuhlgbixkst" path="res://Assets/ball_links.gdshader" id="2_y3frd"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_lnxqx"]
-radius = 0.2
+radius = 0.09954949
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5s63q"]
 transparency = 1
@@ -14,8 +14,8 @@ emission = Color(0.38475823, 0.6091277, 0, 1)
 emission_energy_multiplier = 16.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_y3frd"]
-radius = 0.2
-height = 0.4
+radius = 0.1
+height = 0.2
 radial_segments = 32
 
 [sub_resource type="Gradient" id="Gradient_y3frd"]

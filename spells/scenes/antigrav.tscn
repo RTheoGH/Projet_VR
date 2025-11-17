@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://4sguy8m0l5f1"]
+
+[ext_resource type="Script" uid="uid://cenepb50bm688" path="res://spells/scenes/antigrav.gd" id="1_xi7no"]
+[ext_resource type="Material" uid="uid://dc680fknspkha" path="res://Assets/materials/bally_sphere.tres" id="2_c8dta"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g4jxd"]
+radius = 0.09610992
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_stav5"]
+radius = 3.1620884
+
+[sub_resource type="SphereMesh" id="SphereMesh_xi7no"]
+radius = 3.0
+height = 6.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_c8dta"]
+
+[node name="Antigrav" type="RigidBody3D"]
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_xi7no")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_g4jxd")
+
+[node name="Area3D" type="Area3D" parent="."]
+gravity_space_override = 3
+gravity = 0.0
+linear_damp_space_override = 3
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shape = SubResource("SphereShape3D_stav5")
+disabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+material_override = ExtResource("2_c8dta")
+mesh = SubResource("SphereMesh_xi7no")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+mesh = SubResource("SphereMesh_c8dta")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

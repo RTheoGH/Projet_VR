@@ -1,12 +1,12 @@
 extends RigidBody3D
 
-var launch_strength: float = 20.0;
+var launch_strength: float = 10.0;
 var caster: Node3D
 var explode_strength = 5.0;
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	apply_central_impulse(to_global(Vector3.FORWARD * launch_strength + Vector3.UP * launch_strength / 10.0))
+func _start_spell() -> void:
+	apply_central_impulse(to_global(Vector3.FORWARD * launch_strength))
 	add_collision_exception_with(caster)
 func explode():
 	for b in $Area3D.get_overlapping_bodies():
