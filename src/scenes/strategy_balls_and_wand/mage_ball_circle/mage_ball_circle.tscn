@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://bfs5qsy4dw1iq"]
 
 [ext_resource type="Script" uid="uid://bemtu0ory61oe" path="res://src/scenes/strategy_balls_and_wand/mage_ball_circle/mage_ball_circle.gd" id="1_lnxqx"]
-[ext_resource type="Shader" uid="uid://bftuhlgbixkst" path="res://Assets/ball_links.gdshader" id="2_y3frd"]
+[ext_resource type="Shader" uid="uid://bftuhlgbixkst" path="res://src/shaders/ball_links.gdshader" id="2_y3frd"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_lnxqx"]
 radius = 0.09954949

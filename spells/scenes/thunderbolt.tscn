@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bnl42dpsvlfna"]
+
+[ext_resource type="ArrayMesh" uid="uid://j8y3k7sryw3s" path="res://Assets/thunderbolt_editable.tres" id="1_p41p7"]
+
+[sub_resource type="Gradient" id="Gradient_p41p7"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8glic"]
+gradient = SubResource("Gradient_p41p7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wex3t"]
+particle_flag_rotate_y = true
+emission_shape = 3
+emission_box_extents = Vector3(4, 0, 4)
+angle_min = -179.99998
+angle_max = 180.00002
+gravity = Vector3(0, 0, 0)
+scale_max = 2.0
+color_ramp = SubResource("GradientTexture1D_8glic")
+
+[node name="Thunderbolt" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28602123, 0.009210944, 1.0086966)
+amount = 2
+lifetime = 0.25
+randomness = 0.1
+process_material = SubResource("ParticleProcessMaterial_wex3t")
+draw_pass_1 = ExtResource("1_p41p7")
