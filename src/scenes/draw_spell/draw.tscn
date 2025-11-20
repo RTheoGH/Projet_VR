@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://bnbb13d0dwsuf"]
+
+[ext_resource type="Script" uid="uid://d2f1mq4oyha8n" path="res://src/scenes/draw_spell/draw.gd" id="1_subxm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hx44v"]
+transparency = 1
+albedo_color = Color(3.7183297, 3.60095, 1.4545833, 0.75686276)
+
+[sub_resource type="SphereMesh" id="SphereMesh_hx44v"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_subxm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_subxm"]
+transparency = 1
+albedo_color = Color(1.8247963, 1.8247963, 1.0142531, 0.41960785)
+
+[sub_resource type="TorusMesh" id="TorusMesh_hx44v"]
+material = SubResource("StandardMaterial3D_subxm")
+inner_radius = 0.04
+outer_radius = 0.069
+
+[node name="Draw" type="Area3D"]
+transform = Transform3D(0.049999982, 0, 0, 0, 0.049999982, 0, 0, 0, 0.049999982, 0, 0, 0)
+script = ExtResource("1_subxm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_hx44v")
+mesh = SubResource("SphereMesh_hx44v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_subxm")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4171, 0)
+transparency = 0.6
+amount = 5
+lifetime = 0.2
+speed_scale = 0.1
+explosiveness = 0.1
+lifetime_randomness = 0.14
+mesh = SubResource("TorusMesh_hx44v")
+direction = Vector3(0, 1, 1)
+spread = 180.0
+gravity = Vector3(0, 9.8, 0)
+initial_velocity_max = 1.0
+damping_max = 1.0
+scale_amount_min = 0.05
+scale_amount_max = 0.2

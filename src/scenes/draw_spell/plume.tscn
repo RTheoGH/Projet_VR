@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://c2o6vk2pdg0kx"]
+
+[ext_resource type="ArrayMesh" uid="uid://k26blotwp86x" path="res://Assets/plume3.obj" id="1_bm6ee"]
+[ext_resource type="Texture2D" uid="uid://djo8c3cuahn73" path="res://Assets/star.png" id="2_xt5f2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vhhl6"]
+shading_mode = 2
+albedo_color = Color(0.9761694, 0.9183581, 0.82343876, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_50g1x"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(5.826581, 6.033335, 0, 1)
+albedo_texture = ExtResource("2_xt5f2")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_v17p4"]
+material = SubResource("StandardMaterial3D_50g1x")
+size = Vector2(0.05, 0.05)
+
+[sub_resource type="Gradient" id="Gradient_xt5f2"]
+offsets = PackedFloat32Array(0.25342464, 0.739726)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.039215688)
+
+[node name="Plume" type="MeshInstance3D"]
+transform = Transform3D(0.19999999, 0, 0, 0, 0.19999999, 0, 0, 0, 0.19999999, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_vhhl6")
+mesh = ExtResource("1_bm6ee")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.031909946, 6.690985, 0)
+amount = 64
+lifetime = 0.7
+speed_scale = 0.2
+explosiveness = 0.1
+randomness = 0.2
+mesh = SubResource("QuadMesh_v17p4")
+emission_shape = 3
+emission_box_extents = Vector3(1, 5, 1)
+direction = Vector3(0.5, 1, 0.5)
+spread = 145.21
+gravity = Vector3(0, 3, 0)
+initial_velocity_max = 1.0
+angular_velocity_min = -1.0
+angular_velocity_max = 1.0
+linear_accel_min = -1.0
+linear_accel_max = 1.0
+radial_accel_min = -1.0
+radial_accel_max = 1.0
+tangential_accel_min = -5.0
+tangential_accel_max = 5.0
+damping_max = 1.0
+angle_min = -45.0
+angle_max = 45.0
+color_ramp = SubResource("Gradient_xt5f2")
+hue_variation_min = -1.0
+hue_variation_max = 1.0

@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://uf1s3mub1ecn"]
+
+[ext_resource type="Script" uid="uid://blq1k0jy3tw4f" path="res://src/scenes/draw_spell/decal_test.gd" id="1_2s3er"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2s3er"]
+
+[node name="DecalTest" type="Node3D"]
+script = ExtResource("1_2s3er")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0117369, 65.2959)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0)
+shape = SubResource("BoxShape3D_2s3er")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D"]
+size = Vector3(50, 50, 50)
