@@ -5,17 +5,13 @@ var explode_strength = 7.0;
 
 # Called when the node enters the scene tree for the first time.
 func _start_spell() -> void:
-	print(global_position)
-	global_position = caster.global_position + to_global(Vector3.FORWARD * 10.0)
-	global_position.y -= 5
-	$GPUParticles3D.emitting = true
-	print(global_position)
+	pass
+	
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	#await get_tree().create_timer(13).timeout
-	#$GPUParticles3D.emitting = true
+	await get_tree().create_timer(13).timeout
+	$GPUParticles3D.emitting = true
 	if body is RigidBody3D and $GPUParticles3D.emitting :
-		print("ouho")
 		var explode_zone : Vector3 = $Area3D/CollisionShape3D2.global_position
 		var dist_sq: float = (body.global_position).distance_squared_to(explode_zone)
 		body.apply_central_impulse((body.global_position - explode_zone) * explode_strength)
