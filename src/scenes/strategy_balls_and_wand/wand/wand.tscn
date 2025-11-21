@@ -57,3 +57,7 @@ debug_color = Color(0.9662871, 0.16612294, 0.21537918, 0.41960785)
 [node name="GPUParticlesAttractorSphere3D" type="GPUParticlesAttractorSphere3D" parent="tip"]
 strength = 8.0
 radius = 0.88135165
+
+[node name="RayCast3D" type="RayCast3D" parent="tip"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+target_position = Vector3(0, -50, 0)
