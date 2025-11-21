@@ -6,8 +6,11 @@ extends Node3D
 var ink_decal = preload("res://src/scenes/draw_spell/ink_decal.tscn")
 var is_drawing = false
 
-var max_decals = 50 # Technically can have more but it is counted with some types of lights so idk i'll limit it
+var max_decals = 500 # Technically can have more but it is counted with some types of lights so idk i'll limit it
 var active_decals : Array[Decal]
+
+# Bounding box
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -29,6 +32,7 @@ func _physics_process(delta: float) -> void:
 			
 			var ink = ink_decal.instantiate()
 			ink.position = result["position"]
+			ink.rotation.x = 90
 			print("ink position : " , ink.position)
 			active_decals.append(ink)
 			add_child(ink)
