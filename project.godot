@@ -23,7 +23,7 @@ Analytics="*res://src/globals/analytics.gd"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot-duckdb/plugin.cfg", "res://addons/godot-xr-tools/plugin.cfg")
 
 [input]
 
