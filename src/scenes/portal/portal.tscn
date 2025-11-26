@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bsxjsfvyuuoyw"]
+
+[ext_resource type="PackedScene" uid="uid://lbolt33fletf" path="res://Assets/Packs/Portal.glb" id="1_h46dg"]
+[ext_resource type="Shader" uid="uid://dxh8m0j0csg3g" path="res://src/scenes/portal/portal.tres" id="2_h46dg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i4rwx"]
+render_priority = 0
+shader = ExtResource("2_h46dg")
+shader_parameter/Color_Intensity = 10.0
+shader_parameter/Portal_Color = Color(0.24705882, 0.49411765, 0.67058825, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_78i00"]
+size = Vector2(2.5, 3.5)
+
+[node name="Portal" type="Node3D"]
+
+[node name="Portal2" parent="." instance=ExtResource("1_h46dg")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4416646, -0.17487025)
+material_override = SubResource("ShaderMaterial_i4rwx")
+mesh = SubResource("QuadMesh_78i00")
