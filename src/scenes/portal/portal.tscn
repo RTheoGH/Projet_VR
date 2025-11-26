@@ -6,8 +6,8 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i4rwx"]
 render_priority = 0
 shader = ExtResource("2_h46dg")
-shader_parameter/Color_Intensity = 10.0
-shader_parameter/Portal_Color = Color(0.24705882, 0.49411765, 0.67058825, 1)
+shader_parameter/Color_Intensity = 2.0
+shader_parameter/Portal_Color = Color(0.24705882, 0.49411765, 0.8352941, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_78i00"]
 size = Vector2(2.5, 3.5)
