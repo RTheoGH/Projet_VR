@@ -33,7 +33,8 @@ func _physics_process(delta: float) -> void:
 			var ink = ink_decal.instantiate()
 			ink.position = result["position"]
 			ink.rotation.x = 90
-			print("ink position : " , ink.position)
+			#print("ink position : " , ink.position)
+			printraw("Vector3" + str(ink.position) + ", ")
 			active_decals.append(ink)
 			add_child(ink)
 		else : 
@@ -43,10 +44,12 @@ func _physics_process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("draw_mouse_debug"):
 		is_drawing = true
-		print("Draw")
+		#print("Draw")
+		printraw("[")
 	if event.is_action_released("draw_mouse_debug"):
 		is_drawing = false
-		print("Not drawing")
+		#print("Not drawing")
+		print("]")
 
 func detect_draw():
 	pass
