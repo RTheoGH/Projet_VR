@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://btpnhhnqmwncs"]
+
+[ext_resource type="Script" uid="uid://bofpdhvp3yqhx" path="res://src/scenes/enemies/skeleton/skeleton.gd" id="1_640f1"]
+[ext_resource type="PackedScene" uid="uid://c732xf6as3rj0" path="res://Assets/Packs/skeletons/Animated-Lowpoly-Skeleton/skeleton.fbx" id="3_q018f"]
+[ext_resource type="Script" uid="uid://dnwgxob85dw75" path="res://src/classes/hitbox.gd" id="4_7of85"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_barqg"]
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_640f1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_barqg")
+
+[node name="skeleton" parent="." instance=ExtResource("3_q018f")]
+transform = Transform3D(1.52, 0, 0, 0, 1.52, 0, 0, 0, 1.52, 0, 0, 0)
+
+[node name="Skeleton3D" parent="skeleton/skeleton-skeleton" index="0"]
+bones/2/rotation = Quaternion(-9.761111e-08, 0.5704783, 0.82131267, -9.43283e-08)
+bones/2/scale = Vector3(1, 0.9999999, 0.9999999)
+bones/6/rotation = Quaternion(-0.70690596, -0.12063487, 0.69671196, 0.017992822)
+bones/7/rotation = Quaternion(-0.023975823, -0.0065094237, 0.20790407, 0.9778337)
+bones/8/rotation = Quaternion(-0.035151362, -0.008310835, 0.07768979, 0.99632305)
+bones/9/rotation = Quaternion(-0.0008045863, 0.00018950015, 0.22925785, 0.97336537)
+bones/11/rotation = Quaternion(0.033888802, 0.008000065, -0.22961372, 0.97265875)
+bones/15/rotation = Quaternion(-0.67273796, 0.18154177, -0.71726257, -0.00084373355)
+bones/16/rotation = Quaternion(0.10091113, 0.06415845, -0.27616283, 0.9536429)
+bones/17/rotation = Quaternion(-0.06852359, -0.00019524369, -0.07898412, 0.994518)
+bones/22/rotation = Quaternion(0.17616688, 0.022920825, 0.98349065, 0.03443793)
+bones/22/scale = Vector3(1.0000135, 0.99999845, 0.999971)
+bones/23/rotation = Quaternion(-0.048563886, 0.014205769, 0.0022382238, 0.9987166)
+bones/23/scale = Vector3(0.99999994, 0.99998546, 1.0000203)
+bones/25/rotation = Quaternion(0.10639778, 0.028544743, 0.9933413, -0.033732723)
+bones/25/scale = Vector3(1.0000055, 0.99999213, 1.0000287)
+bones/26/rotation = Quaternion(-0.03657186, 0.06336987, 0.0024883838, 0.9973168)
+bones/26/scale = Vector3(0.9999996, 1.0000371, 0.999964)
+bones/28/position = Vector3(0.0021016556, -0.00032155443, 0.0037539918)
+bones/30/position = Vector3(-0.0020993447, -0.0003215544, 0.0037781158)
+bones/32/rotation = Quaternion(-0.05082252, 0, 0, 0.9987077)
+bones/33/rotation = Quaternion(2.031909e-07, -0.10050917, 0.99493617, -1.133093e-07)
+bones/35/rotation = Quaternion(-0.05082252, 0, 0, 0.9987077)
+bones/36/rotation = Quaternion(2.031909e-07, -0.10050917, 0.99493617, -1.133093e-07)
+bones/42/position = Vector3(0.0011722401, -0.005195348, 0.0073466776)
+bones/44/position = Vector3(-0.0020654027, -0.005221961, 0.0073466776)
+
+[node name="HitManager" type="Node3D" parent="." node_paths=PackedStringArray("linked_body")]
+script = ExtResource("4_7of85")
+linked_body = NodePath("..")
+metadata/_custom_type_script = "uid://dnwgxob85dw75"
+
+[editable path="skeleton"]

@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://q2ddqvpmfr2x"]
+[gd_scene load_steps=10 format=3 uid="uid://q2ddqvpmfr2x"]
 
+[ext_resource type="Script" uid="uid://cjoxl4bm7jncf" path="res://src/scenes/character/character.gd" id="1_8lldn"]
 [ext_resource type="PackedScene" uid="uid://cy03d57iyrci" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_physics_hand.tscn" id="1_jt2v8"]
 [ext_resource type="PackedScene" uid="uid://fiul51tsyoop" path="res://addons/godot-xr-tools/functions/function_teleport.tscn" id="2_w375e"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="3_fg8a2"]
@@ -11,6 +12,7 @@
 
 [node name="XROrigin3D" type="XROrigin3D"]
 current = true
+script = ExtResource("1_8lldn")
 
 [node name="XRCamera3D" type="XRCamera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8064396, 0)
