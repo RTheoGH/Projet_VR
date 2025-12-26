@@ -8,12 +8,17 @@ var is_drawing = false
 
 var max_decals = 500 # Technically can have more but it is counted with some types of lights so idk i'll limit it
 var active_decals : Array[Decal]
+var str_ref : String
+var draw_rune : DrawRune
 
 # Bounding box
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	draw_rune = DrawRune.new()
 	pass # Replace with function body.
+
+
 
 func _physics_process(delta: float) -> void:
 	if is_drawing:
@@ -34,7 +39,8 @@ func _physics_process(delta: float) -> void:
 			ink.position = result["position"]
 			ink.rotation.x = 90
 			#print("ink position : " , ink.position)
-			printraw("Vector3" + str(ink.position) + ", ")
+			str_ref += "Vector3" + str(ink.position) + ", "
+			draw_rune.points.append(ink.position)
 			active_decals.append(ink)
 			add_child(ink)
 		else : 
@@ -45,11 +51,14 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("draw_mouse_debug"):
 		is_drawing = true
 		#print("Draw")
-		printraw("[")
+		str_ref += "["
+		draw_rune.points.clear()
 	if event.is_action_released("draw_mouse_debug"):
 		is_drawing = false
 		#print("Not drawing")
-		print("]")
+		#print(str_ref + "]")
+		draw_rune.scale_points()
+		print(draw_rune.dist_any_rune())
 
 func detect_draw():
 	pass

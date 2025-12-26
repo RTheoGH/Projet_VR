@@ -6,4 +6,4 @@ enum rune_type{
 	LINE,
 }
 
-var points : Array[Vector3]
+var type : rune_type = rune_type.LINE
