@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cchxk0rvoleg1"]
+
+[ext_resource type="Script" uid="uid://c8mhrwspad232" path="res://addons/godot_whisper/capture_stream_to_text.gd" id="1_4fmax"]
+[ext_resource type="WhisperResource" uid="uid://co3cd7yp5c6w2" path="res://addons/godot_whisper/models/gglm-base.en.bin" id="1_bo2ji"]
+[ext_resource type="AudioStream" uid="uid://dtpael578jbhs" path="res://src/scenes/voice/fireball.wav" id="3_if1cs"]
+[ext_resource type="Script" uid="uid://bhjqohonu4oy5" path="res://addons/godot_whisper/label_transcribe.gd" id="4_yplad"]
+
+[node name="Voice" type="Node2D"]
+
+[node name="SpeechToText" type="SpeechToText" parent="."]
+language_model = ExtResource("1_bo2ji")
+script = ExtResource("1_4fmax")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_if1cs")
+autoplay = true
+bus = &"Record"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_yplad")
+
+[connection signal="transcribed_msg" from="SpeechToText" to="RichTextLabel" method="_on_speech_to_text_transcribed_msg"]
