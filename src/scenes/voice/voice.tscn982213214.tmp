@@ -7,7 +7,7 @@
 [sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_5qmjj"]
 
 [sub_resource type="GDScript" id="GDScript_bo2ji"]
-script/source = "extends AudioStreamPlayer2D
+script/source = "extends AudioStreamPlayer
 
 func _ready():
 	play()

@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxx722tqqoo7j"]
+
+[ext_resource type="ArrayMesh" uid="uid://b0lggtat0rckv" path="res://Assets/book.obj" id="1_7y7no"]
+[ext_resource type="Script" uid="uid://68qnmoa73q2f" path="res://addons/godot-xr-tools/objects/grab_points/grab_point.gd" id="2_qj40e"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_44gwr"]
+albedo_color = Color(0.37738183, 0.1859045, 0.052778475, 1)
+metallic = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5sjlb"]
+size = Vector3(4.499954, 0.6392822, 2.0183105)
+
+[node name="Book" type="RigidBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+material_override = SubResource("StandardMaterial3D_44gwr")
+mesh = ExtResource("1_7y7no")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.001045227, -0.01776123, 0.008666992)
+shape = SubResource("BoxShape3D_5sjlb")
+
+[node name="XRToolsGrabPoint" type="Marker3D" parent="."]
+script = ExtResource("2_qj40e")
+metadata/_custom_type_script = "uid://68qnmoa73q2f"
