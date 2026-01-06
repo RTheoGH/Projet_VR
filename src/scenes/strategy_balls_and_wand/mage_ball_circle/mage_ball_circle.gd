@@ -29,6 +29,7 @@ func _ready() -> void:
 	
 	var surface_array = []
 	surface_array.resize(Mesh.ARRAY_MAX)
+	
 
 func get_spell(spell_string : String) -> Spell:
 	if spellbook.has(spell_string):
@@ -102,3 +103,9 @@ func add_face(start: Vector3, end: Vector3):
 	mesh.surface_add_vertex(end + (thickness * dir90))
 
 	mesh.surface_end()
+
+ ## Pour tester le lancement des sorts
+func _on_node_3d_tree_entered() -> void:
+	await get_tree().create_timer(3).timeout
+	spell_buffer = "3641250"
+	finish_spell($"../Node3D".get_node("tip").global_transform, $"../Node3D")

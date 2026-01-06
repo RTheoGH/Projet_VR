@@ -5,6 +5,7 @@ var explode_strength = 7.0;
 
 # Called when the node enters the scene tree for the first time.
 func _start_spell() -> void:
+	
 	var ray : RayCast3D = caster.get_node("tip/RayCast3D")
 	if ray:
 		var collision_point = ray.get_collision_point()
@@ -14,6 +15,7 @@ func _start_spell() -> void:
 			global_position.y -= 5
 			$GPUParticles3D.emitting = true
 		else:
+			print(global_position)
 			global_position = caster.global_position + to_global(Vector3.FORWARD * 10.0)
 			global_position.y -= 5
 			$GPUParticles3D.emitting = true
