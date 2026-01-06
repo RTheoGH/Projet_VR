@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://b7px801c0ohkr"]
+[gd_scene load_steps=76 format=3 uid="uid://b7px801c0ohkr"]
 
 [ext_resource type="Script" uid="uid://bda28yntj2wuf" path="res://src/levels/hub.gd" id="1_lg4k7"]
 [ext_resource type="PackedScene" uid="uid://rdrayle161hy" path="res://Assets/Packs/fantasyprops/Bench.gltf" id="4_om1xx"]
@@ -34,8 +34,11 @@
 [ext_resource type="PackedScene" uid="uid://wxjjjbxvkrsi" path="res://Assets/Packs/fantasyprops/Scroll_1.gltf" id="32_5tst5"]
 [ext_resource type="PackedScene" uid="uid://ca2qfyl2aown2" path="res://Assets/Packs/fantasyprops/Stool.gltf" id="33_swpio"]
 [ext_resource type="Material" uid="uid://d02l45rxe3m6t" path="res://Assets/materials/broken_ground.tres" id="34_dl7et"]
-[ext_resource type="PackedScene" uid="uid://c17131quqte6e" path="res://src/scenes/objets/crate.tscn" id="35_5tst5"]
-[ext_resource type="PackedScene" uid="uid://cgo5liidhpw3h" path="res://src/scenes/objets/crate_metal.tscn" id="36_swpio"]
+[ext_resource type="PackedScene" path="res://src/scenes/objets/crate.tscn" id="35_5tst5"]
+[ext_resource type="PackedScene" uid="uid://00n18ca1dd4y" path="res://src/scenes/objets/crate_metal.tscn" id="36_swpio"]
+[ext_resource type="Texture2D" uid="uid://bhv8c8kpefsgq" path="res://Assets/Packs/maxwell_0.png" id="37_swpio"]
+[ext_resource type="Script" uid="uid://c8hqlhgodqne" path="res://src/levels/tuto_zone_draw.gd" id="38_4efl2"]
+[ext_resource type="PackedScene" uid="uid://bfrp6wh464232" path="res://src/scenes/objets/pressure_plate.tscn" id="38_lngty"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cl3cs"]
 sky_top_color = Color(0.32795975, 0.3953401, 0.8315651, 1)
@@ -169,6 +172,12 @@ use_particle_trails = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dl7et"]
 size = Vector3(1.7138062, 2.7873535, 0.69433594)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lngty"]
+albedo_texture = ExtResource("37_swpio")
+
+[sub_resource type="QuadMesh" id="QuadMesh_4efl2"]
+size = Vector2(6.53, 4.27)
 
 [node name="Hub" type="Node3D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_lg4k7")
@@ -1274,6 +1283,46 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Zone3/murs/MeshInstance3D22/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_f75sj")
 
+[node name="MeshInstance3D25" type="MeshInstance3D" parent="Zone3/murs"]
+transform = Transform3D(1, 0, 0, 0, 3.7089503, 0, 0, 0, 7.871443, -1.9332047, 1.841371, -3.2124605)
+mesh = SubResource("BoxMesh_ycqs3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Zone3/murs/MeshInstance3D25"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Zone3/murs/MeshInstance3D25/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_f75sj")
+
+[node name="MeshInstance3D26" type="MeshInstance3D" parent="Zone3/murs"]
+transform = Transform3D(1, 0, 0, 0, 3.7089503, 0, 0, 0, 7.871443, -1.9332047, 5.515746, -3.2124605)
+mesh = SubResource("BoxMesh_ycqs3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Zone3/murs/MeshInstance3D26"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Zone3/murs/MeshInstance3D26/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_f75sj")
+
+[node name="MovableWall" type="Node3D" parent="Zone3/murs"]
+
+[node name="MeshInstance3D23" type="MeshInstance3D" parent="Zone3/murs/MovableWall"]
+transform = Transform3D(1, 0, 0, 0, 3.7089503, 0, 0, 0, 7.871443, -1.9332047, 1.841371, 4.685264)
+mesh = SubResource("BoxMesh_ycqs3")
+skeleton = NodePath("../../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Zone3/murs/MovableWall/MeshInstance3D23"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Zone3/murs/MovableWall/MeshInstance3D23/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_f75sj")
+
+[node name="MeshInstance3D24" type="MeshInstance3D" parent="Zone3/murs/MovableWall"]
+transform = Transform3D(1, 0, 0, 0, 3.7089503, 0, 0, 0, 7.871443, -1.9332047, 5.515746, 4.685264)
+mesh = SubResource("BoxMesh_ycqs3")
+skeleton = NodePath("../../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Zone3/murs/MovableWall/MeshInstance3D24"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Zone3/murs/MovableWall/MeshInstance3D24/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_f75sj")
+
 [node name="Portal3" parent="Zone3" instance=ExtResource("19_qik6l")]
 transform = Transform3D(-0.50000006, 0, 0.8660254, 0, 1, 0, -0.8660254, 0, -0.50000006, -9.379076, 0.4829105, 4.8196654)
 
@@ -1300,7 +1349,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0984726, 0, -4.4747887)
 transform = Transform3D(0.90205866, 0, 0.43161348, 0, 1, 0, -0.43161348, 0, 0.90205866, 1.1107445, 0.06572467, -5.7850456)
 
 [node name="CrateMetal2" parent="Zone3/objects" instance=ExtResource("36_swpio")]
-transform = Transform3D(0.8027654, 0, -0.59629494, 0, 1, 0, 0.59629494, 0, 0.8027654, -1.3935509, 0, -5.2497444)
+transform = Transform3D(0.8027654, 0, -0.59629494, 0, 1, 0, 0.59629494, 0, 0.8027654, -0.4156494, 0, -4.243407)
 
 [node name="Crate3" parent="Zone3/objects" instance=ExtResource("35_5tst5")]
 transform = Transform3D(-0.38148987, 0, -0.92437303, 0, 1, 0, 0.92437303, 0, -0.38148987, 9.238991, 0.06572467, 5.1238346)
@@ -1329,12 +1378,47 @@ transform = Transform3D(-0.72786856, 0, -0.68571675, 0, 1, 0, 0.68571675, 0, -0.
 [node name="Workbench2" parent="Zone3/objects" instance=ExtResource("28_evmgn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3465652, 0.015872955, 2.6446495)
 
+[node name="Crate7" parent="Zone3/objects" instance=ExtResource("35_5tst5")]
+transform = Transform3D(-0.7745472, 0, -0.6325161, 0, 1, 0, 0.6325161, 0, -0.7745472, -7.498337, 1.6879656, -3.1654363)
+
+[node name="Pressure_plate" parent="Zone3/objects" instance=ExtResource("38_lngty")]
+transform = Transform3D(0.045, 0, 0, 0, 0.045, 0, 0, 0, 0.045, -7.3967514, 0.1024698, -3.3871543)
+
+[node name="Camera3D" type="Camera3D" parent="Zone3/objects"]
+transform = Transform3D(0.679057, 0, -0.7340856, 0, 1, 0, 0.7340856, 0, 0.679057, -7.498337, 1.6879656, 4.837673)
+current = true
+
+[node name="tutos" type="Node3D" parent="Zone3"]
+script = ExtResource("38_4efl2")
+
+[node name="tuto_grabbable_rune" type="MeshInstance3D" parent="Zone3/tutos"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.4674835, 4.3230147, -2.9063425)
+material_override = SubResource("StandardMaterial3D_lngty")
+mesh = SubResource("QuadMesh_4efl2")
+
+[node name="Label3D" type="Label3D" parent="Zone3/tutos/tuto_grabbable_rune"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.02028656)
+text = "Le pinceau permet de dessiner sur des surfaces afin
+d'octroyer des effets aux objets correspondants.
+
+
+
+
+[Insérer visuel rune grabbable]
+
+
+
+
+En reproduisant cette rune sur un objet, vous pourrez l'attraper."
+
 [connection signal="child_entered_tree" from="Interieur/Portal/CollisionShape3D" to="." method="_portal1_entered"]
 [connection signal="child_entered_tree" from="Interieur/Portal2/CollisionShape3D" to="." method="_portal2_entered"]
 [connection signal="child_entered_tree" from="Interieur/Portal3/CollisionShape3D" to="." method="_portal3_entered"]
 [connection signal="child_entered_tree" from="Zone1/Portal/CollisionShape3D" to="." method="goto_hub"]
 [connection signal="child_entered_tree" from="Zone2/MeshInstance3D/StaticBody3D/CollisionShape3D" to="." method="goto_hub"]
 [connection signal="child_entered_tree" from="Zone3/Portal3/CollisionShape3D" to="." method="goto_hub"]
+[connection signal="plate_pressed" from="Zone3/objects/Pressure_plate" to="Zone3/tutos" method="_on_pressure_plate_plate_pressed"]
+[connection signal="plate_released" from="Zone3/objects/Pressure_plate" to="Zone3/tutos" method="_on_pressure_plate_plate_released"]
 
 [editable path="Interieur/Portal"]
 [editable path="Interieur/Portal3"]

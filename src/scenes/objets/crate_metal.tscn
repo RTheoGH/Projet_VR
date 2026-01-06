@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cgo5liidhpw3h"]
+[gd_scene load_steps=3 format=3 uid="uid://00n18ca1dd4y"]
 
 [ext_resource type="PackedScene" uid="uid://28vgqaiuxulv" path="res://Assets/Packs/fantasyprops/Crate_Metal.gltf" id="1_nt5ft"]
 
@@ -6,6 +6,7 @@
 size = Vector3(0.8590164, 0.8594341, 0.86125946)
 
 [node name="CrateMetal" type="RigidBody3D"]
+mass = 10.0
 
 [node name="Crate_Metal2" parent="." instance=ExtResource("1_nt5ft")]
 

@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://bfrp6wh464232"]
+
+[ext_resource type="PackedScene" uid="uid://72jwxcohi1av" path="res://Assets/Packs/Pressure_plate.glb" id="1_gdrof"]
+[ext_resource type="Material" uid="uid://cpo30hv0hb0f0" path="res://Assets/materials/wallByBogey/wallByBogey.tres" id="2_40mwx"]
+[ext_resource type="Script" uid="uid://m7srdndum3xv" path="res://src/classes/pressure_plate.gd" id="3_gdrof"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nrdby"]
+albedo_color = Color(0.999999, 0.42634332, 0.24420664, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_brjbh"]
+size = Vector3(24.27311, 7.741287, 23.782303)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gdrof"]
+size = Vector3(29.852295, 2.8801498, 30.012817)
+
+[node name="Pressure_plate" instance=ExtResource("1_gdrof")]
+script = ExtResource("3_gdrof")
+
+[node name="polySurface326_lambert1_0" parent="." index="0"]
+material_override = ExtResource("2_40mwx")
+
+[node name="polySurface326_lambert1_0_001" parent="." index="1"]
+material_override = SubResource("StandardMaterial3D_nrdby")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25335693, 2.5123444, 0.5906677)
+shape = SubResource("BoxShape3D_brjbh")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="." index="3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3067627, -0.071056366, 0.6367798)
+shape = SubResource("BoxShape3D_gdrof")
+
+[node name="Area3D" type="Area3D" parent="." index="4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49246597, 3.4060745, 0.9629135)
+shape = SubResource("BoxShape3D_brjbh")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_body_exited"]
