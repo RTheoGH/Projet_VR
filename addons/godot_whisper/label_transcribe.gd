@@ -1,7 +1,11 @@
 extends RichTextLabel
 
 var fireball = ["fireball","fire ball"]
-var thunderbolt = ["thunderbolt","thunder bolt"]
+var thunderbolt = ["thunderbolt","thunder bolt","sandobold","fenderbird","sander bolt","sanderbald"]
+var light = ["light","lite","lay te","late"]
+var antigrav = ["gravity","gray vity","grave ity"]
+
+var pointeur : Node = null
 
 func _ready():
 	custom_minimum_size.x = 400
@@ -17,6 +21,13 @@ func _process(_delta):
 var completed_text := ""
 var partial_text := ""
 
+var spellbook : Dictionary[String, Spell] = {
+	"light": preload("res://spells/resources/light.tres"),
+	"fireball": preload("res://spells/resources/fireball.tres"),
+	"antigrav":  preload("res://spells/resources/antigrav.tres"),
+	"thunderbolt" : preload("res://spells/resources/thunderbolt.tres")
+}
+
 var spell : String
 
 func _on_speech_to_text_transcribed_msg(is_partial, new_text):
@@ -30,6 +41,20 @@ func _on_speech_to_text_transcribed_msg(is_partial, new_text):
 	if contains_spell(full_text, thunderbolt):
 		print("Thunderbolt !!!")
 		spell = "thunderbolt"
+		
+	if contains_spell(full_text, light):
+		print("Thunderbolt !!!")
+		spell = "thunderbolt"
+		
+	if contains_spell(full_text, antigrav):
+		print("Thunderbolt !!!")
+		spell = "thunderbolt"
+
+	if spellbook.has(spell):
+		var spell_to_launch : Spell = spellbook[spell]
+		if get_parent().get_parent():
+			pointeur = get_parent().get_parent().get_node("pointeur")
+			spell_to_launch.launch(pointeur.global_transform,pointeur)
 
 	if is_partial:
 		completed_text += new_text

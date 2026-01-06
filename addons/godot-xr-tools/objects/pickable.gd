@@ -437,3 +437,16 @@ func _get_grab_point(grabber : Node3D, current : XRToolsGrabPoint) -> XRToolsGra
 func _set_ranged_grab_method(new_value: int) -> void:
 	ranged_grab_method = new_value
 	can_ranged_grab = new_value != RangedMethod.NONE
+
+@onready var voice_scene = preload("res://src/scenes/voice/voice.tscn")
+var voice_instance: Node = null
+
+func _on_grabbed(pickable: Variant, by: Variant) -> void:
+	if voice_instance == null:
+		voice_instance = voice_scene.instantiate()
+		add_child(voice_instance)
+
+func _on_dropped(pickable: Variant) -> void:
+	if voice_instance != null:
+		voice_instance.queue_free()
+		voice_instance = null

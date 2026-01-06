@@ -25,6 +25,7 @@ bus = &"Record"
 script = SubResource("GDScript_bo2ji")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("4_yplad")

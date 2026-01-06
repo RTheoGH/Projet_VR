@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dxx722tqqoo7j"]
+[gd_scene load_steps=8 format=3 uid="uid://dxx722tqqoo7j"]
 
 [ext_resource type="ArrayMesh" uid="uid://b0lggtat0rckv" path="res://Assets/book.obj" id="1_7y7no"]
+[ext_resource type="Script" uid="uid://d2tylielur6l1" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_44gwr"]
 [ext_resource type="Script" uid="uid://68qnmoa73q2f" path="res://addons/godot-xr-tools/objects/grab_points/grab_point.gd" id="2_qj40e"]
+[ext_resource type="Texture2D" uid="uid://bhv8c8kpefsgq" path="res://Assets/Packs/maxwell_0.png" id="4_2nycx"]
+[ext_resource type="Texture2D" uid="uid://dlghsw74j018s" path="res://Assets/textures/book_spell_texture.png" id="5_2nycx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_44gwr"]
 albedo_color = Color(0.37738183, 0.1859045, 0.052778475, 1)
@@ -11,6 +14,8 @@ metallic = 1.0
 size = Vector3(4.499954, 0.6392822, 2.0183105)
 
 [node name="Book" type="RigidBody3D"]
+script = ExtResource("1_44gwr")
+metadata/_custom_type_script = "uid://d2tylielur6l1"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
@@ -24,3 +29,19 @@ shape = SubResource("BoxShape3D_5sjlb")
 [node name="XRToolsGrabPoint" type="Marker3D" parent="."]
 script = ExtResource("2_qj40e")
 metadata/_custom_type_script = "uid://68qnmoa73q2f"
+
+[node name="pointeur" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7792734, -2.7166028)
+
+[node name="Decal2" type="Decal" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.044378, 0.15057641, 0)
+size = Vector3(2.0264893, 0.5500488, 2)
+texture_albedo = ExtResource("4_2nycx")
+
+[node name="Decal" type="Decal" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0928118, 0.2265625, 0)
+size = Vector3(2, 0.7011719, 2)
+texture_albedo = ExtResource("5_2nycx")
+
+[connection signal="dropped" from="." to="." method="_on_dropped"]
+[connection signal="grabbed" from="." to="." method="_on_grabbed"]

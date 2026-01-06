@@ -18,10 +18,10 @@ func maxwell():
 	
 	mxw = create_tween()
 	mxw.set_loops()
-	mxw.tween_property($maxwell, "rotation_degrees:z", -30, 0.2)
-	mxw.tween_property($maxwell, "rotation_degrees:z", 30, 0.2)
-	mxw.tween_property($maxwell, "rotation_degrees:z", 30, 0.2)
-	mxw.tween_property($maxwell, "rotation_degrees:z", -30, 0.2)
+	mxw.tween_property($Interieur/maxwell, "rotation_degrees:z", -30, 0.2)
+	mxw.tween_property($Interieur/maxwell, "rotation_degrees:z", 30, 0.2)
+	mxw.tween_property($Interieur/maxwell, "rotation_degrees:z", 30, 0.2)
+	mxw.tween_property($Interieur/maxwell, "rotation_degrees:z", -30, 0.2)
 
 func goto_hub(node: Node) -> void:
 	if node == player:

@@ -1,6 +1,7 @@
-[gd_scene load_steps=76 format=3 uid="uid://b7px801c0ohkr"]
+[gd_scene load_steps=77 format=3 uid="uid://b7px801c0ohkr"]
 
 [ext_resource type="Script" uid="uid://bda28yntj2wuf" path="res://src/levels/hub.gd" id="1_lg4k7"]
+[ext_resource type="PackedScene" uid="uid://dxx722tqqoo7j" path="res://src/scenes/voice/book.tscn" id="4_jro34"]
 [ext_resource type="PackedScene" uid="uid://rdrayle161hy" path="res://Assets/Packs/fantasyprops/Bench.gltf" id="4_om1xx"]
 [ext_resource type="Material" uid="uid://c6rijec22akhc" path="res://Assets/materials/grass.tres" id="6_cyjlb"]
 [ext_resource type="Material" uid="uid://d2wkgnqd7nvbm" path="res://Assets/materials/pavement.tres" id="6_e23gj"]
@@ -34,7 +35,7 @@
 [ext_resource type="PackedScene" uid="uid://wxjjjbxvkrsi" path="res://Assets/Packs/fantasyprops/Scroll_1.gltf" id="32_5tst5"]
 [ext_resource type="PackedScene" uid="uid://ca2qfyl2aown2" path="res://Assets/Packs/fantasyprops/Stool.gltf" id="33_swpio"]
 [ext_resource type="Material" uid="uid://d02l45rxe3m6t" path="res://Assets/materials/broken_ground.tres" id="34_dl7et"]
-[ext_resource type="PackedScene" path="res://src/scenes/objets/crate.tscn" id="35_5tst5"]
+[ext_resource type="PackedScene" uid="uid://c17131quqte6e" path="res://src/scenes/objets/crate.tscn" id="35_5tst5"]
 [ext_resource type="PackedScene" uid="uid://00n18ca1dd4y" path="res://src/scenes/objets/crate_metal.tscn" id="36_swpio"]
 [ext_resource type="Texture2D" uid="uid://bhv8c8kpefsgq" path="res://Assets/Packs/maxwell_0.png" id="37_swpio"]
 [ext_resource type="Script" uid="uid://c8hqlhgodqne" path="res://src/levels/tuto_zone_draw.gd" id="38_4efl2"]
@@ -196,8 +197,15 @@ directional_shadow_mode = 1
 [node name="XROrigin3D" parent="." instance=ExtResource("10_waxbk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8389206, 1.0191908, 1.8895483)
 
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.45667538, 0.17728195, -0.8717906, 0.0069201677, 0.979206, 0.20275034, 0.88960665, -0.09862407, 0.44595245, 2.1612036, 1.6879656, 3.3809662)
+current = true
+
 [node name="Node3D" parent="." instance=ExtResource("11_6yhae")]
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 5.746902, 0.9147892, -4.2988024)
+
+[node name="Book" parent="." instance=ExtResource("4_jro34")]
+transform = Transform3D(-0.085006736, 0, -0.052667398, 0, 0.1, 0, 0.052667398, 0, -0.085006736, 2.0796309, 1.0353491, 3.8285456)
 
 [node name="StartXR" parent="." instance=ExtResource("12_dt5un")]
 
@@ -1383,10 +1391,6 @@ transform = Transform3D(-0.7745472, 0, -0.6325161, 0, 1, 0, 0.6325161, 0, -0.774
 
 [node name="Pressure_plate" parent="Zone3/objects" instance=ExtResource("38_lngty")]
 transform = Transform3D(0.045, 0, 0, 0, 0.045, 0, 0, 0, 0.045, -7.3967514, 0.1024698, -3.3871543)
-
-[node name="Camera3D" type="Camera3D" parent="Zone3/objects"]
-transform = Transform3D(0.679057, 0, -0.7340856, 0, 1, 0, 0.7340856, 0, 0.679057, -7.498337, 1.6879656, 4.837673)
-current = true
 
 [node name="tutos" type="Node3D" parent="Zone3"]
 script = ExtResource("38_4efl2")
