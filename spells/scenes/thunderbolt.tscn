@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bnl42dpsvlfna"]
+[gd_scene load_steps=9 format=3 uid="uid://bnl42dpsvlfna"]
 
 [ext_resource type="Script" uid="uid://yxgmdxxplcff" path="res://spells/scenes/thunderbolt.gd" id="1_8glic"]
 [ext_resource type="ArrayMesh" uid="uid://j8y3k7sryw3s" path="res://Assets/thunderbolt_editable.tres" id="1_p41p7"]
+[ext_resource type="AudioStream" uid="uid://glamla3bqsw1" path="res://spells/sounds/thunder.wav" id="3_wex3t"]
 
 [sub_resource type="Gradient" id="Gradient_p41p7"]
 
@@ -47,6 +48,10 @@ shape = SubResource("BoxShape3D_p41p7")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_p41p7")
+
+[node name="impact" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_wex3t")
+volume_db = -15.0
 
 [connection signal="finished" from="GPUParticles3D" to="." method="_on_gpu_particles_3d_finished"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

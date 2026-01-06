@@ -8,6 +8,8 @@ var up_bump = 0.3;
 func _start_spell() -> void:
 	apply_central_impulse(to_global(Vector3.FORWARD * launch_strength) + Vector3.UP * launch_strength / 10.0)
 	add_collision_exception_with(caster)
+	$cast.play()
+	
 func expand():
 	var tween: Tween = get_tree().create_tween()
 	tween.tween_property(
@@ -43,6 +45,7 @@ func expand():
 func _on_body_entered(_body: Node) -> void:
 	freeze = true
 	$Area3D/CollisionShape3D2.disabled = false
+	$expand.play()
 	expand()
 
 func _on_area_3d_body_entered(body: Node3D) -> void:

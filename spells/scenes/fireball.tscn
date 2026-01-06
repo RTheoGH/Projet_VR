@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://dyat8ynb24ji"]
+[gd_scene load_steps=16 format=3 uid="uid://dyat8ynb24ji"]
 
 [ext_resource type="Script" uid="uid://cc3xwnfnmjqfr" path="res://spells/scenes/fireball.gd" id="1_stav5"]
 [ext_resource type="Shader" uid="uid://jrggoe8b3bwb" path="res://src/shaders/fireball.tres" id="3_b52wv"]
 [ext_resource type="Shader" uid="uid://yoq3lj3swnys" path="res://src/shaders/fireball_head.tres" id="4_5sn28"]
 [ext_resource type="ArrayMesh" uid="uid://bqpx2sfn070fl" path="res://Assets/fireball_head_mesh.obj" id="5_wj53r"]
 [ext_resource type="Shader" uid="uid://dwhuwisktagqc" path="res://src/shaders/fireball_trail.tres" id="6_7gksg"]
+[ext_resource type="AudioStream" uid="uid://yldxqnn1ho14" path="res://spells/sounds/cast_fireball.wav" id="6_b52wv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nksxf"]
 render_priority = 0
@@ -66,5 +67,9 @@ mesh = ExtResource("5_wj53r")
 transform = Transform3D(-2.9723743e-08, 0, 1, 0, 0.205, 0, -0.68, 0, -4.371139e-08, 0, 0, -0.33768722)
 material_override = SubResource("ShaderMaterial_y80hd")
 mesh = SubResource("QuadMesh_k66fl")
+
+[node name="cast" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("6_b52wv")
+volume_db = -5.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=30 format=3 uid="uid://bxwmk3snvg14k"]
+[gd_scene load_steps=31 format=3 uid="uid://bxwmk3snvg14k"]
 
 [ext_resource type="Material" uid="uid://dqvqatqrvp2nu" path="res://Assets/explosion_material.tres" id="1_mhsi3"]
 [ext_resource type="Shader" uid="uid://cvmo21viexdaq" path="res://src/shaders/sparks_shader.tres" id="2_v8n0r"]
 [ext_resource type="Texture2D" uid="uid://c60bvq4t1dqqn" path="res://Assets/textures/T_vfx_hit122.jpg" id="3_oeoc3"]
 [ext_resource type="Texture2D" uid="uid://chgkxiy78ypi1" path="res://Assets/textures/T_cracks35.png" id="4_2pxsu"]
 [ext_resource type="Texture2D" uid="uid://qo06s8ax3x4b" path="res://Assets/textures/T_cracks33_E3.jpg" id="5_6sl7e"]
+[ext_resource type="AudioStream" uid="uid://buokfsvrybvvf" path="res://spells/sounds/explode_fireball.wav" id="6_2pxsu"]
 
 [sub_resource type="Curve" id="Curve_4a28b"]
 _data = [Vector2(0.5063695, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -246,3 +247,7 @@ texture_emission = ExtResource("5_6sl7e")
 emission_energy = 3.4583547
 modulate = Color(1, 0.48452926, 0, 1)
 albedo_mix = 0.6376524
+
+[node name="explode" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("6_2pxsu")
+volume_db = -5.0

@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://4sguy8m0l5f1"]
+[gd_scene load_steps=9 format=3 uid="uid://4sguy8m0l5f1"]
 
 [ext_resource type="Script" uid="uid://cenepb50bm688" path="res://spells/scenes/antigrav.gd" id="1_xi7no"]
 [ext_resource type="Material" uid="uid://dc680fknspkha" path="res://Assets/materials/bally_sphere.tres" id="2_c8dta"]
+[ext_resource type="AudioStream" uid="uid://be0us5kf2gvva" path="res://spells/sounds/cast_antigrav.wav" id="3_6j5l7"]
+[ext_resource type="AudioStream" uid="uid://deb3bkjt8xae3" path="res://spells/sounds/expand_antigrav.wav" id="4_fgpxg"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_g4jxd"]
 radius = 0.09610992
@@ -41,6 +43,14 @@ mesh = SubResource("SphereMesh_xi7no")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 mesh = SubResource("SphereMesh_c8dta")
+
+[node name="cast" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_6j5l7")
+volume_db = -10.0
+
+[node name="expand" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_fgpxg")
+volume_db = -20.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
