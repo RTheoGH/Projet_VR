@@ -6,9 +6,13 @@ const MAGE_BALL = preload("uid://bmn3qb23bx2l5")
 
 var spellbook : Dictionary[String, Spell] = {
 	"0430": preload("res://spells/resources/light.tres"),
+	"0340": preload("res://spells/resources/light.tres"),
 	"62516": preload("res://spells/resources/fireball.tres"),
+	"61526": preload("res://spells/resources/fireball.tres"),
 	"5104":  preload("res://spells/resources/antigrav.tres"),
-	"3641250" : preload("res://spells/resources/thunderbolt.tres")
+	"4015":  preload("res://spells/resources/antigrav.tres"),
+	"3641250" : preload("res://spells/resources/thunderbolt.tres"),
+	"0521463" : preload("res://spells/resources/thunderbolt.tres")
 }
 
 var spell_buffer: String = ""

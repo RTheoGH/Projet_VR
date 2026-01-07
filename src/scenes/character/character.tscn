@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://q2ddqvpmfr2x"]
+[gd_scene load_steps=11 format=3 uid="uid://q2ddqvpmfr2x"]
 
 [ext_resource type="Script" uid="uid://bustqdra0w5o3" path="res://src/scenes/character/character.gd" id="1_8lldn"]
 [ext_resource type="PackedScene" uid="uid://cy03d57iyrci" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_physics_hand.tscn" id="1_jt2v8"]
