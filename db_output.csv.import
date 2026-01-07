@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://j2p2i1btbyem"
+
+[deps]
+
+files=["res://db_output.age.translation", "res://db_output.gender.translation", "res://db_output.videogame.translation", "res://db_output.vr.translation", "res://db_output.id.translation", "res://db_output.positions.translation", "res://db_output.completion.translation", "res://db_output.first.translation"]
+
+source_file="res://db_output.csv"
+dest_files=["res://db_output.age.translation", "res://db_output.gender.translation", "res://db_output.videogame.translation", "res://db_output.vr.translation", "res://db_output.id.translation", "res://db_output.positions.translation", "res://db_output.completion.translation", "res://db_output.first.translation"]
+
+[params]
+
+compress=true
+delimiter=0
