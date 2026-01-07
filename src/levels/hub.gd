@@ -26,15 +26,19 @@ func maxwell():
 func goto_hub(node: Node) -> void:
 	if node == player:
 		player.position = Vector3(0.0,0.0,0.0)
+		$portal_sound.play()
 
 func _portal1_entered(node: Node) -> void:
 	if node == player:
 		player.position = $Zone1.position
+		$portal_sound.play()
 
 func _portal2_entered(node: Node) -> void:
 	if node == player:
 		player.position = $Zone2.position
+		$portal_sound.play()
 
 func _portal3_entered(node: Node) -> void:
 	if node == player:
 		player.position = $Zone3.position
+		$portal_sound.play()
