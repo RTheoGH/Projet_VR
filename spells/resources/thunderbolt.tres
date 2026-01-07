@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Spell" load_steps=3 format=3 uid="uid://d1w7kscem1n7m"]
+
+[ext_resource type="Script" uid="uid://bj7f1dc5o8bix" path="res://src/classes/Spell.gd" id="1_5n7ap"]
+[ext_resource type="PackedScene" uid="uid://bnl42dpsvlfna" path="res://spells/scenes/thunderbolt.tscn" id="1_d523f"]
+
+[resource]
+script = ExtResource("1_5n7ap")
+name = &"Thunderbolt"
+scene = ExtResource("1_d523f")
+metadata/_custom_type_script = "uid://bj7f1dc5o8bix"

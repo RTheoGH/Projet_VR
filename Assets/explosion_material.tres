@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://dqvqatqrvp2nu"]
+
+[ext_resource type="Shader" uid="uid://cihv1ywrd786p" path="res://src/shaders/explosion_cloud_shader.tres" id="1_3bt5a"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mhsi3"]
+noise_type = 3
+seed = 3
+frequency = 0.0023
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_v8n0r"]
+noise = SubResource("FastNoiseLite_mhsi3")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_3bt5a")
+shader_parameter/Cloud_speed = Vector2(0.2, 0.2)
+shader_parameter/Texture2DParameter = SubResource("NoiseTexture2D_v8n0r")
+shader_parameter/Cloud_Intensity = 0.2
+shader_parameter/Explosion_color = Color(0.8562, 0.415505, 0, 1)

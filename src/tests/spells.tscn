@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bvdjipkodp1xn"]
+[gd_scene load_steps=11 format=3 uid="uid://bvdjipkodp1xn"]
 
 [ext_resource type="PackedScene" uid="uid://dyat8ynb24ji" path="res://spells/scenes/fireball.tscn" id="1_lqrwy"]
 [ext_resource type="PackedScene" uid="uid://bfs5qsy4dw1iq" path="res://src/scenes/strategy_balls_and_wand/mage_ball_circle/mage_ball_circle.tscn" id="2_aq02j"]
 [ext_resource type="PackedScene" uid="uid://dqwjrt3lnh2p6" path="res://src/scenes/strategy_balls_and_wand/wand/wand.tscn" id="3_ucck7"]
 [ext_resource type="PackedScene" uid="uid://dx6fo4qqqg0bj" path="res://src/scenes/enemies/dummy/dummy.tscn" id="4_12rnt"]
+[ext_resource type="PackedScene" uid="uid://bnl42dpsvlfna" path="res://spells/scenes/thunderbolt.tscn" id="5_exhbe"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_33gj2"]
 sky_top_color = Color(0.32795975, 0.3953401, 0.8315651, 1)
@@ -90,3 +91,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.3584595, 0.03134632)
 
 [node name="dummy" parent="." instance=ExtResource("4_12rnt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0535808, 0.1736859, 1.2429957)
+
+[node name="Thunderbolt" parent="." instance=ExtResource("5_exhbe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.278357, 0.4936186, -0.85666037)

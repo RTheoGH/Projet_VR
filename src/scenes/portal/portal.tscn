@@ -1,0 +1,88 @@
+[gd_scene load_steps=14 format=3 uid="uid://bsxjsfvyuuoyw"]
+
+[ext_resource type="PackedScene" uid="uid://lbolt33fletf" path="res://Assets/Packs/Portal.glb" id="1_h46dg"]
+[ext_resource type="Shader" uid="uid://dxh8m0j0csg3g" path="res://src/scenes/portal/portal.tres" id="2_h46dg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i4rwx"]
+render_priority = 0
+shader = ExtResource("2_h46dg")
+shader_parameter/Color_Intensity = 2.0
+shader_parameter/Portal_Color = Color(0.24705882, 0.49411765, 0.8352941, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_78i00"]
+size = Vector2(2.5, 3.5)
+
+[sub_resource type="Gradient" id="Gradient_h46dg"]
+offsets = PackedFloat32Array(0.115, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_i4rwx"]
+gradient = SubResource("Gradient_h46dg")
+fill_from = Vector2(0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t2hfo"]
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(0.1254902, 0.23529412, 0.9137255, 1)
+albedo_texture = SubResource("GradientTexture2D_i4rwx")
+use_particle_trails = true
+
+[sub_resource type="Curve" id="Curve_78i00"]
+_limits = [0.0, 0.01, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_pnwsk"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_lt0os"]
+_limits = [-2.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_i8j54"]
+curve_x = SubResource("Curve_78i00")
+curve_y = SubResource("Curve_pnwsk")
+curve_z = SubResource("Curve_lt0os")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bakua"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 0.0
+emission_ring_radius = 1.1
+emission_ring_inner_radius = 1.1
+emission_ring_cone_angle = 90.0
+orbit_velocity_min = 0.2000001
+orbit_velocity_max = 0.2000001
+orbit_velocity_curve = SubResource("CurveXYZTexture_i8j54")
+radial_velocity_min = 0.19997764
+radial_velocity_max = 0.49997765
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_ux26u"]
+size = 0.075
+sections = 2
+section_length = 0.1
+section_segments = 26
+
+[node name="Portal" type="Node3D"]
+
+[node name="Portal2" parent="." instance=ExtResource("1_h46dg")]
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(1.2692661, 0, 0, 0, 1.1974583, 0, 0, 0, 1, 0, 1.4416646, -0.17487025)
+material_override = SubResource("ShaderMaterial_i4rwx")
+mesh = SubResource("QuadMesh_78i00")
+skeleton = NodePath("../..")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Node3D"]
+transform = Transform3D(0.7412179, 0, 0, 0, 1.327252, 0, 0, 0, 1, 0, 1.5376929, -0.06700018)
+material_override = SubResource("StandardMaterial3D_t2hfo")
+amount = 150
+trail_enabled = true
+trail_lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_bakua")
+draw_pass_1 = SubResource("RibbonTrailMesh_ux26u")

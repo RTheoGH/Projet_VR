@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c17131quqte6e"]
+
+[ext_resource type="PackedScene" uid="uid://dvjgajtjswjcv" path="res://Assets/Packs/fantasyprops/Crate_Wooden.gltf" id="1_2vmgn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4n23g"]
+size = Vector3(0.8369446, 0.91012573, 0.8913269)
+
+[node name="Crate" type="RigidBody3D"]
+
+[node name="Crate_Wooden2" parent="." instance=ExtResource("1_2vmgn")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0018463135, 0.41394687, -0.00090026855)
+shape = SubResource("BoxShape3D_4n23g")
