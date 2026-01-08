@@ -49,16 +49,14 @@ func to_2d_coordinates(points_3d: Array[Vector3]) -> Array[Vector2]:
 	
 	return result
 	
-func get_points_from_2d_points(points_2d : Array[Vector2], recognizer : GestureRecognizer) -> Array[GestureRecognizer.Point]:
+func get_points_from_2d_points(points_2d : Array[Vector2], recognizer : GestureRecognizer, id : int) -> Array[GestureRecognizer.Point]:
 	var res_points : Array[GestureRecognizer.Point]
-	var cpt := 0
 	for p in points_2d:
-		res_points.append(recognizer.Point.new(p.x, p.y, cpt))
-		cpt += 1
+		res_points.append(recognizer.Point.new(p.x, p.y, id))
 	return res_points
 	
-func get_2d_coordinates(recognizer : GestureRecognizer) -> Array[GestureRecognizer.Point]:
+func get_2d_coordinates(recognizer : GestureRecognizer, id : int) -> Array[GestureRecognizer.Point]:
 	compute_mean_normal()
 	var p_3d := get_projected_points()
 	var p_2d := to_2d_coordinates(p_3d)
-	return get_points_from_2d_points(p_2d, recognizer)
+	return get_points_from_2d_points(p_2d, recognizer, id)
