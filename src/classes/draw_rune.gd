@@ -3,81 +3,62 @@ extends Resource
 class_name DrawRune
 
 var points : Array[Vector3]
-var center : Vector3
-var bb_min : Vector3 = Vector3(100000000.0 , 100000000.0 , 100000000.0)
-var bb_max : Vector3 = Vector3(-100000000.0 , -100000000.0 , -100000000.0)
+var normals : Array[Vector3]
+var mean_normal : Vector3
 
-func compute_bb(point : Vector3):
+func compute_mean_normal() -> Vector3:
+	mean_normal = Vector3(0, 0, 0)
+	for n in normals:
+		mean_normal += n
+	mean_normal = mean_normal.normalized()
+	return mean_normal
 	
-	for axis in range(3):
-		if point[axis] < bb_min[axis]:
-			bb_min[axis] = point[axis]
-		if point[axis] > bb_max[axis]:
-			bb_max[axis] = point[axis]
+## Récup plan orthogonal à la moyenne des normales
+func get_plane() -> Plane:
+	return Plane(mean_normal)
 	
-func scale_points():
+func get_projected_points() -> Array[Vector3]:
+	var projected_points : Array[Vector3] = []
+	var plane := get_plane()
+	for p in points:
+		var proj := plane.project(p)
+		projected_points.append(proj)
+	return projected_points
+
+func to_2d_coordinates(points_3d: Array[Vector3]) -> Array[Vector2]:
+	var result: Array[Vector2] = []
 	
-	generate_bounding_box()
+	# Create two orthonormal basis vectors on the plane
+	var normal = mean_normal.normalized()
 	
-
-	for i in range(points.size()): 
-		for axis in range(3):
-			var denom := (bb_max[axis] - bb_min[axis]) 
-			if(denom != 0.0):
-				points[i][axis] /= denom
+	# Find first basis vector perpendicular to normal
+	var basis_x: Vector3
+	if abs(normal.x) < 0.9:
+		basis_x = (Vector3.RIGHT - normal * normal.dot(Vector3.RIGHT)).normalized()
+	else:
+		basis_x = (Vector3.UP - normal * normal.dot(Vector3.UP)).normalized()
 	
-	bb_center()
-	for i in range(points.size()):
-		points[i] -= center
-
-	generate_bounding_box()
-
-func add_point(point : Vector3) : 
-	points.append(point)
-	compute_bb(point)
-
-func generate_bounding_box():
-	bb_min = Vector3(100000000.0 , 100000000.0 , 100000000.0)
-	bb_max = Vector3(-100000000.0 , -100000000.0 , -100000000.0)
+	# Find second basis vector perpendicular to both normal and basis_x
+	var basis_y = normal.cross(basis_x).normalized()
 	
-	for point in points:
-		compute_bb(point)
-
-func bb_center():
-	center = (bb_max + bb_min)/2
-	return center
-
-func dist_any_rune() -> float:
-	var min_avg_dist := 10000000.0
-	var current_rune := DrawRune.new()
-	print("centre avant : ", bb_center())
-	scale_points()
-	print("centre : ", bb_center())
-	for rune_t in Rune.rune_type:
-		var avg_dist := 0.0
-		current_rune.points.clear()
-		current_rune.points.append_array(Testmaster.rune_ref_points[Rune.rune_type[rune_t]])
-		current_rune.bb_center()
-		print("centre rune : ", current_rune.bb_center())
-		var pointsP : Array[Vector3]
-		var pointsM : Array[Vector3]
-		
-		if current_rune.points.size() > points.size():
-			pointsP = current_rune.points
-			pointsM = points
-		else:
-			pointsP = points
-			pointsM = current_rune.points
-		
-		for pp in pointsP:
-			var min_dist = 10000000.0
-			for pm in pointsM:
-				var dist_squared := pp.distance_squared_to(pm)
-				if dist_squared < min_dist:
-					min_dist = dist_squared
-			avg_dist += min_dist
-		avg_dist /= pointsP.size()
-		if avg_dist < min_avg_dist:
-			min_avg_dist = avg_dist
-		
-	return min_avg_dist
+	# Project each point onto the 2D plane defined by basis_x and basis_y
+	for point in points_3d:
+		var x = point.dot(basis_x)
+		var y = point.dot(basis_y)
+		result.append(Vector2(x, y))
+	
+	return result
+	
+func get_points_from_2d_points(points_2d : Array[Vector2], recognizer : GestureRecognizer) -> Array[GestureRecognizer.Point]:
+	var res_points : Array[GestureRecognizer.Point]
+	var cpt := 0
+	for p in points_2d:
+		res_points.append(recognizer.Point.new(p.x, p.y, cpt))
+		cpt += 1
+	return res_points
+	
+func get_2d_coordinates(recognizer : GestureRecognizer) -> Array[GestureRecognizer.Point]:
+	compute_mean_normal()
+	var p_3d := get_projected_points()
+	var p_2d := to_2d_coordinates(p_3d)
+	return get_points_from_2d_points(p_2d, recognizer)

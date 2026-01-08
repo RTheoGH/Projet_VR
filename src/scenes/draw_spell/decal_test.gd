@@ -41,6 +41,7 @@ func _physics_process(delta: float) -> void:
 			#print("ink position : " , ink.position)
 			str_ref += "Vector3" + str(ink.position) + ", "
 			draw_rune.points.append(ink.position)
+			draw_rune.normals.append(result["normal"])
 			active_decals.append(ink)
 			add_child(ink)
 		else : 
@@ -53,12 +54,19 @@ func _input(event: InputEvent) -> void:
 		#print("Draw")
 		str_ref += "["
 		draw_rune.points.clear()
+		#for decal in range(active_decals.size()):
+			#active_decals.pop_front().queue_free()
 	if event.is_action_released("draw_mouse_debug"):
 		is_drawing = false
 		#print("Not drawing")
 		#print(str_ref + "]")
-		draw_rune.scale_points()
-		print(draw_rune.dist_any_rune())
+		var recognizer = GestureRecognizer.new()
+		#recognizer.AddGesture("res://addons/Gesture_recognizer/resources/gestures/", "explosion", draw_rune.get_2d_coordinates(recognizer, 0))
+		#print("Gesture ajoutée !")
+		recognizer.LoadGesturesFromResources("res://addons/Gesture_recognizer/resources/gestures/")
+		var score = recognizer.Recognize(draw_rune.get_2d_coordinates(recognizer, 0), 0.85)
+		$Camera3D/Label3D.text = "Rune reconnue : " + score["name"] + ", score : " + str(score["score"])
+		print(score)
 
 func detect_draw():
 	pass
