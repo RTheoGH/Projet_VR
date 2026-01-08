@@ -206,11 +206,11 @@ directional_shadow_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8389206, 1.0191908, 1.8895483)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.1565158, -0.6246954, 0.7650218, 0.08785977, 0.78030354, 0.61919874, -0.9837599, -0.029699743, 0.17701542, -43.362896, 5.088273, -34.477684)
+transform = Transform3D(-0.9944288, -0.09375674, 0.048175037, -0.067496814, 0.9174128, 0.3921707, -0.08096504, 0.38673428, -0.9186302, -4.0996575, 2.5474186, 0.8698158)
 current = true
 
 [node name="Node3D" parent="." instance=ExtResource("11_6yhae")]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 5.746902, 0.9147892, -4.2988024)
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 7.0086036, 0.9147892, -4.5057325)
 
 [node name="Book" parent="." instance=ExtResource("4_jro34")]
 transform = Transform3D(-0.085006736, 0, -0.052667398, 0, 0.1, 0, 0.052667398, 0, -0.085006736, 2.0796309, 1.0353491, 3.8285456)
@@ -276,7 +276,7 @@ skeleton = NodePath("../..")
 shape = SubResource("ConvexPolygonShape3D_estxj")
 
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="Murs"]
-transform = Transform3D(-4.371139e-08, 0, -7.871443, 0, 3.7089503, 0, 1, 0, -3.4407168e-07, 0.5847595, 1.8139935, -8.194148)
+transform = Transform3D(-4.371139e-08, 0, -7.871443, 0, 3.7089503, 0, 1, 0, -3.4407168e-07, 0.5845986, 1.8139935, -8.193591)
 mesh = SubResource("BoxMesh_ycqs3")
 skeleton = NodePath("../..")
 
@@ -398,22 +398,12 @@ shape = SubResource("ConvexPolygonShape3D_lg4k7")
 [node name="Extérieur" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.050047, 0, 0)
 
-[node name="Banner_22" parent="Extérieur" instance=ExtResource("10_f75sj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.716283, 2.9253576, -8.211742)
-
-[node name="Banner_23" parent="Extérieur" instance=ExtResource("10_f75sj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8034325, 2.9253576, 8.061111)
-
 [node name="Bench2" parent="Extérieur" instance=ExtResource("4_om1xx")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6.301651, 0.023135127, -8.449832)
 
-[node name="Stall_Empty2" parent="Extérieur" instance=ExtResource("20_2p3ra")]
-transform = Transform3D(0.7468602, 0, -0.43120003, 0, 0.8624, 0, 0.43120003, 0, 0.7468602, -5.296858, 0.020690849, 4.00366)
-
-[node name="Chair_12" parent="Extérieur" instance=ExtResource("21_s3kf6")]
-transform = Transform3D(-0.8262458, 0, 0.5633098, 0, 1, 0, -0.5633098, 0, -0.8262458, -5.9137335, 0.018579006, 4.723672)
-
 [node name="Interieur" type="Node3D" parent="."]
+
+[node name="Torchs" type="Node3D" parent="Interieur"]
 
 [node name="Portal" parent="Interieur" instance=ExtResource("19_qik6l")]
 transform = Transform3D(0.62337476, 0, 0.7819232, 0, 1, 0, -0.7819232, 0, 0.62337476, -9.443712, 0.49768913, -4.791712)
@@ -451,7 +441,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012299061, 1.5069829, -0.1
 shape = SubResource("BoxShape3D_dl7et")
 
 [node name="stand1" parent="Interieur" instance=ExtResource("21_fg0r8")]
-transform = Transform3D(0.5037818, 0, 0.6214531, 0, 0.8, 0, -0.6214531, 0, 0.5037818, 5.351405, 0.015873326, -1.9804225)
+transform = Transform3D(0.5037818, 0, 0.6214531, 0, 0.8, 0, -0.6214531, 0, 0.5037818, 6.6131067, 0.015873326, -2.1873524)
 
 [node name="stand2" parent="Interieur" instance=ExtResource("22_0c7eu")]
 transform = Transform3D(0.023118867, 0, -0.79966587, 0, 0.8, 0, 0.79966587, 0, 0.023118867, 12.089057, 0.015873164, -0.13309264)
@@ -460,10 +450,10 @@ transform = Transform3D(0.023118867, 0, -0.79966587, 0, 0.8, 0, 0.79966587, 0, 0
 transform = Transform3D(0.2727894, 0, -0.7520545, 0, 0.8, 0, 0.7520545, 0, 0.2727894, 10.091622, 0.015873775, -1.8212991)
 
 [node name="Workbench_Drawers2" parent="Interieur" instance=ExtResource("27_pthsq")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6.7148633, 0.01600343, -4.9902654)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.976565, 0.01600343, -5.197195)
 
 [node name="Workbench2" parent="Interieur" instance=ExtResource("28_evmgn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.4869246, 0.015872955, -4.556326)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.748626, 0.015872955, -4.763256)
 
 [node name="Workbench3" parent="Interieur" instance=ExtResource("28_evmgn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1639826, 0.015872955, 4.1756063)
@@ -487,34 +477,34 @@ transform = Transform3D(0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.2588
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6779807, 0.8905736, 3.869328)
 
 [node name="Stool2" parent="Interieur" instance=ExtResource("33_swpio")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4640803, 0.009873882, -5.9811716)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.725782, 0.009873882, -6.188102)
 
 [node name="Stool3" parent="Interieur" instance=ExtResource("33_swpio")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8072934, 0, -5.942973)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.068995, 0, -6.1499033)
 
 [node name="Crate3" parent="Interieur" instance=ExtResource("35_5tst5")]
-transform = Transform3D(0.99404496, 0, -0.10897097, 0, 1, 0, 0.10897097, 0, 0.99404496, -3.9492772, 0.17767364, 4.37322)
+transform = Transform3D(0.99404496, 0, -0.10897097, 0, 1, 0, 0.10897097, 0, 0.99404496, -4.70745, 0.17767364, 5.4581294)
 
 [node name="CrateMetal3" parent="Interieur" instance=ExtResource("36_swpio")]
-transform = Transform3D(0.99404496, 0, -0.10897097, 0, 1, 0, 0.10897097, 0, 0.99404496, -3.000125, 0.11194897, 5.7953796)
+transform = Transform3D(0.99404496, 0, -0.10897097, 0, 1, 0, 0.10897097, 0, 0.99404496, -3.000125, 0.11194897, 6.726154)
 
 [node name="Crate4" parent="Interieur" instance=ExtResource("35_5tst5")]
-transform = Transform3D(0.94372016, 0, 0.33074492, 0, 1, 0, -0.33074492, 0, 0.94372016, -2.845148, 0.17767364, 4.49426)
+transform = Transform3D(0.94372016, 0, 0.33074492, 0, 1, 0, -0.33074492, 0, 0.94372016, -3.6033206, 0.17767364, 5.5791693)
 
 [node name="CrateMetal4" parent="Interieur" instance=ExtResource("36_swpio")]
-transform = Transform3D(0.73300606, 0, -0.6802221, 0, 1, 0, 0.6802221, 0, 0.73300606, -5.3928633, 0.11194897, 4.753477)
+transform = Transform3D(0.73300606, 0, -0.6802221, 0, 1, 0, 0.6802221, 0, 0.73300606, -5.3928633, 0.11194897, 6.813132)
 
 [node name="Crate5" parent="Interieur" instance=ExtResource("35_5tst5")]
-transform = Transform3D(0.8231958, 0, -0.56775755, 0, 1, 0, 0.56775755, 0, 0.8231958, -3.4281378, 1.0668586, 4.5025215)
+transform = Transform3D(0.8231958, 0, -0.56775755, 0, 1, 0, 0.56775755, 0, 0.8231958, -2.477801, 1.0668586, 6.769153)
 
 [node name="CrateMetal5" parent="Interieur" instance=ExtResource("36_swpio")]
-transform = Transform3D(0.9959349, 0, 0.09007636, 0, 1, 0, -0.09007636, 0, 0.9959349, -2.064982, 0.20510113, 5.524226)
+transform = Transform3D(0.9959349, 0, 0.09007636, 0, 1, 0, -0.09007636, 0, 0.9959349, -2.064982, 0.20510113, 6.6928673)
 
 [node name="Crate6" parent="Interieur" instance=ExtResource("35_5tst5")]
-transform = Transform3D(0.94372016, 0, 0.33074492, 0, 1, 0, -0.33074492, 0, 0.94372016, -4.449403, 0.35248333, 5.717743)
+transform = Transform3D(0.94372016, 0, 0.33074492, 0, 1, 0, -0.33074492, 0, 0.94372016, -4.2830153, 0.35248333, 6.696825)
 
 [node name="CrateMetal6" parent="Interieur" instance=ExtResource("36_swpio")]
-transform = Transform3D(0.86129236, 0, -0.50810975, 0, 1, 0, 0.50810975, 0, 0.86129236, -5.3928633, 1.0011339, 4.753477)
+transform = Transform3D(0.86129236, 0, -0.50810975, 0, 1, 0, 0.50810975, 0, 0.86129236, -5.3928633, 1.0011339, 6.813132)
 
 [node name="Bench3" parent="Interieur" instance=ExtResource("4_om1xx")]
 transform = Transform3D(-0.11656678, 0, -0.99318284, 0, 1, 0, 0.99318284, 0, -0.11656678, 10.128266, 0.023135604, 1.6646428)
@@ -526,22 +516,22 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.0
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 10.154009, 0.5092701, -2.0016122)
 
 [node name="Barrel2" parent="Interieur" instance=ExtResource("11_lg4k7")]
-transform = Transform3D(-0.46968734, 0, -0.8828328, 0, 1, 0, 0.8828328, 0, -0.46968734, 0.7255397, 0.015872955, -7.3311253)
+transform = Transform3D(-0.46968734, 0, -0.8828328, 0, 1, 0, 0.8828328, 0, -0.46968734, 2.815715, 0.015872955, -7.290575)
 
 [node name="Barrel_Apples2" parent="Interieur" instance=ExtResource("12_estxj")]
-transform = Transform3D(-0.46968734, 0, -0.8828328, 0, 1, 0, 0.8828328, 0, -0.46968734, 0.7816311, 0.015872955, -6.5426054)
+transform = Transform3D(-0.46968734, 0, -0.8828328, 0, 1, 0, 0.8828328, 0, -0.46968734, 2.7685633, 0.015872955, -6.5705853)
 
 [node name="Barrel_Holder2" parent="Interieur" instance=ExtResource("13_qik6l")]
-transform = Transform3D(0.46968743, 0, 0.88283277, 0, 1, 0, -0.88283277, 0, 0.46968743, 1.3492415, 0.02216159, -6.2547274)
+transform = Transform3D(0.46968743, 0, 0.88283277, 0, 1, 0, -0.88283277, 0, 0.46968743, 3.3361735, 0.02216159, -6.282707)
 
 [node name="FarmCrate_Apple2" parent="Interieur" instance=ExtResource("15_aom7o")]
-transform = Transform3D(-0.46968734, 0, -0.8828328, 0, 1, 0, 0.8828328, 0, -0.46968734, 0.27229196, 0.03185811, -6.785872)
+transform = Transform3D(-0.46968734, 0, -0.8828328, 0, 1, 0, 0.8828328, 0, -0.46968734, 2.259224, 0.03185811, -6.813852)
 
 [node name="FarmCrate_Carrot2" parent="Interieur" instance=ExtResource("16_8e8m2")]
-transform = Transform3D(0.34238085, 0, -0.93956125, 0, 1, 0, 0.93956125, 0, 0.34238085, 0.47031683, 0.031858638, -5.7913675)
+transform = Transform3D(0.34238085, 0, -0.93956125, 0, 1, 0, 0.93956125, 0, 0.34238085, 2.457249, 0.031858638, -5.8193474)
 
 [node name="Stall_Cart_Empty2" parent="Interieur" instance=ExtResource("19_b606k")]
-transform = Transform3D(-0.92666656, 0, 0.3758846, 0, 1, 0, -0.3758846, 0, -0.92666656, 2.127651, 0, -4.6616764)
+transform = Transform3D(-0.92666656, 0, 0.3758846, 0, 1, 0, -0.3758846, 0, -0.92666656, 4.114583, 0, -4.6896563)
 
 [node name="Decal" type="Decal" parent="Interieur"]
 transform = Transform3D(-4.371139e-08, -1, 4.371139e-08, 0, -4.371139e-08, -1, 1, -4.371139e-08, 1.9106855e-15, 11.260392, 2.1180964, -0.14021407)
@@ -557,6 +547,18 @@ spot_range = 6.0
 transform = Transform3D(-4.371139e-08, 0.7192186, -0.6947839, 0, 0.6947839, 0.7192186, 1, 3.1438045e-08, -3.036997e-08, 9.077974, 4.2441344, -1.471841)
 light_energy = 3.0
 spot_range = 6.0
+
+[node name="Banner_22" parent="Interieur" instance=ExtResource("10_f75sj")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 11.053968, 2.9253576, -3.4603999)
+
+[node name="Banner_23" parent="Interieur" instance=ExtResource("10_f75sj")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 11.032305, 2.9253576, 2.9832869)
+
+[node name="Stall_Empty2" parent="Interieur" instance=ExtResource("20_2p3ra")]
+transform = Transform3D(0.7468602, 0, -0.43120003, 0, 0.8624, 0, 0.43120003, 0, 0.7468602, -1.4493496, 0.020690849, 3.7088592)
+
+[node name="Chair_12" parent="Interieur" instance=ExtResource("21_s3kf6")]
+transform = Transform3D(-0.8262458, 0, 0.5633098, 0, 1, 0, -0.5633098, 0, -0.8262458, -2.0662253, 0.018579006, 4.4288707)
 
 [node name="Zone1" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.102898, 0, -33.997124)
