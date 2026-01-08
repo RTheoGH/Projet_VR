@@ -64,10 +64,10 @@ func _input(event: InputEvent) -> void:
 		#print("Not drawing")
 		#print(str_ref + "]")
 		var recognizer = GestureRecognizer.new()
-		#recognizer.AddGesture("res://addons/Gesture_recognizer/resources/gestures/", "explosion", draw_rune.get_2d_coordinates(recognizer, 0))
+		#recognizer.AddGesture("res://addons/Gesture_recognizer/resources/gestures/", "grab", draw_rune.get_2d_coordinates(recognizer, 0))
 		#print("Gesture ajoutée !")
 		recognizer.LoadGesturesFromResources("res://addons/Gesture_recognizer/resources/gestures/")
-		var score = recognizer.Recognize(draw_rune.get_2d_coordinates(recognizer, 0), 0.85)
+		var score = recognizer.Recognize(draw_rune.get_2d_coordinates(recognizer, 0), 0.8)
 		$Camera3D/Label3D.text = "Rune reconnue : " + score["name"] + ", score : " + str(score["score"])
 		print(score)
 		if score["name"] == "grab":
