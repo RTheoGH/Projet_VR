@@ -31,4 +31,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 
 
 func _on_gpu_particles_3d_finished() -> void:
+	pass
+
+func _on_impact_finished() -> void:
 	queue_free()
