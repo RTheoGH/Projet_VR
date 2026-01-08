@@ -10,12 +10,15 @@ var max_decals = 500 # Technically can have more but it is counted with some typ
 var active_decals : Array[Decal]
 var str_ref : String
 var draw_rune : DrawRune
+var last_object
 
 # Bounding box
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	draw_rune = DrawRune.new()
+	#await get_tree().create_timer(3).timeout
+	#RuneEffectManager.
 	pass # Replace with function body.
 
 
@@ -67,6 +70,8 @@ func _input(event: InputEvent) -> void:
 		var score = recognizer.Recognize(draw_rune.get_2d_coordinates(recognizer, 0), 0.85)
 		$Camera3D/Label3D.text = "Rune reconnue : " + score["name"] + ", score : " + str(score["score"])
 		print(score)
+		if score["name"] == "grab":
+			RuneEffectManager.apply_pickable($RigidBody3D)
 
 func detect_draw():
 	pass

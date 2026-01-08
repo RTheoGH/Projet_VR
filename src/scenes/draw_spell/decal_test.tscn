@@ -1,9 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://uf1s3mub1ecn"]
+[gd_scene load_steps=7 format=3 uid="uid://uf1s3mub1ecn"]
 
 [ext_resource type="Script" uid="uid://blq1k0jy3tw4f" path="res://src/scenes/draw_spell/decal_test.gd" id="1_2s3er"]
 [ext_resource type="PackedScene" uid="uid://brcntxdt00g3r" path="res://src/scenes/draw_spell/ink_decal.tscn" id="2_0nkrb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2s3er"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0nkrb"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_yud18"]
+material = SubResource("StandardMaterial3D_0nkrb")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ol3es"]
+size = Vector3(1, 1, 0.018257141)
 
 [node name="DecalTest" type="Node3D"]
 script = ExtResource("1_2s3er")
@@ -32,3 +40,15 @@ light_energy = 0.8
 
 [node name="Decal2" parent="." instance=ExtResource("2_0nkrb")]
 transform = Transform3D(1, 0, 0, 0, 0.10326121, 0.9946543, 0, -0.9946543, 0.10326121, 0, 1.0174588, 25.00563)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9851006, 24.282688)
+gravity_scale = 0.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03809452, 0.90771484)
+mesh = SubResource("QuadMesh_yud18")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.036426783, 0.91139984)
+shape = SubResource("BoxShape3D_ol3es")
