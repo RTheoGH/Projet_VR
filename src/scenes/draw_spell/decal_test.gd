@@ -67,8 +67,13 @@ func _input(event: InputEvent) -> void:
 		#print("Not drawing")
 		#print(str_ref + "]")
 		
-		#recognizer.AddGesture("res://addons/Gesture_recognizer/resources/gestures/", "grab", draw_rune.get_2d_coordinates(recognizer, 0))
+		#recognizer.AddGesture("res://addons/Gesture_recognizer/resources/gestures/", "pickable", draw_rune.get_2d_coordinates(recognizer, 0))
 		#print("Gesture ajoutée !")
+		if draw_rune.points.size() < 10:
+			draw_rune.points.clear()
+			draw_rune.normals.clear()
+			return
+			
 		var score = recognizer.Recognize(draw_rune.get_2d_coordinates(recognizer, 0), 0.8)
 		$Camera3D/Label3D.text = "Rune reconnue : " + score["name"] + ", score : " + str(score["score"])
 		print(score)

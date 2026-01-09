@@ -9,7 +9,7 @@ func apply_effect_on_object(draw_pos : Vector3, object : RigidBody3D, effect : S
 		activated_rune_effects[object] = [effect]
 		
 	match effect:
-		"grab":
+		"pickable":
 			apply_pickable(object, draw_pos)
 			return
 		"explosion":
@@ -30,6 +30,7 @@ func apply_pickable(object : RigidBody3D, draw_pos : Vector3 = Vector3.ZERO):
 	var normal := (draw_pos - object_pos).normalized()
 	
 	var left_hand = XRToolsGrabPointHand.new()
+	xr_pickable.add_child(left_hand)
 	left_hand.global_position = draw_pos
 	left_hand.hand = XRToolsGrabPointHand.Hand.LEFT
 	
@@ -38,6 +39,7 @@ func apply_pickable(object : RigidBody3D, draw_pos : Vector3 = Vector3.ZERO):
 	left_hand.rotation.z = atan2(normal.x , normal.y)
 	
 	var right_hand = XRToolsGrabPointHand.new()
+	xr_pickable.add_child(right_hand)
 	right_hand.global_position = draw_pos
 	right_hand.hand = XRToolsGrabPointHand.Hand.RIGHT
 	
@@ -45,7 +47,6 @@ func apply_pickable(object : RigidBody3D, draw_pos : Vector3 = Vector3.ZERO):
 	right_hand.rotation.y = atan2(normal.x , normal.z)
 	right_hand.rotation.z = atan2(normal.x , normal.y)
 	
-	xr_pickable.add_child(XRToolsGrabPointHand.new())
 	get_tree().create_timer(15).timeout.connect(pickable_finished.bind(xr_pickable, object, left_hand, right_hand))
 	
 func pickable_finished(object : RigidBody3D, previous_object : RigidBody3D, left_hand : XRToolsGrabPointHand, right_hand : XRToolsGrabPointHand):
