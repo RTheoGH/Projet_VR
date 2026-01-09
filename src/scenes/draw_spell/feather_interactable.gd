@@ -9,11 +9,14 @@ var max_decals = 200 # Technically can have more but it is counted with some typ
 var active_decals : Array[Decal]
 var collision_body : Node3D
 var draw_rune : DrawRune
+var recognizer
 
 var camera : Camera3D
 
 func _ready():
 	camera = get_viewport().get_camera_3d()
+	recognizer = GestureRecognizer.new()
+	recognizer.LoadGesturesFromResources("res://addons/Gesture_recognizer/resources/gestures/")
 
 func _physics_process(delta: float) -> void:
 	if is_drawing:
@@ -39,10 +42,9 @@ func draw_point(body: Node3D):
 func activate(_pressed: bool):
 	is_drawing = _pressed
 	if !is_drawing:
-		var recognizer = GestureRecognizer.new()
-		recognizer.LoadGesturesFromResources("res://addons/Gesture_recognizer/resources/gestures/")
 		var score = recognizer.Recognize(draw_rune.get_2d_coordinates(recognizer, 0), 0.8)
-		RuneEffectManager.apply_effect_on_object(Vector3.ZERO, $tip.get_collider(), score["name"])
+		var rune_pos := draw_rune.get_mean_pos()
+		RuneEffectManager.apply_effect_on_object(rune_pos, $tip.get_collider(), score["name"])
 	else:
 		active_decals.clear()
 		draw_rune.points.clear()

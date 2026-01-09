@@ -13,6 +13,13 @@ func compute_mean_normal() -> Vector3:
 	mean_normal = mean_normal.normalized()
 	return mean_normal
 	
+func get_mean_pos() -> Vector3:
+	var mean_pos := Vector3.ZERO
+	for p in points:
+		mean_pos += p
+	mean_pos /= points.size()
+	return mean_pos
+	
 ## Récup plan orthogonal à la moyenne des normales
 func get_plane() -> Plane:
 	return Plane(mean_normal)

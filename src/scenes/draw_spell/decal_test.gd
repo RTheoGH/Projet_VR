@@ -11,12 +11,15 @@ var active_decals : Array[Decal]
 var str_ref : String
 var draw_rune : DrawRune
 var last_object
+var recognizer
 
 # Bounding box
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	draw_rune = DrawRune.new()
+	recognizer = GestureRecognizer.new()
+	recognizer.LoadGesturesFromResources("res://addons/Gesture_recognizer/resources/gestures/")
 	#await get_tree().create_timer(3).timeout
 	#RuneEffectManager.
 	pass # Replace with function body.
@@ -63,10 +66,9 @@ func _input(event: InputEvent) -> void:
 		is_drawing = false
 		#print("Not drawing")
 		#print(str_ref + "]")
-		var recognizer = GestureRecognizer.new()
+		
 		#recognizer.AddGesture("res://addons/Gesture_recognizer/resources/gestures/", "grab", draw_rune.get_2d_coordinates(recognizer, 0))
 		#print("Gesture ajoutée !")
-		recognizer.LoadGesturesFromResources("res://addons/Gesture_recognizer/resources/gestures/")
 		var score = recognizer.Recognize(draw_rune.get_2d_coordinates(recognizer, 0), 0.8)
 		$Camera3D/Label3D.text = "Rune reconnue : " + score["name"] + ", score : " + str(score["score"])
 		print(score)
