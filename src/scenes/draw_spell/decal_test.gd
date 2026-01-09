@@ -67,7 +67,7 @@ func _input(event: InputEvent) -> void:
 		#print("Not drawing")
 		#print(str_ref + "]")
 		
-		#recognizer.AddGesture("res://addons/Gesture_recognizer/resources/gestures/", "pickable", draw_rune.get_2d_coordinates(recognizer, 0))
+		#recognizer.AddGesture("res://addons/Gesture_recognizer/resources/gestures/", "duplication", draw_rune.get_2d_coordinates(recognizer, 0))
 		#print("Gesture ajoutée !")
 		if draw_rune.points.size() < 10:
 			draw_rune.points.clear()

@@ -3,6 +3,8 @@ extends Node
 var activated_rune_effects : Dictionary = {}
 
 func apply_effect_on_object(draw_pos : Vector3, object : RigidBody3D, effect : String):
+	if object == null:
+		return
 	if activated_rune_effects.keys().has(object) :
 		activated_rune_effects[object].append(effect)
 	else :
@@ -23,6 +25,7 @@ func apply_effect_on_object(draw_pos : Vector3, object : RigidBody3D, effect : S
 
 func apply_pickable(object : RigidBody3D, draw_pos : Vector3 = Vector3.ZERO):
 	var xr_pickable := XRToolsPickable.new()
+	print(object)
 	var object_pos := object.global_position
 	object.replace_by(xr_pickable)
 	xr_pickable.global_position = object_pos

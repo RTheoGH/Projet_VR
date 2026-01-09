@@ -49,7 +49,9 @@ func activate(_pressed: bool):
 			
 		var score = recognizer.Recognize(draw_rune.get_2d_coordinates(recognizer, 0), 0.8)
 		var rune_pos := draw_rune.get_mean_pos()
-		RuneEffectManager.apply_effect_on_object(rune_pos, $tip.get_collider(), score["name"])
+		var collider = $tip.get_collider()
+		if is_instance_of(collider, RigidBody3D):
+			RuneEffectManager.apply_effect_on_object(rune_pos, $tip.get_collider(), score["name"])
 	else:
 		active_decals.clear()
 		draw_rune.points.clear()
