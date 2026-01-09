@@ -1,0 +1,21 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://dri3mr85pps1s"]
+
+[ext_resource type="Texture2D" uid="uid://b557nmna2ytsa" path="res://Assets/materials/aerial_rocks_01/aerial_rocks_01_diff_4k.jpg" id="1_rf0x3"]
+[ext_resource type="Texture2D" uid="uid://bbdsbs35ygwes" path="res://Assets/materials/aerial_rocks_01/aerial_rocks_01_ao_4k.jpg" id="2_o07s4"]
+[ext_resource type="Texture2D" uid="uid://ds28jiylx34w" path="res://Assets/materials/aerial_rocks_01/aerial_rocks_01_disp_4k.jpg" id="3_eyytv"]
+[ext_resource type="Texture2D" uid="uid://b723mvr4203wt" path="res://Assets/materials/aerial_rocks_01/aerial_rocks_01_nor_gl_4k.jpg" id="4_p5gci"]
+[ext_resource type="Texture2D" uid="uid://crm6n4d2asc1b" path="res://Assets/materials/aerial_rocks_01/aerial_rocks_01_rough_4k.jpg" id="5_ptny8"]
+
+[resource]
+albedo_texture = ExtResource("1_rf0x3")
+roughness_texture = ExtResource("5_ptny8")
+normal_enabled = true
+normal_texture = ExtResource("4_p5gci")
+ao_enabled = true
+ao_texture = ExtResource("2_o07s4")
+heightmap_enabled = true
+heightmap_scale = -1.943
+heightmap_texture = ExtResource("3_eyytv")
+uv1_scale = Vector3(0.12, 0.12, 0.12)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 1.4640836

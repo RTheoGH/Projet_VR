@@ -37,7 +37,20 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"materials": {
+"Material": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/materials/aerial_rocks_01/aerial_rocks.tres",
+"use_external/path": "uid://dri3mr85pps1s"
+},
+"Material.001": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/materials/Tiles083AmbientCG/mossy_tiles.tres",
+"use_external/path": "uid://v8pcuy40glly"
+}
+}
+}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true
