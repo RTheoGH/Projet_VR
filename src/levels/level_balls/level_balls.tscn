@@ -220,7 +220,7 @@ process_material = SubResource("ParticleProcessMaterial_la4ae")
 [node name="OmniLight3D" type="OmniLight3D" parent="Portal"]
 transform = Transform3D(2.020202, 0, 0, 0, 2.020202, 0, 0, 0, 2.020202, -0.12974644, 1.9967823, 1.817276)
 light_color = Color(2.0214916e-06, 0.49184072, 0.76046115, 1)
-light_energy = 4.7497964
+light_energy = 5.008152
 script = ExtResource("6_05cjr")
 base_energy = 6.25
 flicker_strength = 0.72
