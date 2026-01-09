@@ -42,8 +42,7 @@ func activate(_pressed: bool):
 		var recognizer = GestureRecognizer.new()
 		recognizer.LoadGesturesFromResources("res://addons/Gesture_recognizer/resources/gestures/")
 		var score = recognizer.Recognize(draw_rune.get_2d_coordinates(recognizer, 0), 0.8)
-		if score["name"] == "grab":
-			RuneEffectManager.apply_pickable($tip.get_collider())
+		RuneEffectManager.apply_effect_on_object(Vector3.ZERO, $tip.get_collider(), score["name"])
 	else:
 		active_decals.clear()
 		draw_rune.points.clear()

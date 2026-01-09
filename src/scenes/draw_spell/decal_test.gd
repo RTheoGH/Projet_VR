@@ -70,8 +70,7 @@ func _input(event: InputEvent) -> void:
 		var score = recognizer.Recognize(draw_rune.get_2d_coordinates(recognizer, 0), 0.8)
 		$Camera3D/Label3D.text = "Rune reconnue : " + score["name"] + ", score : " + str(score["score"])
 		print(score)
-		if score["name"] == "grab":
-			RuneEffectManager.apply_pickable($RigidBody3D)
+		RuneEffectManager.apply_effect_on_object(Vector3.ZERO, $RigidBody3D, score["name"])
 
 func detect_draw():
 	pass

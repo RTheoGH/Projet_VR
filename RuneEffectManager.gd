@@ -46,7 +46,7 @@ func apply_explosion(object : RigidBody3D):
 	pass
 
 func apply_gravity(object : RigidBody3D):
-	object.gravity_scale = -0.1
+	object.gravity_scale = -0.01
 	get_tree().create_timer(10).timeout.connect(gravity_finished.bind(object))
 
 func gravity_finished(object : RigidBody3D):
