@@ -1,0 +1,87 @@
+[gd_scene load_steps=16 format=3 uid="uid://cbtk71x3cwrx6"]
+
+[ext_resource type="PackedScene" uid="uid://bmpuau1seojve" path="res://Assets/Packs/fantasyprops/Torch_Metal.gltf" id="1_8aiu0"]
+[ext_resource type="Shader" uid="uid://ba5nnnd3p0ufg" path="res://src/shaders/torch_metal.tres" id="2_wu81m"]
+[ext_resource type="Texture2D" uid="uid://c73y8c5wcxa5v" path="res://Assets/textures/Voronoi01.png" id="3_i1ruj"]
+[ext_resource type="Texture2D" uid="uid://cqp4r7h5rkofa" path="res://Assets/textures/Flame01.png" id="4_dqs0r"]
+[ext_resource type="Texture2D" uid="uid://b3216jgo2pucj" path="res://Assets/textures/Flame02.png" id="5_sim3k"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2w6xy"]
+render_priority = 0
+shader = ExtResource("2_wu81m")
+shader_parameter/main = ExtResource("4_dqs0r")
+shader_parameter/DissolveTiling = Vector2(0.25, 0.2)
+shader_parameter/DissolveSpeed = Vector2(0, 0.2)
+shader_parameter/dissolve = ExtResource("3_i1ruj")
+shader_parameter/DIssolveAmount = 0.50000002375
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7an1u"]
+gravity = Vector3(0, 0, 0)
+color = Color(7.9112988, 2.1370091, 1.3671039, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_r2j05"]
+size = Vector2(0.3, 0.3)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qasd0"]
+render_priority = 0
+shader = ExtResource("2_wu81m")
+shader_parameter/main = ExtResource("5_sim3k")
+shader_parameter/DissolveTiling = Vector2(1, 1)
+shader_parameter/DissolveSpeed = Vector2(0, 0)
+shader_parameter/dissolve = ExtResource("3_i1ruj")
+shader_parameter/DIssolveAmount = 0.0
+
+[sub_resource type="Curve" id="Curve_8aiu0"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_oww3n"]
+curve = SubResource("Curve_8aiu0")
+
+[sub_resource type="Curve" id="Curve_45e3j"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.20207256, 1), 0.0, 0.0, 0, 0, Vector2(0.849741, 0.10112369), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_s7x41"]
+curve = SubResource("Curve_45e3j")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lpw4x"]
+emission_shape = 1
+emission_sphere_radius = 0.1
+angle_min = -360.0
+angle_max = 360.00003
+gravity = Vector3(0, 5, 0)
+linear_accel_min = -1.0000023
+linear_accel_max = 9.999997
+linear_accel_curve = SubResource("CurveTexture_oww3n")
+scale_min = 0.75
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_s7x41")
+color = Color(7.9112988, 2.1370091, 1.3671039, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_v0xmx"]
+size = Vector2(0.3, 0.3)
+
+[node name="Torch_Metal2" instance=ExtResource("1_8aiu0")]
+
+[node name="Torch_Metal" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.033842295, 0)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23353222, 0.27187195)
+material_override = SubResource("ShaderMaterial_2w6xy")
+amount = 1
+lifetime = 5.0
+process_material = SubResource("ParticleProcessMaterial_7an1u")
+draw_pass_1 = SubResource("QuadMesh_r2j05")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17140652, 0.2693683)
+material_override = SubResource("ShaderMaterial_qasd0")
+amount = 10
+lifetime = 0.6
+speed_scale = 0.6
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_lpw4x")
+draw_pass_1 = SubResource("QuadMesh_v0xmx")
