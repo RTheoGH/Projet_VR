@@ -42,13 +42,11 @@ light_energy = 0.8
 transform = Transform3D(1, 0, 0, 0, 0.10326121, 0.9946543, 0, -0.9946543, 0.10326121, 0, 1.0174588, 25.00563)
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9851006, 24.282688)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9851006, 25.006676)
 gravity_scale = 0.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03809452, 0.90771484)
 mesh = SubResource("QuadMesh_yud18")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.036426783, 0.91139984)
 shape = SubResource("BoxShape3D_ol3es")

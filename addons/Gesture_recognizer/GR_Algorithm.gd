@@ -157,7 +157,6 @@ func Recognize(original_points: Array, min_score_lim: float) -> Dictionary:
 		print("No gesture templates available for recognition.")
 		return {"name": "No Templates", "score": INF}
 	
-	print("(", original_points[-1].x, " ", original_points[-1].y, ")")
 	var gesture_LUT = Gesture.new("", original_points).LUT
 	var best_score = -INF
 	var best_match = null
@@ -191,8 +190,8 @@ func AccuracyScore(LUT1: Array, LUT2: Array, template_name: String) -> float:
 			#fn += A & (1 - B)  # False Negative: A is 1, but B is 0 
 	
 	var accuracy = float(tp + tn) / total
-	print("------------------------------\nTemplate:", template_name)
-	print("  Accuracy: ", accuracy)
+	#print("------------------------------\nTemplate:", template_name)
+	#print("  Accuracy: ", accuracy)
 	
 	return accuracy
 
