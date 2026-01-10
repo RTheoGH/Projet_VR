@@ -14,9 +14,10 @@ func _ready():
 		1.0,
 		3.5
 	)
-	test()
+	#test()
 	
 func test():
+	
 	await musicTween.finished
 	await nextLevel()
 	await get_tree().create_timer(2.5).timeout
@@ -27,7 +28,8 @@ func test():
 	await nextLevel()
 	await get_tree().create_timer(2.5).timeout
 #################
-
+func _process(delta: float) -> void:
+	print(music_lerp_value)
 var fadeTween: Tween
 func fade_to_black(time:float):
 	if time <= 0:
@@ -65,6 +67,7 @@ func fade_from_black(time:float) -> void:
 
 var music_lerp_value:= 0.0: # 0 = only hub ambience, 1 = only dungeon music
 	set(v):
+		music_lerp_value = v
 		dungeon_music.volume_linear = v
 		hub_ambience.volume_linear 	= 1.0-v
 		
@@ -95,7 +98,7 @@ func fade_to_music() -> void:
 var hub: PackedScene = preload("res://src/levels/hub.tscn")
 var levels: Array[PackedScene] = [
 	preload("res://src/levels/level_balls/level_balls.tscn"),
-	preload("res://src/levels/level_balls/level_book.tscn"),
+	preload("res://src/levels/level_book/level_book.tscn"),
 	preload("res://src/tests/balls/balls.tscn") #TODO put the right one
 ]
 var levels_permutation = [0,1,2]
