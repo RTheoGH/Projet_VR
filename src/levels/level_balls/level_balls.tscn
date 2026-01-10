@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bsxjsfvyuuoyw" path="res://src/scenes/portal/portal.tscn" id="3_qdqvf"]
 [ext_resource type="Texture2D" uid="uid://72xkoncofey" path="res://Assets/materials/wallByBogey/wallByBogey_albedo.png" id="4_05cjr"]
 [ext_resource type="Texture2D" uid="uid://dlbj10tdug01k" path="res://Assets/materials/wallByBogey/wallByBogey_heightmap.png" id="5_wu35s"]
-[ext_resource type="Script" uid="uid://dbva8wdromhk7" path="res://src/classes/light_flicker.gd" id="6_05cjr"]
+[ext_resource type="Script" path="res://src/classes/light_flicker.gd" id="6_05cjr"]
 [ext_resource type="PackedScene" uid="uid://c17131quqte6e" path="res://src/scenes/objets/crate.tscn" id="7_8f7r2"]
 [ext_resource type="PackedScene" uid="uid://00n18ca1dd4y" path="res://src/scenes/objets/crate_metal.tscn" id="8_b8uio"]
 
@@ -222,7 +222,7 @@ process_material = SubResource("ParticleProcessMaterial_la4ae")
 [node name="OmniLight3D" type="OmniLight3D" parent="Portal"]
 transform = Transform3D(2.020202, 0, 0, 0, 2.020202, 0, 0, 0, 2.020202, -0.12974644, 1.9967823, 1.817276)
 light_color = Color(2.0214916e-06, 0.49184072, 0.76046115, 1)
-light_energy = 4.652639
+light_energy = 4.2685027
 script = ExtResource("6_05cjr")
 base_energy = 6.25
 flicker_strength = 0.72
@@ -292,6 +292,9 @@ transform = Transform3D(0.96821314, 0, 0.25012654, 0, 1, 0, -0.25012654, 0, 0.96
 
 [node name="CrateMetal4" parent="DynamicProps" instance=ExtResource("8_b8uio")]
 transform = Transform3D(0.7688976, 0, 0.6393719, 0, 1, 0, -0.6393719, 0, 0.7688976, -9.544945, 2.145062, 6.9734592)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.9370018, 3.4906038e-09, 0.34932443, 0.05725825, 0.9864751, -0.15358527, -0.34459984, 0.16391139, 0.924329, -16.846191, 4.5623283, -6.7921324)
 
 [editable path="Portal"]
 [editable path="Portal/Portal2"]

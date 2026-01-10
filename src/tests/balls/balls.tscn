@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://cbeofjcj6xxiv"]
+[gd_scene load_steps=31 format=4 uid="uid://cbeofjcj6xxiv"]
 
 [ext_resource type="Material" uid="uid://bwkidg8s7g2wx" path="res://Assets/materials/parallaxIce/ParallaxIceByDroppedBeat.tres" id="1_bbsvl"]
 [ext_resource type="PackedScene" uid="uid://dyqw7qw8os4rv" path="res://Assets/Packs/fantasyprops/Cauldron.gltf" id="1_y80xq"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://m82mjqo6dsc1" path="res://Assets/Packs/fantasyprops/T_Trim_Metal_BaseColor.png" id="18_8l2cq"]
 [ext_resource type="Texture2D" uid="uid://brn5dd4gpeawi" path="res://Assets/Packs/fantasyprops/T_Trim_Metal_ORM.png" id="19_plgra"]
 [ext_resource type="Texture2D" uid="uid://dqrecnfwitku4" path="res://Assets/Packs/fantasyprops/T_Trim_Metal_Normal.png" id="20_jsp06"]
+[ext_resource type="VideoStream" uid="uid://c8ec55ld4dj03" path="res://Assets/YTDown.com_YouTube_you-re-finally-awake-1080p-60Fps_Media__WZCvQ5J3pk_004_360p.ogv" id="21_bogct"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cl3cs"]
 sky_top_color = Color(0.32795975, 0.3953401, 0.8315651, 1)
@@ -345,3 +346,15 @@ mesh = SubResource("ArrayMesh_2bc2y")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="testcube8"]
 shape = SubResource("BoxShape3D_y0bif")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+z_index = -2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("21_bogct")
+speed_scale = 10.0
+autoplay = true
+expand = true

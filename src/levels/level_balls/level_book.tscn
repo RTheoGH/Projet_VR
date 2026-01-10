@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://72xkoncofey" path="res://Assets/materials/wallByBogey/wallByBogey_albedo.png" id="4_1h61k"]
 [ext_resource type="PackedScene" uid="uid://budbnxo66d541" path="res://Assets/Packs/fantasyprops/BookGroup_Small_3.gltf" id="5_g1rtv"]
 [ext_resource type="Texture2D" uid="uid://dlbj10tdug01k" path="res://Assets/materials/wallByBogey/wallByBogey_heightmap.png" id="5_y546b"]
-[ext_resource type="Script" uid="uid://dbva8wdromhk7" path="res://src/classes/light_flicker.gd" id="6_eo6sx"]
+[ext_resource type="Script" path="res://src/classes/light_flicker.gd" id="6_eo6sx"]
 [ext_resource type="Shader" uid="uid://dxh8m0j0csg3g" path="res://src/scenes/portal/portal.tres" id="6_ouh25"]
 [ext_resource type="PackedScene" uid="uid://d4nl1ds0v8hd0" path="res://Assets/Packs/fantasyprops/BookGroup_Small_2.gltf" id="6_ytocx"]
 [ext_resource type="PackedScene" uid="uid://dxp4ba453tyxp" path="res://Assets/Packs/fantasyprops/BookGroup_Medium_3.gltf" id="7_l50dk"]
@@ -401,7 +401,7 @@ process_material = SubResource("ParticleProcessMaterial_la4ae")
 [node name="OmniLight3D" type="OmniLight3D" parent="Portal"]
 transform = Transform3D(2.020202, 0, 0, 0, 2.020202, 0, 0, 0, 2.020202, -0.12974644, 1.9967823, 1.817276)
 light_color = Color(0.75338805, 0.29782987, 0.22590923, 1)
-light_energy = 3.6907089
+light_energy = 3.8160865
 script = ExtResource("6_eo6sx")
 base_energy = 6.25
 flicker_strength = 0.72
@@ -414,7 +414,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.525389, 5.295786, -9.1483
 transform = Transform3D(-0.2266002, 0.33258718, -0.91544425, -0.047024183, 0.93506104, 0.351354, 0.97285205, 0.12266491, -0.19624531, -15.650568, 0.810936, 7.120592)
 
 [node name="Book" parent="." instance=ExtResource("14_ytocx")]
-transform = Transform3D(-0.026749488, -0.060891513, -0.07718155, -0.0023643747, 0.08036296, -0.062582016, 0.09828111, -0.01463973, -0.022512296, -14.195333, 5.7965784, -6.770516)
+transform = Transform3D(-0.25184336, -0.7497872, -0.61187726, -0.07775256, 0.64588845, -0.759462, 0.9646395, -0.14369042, -0.22096062, -14.195333, 5.805016, -6.731009)
 
 [node name="DynamicProps1" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.139521, 5.658057, -1.8655059)

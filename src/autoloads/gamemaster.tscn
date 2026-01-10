@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqiq3kl3tc3ao"]
+
+[ext_resource type="Script" uid="uid://dcktc3yhdh6dr" path="res://src/autoloads/gamemaster.gd" id="1_2sy1y"]
+[ext_resource type="AudioStream" uid="uid://bw28ftfq5dcof" path="res://Assets/sounds/musque.mp3" id="2_eq5kl"]
+[ext_resource type="AudioStream" uid="uid://dotrbugckrnaj" path="res://Assets/sounds/amb.mp3" id="3_kqmal"]
+
+[node name="Gamemaster" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_2sy1y")
+
+[node name="FadeRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="DungeonMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_eq5kl")
+volume_db = -80.0
+autoplay = true
+bus = &"Music + ambience"
+
+[node name="HubAmbience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_kqmal")
+autoplay = true
+bus = &"Music + ambience"
