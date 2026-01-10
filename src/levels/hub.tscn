@@ -783,6 +783,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.102898, 0, -33.997124)
 [node name="Portal" parent="Zone1" instance=ExtResource("19_qik6l")]
 transform = Transform3D(0.62337476, 0, 0.7819232, 0, 1, 0, -0.7819232, 0, 0.62337476, -9.443712, 0.49768913, -4.791712)
 
+[node name="Portal" parent="Zone1/Portal/PortalFrame" index="0"]
+surface_material_override/0 = null
+surface_material_override/1 = null
+
 [node name="PortalDoor" parent="Zone1/Portal/Node3D" index="0"]
 material_override = SubResource("ShaderMaterial_6y7ho")
 
@@ -790,7 +794,7 @@ material_override = SubResource("ShaderMaterial_6y7ho")
 material_override = SubResource("StandardMaterial3D_0c7eu")
 
 [node name="OmniLight3D" parent="Zone1/Portal" index="4"]
-light_energy = 6.3155375
+light_energy = 5.926453
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Zone1/Portal"]
 transform = Transform3D(1, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 1, -0.007568598, 1.5390416, 0)
@@ -1450,6 +1454,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2493706, 0, 3.1446877)
 [node name="Portal2" parent="Zone2" instance=ExtResource("19_qik6l")]
 transform = Transform3D(-0.50000006, 0, 0.8660254, 0, 1, 0, -0.8660254, 0, -0.50000006, -9.10294, 2.962935, 4.819664)
 
+[node name="Portal" parent="Zone2/Portal2/PortalFrame" index="0"]
+surface_material_override/0 = null
+surface_material_override/1 = null
+
 [node name="PortalDoor" parent="Zone2/Portal2/Node3D" index="0"]
 material_override = SubResource("ShaderMaterial_32jlu")
 
@@ -1457,7 +1465,7 @@ material_override = SubResource("ShaderMaterial_32jlu")
 material_override = SubResource("StandardMaterial3D_ptnox")
 
 [node name="OmniLight3D" parent="Zone2/Portal2" index="4"]
-light_energy = 7.609941
+light_energy = 6.249473
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Zone2/Portal2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012299061, 1.5069829, -0.15283489)

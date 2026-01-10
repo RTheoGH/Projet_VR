@@ -5,6 +5,7 @@ extends Node3D
 @export var color:Color:
 	set(v):
 		color = v
+		if portal_door_material == null: return
 		portal_door_material.set_shader_parameter("Portal_Color", v)
 		portal_particle_material.albedo_color = v * 4.0
 		omni_light_3d.light_color = v
@@ -21,6 +22,8 @@ func _ready():
 	color = color
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
+	if !body.is_in_group("player"): return
+	
 	if not use_override_instead_of_next: 
 		Gamemaster.nextLevel()
 	else:

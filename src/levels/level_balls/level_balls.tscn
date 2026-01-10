@@ -73,7 +73,7 @@ transform = Transform3D(-0.9746332, -0.007858518, 0.22366974, 0.008165533, 0.997
 
 [node name="StaticProps" type="Node3D" parent="."]
 
-[node name="Portal_Portal2#Portal" parent="." instance=ExtResource("3_qdqvf")]
+[node name="Portal_Portal" parent="." instance=ExtResource("3_qdqvf")]
 transform = Transform3D(0.2687916, 0, 0.41566345, 0, 0.49499997, 0, -0.41566345, 0, 0.2687916, -21.131021, 4.6072383, -9.680573)
 
 [node name="SpawnNode" type="Marker3D" parent="."]
