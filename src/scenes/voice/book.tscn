@@ -42,6 +42,9 @@ shape = SubResource("BoxShape3D_5sjlb")
 [node name="pointeur" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15232861, -0.18016648)
 
+[node name="RayCast3D" type="RayCast3D" parent="pointeur"]
+transform = Transform3D(1, 0, 0, 0, -0.06651776, -0.9977852, 0, 0.9977852, -0.06651776, 0, 0, 0)
+
 [node name="Decal2" type="Decal" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.10228291, 0.0013196841, 0.0030273588)
 size = Vector3(1.9453735, 0.5500488, 2.0605469)
