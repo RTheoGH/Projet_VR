@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2htk0gbblko"]
+
+[ext_resource type="Script" uid="uid://kucg13q7eeq8" path="res://src/scenes/questions/questions.gd" id="1_f0g6l"]
+
+[node name="Questions" type="Node3D"]
+script = ExtResource("1_f0g6l")
+
+[node name="Question" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.82172227, 0)
+text = "HELLO
+"
+
+[node name="Answers" type="Node3D" parent="."]

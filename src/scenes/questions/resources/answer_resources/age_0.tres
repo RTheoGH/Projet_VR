@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Answer" load_steps=2 format=3 uid="uid://b8nxjfmdvr1c0"]
+
+[ext_resource type="Script" uid="uid://2cytqirrcfcn" path="res://src/scenes/questions/answer_res.gd" id="1_w8e5x"]
+
+[resource]
+script = ExtResource("1_w8e5x")
+value_text = "Under 18"
+value = "11.5"
+metadata/_custom_type_script = "uid://2cytqirrcfcn"
