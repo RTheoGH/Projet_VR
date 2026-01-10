@@ -1,4 +1,4 @@
-[gd_scene load_steps=102 format=3 uid="uid://b7px801c0ohkr"]
+[gd_scene load_steps=99 format=3 uid="uid://b7px801c0ohkr"]
 
 [ext_resource type="Script" uid="uid://bda28yntj2wuf" path="res://src/levels/hub.gd" id="1_lg4k7"]
 [ext_resource type="PackedScene" uid="uid://dxx722tqqoo7j" path="res://src/scenes/voice/book.tscn" id="4_jro34"]
@@ -22,7 +22,6 @@
 [ext_resource type="PackedScene" uid="uid://cdhwgi68fnjii" path="res://Assets/Packs/fantasyprops/Stall_Cart_Empty.gltf" id="19_b606k"]
 [ext_resource type="PackedScene" uid="uid://bsxjsfvyuuoyw" path="res://src/scenes/portal/portal.tscn" id="19_qik6l"]
 [ext_resource type="PackedScene" uid="uid://b5teax0lqtyxh" path="res://Assets/Packs/fantasyprops/Stall_Empty.gltf" id="20_2p3ra"]
-[ext_resource type="Shader" uid="uid://dxh8m0j0csg3g" path="res://src/scenes/portal/portal.tres" id="20_aom7o"]
 [ext_resource type="PackedScene" uid="uid://beli1dpa2dht4" path="res://Assets/Packs/stand1.glb" id="21_fg0r8"]
 [ext_resource type="PackedScene" uid="uid://dh4l65p1gvfgq" path="res://Assets/Packs/fantasyprops/Chair_1.gltf" id="21_s3kf6"]
 [ext_resource type="PackedScene" uid="uid://bbfdmhyqylyvt" path="res://Assets/Packs/stand2.glb" id="22_0c7eu"]
@@ -45,6 +44,7 @@
 [ext_resource type="Texture2D" uid="uid://cwhlgr3cpx56d" path="res://Assets/textures/glyphes.png" id="39_hpxjf"]
 [ext_resource type="PackedScene" uid="uid://dpg3elde2lsdg" path="res://Assets/Packs/FBX/Rock1.fbx" id="40_03qc7"]
 [ext_resource type="PackedScene" uid="uid://3t0jask80wgl" path="res://Assets/Packs/FBX/Rock5.fbx" id="41_wnsun"]
+[ext_resource type="Shader" uid="uid://dxh8m0j0csg3g" path="res://src/scenes/portal/portal.tres" id="42_0bmb6"]
 [ext_resource type="PackedScene" uid="uid://dfuhmqrig7mdq" path="res://src/scenes/panneau/panneau.tscn" id="42_l0i64"]
 [ext_resource type="PackedScene" uid="uid://me66ssxixr0w" path="res://Assets/Packs/FBX/Rock4.fbx" id="42_u3rqd"]
 [ext_resource type="AudioStream" uid="uid://gffb11dp24q5" path="res://Assets/sounds/portal.wav" id="43_1el7f"]
@@ -71,6 +71,7 @@ ambient_light_sky_contribution = 0.15
 ambient_light_energy = 0.4
 tonemap_mode = 3
 glow_enabled = true
+glow_strength = 0.88
 fog_sky_affect = 0.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_orc64"]
@@ -173,14 +174,12 @@ albedo_texture = SubResource("NoiseTexture2D_6y7ho")
 
 [sub_resource type="BoxMesh" id="BoxMesh_h6kcb"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8e8m2"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6y7ho"]
+resource_local_to_scene = true
 render_priority = 0
-shader = ExtResource("20_aom7o")
-shader_parameter/Color_Intensity = 2.0
-shader_parameter/Portal_Color = Color(0.24705882, 0.49411765, 0.22352941, 1)
-
-[sub_resource type="QuadMesh" id="QuadMesh_fg0r8"]
-size = Vector2(2.5, 3.5)
+shader = ExtResource("42_0bmb6")
+shader_parameter/Color_Intensity = 10.0
+shader_parameter/Portal_Color = Color(0.1760858, 0.28019315, 0.47748005, 1)
 
 [sub_resource type="Gradient" id="Gradient_h46dg"]
 offsets = PackedFloat32Array(0.115, 1)
@@ -193,30 +192,25 @@ fill_from = Vector2(0, 1)
 blend_mode = 1
 cull_mode = 2
 shading_mode = 0
-albedo_color = Color(0.24705882, 0.49411765, 0.22352941, 1)
+albedo_color = Color(0.7043432, 1.1207726, 1.9099202, 4)
 albedo_texture = SubResource("GradientTexture2D_i4rwx")
 use_particle_trails = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qe1nb"]
 size = Vector3(2.052246, 2.939209, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_pgtoj"]
-size = Vector3(1.9445801, 2.980957, 0.7503662)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_sjvgk"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_32jlu"]
+resource_local_to_scene = true
 render_priority = 0
-shader = ExtResource("20_aom7o")
-shader_parameter/Color_Intensity = 2.0
-shader_parameter/Portal_Color = Color(0.75686276, 0.28235295, 0.22352941, 1)
-
-[sub_resource type="QuadMesh" id="QuadMesh_ohqwh"]
-size = Vector2(2.5, 3.5)
+shader = ExtResource("42_0bmb6")
+shader_parameter/Color_Intensity = 10.0
+shader_parameter/Portal_Color = Color(0.1760858, 0.28019315, 0.47748005, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ptnox"]
 blend_mode = 1
 cull_mode = 2
 shading_mode = 0
-albedo_color = Color(0.75686276, 0.28235295, 0.22352941, 1)
+albedo_color = Color(0.7043432, 1.1207726, 1.9099202, 4)
 albedo_texture = SubResource("GradientTexture2D_i4rwx")
 use_particle_trails = true
 
@@ -630,63 +624,26 @@ transform = Transform3D(-0.047263402, 0, -0.9988825, 0, 1, 0, 0.9988825, 0, -0.0
 [node name="Shield_Wooden3" parent="Interieur/panneau" instance=ExtResource("53_6y7ho")]
 transform = Transform3D(0.09754811, 0, -0.99523085, 0, 1, 0, 0.99523085, 0, 0.09754811, -0.15380192, 3.3510513, 3.039595)
 
-[node name="Portal" parent="Interieur" instance=ExtResource("19_qik6l")]
-transform = Transform3D(0.36547798, 0, -0.9308199, 0, 1, 0, 0.9308199, 0, 0.36547798, 5.224251, 0.3810823, -17.253304)
-
-[node name="MeshInstance3D" parent="Interieur/Portal/Node3D" index="0"]
-material_override = SubResource("ShaderMaterial_8e8m2")
-mesh = SubResource("QuadMesh_fg0r8")
-
-[node name="GPUParticles3D" parent="Interieur/Portal/Node3D" index="1"]
-material_override = SubResource("StandardMaterial3D_0c7eu")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Interieur/Portal"]
-transform = Transform3D(1, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 1, -0.007568598, 1.5390416, 0)
-shape = SubResource("BoxShape3D_qe1nb")
-
-[node name="Portal3" parent="Interieur" instance=ExtResource("19_qik6l")]
+[node name="StartPortal" parent="Interieur" instance=ExtResource("19_qik6l")]
 transform = Transform3D(-3.7494846e-08, 0, 0.857782, 0, 0.857782, 0, -0.857782, 0, -3.7494846e-08, -10.371927, 0.39328527, 0.047949076)
+color = Color(0.6976765, 0.56395966, 0.18131831, 1)
 
-[node name="Area3D" type="Area3D" parent="Interieur/Portal3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7075377, 0)
+[node name="DebugPortal1" parent="Interieur" instance=ExtResource("19_qik6l")]
+transform = Transform3D(-0.08611822, 0, 0.8534481, 0, 0.8577821, 0, -0.8534481, 0, -0.08611822, 0.17837107, 0.33146274, -14.473132)
+color = Color(0.29499096, 0.5318585, 1.92523e-07, 1)
+use_override_instead_of_next = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Interieur/Portal3/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.055786114, -0.2175293, -0.024230957)
-shape = SubResource("BoxShape3D_pgtoj")
+[node name="DebugPortal2" parent="Interieur" instance=ExtResource("19_qik6l")]
+transform = Transform3D(0.6325431, 0, 0.7745251, 0, 1, 0, -0.7745251, 0, 0.6325431, 1.1233002, 0.31854677, -19.415339)
+color = Color(0.21830282, 0.4248997, 0.39711106, 1)
+use_override_instead_of_next = true
+override_destination = 1
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Interieur/Portal3"]
-transform = Transform3D(1.1657974, 0, -2.1316282e-14, 0, 1.1657974, 0, 2.1316282e-14, 0, 1.1657974, -5.2154064e-08, 1.6070648, 1.1765928)
-light_color = Color(0.37185442, 0.40406856, 1, 1)
-omni_range = 3.0
-
-[node name="Portal2" parent="Interieur" instance=ExtResource("19_qik6l")]
-transform = Transform3D(0.9659258, 0, -0.25881898, 0, 1, 0, 0.25881898, 0, 0.9659258, 1.3907626, 0.31854677, -21.364523)
-
-[node name="MeshInstance3D" parent="Interieur/Portal2/Node3D" index="0"]
-material_override = SubResource("ShaderMaterial_sjvgk")
-mesh = SubResource("QuadMesh_ohqwh")
-
-[node name="GPUParticles3D" parent="Interieur/Portal2/Node3D" index="1"]
-material_override = SubResource("StandardMaterial3D_ptnox")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Interieur/Portal2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012299061, 1.5069829, -0.15283489)
-shape = SubResource("BoxShape3D_dl7et")
-
-[node name="Portal4" parent="Interieur" instance=ExtResource("19_qik6l")]
-transform = Transform3D(0.74286103, 0, 0.428891, 0, 0.857782, 0, -0.428891, 0, 0.74286103, -3.5036983, 0.33146274, -20.19724)
-
-[node name="Area3D" type="Area3D" parent="Interieur/Portal4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7075377, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Interieur/Portal4/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.055786114, -0.2175293, -0.024230957)
-shape = SubResource("BoxShape3D_pgtoj")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Interieur/Portal4"]
-transform = Transform3D(1.1657974, 0, -2.1316282e-14, 0, 1.1657974, 0, 2.1316282e-14, 0, 1.1657974, -5.2154064e-08, 1.6070648, 1.1765928)
-light_color = Color(0.37185442, 0.40406856, 1, 1)
-omni_range = 3.0
+[node name="DebugPortal3" parent="Interieur" instance=ExtResource("19_qik6l")]
+transform = Transform3D(0.9988053, 0, -0.048867226, 0, 1, 0, 0.048867226, 0, 0.9988053, 6.445862, 0.3810823, -21.223125)
+color = Color(0.9153403, 0.12045174, 3.85046e-07, 1)
+use_override_instead_of_next = true
+override_destination = 2
 
 [node name="stand1" parent="Interieur" instance=ExtResource("21_fg0r8")]
 transform = Transform3D(0.5037818, 0, 0.6214531, 0, 0.8, 0, -0.6214531, 0, 0.5037818, 4.429985, 0.015873326, -1.6904659)
@@ -826,12 +783,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.102898, 0, -33.997124)
 [node name="Portal" parent="Zone1" instance=ExtResource("19_qik6l")]
 transform = Transform3D(0.62337476, 0, 0.7819232, 0, 1, 0, -0.7819232, 0, 0.62337476, -9.443712, 0.49768913, -4.791712)
 
-[node name="MeshInstance3D" parent="Zone1/Portal/Node3D" index="0"]
-material_override = SubResource("ShaderMaterial_8e8m2")
-mesh = SubResource("QuadMesh_fg0r8")
+[node name="PortalDoor" parent="Zone1/Portal/Node3D" index="0"]
+material_override = SubResource("ShaderMaterial_6y7ho")
 
 [node name="GPUParticles3D" parent="Zone1/Portal/Node3D" index="1"]
 material_override = SubResource("StandardMaterial3D_0c7eu")
+
+[node name="OmniLight3D" parent="Zone1/Portal" index="4"]
+light_energy = 6.3155375
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Zone1/Portal"]
 transform = Transform3D(1, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 1, -0.007568598, 1.5390416, 0)
@@ -1491,12 +1450,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2493706, 0, 3.1446877)
 [node name="Portal2" parent="Zone2" instance=ExtResource("19_qik6l")]
 transform = Transform3D(-0.50000006, 0, 0.8660254, 0, 1, 0, -0.8660254, 0, -0.50000006, -9.10294, 2.962935, 4.819664)
 
-[node name="MeshInstance3D" parent="Zone2/Portal2/Node3D" index="0"]
-material_override = SubResource("ShaderMaterial_sjvgk")
-mesh = SubResource("QuadMesh_ohqwh")
+[node name="PortalDoor" parent="Zone2/Portal2/Node3D" index="0"]
+material_override = SubResource("ShaderMaterial_32jlu")
 
 [node name="GPUParticles3D" parent="Zone2/Portal2/Node3D" index="1"]
 material_override = SubResource("StandardMaterial3D_ptnox")
+
+[node name="OmniLight3D" parent="Zone2/Portal2" index="4"]
+light_energy = 7.609941
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Zone2/Portal2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012299061, 1.5069829, -0.15283489)
@@ -1850,14 +1811,13 @@ transform = Transform3D(0.12663177, 0, -0.99194974, 0, 1, 0, 0.99194974, 0, 0.12
 [node name="dummy2" parent="." instance=ExtResource("55_0bmb6")]
 transform = Transform3D(0.9863719, 0, -0.16453114, 0, 1, 0, 0.16453114, 0, 0.9863719, -6.952208, -0.009487957, 5.963862)
 
-[connection signal="child_entered_tree" from="Interieur/Portal3/Area3D/CollisionShape3D" to="." method="_start_levels"]
 [connection signal="child_entered_tree" from="Zone1/Portal/CollisionShape3D" to="." method="goto_hub"]
 [connection signal="child_entered_tree" from="Zone2/Portal2/CollisionShape3D" to="." method="goto_hub"]
 [connection signal="plate_pressed" from="Zone3/objects/Pressure_plate" to="Zone3/tutos" method="_on_pressure_plate_plate_pressed"]
 [connection signal="plate_released" from="Zone3/objects/Pressure_plate" to="Zone3/tutos" method="_on_pressure_plate_plate_released"]
 [connection signal="child_entered_tree" from="Zone3/Portal3/CollisionShape3D" to="." method="goto_hub"]
 
-[editable path="Interieur/Portal"]
-[editable path="Interieur/Portal2"]
 [editable path="Zone1/Portal"]
+[editable path="Zone1/Portal/PortalFrame"]
 [editable path="Zone2/Portal2"]
+[editable path="Zone2/Portal2/PortalFrame"]

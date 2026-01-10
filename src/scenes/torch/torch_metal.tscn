@@ -349,7 +349,7 @@ draw_pass_1 = SubResource("QuadMesh_v0xmx")
 [node name="OmniLight3D" type="OmniLight3D" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014910698, 0.30074513, 0.48418796)
 light_color = Color(0.856458, 0.5672213, 0.1911028, 1)
-light_energy = 3.3023782
+light_energy = 4.24947
 omni_range = 5.7054963
 script = ExtResource("6_wu81m")
 base_energy = 5.7
@@ -362,4 +362,4 @@ billboard = 2
 render_priority = 1
 sprite_frames = SubResource("SpriteFrames_bry22")
 autoplay = "default"
-frame_progress = 0.9928382
+frame_progress = 0.62702435
