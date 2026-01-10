@@ -12,6 +12,7 @@ size = Vector3(0.09, 0.45, 0.09)
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_unuap")
+press_to_hold = false
 metadata/_custom_type_script = "uid://d2tylielur6l1"
 
 [node name="Plume" parent="." instance=ExtResource("2_qfjm3")]
@@ -22,11 +23,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18267557, 0)
 shape = SubResource("BoxShape3D_unuap")
 
 [node name="GrabPointHandLeft" parent="." instance=ExtResource("3_unuap")]
-transform = Transform3D(1, 0, 0, 0, 0.7067117, 0.70750153, 0, -0.70750153, 0.7067117, 0, 0.101186335, -0.08000471)
+transform = Transform3D(1, 0, 0, 0, 0.7067117, 0.70750153, 0, -0.70750153, 0.7067117, 0, 0.024175063, -0.08000471)
 visible = true
 
 [node name="GrabPointHandRight" parent="." instance=ExtResource("4_lte1l")]
-transform = Transform3D(1, 0, 0, 0, 0.7067117, 0.70750153, 0, -0.70750153, 0.7067117, 0, 0.101186335, -0.08000471)
+transform = Transform3D(1, 0, 0, 0, 0.7067117, 0.70750153, 0, -0.70750153, 0.7067117, 0, 0.024175063, -0.08000471)
 visible = true
 
 [node name="tip" type="RayCast3D" parent="."]

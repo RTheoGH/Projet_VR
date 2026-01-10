@@ -22,6 +22,7 @@ func apply_effect_on_object(draw_pos : Vector3, object : RigidBody3D, effect : S
 			apply_duplication(object, draw_pos)
 
 func apply_pickable(object : RigidBody3D, draw_pos : Vector3 = Vector3.ZERO):
+	if not object: return
 	var xr_pickable := XRToolsPickable.new()
 	var object_pos := object.global_position
 	object.replace_by(xr_pickable)
@@ -49,6 +50,7 @@ func apply_pickable(object : RigidBody3D, draw_pos : Vector3 = Vector3.ZERO):
 	get_tree().create_timer(15).timeout.connect(pickable_finished.bind(xr_pickable, object, left_hand, right_hand))
 	
 func pickable_finished(object : RigidBody3D, previous_object : RigidBody3D, left_hand : XRToolsGrabPointHand, right_hand : XRToolsGrabPointHand):
+	if not object: return
 	activated_rune_effects[previous_object].erase("pickable")
 	print(activated_rune_effects)
 	object.replace_by(previous_object)
@@ -57,22 +59,27 @@ func pickable_finished(object : RigidBody3D, previous_object : RigidBody3D, left
 	object.free()
 
 func apply_explosion(object : RigidBody3D, draw_pos : Vector3):
+	if not object: return
 	get_tree().create_timer(5).timeout.connect(explosion_finished.bind(object, draw_pos))
 
 func explosion_finished(object : RigidBody3D, draw_pos : Vector3):
+	if not object: return
 	object.apply_central_impulse((draw_pos - object.global_position).normalized() * 5.0)
 	var explosion_scene = load("res://spells/scenes/explosion.tscn").instantiate()
 	object.add_child(explosion_scene)
 	# object.queue_free() ?
 
 func apply_gravity(object : RigidBody3D):
+	if not object: return
 	object.gravity_scale = -0.01
 	get_tree().create_timer(10).timeout.connect(gravity_finished.bind(object))
 
 func gravity_finished(object : RigidBody3D):
+	if not object: return
 	object.gravity_scale = 1.0
 
 func apply_duplication(object : RigidBody3D, draw_pos : Vector3):
+	if not object: return
 	var new_object_pos := (draw_pos - object.global_position).normalized()*0.1 + draw_pos
 	var duplication := object.duplicate()
 	object.add_sibling(duplication)

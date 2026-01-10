@@ -8,7 +8,7 @@ var is_drawing = false
 var max_decals = 200 # Technically can have more but it is counted with some types of lights so idk i'll limit it
 var active_decals : Array[Decal]
 var collision_body : Node3D
-var draw_rune : DrawRune
+var draw_rune : DrawRune = DrawRune.new()
 var recognizer
 
 var camera : Camera3D
@@ -34,7 +34,7 @@ func draw_point(body: Node3D):
 		ink.rotation.y = atan2(hit[1].x , hit[1].z)
 		ink.rotation.z = atan2(hit[1].x , hit[1].y)
 		draw_rune.points.append(hit[0])
-		draw_rune.normal.append(hit[1])
+		draw_rune.normals.append(hit[1])
 		
 		active_decals.append(ink)
 		get_parent().add_child(ink)
@@ -44,7 +44,8 @@ func activate(_pressed: bool):
 	if !is_drawing:
 		var score = recognizer.Recognize(draw_rune.get_2d_coordinates(recognizer, 0), 0.8)
 		var rune_pos := draw_rune.get_mean_pos()
-		RuneEffectManager.apply_effect_on_object(rune_pos, $tip.get_collider(), score["name"])
+		if  $tip.get_collider() is RigidBody3D:
+			RuneEffectManager.apply_effect_on_object(rune_pos, $tip.get_collider(), score["name"])
 	else:
 		active_decals.clear()
 		draw_rune.points.clear()
