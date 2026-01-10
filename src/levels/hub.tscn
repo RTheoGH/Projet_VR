@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=3 uid="uid://b7px801c0ohkr"]
+[gd_scene load_steps=102 format=3 uid="uid://b7px801c0ohkr"]
 
 [ext_resource type="Script" uid="uid://bda28yntj2wuf" path="res://src/levels/hub.gd" id="1_lg4k7"]
 [ext_resource type="PackedScene" uid="uid://dxx722tqqoo7j" path="res://src/scenes/voice/book.tscn" id="4_jro34"]
@@ -7,9 +7,9 @@
 [ext_resource type="Material" uid="uid://d2wkgnqd7nvbm" path="res://Assets/materials/pavement.tres" id="6_e23gj"]
 [ext_resource type="Texture2D" uid="uid://72xkoncofey" path="res://Assets/materials/wallByBogey/wallByBogey_albedo.png" id="8_i8qaf"]
 [ext_resource type="Texture2D" uid="uid://dlbj10tdug01k" path="res://Assets/materials/wallByBogey/wallByBogey_heightmap.png" id="9_5vrgn"]
-[ext_resource type="Material" uid="uid://cpo30hv0hb0f0" path="res://Assets/materials/wallByBogey/wallByBogey.tres" id="9_q48gm"]
 [ext_resource type="PackedScene" uid="uid://hfdvf5ejxc4n" path="res://Assets/Packs/fantasyprops/Banner_2.gltf" id="10_f75sj"]
 [ext_resource type="PackedScene" uid="uid://q2ddqvpmfr2x" path="res://src/scenes/character/character.tscn" id="10_waxbk"]
+[ext_resource type="Material" uid="uid://bkjxqr8wb3c16" path="res://Assets/materials/mur_test.tres" id="11_0bmb6"]
 [ext_resource type="PackedScene" uid="uid://dqwjrt3lnh2p6" path="res://src/scenes/strategy_balls_and_wand/wand/wand.tscn" id="11_6yhae"]
 [ext_resource type="PackedScene" uid="uid://dlaweh6gwj5ad" path="res://Assets/Packs/fantasyprops/Barrel.gltf" id="11_lg4k7"]
 [ext_resource type="PackedScene" uid="uid://clc5dre31iskm" path="res://addons/godot-xr-tools/xr/start_xr.tscn" id="12_dt5un"]
@@ -85,14 +85,26 @@ material = ExtResource("6_cyjlb")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_gogj3"]
 points = PackedVector3Array(1.0158731, 0.015873017, 1.0158731, -1.0158731, -0.015873017, -1.0158731, -1.0158731, 0.015873017, -1.0158731, 1.0158731, -0.015873017, -1.0158731, -1.0158731, -0.015873017, 1.0158731, -1.0158731, 0.015873017, 1.0158731, 1.0158731, 0.015873017, -1.0158731, 1.0158731, -0.015873017, 1.0158731)
 
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_6y7ho"]
+albedo_texture = ExtResource("8_i8qaf")
+heightmap_enabled = true
+heightmap_deep_parallax = true
+heightmap_min_layers = 16
+heightmap_max_layers = 64
+heightmap_texture = ExtResource("9_5vrgn")
+uv1_scale = Vector3(4, 4, 4)
+
 [sub_resource type="BoxMesh" id="BoxMesh_ycqs3"]
-material = ExtResource("9_q48gm")
+material = SubResource("ORMMaterial3D_6y7ho")
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_f75sj"]
 points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_lg4k7"]
 points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_32jlu"]
+material = ExtResource("11_0bmb6")
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_estxj"]
 points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
@@ -276,6 +288,17 @@ shape = SubResource("ConvexPolygonShape3D_gogj3")
 [node name="Stool2" parent="Sols" instance=ExtResource("33_swpio")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.122265, 0.022321615, 6.526679)
 
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Sols"]
+transform = Transform3D(-4.0017176e-07, 0, 11.911986, 0, 1, 0, -9.154861, 0, -5.206894e-07, 0, 0, -18.741173)
+material_override = ExtResource("6_e23gj")
+mesh = SubResource("PlaneMesh_orc64")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sols/MeshInstance3D3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sols/MeshInstance3D3/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_hwlsr")
+
 [node name="Murs" type="Node3D" parent="."]
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Murs"]
@@ -299,8 +322,8 @@ skeleton = NodePath("../..")
 shape = SubResource("ConvexPolygonShape3D_lg4k7")
 
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="Murs"]
-transform = Transform3D(-4.371139e-08, 0, -7.871443, 0, 3.7089503, 0, 1, 0, -3.4407168e-07, 8.456351, 1.8139935, -8.194148)
-mesh = SubResource("BoxMesh_ycqs3")
+transform = Transform3D(-4.371139e-08, 0, -4.4090524, 0, 3.7089503, 0, 1, 0, -1.927258e-07, 6.7331367, 1.8139935, -8.194148)
+mesh = SubResource("BoxMesh_32jlu")
 skeleton = NodePath("../..")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Murs/MeshInstance3D5"]
@@ -548,6 +571,11 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Murs/MeshInstance3D32/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_lg4k7")
 
+[node name="MeshInstance3D28" type="MeshInstance3D" parent="Murs"]
+transform = Transform3D(-4.371139e-08, 0, -4.4090524, 0, 3.7089503, 0, 1, 0, -1.927258e-07, 11.15102, 1.8139935, -8.194148)
+mesh = SubResource("BoxMesh_32jlu")
+skeleton = NodePath("../..")
+
 [node name="Extérieur" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.050047, 0, 0)
 
@@ -603,7 +631,7 @@ transform = Transform3D(-0.047263402, 0, -0.9988825, 0, 1, 0, 0.9988825, 0, -0.0
 transform = Transform3D(0.09754811, 0, -0.99523085, 0, 1, 0, 0.99523085, 0, 0.09754811, -0.15380192, 3.3510513, 3.039595)
 
 [node name="Portal" parent="Interieur" instance=ExtResource("19_qik6l")]
-transform = Transform3D(0.62337476, 0, 0.7819232, 0, 1, 0, -0.7819232, 0, 0.62337476, -9.443712, -4.2058263, -18.452038)
+transform = Transform3D(0.36547798, 0, -0.9308199, 0, 1, 0, 0.9308199, 0, 0.36547798, 5.224251, 0.3810823, -17.253304)
 
 [node name="MeshInstance3D" parent="Interieur/Portal/Node3D" index="0"]
 material_override = SubResource("ShaderMaterial_8e8m2")
@@ -632,7 +660,7 @@ light_color = Color(0.37185442, 0.40406856, 1, 1)
 omni_range = 3.0
 
 [node name="Portal2" parent="Interieur" instance=ExtResource("19_qik6l")]
-transform = Transform3D(-0.50000006, 0, 0.8660254, 0, 1, 0, -0.8660254, 0, -0.50000006, -9.379076, -3.149311, 17.071075)
+transform = Transform3D(0.9659258, 0, -0.25881898, 0, 1, 0, 0.25881898, 0, 0.9659258, 1.3907626, 0.31854677, -21.364523)
 
 [node name="MeshInstance3D" parent="Interieur/Portal2/Node3D" index="0"]
 material_override = SubResource("ShaderMaterial_sjvgk")
@@ -644,6 +672,21 @@ material_override = SubResource("StandardMaterial3D_ptnox")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Interieur/Portal2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012299061, 1.5069829, -0.15283489)
 shape = SubResource("BoxShape3D_dl7et")
+
+[node name="Portal4" parent="Interieur" instance=ExtResource("19_qik6l")]
+transform = Transform3D(0.74286103, 0, 0.428891, 0, 0.857782, 0, -0.428891, 0, 0.74286103, -3.5036983, 0.33146274, -20.19724)
+
+[node name="Area3D" type="Area3D" parent="Interieur/Portal4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7075377, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interieur/Portal4/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.055786114, -0.2175293, -0.024230957)
+shape = SubResource("BoxShape3D_pgtoj")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Interieur/Portal4"]
+transform = Transform3D(1.1657974, 0, -2.1316282e-14, 0, 1.1657974, 0, 2.1316282e-14, 0, 1.1657974, -5.2154064e-08, 1.6070648, 1.1765928)
+light_color = Color(0.37185442, 0.40406856, 1, 1)
+omni_range = 3.0
 
 [node name="stand1" parent="Interieur" instance=ExtResource("21_fg0r8")]
 transform = Transform3D(0.5037818, 0, 0.6214531, 0, 0.8, 0, -0.6214531, 0, 0.5037818, 4.429985, 0.015873326, -1.6904659)
