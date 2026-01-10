@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://do0cj7ukgjhtm"
-path="res://.godot/imported/Pot_1.gltf-7e45d28e980fd7814d69b948193cd3e9.scn"
+uid="uid://cp5df2wohkk8p"
+path="res://.godot/imported/wood_beam.glb-7e580752963c43b65c25c205210253af.scn"
 
 [deps]
 
-source_file="res://Assets/Packs/fantasyprops/Pot_1.gltf"
-dest_files=["res://.godot/imported/Pot_1.gltf-7e45d28e980fd7814d69b948193cd3e9.scn"]
+source_file="res://Assets/models/wood_beam.glb"
+dest_files=["res://.godot/imported/wood_beam.glb-7e580752963c43b65c25c205210253af.scn"]
 
 [params]
 
@@ -39,9 +39,9 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "nodes": {
-"PATH:Pot_1": {
+"PATH:Sketchfab_model/Collada visual scene group/SN_ceiling_wood_beam/defaultMaterial": {
 "generate/physics": true,
-"physics/shape_type": 0
+"physics/shape_type": 1
 }
 }
 }
