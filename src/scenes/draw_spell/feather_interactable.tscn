@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://to3tgnn8fyn3"]
+
+[ext_resource type="Script" uid="uid://cm7ttg80dvn1o" path="res://src/scenes/draw_spell/feather_interactable.gd" id="1_unuap"]
+[ext_resource type="PackedScene" uid="uid://c2o6vk2pdg0kx" path="res://src/scenes/draw_spell/plume.tscn" id="2_qfjm3"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="3_unuap"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_lte1l"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_unuap"]
+size = Vector3(0.09, 0.45, 0.09)
+
+[node name="feather_interactable" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_unuap")
+press_to_hold = false
+metadata/_custom_type_script = "uid://d2tylielur6l1"
+
+[node name="Plume" parent="." instance=ExtResource("2_qfjm3")]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18267557, 0)
+shape = SubResource("BoxShape3D_unuap")
+
+[node name="GrabPointHandLeft" parent="." instance=ExtResource("3_unuap")]
+transform = Transform3D(1, 0, 0, 0, 0.7067117, 0.70750153, 0, -0.70750153, 0.7067117, 0, 0.024175063, -0.08000471)
+visible = true
+
+[node name="GrabPointHandRight" parent="." instance=ExtResource("4_lte1l")]
+transform = Transform3D(1, 0, 0, 0, 0.7067117, 0.70750153, 0, -0.70750153, 0.7067117, 0, 0.024175063, -0.08000471)
+visible = true
+
+[node name="tip" type="RayCast3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.3085019, 0)

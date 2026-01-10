@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwqhd3bmdq0tt"]
+
+[ext_resource type="PackedScene" uid="uid://dh4l65p1gvfgq" path="res://Assets/Packs/fantasyprops/Chair_1.gltf" id="1_v3p5j"]
+
+[node name="Chair_12" instance=ExtResource("1_v3p5j")]
+
+[node name="Chair_1" parent="." index="0"]
+mass = 5.0

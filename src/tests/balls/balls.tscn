@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://cbeofjcj6xxiv"]
+[gd_scene load_steps=32 format=4 uid="uid://cbeofjcj6xxiv"]
 
 [ext_resource type="Material" uid="uid://bwkidg8s7g2wx" path="res://Assets/materials/parallaxIce/ParallaxIceByDroppedBeat.tres" id="1_bbsvl"]
 [ext_resource type="PackedScene" uid="uid://dyqw7qw8os4rv" path="res://Assets/Packs/fantasyprops/Cauldron.gltf" id="1_y80xq"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://coiy03l4o8eqg" path="res://Assets/Packs/fantasyprops/Workbench_Drawers.gltf" id="7_h45tk"]
 [ext_resource type="Material" uid="uid://cpo30hv0hb0f0" path="res://Assets/materials/wallByBogey/wallByBogey.tres" id="9_emwe5"]
 [ext_resource type="PackedScene" uid="uid://q2ddqvpmfr2x" path="res://src/scenes/character/character.tscn" id="10_kpgqb"]
+[ext_resource type="PackedScene" uid="uid://to3tgnn8fyn3" path="res://src/scenes/draw_spell/feather_interactable.tscn" id="11_bogct"]
 [ext_resource type="PackedScene" uid="uid://dqwjrt3lnh2p6" path="res://src/scenes/strategy_balls_and_wand/wand/wand.tscn" id="11_roxjn"]
 [ext_resource type="PackedScene" uid="uid://clc5dre31iskm" path="res://addons/godot-xr-tools/xr/start_xr.tscn" id="12_h45tk"]
 [ext_resource type="PackedScene" uid="uid://cgwr6uxxeehph" path="res://src/scenes/objets/boule.tscn" id="13_h45tk"]
@@ -20,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://m82mjqo6dsc1" path="res://Assets/Packs/fantasyprops/T_Trim_Metal_BaseColor.png" id="18_8l2cq"]
 [ext_resource type="Texture2D" uid="uid://brn5dd4gpeawi" path="res://Assets/Packs/fantasyprops/T_Trim_Metal_ORM.png" id="19_plgra"]
 [ext_resource type="Texture2D" uid="uid://dqrecnfwitku4" path="res://Assets/Packs/fantasyprops/T_Trim_Metal_Normal.png" id="20_jsp06"]
+[ext_resource type="PackedScene" uid="uid://brcntxdt00g3r" path="res://src/scenes/draw_spell/ink_decal.tscn" id="22_r7jlq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cl3cs"]
 sky_top_color = Color(0.32795975, 0.3953401, 0.8315651, 1)
@@ -249,6 +251,9 @@ size = Vector3(1, 16.349792, 7.4952393)
 [node name="XROrigin3D" parent="." instance=ExtResource("10_kpgqb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0191908, -0.69177926)
 
+[node name="feather_interactable" parent="." instance=ExtResource("11_bogct")]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -1.9765481, 0.99541926, -2.8605375)
+
 [node name="Node3D" parent="." instance=ExtResource("11_roxjn")]
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -2.0451372, 0.99541926, -2.3561926)
 
@@ -330,7 +335,7 @@ shape = SubResource("BoxShape3D_y0bif")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.281964, 1.6135736, -3.3017182)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="testcube7"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.52036643, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00094509125, -0.5209025, 0.00093746185)
 mesh = SubResource("ArrayMesh_2bc2y")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="testcube7"]
@@ -345,3 +350,6 @@ mesh = SubResource("ArrayMesh_2bc2y")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="testcube8"]
 shape = SubResource("BoxShape3D_y0bif")
+
+[node name="Decal" parent="." instance=ExtResource("22_r7jlq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.919112, 1.0949073, -3.3735623)
