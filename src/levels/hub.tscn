@@ -139,11 +139,11 @@ points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_pthsq"]
 points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_32jlu"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0bmb6"]
 albedo_texture = ExtResource("37_mqkdr")
 
 [sub_resource type="QuadMesh" id="QuadMesh_thle8"]
-material = SubResource("StandardMaterial3D_32jlu")
+material = SubResource("StandardMaterial3D_0bmb6")
 
 [sub_resource type="Gradient" id="Gradient_o3wql"]
 offsets = PackedFloat32Array(0.068292685, 0.70731705)
@@ -151,13 +151,13 @@ colors = PackedColorArray(0.44131792, 0.2583551, 4.813075e-08, 1, 0.9596419, 0.9
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_v3oaf"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_05k6y"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6y7ho"]
 noise = SubResource("FastNoiseLite_v3oaf")
 color_ramp = SubResource("Gradient_o3wql")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a1b8x"]
 albedo_color = Color(0.55581766, 0.28437915, 0, 1)
-albedo_texture = SubResource("NoiseTexture2D_05k6y")
+albedo_texture = SubResource("NoiseTexture2D_6y7ho")
 
 [sub_resource type="BoxMesh" id="BoxMesh_h6kcb"]
 
@@ -238,7 +238,7 @@ directional_shadow_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8389206, 1.0191908, 1.8895483)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.08977251, 0.39705727, -0.91339284, -0.06749684, 0.91741276, 0.39217088, 0.99367255, 0.026444968, 0.10915856, 8.034964, 1.6038265, -1.2941315)
+transform = Transform3D(0.11217156, -0.282962, -0.95254916, 0.0056976043, 0.95876634, -0.284138, 0.99367243, 0.026444959, 0.10915855, 5.4608355, 1.6038265, -1.2941315)
 current = true
 
 [node name="Book" parent="." instance=ExtResource("4_jro34")]

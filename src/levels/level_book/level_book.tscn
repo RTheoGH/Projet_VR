@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=4 uid="uid://odtdr45k7ryn"]
+[gd_scene load_steps=75 format=4 uid="uid://odtdr45k7ryn"]
 
 [ext_resource type="PackedScene" uid="uid://bej35ui0rcag0" path="res://Assets/maps/map_1.blend" id="1_g4s23"]
 [ext_resource type="PackedScene" uid="uid://cbtk71x3cwrx6" path="res://src/scenes/torch/torch_metal.tscn" id="2_qe8vo"]
@@ -51,6 +51,8 @@
 [ext_resource type="PackedScene" uid="uid://b775n45rj3ya3" path="res://Assets/Packs/fantasyprops/Banner_1.gltf" id="48_lwy6b"]
 [ext_resource type="PackedScene" uid="uid://drv8fl7o2gqas" path="res://src/scenes/objets/shield_wooden_2.tscn" id="50_w71oo"]
 [ext_resource type="PackedScene" uid="uid://cr4vhmosgh853" path="res://src/scenes/objets/sword_bronze_2.tscn" id="51_dcre8"]
+[ext_resource type="FontFile" uid="uid://bfe4fktkasx54" path="res://Assets/police/ancient/Ancient Medium.ttf" id="52_dcre8"]
+[ext_resource type="PackedScene" uid="uid://b5b15nfdujkto" path="res://src/scenes/snow/Snow.tscn" id="53_xtmi3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_37yji"]
 sky_top_color = Color(0.33646625, 0.40749058, 0.42967212, 1)
@@ -224,6 +226,25 @@ turbulence_noise_strength = 17.25
 turbulence_noise_scale = 0.0
 turbulence_noise_speed = Vector3(0.315, 0.535, 0.305)
 
+[sub_resource type="Gradient" id="Gradient_tsov7"]
+offsets = PackedFloat32Array(0.068292685, 0.70731705)
+colors = PackedColorArray(0.44131792, 0.2583551, 4.813075e-08, 1, 0.9596419, 0.90520376, 1.540184e-06, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5mhri"]
+fractal_octaves = 10
+fractal_lacunarity = 3.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_05k6y"]
+noise = SubResource("FastNoiseLite_5mhri")
+color_ramp = SubResource("Gradient_tsov7")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b1quq"]
+albedo_color = Color(0.47230828, 0.22607514, 0, 1)
+albedo_texture = SubResource("NoiseTexture2D_05k6y")
+uv1_scale = Vector3(3, 3, 3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1me1a"]
+
 [node name="LevelBook" type="Node3D"]
 
 [node name="map_1" parent="." instance=ExtResource("1_g4s23")]
@@ -233,31 +254,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.153505, 0, 0.78262794)
 environment = SubResource("Environment_05cjr")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.9738413, 0.023759825, -0.22598362, 0.22722927, -0.10182801, 0.96850306, 0, -0.99451834, -0.10456325, 0, 0, 0)
+transform = Transform3D(-0.99840736, -0.05640484, -0.0011583674, 0.010345455, -0.20322916, 0.9790765, -0.055460066, 0.9775051, 0.20348898, 0, 0, 0)
+light_color = Color(0.5878825, 0.7984465, 1, 1)
+light_energy = 1.25
 shadow_enabled = true
 
 [node name="torchs" type="Node3D" parent="."]
 
 [node name="Torch_Metal2" parent="torchs" instance=ExtResource("2_qe8vo")]
-transform = Transform3D(0.16759478, 0, -0.98585606, 0, 1, 0, 0.98585606, 0, 0.16759478, -10.270525, -0.025937513, 3.8380451)
+transform = Transform3D(0.16759478, 0, -0.98585606, 0, 1, 0, 0.98585606, 0, 0.16759478, -10.270525, 0.6934025, 3.8380451)
 
 [node name="Torch_Metal12" parent="torchs" instance=ExtResource("2_qe8vo")]
-transform = Transform3D(0.99522746, 0, 0.09758298, -0.0047907215, 0.9987942, 0.048859518, -0.097465314, -0.04909382, 0.99402744, -15.126455, 5.377409, -11.831659)
+transform = Transform3D(0.99522746, -4.650998e-10, 0.09758298, 0.018347118, 0.98216593, -0.18711829, -0.0958427, 0.18801558, 0.9774786, -16.923138, 6.457488, -11.75224)
 
 [node name="Torch_Metal10" parent="torchs" instance=ExtResource("2_qe8vo")]
 transform = Transform3D(0.99854624, 0, 0.053904638, 0, 1, 0, -0.053904638, 0, 0.99854624, -5.8234653, 1.4682024, 2.9947379)
 
 [node name="Torch_Metal11" parent="torchs" instance=ExtResource("2_qe8vo")]
-transform = Transform3D(-0.99990237, 0, -0.013979821, 0, 1, 0, 0.013979821, 0, -0.99990237, 1.0744133, 1.4682024, 8.070067)
+transform = Transform3D(-0.99990237, 0, -0.013979821, 0, 1, 0, 0.013979821, 0, -0.99990237, 0.88007, 2.0303783, 8.095724)
 
 [node name="Torch_Metal3" parent="torchs" instance=ExtResource("2_qe8vo")]
-transform = Transform3D(0.11485049, 0, 0.9933829, 0, 1, 0, -0.9933829, 0, 0.11485049, -18.368612, -0.025937513, 2.2358851)
-
-[node name="Torch_Metal4" parent="torchs" instance=ExtResource("2_qe8vo")]
-transform = Transform3D(0.114559844, -0.07109703, 0.990869, 0.00816553, 0.9974694, 0.07062658, -0.9933828, 0, 0.114850484, -17.986456, -0.025937513, 9.902868)
-
-[node name="Torch_Metal7" parent="torchs" instance=ExtResource("2_qe8vo")]
-transform = Transform3D(-0.053598486, -0.0700908, 0.99609965, 0.008165532, 0.9974694, 0.07062659, -0.99852914, 0.0119191585, -0.052890524, -23.783285, 3.478261, 6.1081166)
+transform = Transform3D(0.9933828, 0, -0.11485053, 0, 1, 0, 0.11485053, 0, 0.9933828, -17.382856, 1.6378746, 0.27218795)
 
 [node name="Torch_Metal8" parent="torchs" instance=ExtResource("2_qe8vo")]
 transform = Transform3D(-0.053598486, -0.0700908, 0.99609965, 0.008165532, 0.9974694, 0.07062659, -0.99852914, 0.0119191585, -0.052890524, -23.31629, 0.6510048, -8.061014)
@@ -270,6 +287,42 @@ transform = Transform3D(-0.08759691, -0.069643885, 0.99371856, 0.008165532, 0.99
 
 [node name="Torch_Metal6" parent="torchs" instance=ExtResource("2_qe8vo")]
 transform = Transform3D(-0.9746332, -0.007858518, 0.22366974, 0.008165533, 0.9974694, 0.07062658, -0.22365874, 0.070661366, -0.97210276, -19.190542, 3.3498774, 21.271635)
+
+[node name="Torch_Metal13" parent="torchs" instance=ExtResource("2_qe8vo")]
+transform = Transform3D(0.99522746, 0, 0.09758298, -0.0047907215, 0.9987942, 0.048859518, -0.097465314, -0.04909382, 0.99402744, -22.324333, 6.6835475, -11.831659)
+
+[node name="Torch_Metal14" parent="torchs" instance=ExtResource("2_qe8vo")]
+transform = Transform3D(-0.99522746, 1.9664188e-09, -0.09758307, -0.004790722, 0.9987941, 0.04885951, 0.0974654, 0.049093816, -0.9940274, -22.299223, 6.6835475, -3.8695316)
+
+[node name="Torch_Metal15" parent="torchs" instance=ExtResource("2_qe8vo")]
+transform = Transform3D(-0.15794572, -0.1838119, -0.9701889, -0.042291787, 0.98287934, -0.17933126, 0.9865418, 0.012706416, -0.16301529, -12.753339, 6.3241076, -5.3291087)
+
+[node name="Torch_Metal16" parent="torchs" instance=ExtResource("2_qe8vo")]
+transform = Transform3D(-0.91258556, -0.029368, 0.4078298, -0.042451195, 0.998832, -0.023065139, -0.40667614, -0.03836177, -0.9127666, -16.714222, 6.6835475, -4.2275906)
+
+[node name="Torch_Metal17" parent="torchs" instance=ExtResource("2_qe8vo")]
+transform = Transform3D(-0.045240764, 0, -0.9989762, 0, 1, 0, 0.9989762, 0, -0.045240764, 5.1634035, 2.0303783, 2.4643104)
+
+[node name="Torch_Metal18" parent="torchs" instance=ExtResource("2_qe8vo")]
+transform = Transform3D(0.99854624, -9.0134356e-10, 0.053904638, -0.011334365, 0.97764397, 0.20996132, -0.05269954, -0.21026698, 0.97622275, -0.9844327, 1.8613505, -4.4245625)
+
+[node name="Torch_Metal19" parent="torchs" instance=ExtResource("2_qe8vo")]
+transform = Transform3D(-0.99854624, 0, -0.053904552, 0, 1, 0, 0.053904552, 0, -0.99854624, -3.870596, 1.4682024, 7.6254544)
+
+[node name="Torch_Metal20" parent="torchs" instance=ExtResource("2_qe8vo")]
+transform = Transform3D(-0.9933828, 1.8900169e-08, 0.11485044, 0.008165532, 0.9974694, 0.07062659, -0.11455981, 0.07109704, -0.990869, -13.352335, 1.379148, 13.158808)
+
+[node name="Torch_Metal21" parent="torchs" instance=ExtResource("2_qe8vo")]
+transform = Transform3D(-0.908887, 0, -0.4170424, 0, 1, 0, 0.4170424, 0, -0.908887, -9.450485, 1.0779814, 9.319842)
+
+[node name="Torch_Metal22" parent="torchs" instance=ExtResource("2_qe8vo")]
+transform = Transform3D(-0.053598486, -0.0700908, 0.99609965, 0.008165532, 0.9974694, 0.07062659, -0.99852914, 0.0119191585, -0.052890524, -23.7588, 3.478261, 6.538247)
+
+[node name="Torch_Metal23" parent="torchs" instance=ExtResource("2_qe8vo")]
+transform = Transform3D(-0.99852926, 0.011919164, -0.052890576, 0.008165534, 0.99746954, 0.070626594, 0.05359853, 0.07009081, -0.99609977, -18.261219, 3.478261, 13.316318)
+
+[node name="Torch_Metal24" parent="torchs" instance=ExtResource("2_qe8vo")]
+transform = Transform3D(0.114559844, -0.07109703, 0.990869, 0.00816553, 0.9974694, 0.07062658, -0.9933828, 0, 0.114850484, -18.301655, 0.52721626, 7.2633414)
 
 [node name="StaticProps" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.733978, 0, 6.270412)
@@ -440,7 +493,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8135376, 5.573927, -14.5977
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7030449, 6.365262, -15.146519)
 
 [node name="Shelf_Simple2" parent="StaticProps" instance=ExtResource("38_bf0bk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.87718487, 6.961654, -18.131588)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22947216, 6.961654, -18.131588)
 
 [node name="Scroll_23" parent="StaticProps" instance=ExtResource("36_cywgu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4986649, -0.030533493, -4.4937534)
@@ -509,7 +562,7 @@ transform = Transform3D(-0.970325, -0.22929054, 0.07678416, -0.07242621, -0.0273
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9184494, 1.7004031, -0.4588046)
 
 [node name="Banner_12" parent="StaticProps" instance=ExtResource("48_lwy6b")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.1266499, 4.276375, 7.1469665)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.5951862, 4.276375, 7.1469665)
 
 [node name="Skeleton" parent="StaticProps" instance=ExtResource("35_lwy6b")]
 transform = Transform3D(-0.005059222, -0.14874288, 0.018707369, 0.00754954, 0.018441496, 0.14867051, -0.14972442, 0.0059559275, 0.0068642697, -2.5739117, -0.9647339, -3.6314142)
@@ -592,7 +645,7 @@ process_material = SubResource("ParticleProcessMaterial_la4ae")
 [node name="OmniLight3D" type="OmniLight3D" parent="Portal"]
 transform = Transform3D(2.020202, 0, 0, 0, 2.020202, 0, 0, 0, 2.020202, -0.12974644, 1.9967823, 1.817276)
 light_color = Color(0.75338805, 0.29782987, 0.22590923, 1)
-light_energy = 4.4294505
+light_energy = 3.8601408
 script = ExtResource("19_rococ")
 base_energy = 6.25
 flicker_strength = 0.72
@@ -602,18 +655,10 @@ flicker_speed = 0.57
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.525389, 5.295786, -9.148357)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.76218265, -0.19376734, 0.61768264, -0.047024168, 0.935061, 0.35135406, -0.6456519, -0.29684198, 0.70357555, -15.650568, 0.810936, 3.88875)
+transform = Transform3D(0.78033215, 0.25397572, -0.5714701, -0.047024157, 0.93506104, 0.35135403, 0.6235948, -0.24729992, 0.74160117, -22.44048, 5.648954, 12.609797)
 
 [node name="Book" parent="." instance=ExtResource("20_g0lbh")]
 transform = Transform3D(-0.26254904, -0.5976566, -0.75754505, -0.02320659, 0.7887709, -0.614249, 0.9646395, -0.14369044, -0.22096063, -14.195333, 5.7965784, -6.770516)
-enabled = true
-picked_up_layer = 65536
-release_mode = -1
-ranged_grab_method = 1
-second_hand_grab = 0
-ranged_grab_speed = 20.0
-picked_by_exclude = ""
-picked_by_require = ""
 
 [node name="DynamicProps1" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.139521, 5.658057, -1.8655059)
@@ -787,6 +832,27 @@ transform = Transform3D(0.94824797, -0.18753643, 0.2562344, 0.09141862, 0.934030
 
 [node name="Sword_Bronze2" parent="." instance=ExtResource("51_dcre8")]
 transform = Transform3D(0.45015326, 0.8833898, -0.13032565, -0.23079142, -0.025889903, -0.97265875, -0.86261094, 0.46792355, 0.19222434, -17.552355, -0.4723787, 2.7295885)
+
+[node name="panneau" type="Node3D" parent="."]
+transform = Transform3D(-0.006318094, 0, 0.99998003, 0, 1, 0, -0.99998003, 0, -0.006318094, -17.669777, 4.6165156, -7.735583)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="panneau"]
+transform = Transform3D(0.14355077, 0, 1.8626451e-09, 0, 1.4149779, 0, -5.820766e-11, 0, 3.9015586, 3.9422703, 1.5431232, -1.7089367)
+material_override = SubResource("StandardMaterial3D_b1quq")
+mesh = SubResource("BoxMesh_1me1a")
+skeleton = NodePath("../..")
+
+[node name="Label3D" type="Label3D" parent="panneau"]
+transform = Transform3D(-4.377216e-08, 0, -1, 0, 1, 0, 1, 0, -4.377216e-08, 3.8682756, 1.5779881, -1.7130566)
+modulate = Color(0.53083247, 0.4751135, 0.47058702, 1)
+text = "Entraînement spécial des Grises-Barbes
+
+L'art de la Voix"
+font = ExtResource("52_dcre8")
+font_size = 48
+
+[node name="Snow" parent="." instance=ExtResource("53_xtmi3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.860852, 9.953513, 0.15753269)
 
 [editable path="StaticProps/Skeleton"]
 [editable path="Portal"]
