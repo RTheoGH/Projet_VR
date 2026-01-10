@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyn3g30fgtgw6"
-path.s3tc="res://.godot/imported/bois_horrible.jpg-ef49b580154eeb7f4822d26c0250c5c9.s3tc.ctex"
+uid="uid://b521ohlnt7jhx"
+path.s3tc="res://.godot/imported/start.png-b2a046cf5f16d3481a9b8a03a11b27fc.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/textures/bois_horrible.jpg"
-dest_files=["res://.godot/imported/bois_horrible.jpg-ef49b580154eeb7f4822d26c0250c5c9.s3tc.ctex"]
+source_file="res://Assets/textures/start.png"
+dest_files=["res://.godot/imported/start.png-b2a046cf5f16d3481a9b8a03a11b27fc.s3tc.ctex"]
 
 [params]
 

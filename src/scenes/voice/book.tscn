@@ -19,15 +19,7 @@ size = Vector3(4.499954, 0.6392822, 2.0183105)
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_lyedq")
-enabled = null
 press_to_hold = false
-picked_up_layer = null
-release_mode = null
-ranged_grab_method = null
-second_hand_grab = null
-ranged_grab_speed = null
-picked_by_exclude = null
-picked_by_require = null
 metadata/_custom_type_script = "uid://d2tylielur6l1"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -44,6 +36,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15232861, -0.18016648)
 
 [node name="RayCast3D" type="RayCast3D" parent="pointeur"]
 transform = Transform3D(1, 0, 0, 0, -0.06651776, -0.9977852, 0, 0.9977852, -0.06651776, 0, 0, 0)
+target_position = Vector3(0, -50, 0)
 
 [node name="Decal2" type="Decal" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.10228291, 0.0013196841, 0.0030273588)

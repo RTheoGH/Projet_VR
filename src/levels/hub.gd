@@ -1,27 +1,28 @@
 extends Node3D
 
-var mxw : Tween
+#var mxw : Tween
 
 @export var player : XROrigin3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	maxwell()
+	#maxwell()
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
-func maxwell():
-	if mxw:
-		mxw.kill()
-	
-	mxw = create_tween()
-	mxw.set_loops()
-	mxw.tween_property($Interieur/maxwell, "rotation_degrees:z", -30, 0.2)
-	mxw.tween_property($Interieur/maxwell, "rotation_degrees:z", 30, 0.2)
-	mxw.tween_property($Interieur/maxwell, "rotation_degrees:z", 30, 0.2)
-	mxw.tween_property($Interieur/maxwell, "rotation_degrees:z", -30, 0.2)
+#func maxwell():
+	#if mxw:
+		#mxw.kill()
+	#
+	#mxw = create_tween()
+	#mxw.set_loops()
+	#mxw.tween_property($Interieur/maxwell, "rotation_degrees:z", -30, 0.2)
+	#mxw.tween_property($Interieur/maxwell, "rotation_degrees:z", 30, 0.2)
+	#mxw.tween_property($Interieur/maxwell, "rotation_degrees:z", 30, 0.2)
+	#mxw.tween_property($Interieur/maxwell, "rotation_degrees:z", -30, 0.2)
 
 func goto_hub(node: Node) -> void:
 	if node == player:
