@@ -28,17 +28,23 @@ func goto_hub(node: Node) -> void:
 		player.position = Vector3(0.0,0.0,0.0)
 		$portal_sound.play()
 
-func _portal1_entered(node: Node) -> void:
-	if node == player:
-		player.position = $Zone1.position
-		$portal_sound.play()
+#func _portal1_entered(node: Node) -> void:
+	#if node == player:
+		#player.position = $Zone1.position
+		#$portal_sound.play()
+#
+#func _portal2_entered(node: Node) -> void:
+	#if node == player:
+		#player.position = $Zone2.position
+		#$portal_sound.play()
+#
+#func _portal3_entered(node: Node) -> void:
+	#if node == player:
+		#player.position = $Zone3.position
+		#$portal_sound.play()
 
-func _portal2_entered(node: Node) -> void:
+func _start_levels(node: Node) -> void:
 	if node == player:
-		player.position = $Zone2.position
 		$portal_sound.play()
-
-func _portal3_entered(node: Node) -> void:
-	if node == player:
-		player.position = $Zone3.position
-		$portal_sound.play()
+		#Gamemaster.random_level_tp() // a changer
+		#get_tree().change_scene_to_packed(load("res://src/levels/level_balls/level_balls.tscn"))

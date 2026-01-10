@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=3 uid="uid://b7px801c0ohkr"]
+[gd_scene load_steps=98 format=3 uid="uid://b7px801c0ohkr"]
 
 [ext_resource type="Script" uid="uid://bda28yntj2wuf" path="res://src/levels/hub.gd" id="1_lg4k7"]
 [ext_resource type="PackedScene" uid="uid://dxx722tqqoo7j" path="res://src/scenes/voice/book.tscn" id="4_jro34"]
@@ -186,8 +186,8 @@ use_particle_trails = true
 [sub_resource type="BoxShape3D" id="BoxShape3D_qe1nb"]
 size = Vector3(2.052246, 2.939209, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_e23gj"]
-size = Vector3(1.6750488, 2.6812744, 0.75439453)
+[sub_resource type="BoxShape3D" id="BoxShape3D_pgtoj"]
+size = Vector3(1.9445801, 2.980957, 0.7503662)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sjvgk"]
 render_priority = 0
@@ -215,6 +215,9 @@ albedo_texture = ExtResource("37_swpio")
 [sub_resource type="QuadMesh" id="QuadMesh_4efl2"]
 size = Vector2(6.53, 4.27)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_e23gj"]
+size = Vector3(1.6750488, 2.6812744, 0.75439453)
+
 [node name="Hub" type="Node3D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_lg4k7")
 player = NodePath("XROrigin3D")
@@ -238,6 +241,14 @@ current = true
 
 [node name="Book" parent="." instance=ExtResource("4_jro34")]
 transform = Transform3D(-0.8500674, 0, -0.526674, 0, 1, 0, 0.526674, 0, -0.8500674, 2.0796309, 1.0353491, 4.433082)
+enabled = true
+picked_up_layer = 65536
+release_mode = -1
+ranged_grab_method = 1
+second_hand_grab = 0
+ranged_grab_speed = 20.0
+picked_by_exclude = ""
+picked_by_require = ""
 
 [node name="StartXR" parent="." instance=ExtResource("12_dt5un")]
 
@@ -469,7 +480,7 @@ transform = Transform3D(-0.047263402, 0, -0.9988825, 0, 1, 0, 0.9988825, 0, -0.0
 transform = Transform3D(0.09754811, 0, -0.99523085, 0, 1, 0, 0.99523085, 0, 0.09754811, -0.15380192, 3.3510513, 3.039595)
 
 [node name="Portal" parent="Interieur" instance=ExtResource("19_qik6l")]
-transform = Transform3D(0.62337476, 0, 0.7819232, 0, 1, 0, -0.7819232, 0, 0.62337476, -9.443712, 0.49768913, -4.791712)
+transform = Transform3D(0.62337476, 0, 0.7819232, 0, 1, 0, -0.7819232, 0, 0.62337476, -9.443712, -4.2058263, -18.452038)
 
 [node name="MeshInstance3D" parent="Interieur/Portal/Node3D" index="0"]
 material_override = SubResource("ShaderMaterial_8e8m2")
@@ -483,14 +494,17 @@ transform = Transform3D(1, 0, -2.9802322e-08, 0, 1, 0, 2.9802322e-08, 0, 1, -0.0
 shape = SubResource("BoxShape3D_qe1nb")
 
 [node name="Portal3" parent="Interieur" instance=ExtResource("19_qik6l")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.669155, 0.47952557, 0.047949076)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.371927, 0.39328527, 0.047949076)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Interieur/Portal3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0074462816, 1.6050816, -0.122802734)
-shape = SubResource("BoxShape3D_e23gj")
+[node name="Area3D" type="Area3D" parent="Interieur/Portal3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7075377, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interieur/Portal3/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.055786114, -0.2175293, -0.024230957)
+shape = SubResource("BoxShape3D_pgtoj")
 
 [node name="Portal2" parent="Interieur" instance=ExtResource("19_qik6l")]
-transform = Transform3D(-0.50000006, 0, 0.8660254, 0, 1, 0, -0.8660254, 0, -0.50000006, -9.379076, 0.4829105, 4.8196654)
+transform = Transform3D(-0.50000006, 0, 0.8660254, 0, 1, 0, -0.8660254, 0, -0.50000006, -9.379076, -3.149311, 17.071075)
 
 [node name="MeshInstance3D" parent="Interieur/Portal2/Node3D" index="0"]
 material_override = SubResource("ShaderMaterial_sjvgk")
@@ -1304,6 +1318,14 @@ shape = SubResource("BoxShape3D_dl7et")
 
 [node name="Book" parent="Zone2" instance=ExtResource("4_jro34")]
 transform = Transform3D(-0.085006736, 0, -0.052667398, 0, 0.1, 0, 0.052667398, 0, -0.085006736, 1.5339928, 1.0071006, 2.4335785)
+enabled = true
+picked_up_layer = 65536
+release_mode = -1
+ranged_grab_method = 1
+second_hand_grab = 0
+ranged_grab_speed = 20.0
+picked_by_exclude = ""
+picked_by_require = ""
 
 [node name="Zone3" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -101.80359, 0, 0)
@@ -1644,9 +1666,7 @@ stream = ExtResource("43_1el7f")
 [node name="Wand" parent="." instance=ExtResource("11_6yhae")]
 transform = Transform3D(-0.6190527, -0.5287628, 0.58067495, 2.5684261e-09, 0.7393843, 0.6732835, -0.78534925, 0.416798, -0.4577179, 1.5518479, 1.1356891, 4.4096856)
 
-[connection signal="child_entered_tree" from="Interieur/Portal/CollisionShape3D" to="." method="_portal1_entered"]
-[connection signal="child_entered_tree" from="Interieur/Portal3/CollisionShape3D" to="." method="_portal3_entered"]
-[connection signal="child_entered_tree" from="Interieur/Portal2/CollisionShape3D" to="." method="_portal2_entered"]
+[connection signal="child_entered_tree" from="Interieur/Portal3/Area3D/CollisionShape3D" to="." method="_start_levels"]
 [connection signal="child_entered_tree" from="Zone1/Portal/CollisionShape3D" to="." method="goto_hub"]
 [connection signal="child_entered_tree" from="Zone2/Portal2/CollisionShape3D" to="." method="goto_hub"]
 [connection signal="plate_pressed" from="Zone3/objects/Pressure_plate" to="Zone3/tutos" method="_on_pressure_plate_plate_pressed"]
