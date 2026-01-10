@@ -16,11 +16,13 @@ func _get_configuration_warnings():
 		
 @export var recording := true:
 	set(value):
+		if value == recording: return
 		recording = value
 		if recording:
-			_ready()
+			ready()
 		else:
-			thread.wait_to_finish()
+			if thread:
+				thread.wait_to_finish()
 	get:
 		return recording
 ## The interval at which transcribing is done. Use a value bigger than the time it takes to transcribe (eg. depends on model).
@@ -28,9 +30,9 @@ func _get_configuration_warnings():
 ## Using dynamic audio context speeds up transcribing but may result in mistakes.
 @export var use_dynamic_audio_context := true
 ## How much time has to pass in seconds until we can consider a sentence.
-@export var minimum_sentence_time := 3
+@export var minimum_sentence_time := 3.0
 ## Maximum time a sentence can have in seconds.
-@export var maximum_sentence_time := 15
+@export var maximum_sentence_time := 15.0
 ## How many tokens it's allowed to halucinate. Can provide useful info as it talks, but too much can provide useless text.
 @export var halucinating_count := 1
 ## The record bus has to have a AudioEffectCapture at index specified by [member audio_effect_capture_index]
@@ -45,16 +47,22 @@ func _get_configuration_warnings():
 @onready var _effect_capture := AudioServer.get_bus_effect(_idx, audio_effect_capture_index) as AudioEffectCapture
 
 var thread : Thread
-
-func _ready():
+func _ready() -> void:
+	if recording:
+		ready()
+func ready():
 	if Engine.is_editor_hint():
 		return
 	if thread && thread.is_alive():
 		recording = false
+		thread.start(func (): pass)
 		thread.wait_to_finish()
 	thread = Thread.new()
 	_effect_capture.clear_buffer()
 	thread.start(transcribe_thread)
+
+func free() -> void:
+	thread.wait_to_finish()
 
 var _accumulated_frames: PackedVector2Array
 
@@ -82,6 +90,7 @@ func transcribe_thread():
 		var full_text : String = tokens.pop_front()
 		var mix_rate : int = ProjectSettings.get_setting("audio/driver/mix_rate")
 		var finish_sentence = false
+		print(total_time)
 		if total_time > maximum_sentence_time:
 			finish_sentence = true
 		var text : String
@@ -94,12 +103,12 @@ func transcribe_thread():
 			finish_sentence = false
 		var time_processing = (Time.get_ticks_msec() - start_time)
 		if no_activity:
-			#_accumulated_frames = []
+			_accumulated_frames = []
 			continue
 		if finish_sentence:
 			_accumulated_frames = _accumulated_frames.slice(_accumulated_frames.size() - (0.2 * mix_rate))
 		#if !no_activity:
-		call_deferred("emit_signal", "transcribed_msg", finish_sentence, full_text)
+		call_deferred("emit_signal", "transcribed_msg", finish_sentence, text)
 		last_token_count = tokens.size()
 		#print(text)
 		print(full_text)

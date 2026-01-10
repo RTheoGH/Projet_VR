@@ -10,7 +10,7 @@ var explosion = preload("res://spells/scenes/explosion.tscn")
 func _start_spell() -> void:
 	$cast.play()
 	apply_central_impulse(to_global(Vector3.FORWARD * launch_strength))
-	add_collision_exception_with(caster)
+	#add_collision_exception_with(caster)
 	
 func explode():
 	for b in $Area3D.get_overlapping_bodies():

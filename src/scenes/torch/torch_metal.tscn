@@ -64,7 +64,7 @@ point_count = 2
 curve = SubResource("Curve_8aiu0")
 
 [sub_resource type="Curve" id="Curve_45e3j"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.20207256, 1), 0.0, 0.0, 0, 0, Vector2(0.99999, 0.43820232), 0.0, 0.0, 0, 0, Vector2(1, 0.24719107), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.56000006, 1), 0.0, 0.0, 0, 0, Vector2(0.99999, 0.43820232), 0.0, 0.0, 0, 0, Vector2(1, 0.24719107), 0.0, 0.0, 0, 0]
 point_count = 4
 
 [sub_resource type="CurveTexture" id="CurveTexture_s7x41"]
@@ -87,7 +87,7 @@ color = Color(0.2972226, 0.24434823, 3.915086e-06, 1)
 alpha_curve = SubResource("CurveTexture_r2j05")
 
 [sub_resource type="QuadMesh" id="QuadMesh_v0xmx"]
-size = Vector2(0.3, 0.3)
+size = Vector2(0.5, 0.5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qasd0"]
 atlas = ExtResource("7_dqs0r")
@@ -318,7 +318,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 30.0
+"speed": 24.0
 }]
 
 [node name="Torch_Metal2" instance=ExtResource("1_8aiu0")]
@@ -341,7 +341,7 @@ draw_pass_1 = SubResource("QuadMesh_r2j05")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34254992, 0.2801628)
 material_override = SubResource("ShaderMaterial_qasd0")
 amount = 50
-speed_scale = 0.6
+speed_scale = 0.3
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_lpw4x")
 draw_pass_1 = SubResource("QuadMesh_v0xmx")
@@ -349,7 +349,7 @@ draw_pass_1 = SubResource("QuadMesh_v0xmx")
 [node name="OmniLight3D" type="OmniLight3D" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014910698, 0.30074513, 0.48418796)
 light_color = Color(0.856458, 0.5672213, 0.1911028, 1)
-light_energy = 3.0876787
+light_energy = 4.6686845
 omni_range = 5.7054963
 script = ExtResource("6_wu81m")
 base_energy = 5.7
@@ -362,4 +362,4 @@ billboard = 2
 render_priority = 1
 sprite_frames = SubResource("SpriteFrames_bry22")
 autoplay = "default"
-frame_progress = 0.33527732
+frame_progress = 0.16614053

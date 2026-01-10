@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://dxx722tqqoo7j"]
+[gd_scene load_steps=10 format=3 uid="uid://dxx722tqqoo7j"]
 
 [ext_resource type="ArrayMesh" uid="uid://b0lggtat0rckv" path="res://Assets/book.obj" id="1_7y7no"]
-[ext_resource type="Script" uid="uid://d2tylielur6l1" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_44gwr"]
-[ext_resource type="Script" uid="uid://68qnmoa73q2f" path="res://addons/godot-xr-tools/objects/grab_points/grab_point.gd" id="2_qj40e"]
+[ext_resource type="Script" uid="uid://ymluo0xsocbb" path="res://src/scenes/voice/book.gd" id="1_lyedq"]
 [ext_resource type="Texture2D" uid="uid://bhv8c8kpefsgq" path="res://Assets/Packs/maxwell_0.png" id="4_2nycx"]
 [ext_resource type="Texture2D" uid="uid://dlghsw74j018s" path="res://Assets/textures/book_spell_texture.png" id="5_2nycx"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="5_kltqd"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="6_kltqd"]
+[ext_resource type="PackedScene" uid="uid://cchxk0rvoleg1" path="res://src/scenes/voice/voice.tscn" id="7_lyedq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_44gwr"]
 albedo_color = Color(0.37738183, 0.1859045, 0.052778475, 1)
@@ -14,34 +16,51 @@ metallic = 1.0
 size = Vector3(4.499954, 0.6392822, 2.0183105)
 
 [node name="Book" type="RigidBody3D"]
-script = ExtResource("1_44gwr")
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_lyedq")
+enabled = null
+press_to_hold = false
+picked_up_layer = null
+release_mode = null
+ranged_grab_method = null
+second_hand_grab = null
+ranged_grab_speed = null
+picked_by_exclude = null
+picked_by_require = null
 metadata/_custom_type_script = "uid://d2tylielur6l1"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.019483142, 0.1077044)
 material_override = SubResource("StandardMaterial3D_44gwr")
 mesh = ExtResource("1_7y7no")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.001045227, -0.01776123, 0.008666992)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.001045227, -0.019854352, 0.008666992)
 shape = SubResource("BoxShape3D_5sjlb")
 
-[node name="XRToolsGrabPoint" type="Marker3D" parent="."]
-script = ExtResource("2_qj40e")
-metadata/_custom_type_script = "uid://68qnmoa73q2f"
-
 [node name="pointeur" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7792734, -2.7166028)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15232861, -0.18016648)
 
 [node name="Decal2" type="Decal" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.044378, 0.15057641, 0)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.106338695, 0.0013196841, 1.4901161e-08)
 size = Vector3(2.0264893, 0.5500488, 2)
 texture_albedo = ExtResource("4_2nycx")
 
 [node name="Decal" type="Decal" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0928118, 0.2265625, 0)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.10667716, 0.0076657236, 0)
 size = Vector3(2, 0.7011719, 2)
 texture_albedo = ExtResource("5_2nycx")
+
+[node name="GrabPointHandLeft" parent="." instance=ExtResource("5_kltqd")]
+transform = Transform3D(0.853987, -0.40676796, -0.3244165, 0.52029437, 0.66765, 0.53248215, 4.6560203e-10, -0.6235249, 0.7818035, -0.04412189, -0.057235263, -0.089794666)
+visible = true
+
+[node name="GrabPointHandRight" parent="." instance=ExtResource("6_kltqd")]
+transform = Transform3D(0.9324058, 0.23034415, 0.27849764, -0.361413, 0.5942626, 0.7184933, 0, -0.77058, 0.6373433, 0.04815927, -0.08444861, -0.09983921)
+visible = true
+
+[node name="Voice" parent="." instance=ExtResource("7_lyedq")]
 
 [connection signal="dropped" from="." to="." method="_on_dropped"]
 [connection signal="grabbed" from="." to="." method="_on_grabbed"]

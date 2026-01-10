@@ -1,7 +1,7 @@
 extends RichTextLabel
 
-var fireball = ["fireball","fire ball"]
-var thunderbolt = ["thunderbolt","thunder bolt","sandobold","fenderbird","sander bolt","sanderbald"]
+var fireball = ["fireball","fire ball", "for your", "thank you paul", "good boy", "fire bolt", "firebolt", "by your board, maxwell"]
+var thunderbolt = ["thunderbolt","thunder bolt","sandobold","fenderbird","sander bolt","sanderbald", "fender ball", "fedo bool"]
 var light = ["light","lite","lay te","late"]
 var antigrav = ["gravity","gray vity","grave ity"]
 
@@ -28,11 +28,10 @@ var spellbook : Dictionary[String, Spell] = {
 	"thunderbolt" : preload("res://spells/resources/thunderbolt.tres")
 }
 
-var spell : String
-
 func _on_speech_to_text_transcribed_msg(is_partial, new_text):
+	var spell : String = ""
 	
-	var full_text = completed_text + partial_text + new_text
+	var full_text: String =  new_text
 
 	if contains_spell(full_text, fireball):
 		print("Fireball !!!")
@@ -43,16 +42,16 @@ func _on_speech_to_text_transcribed_msg(is_partial, new_text):
 		spell = "thunderbolt"
 		
 	if contains_spell(full_text, light):
-		print("Thunderbolt !!!")
-		spell = "thunderbolt"
+		print("light !!!")
+		spell = "light"
 		
 	if contains_spell(full_text, antigrav):
-		print("Thunderbolt !!!")
-		spell = "thunderbolt"
+		print("antigrav !!!")
+		spell = "antigrav"
 
 	if spellbook.has(spell):
 		var spell_to_launch : Spell = spellbook[spell]
-		if get_parent().get_parent():
+		if get_parent().launched_from_game:
 			pointeur = get_parent().get_parent().get_node("pointeur")
 			spell_to_launch.launch(pointeur.global_transform,pointeur)
 

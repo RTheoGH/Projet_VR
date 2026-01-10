@@ -236,6 +236,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8389206, 1.0191908, 1.88954
 transform = Transform3D(-0.9944288, -0.09375674, 0.048175037, -0.067496814, 0.9174128, 0.3921707, -0.08096504, 0.38673428, -0.9186302, -4.0996575, 2.5474186, 0.8698158)
 current = true
 
+[node name="Node3D" parent="." instance=ExtResource("11_6yhae")]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 7.0086036, 0.9147892, -4.5057325)
+script = null
+
 [node name="Book" parent="." instance=ExtResource("4_jro34")]
 transform = Transform3D(-0.8500674, 0, -0.526674, 0, 1, 0, 0.526674, 0, -0.8500674, 2.0796309, 1.0353491, 4.433082)
 
@@ -1640,9 +1644,6 @@ shape = SubResource("BoxShape3D_e23gj")
 
 [node name="portal_sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("43_1el7f")
-
-[node name="Wand" parent="." instance=ExtResource("11_6yhae")]
-transform = Transform3D(-0.6190527, -0.5287628, 0.58067495, 2.5684261e-09, 0.7393843, 0.6732835, -0.78534925, 0.416798, -0.4577179, 1.5518479, 1.1356891, 4.4096856)
 
 [connection signal="child_entered_tree" from="Interieur/Portal/CollisionShape3D" to="." method="_portal1_entered"]
 [connection signal="child_entered_tree" from="Interieur/Portal3/CollisionShape3D" to="." method="_portal3_entered"]

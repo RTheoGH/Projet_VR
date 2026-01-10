@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://bbc2qfox0hdai"]
+[gd_scene load_steps=21 format=4 uid="uid://bbc2qfox0hdai"]
 
 [ext_resource type="PackedScene" uid="uid://bej35ui0rcag0" path="res://Assets/maps/map_1.blend" id="1_angmx"]
 [ext_resource type="PackedScene" uid="uid://cbtk71x3cwrx6" path="res://src/scenes/torch/torch_metal.tscn" id="2_xcwim"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://72xkoncofey" path="res://Assets/materials/wallByBogey/wallByBogey_albedo.png" id="4_05cjr"]
 [ext_resource type="Texture2D" uid="uid://dlbj10tdug01k" path="res://Assets/materials/wallByBogey/wallByBogey_heightmap.png" id="5_wu35s"]
 [ext_resource type="Script" uid="uid://dbva8wdromhk7" path="res://src/classes/light_flicker.gd" id="6_05cjr"]
+[ext_resource type="PackedScene" uid="uid://c17131quqte6e" path="res://src/scenes/objets/crate.tscn" id="7_8f7r2"]
+[ext_resource type="PackedScene" uid="uid://00n18ca1dd4y" path="res://src/scenes/objets/crate_metal.tscn" id="8_b8uio"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_37yji"]
 sky_top_color = Color(0.33646625, 0.40749058, 0.42967212, 1)
@@ -220,7 +222,7 @@ process_material = SubResource("ParticleProcessMaterial_la4ae")
 [node name="OmniLight3D" type="OmniLight3D" parent="Portal"]
 transform = Transform3D(2.020202, 0, 0, 0, 2.020202, 0, 0, 0, 2.020202, -0.12974644, 1.9967823, 1.817276)
 light_color = Color(2.0214916e-06, 0.49184072, 0.76046115, 1)
-light_energy = 5.008152
+light_energy = 4.652639
 script = ExtResource("6_05cjr")
 base_energy = 6.25
 flicker_strength = 0.72
@@ -228,6 +230,68 @@ flicker_speed = 0.57
 
 [node name="SpawnNode" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0197074, 0.046495914, -0.0066041946)
+
+[node name="DynamicProps" type="Node3D" parent="."]
+
+[node name="Crate" parent="DynamicProps" instance=ExtResource("7_8f7r2")]
+transform = Transform3D(0.96821314, 0, 0.25012654, 0, 1, 0, -0.25012654, 0, 0.96821314, -9.076367, -0.8669965, 8.248014)
+
+[node name="Crate2" parent="DynamicProps" instance=ExtResource("7_8f7r2")]
+transform = Transform3D(0.9988324, 0, -0.048309356, 0, 1, 0, 0.048309356, 0, 0.9988324, -9.09473, -0.0448218, 7.732506)
+
+[node name="CrateMetal" parent="DynamicProps" instance=ExtResource("8_b8uio")]
+transform = Transform3D(0.96821314, 0, 0.25012654, 0.001436252, 0.9999835, -0.005559578, -0.2501224, 0.0057421015, 0.96819717, -9.080351, -0.8467475, 7.065811)
+
+[node name="Crate7" parent="DynamicProps" instance=ExtResource("7_8f7r2")]
+transform = Transform3D(-0.020820245, 0, 0.9997832, 0, 1, 0, -0.9997832, 0, -0.020820245, -12.121138, -0.8669965, 11.732832)
+
+[node name="Crate8" parent="DynamicProps" instance=ExtResource("7_8f7r2")]
+transform = Transform3D(0.27666065, 0, 0.9609677, 0, 1, 0, -0.9609677, 0, 0.27666065, -12.627059, -0.0448218, 11.63218)
+
+[node name="Crate9" parent="DynamicProps" instance=ExtResource("7_8f7r2")]
+transform = Transform3D(0.27666065, 0, 0.9609677, 0, 1, 0, -0.9609677, 0, 0.27666065, -11.515391, -0.68399507, 1.5606232)
+
+[node name="CrateMetal5" parent="DynamicProps" instance=ExtResource("8_b8uio")]
+transform = Transform3D(-0.020816222, 0.005588277, 0.9997677, 0.001436252, 0.99998343, -0.005559578, -0.9997822, 0.0013201884, -0.020823926, -13.272586, -0.8467475, 11.464903)
+
+[node name="Crate10" parent="DynamicProps" instance=ExtResource("7_8f7r2")]
+transform = Transform3D(0.9999066, 0, -0.013665471, 0, 1, 0, 0.013665471, 0, 0.9999066, -22.478123, 1.8671501, 8.849085)
+
+[node name="Crate11" parent="DynamicProps" instance=ExtResource("7_8f7r2")]
+transform = Transform3D(0.9508568, 0, -0.30963108, 0, 1, 0, 0.30963108, 0, 0.9508568, -22.360086, 2.6893249, 8.346935)
+
+[node name="CrateMetal6" parent="DynamicProps" instance=ExtResource("8_b8uio")]
+transform = Transform3D(0.99990547, -0.0015120913, -0.013661262, 0.001436252, 0.99998343, -0.005559578, 0.013669457, 0.005539432, 0.99989116, -22.17065, 1.8873991, 7.70756)
+
+[node name="Crate12" parent="DynamicProps" instance=ExtResource("7_8f7r2")]
+transform = Transform3D(0.23741469, 0, -0.9714085, 0, 1, 0, 0.9714085, 0, 0.23741469, -18.81706, 0.018652081, -10.4421425)
+
+[node name="Crate13" parent="DynamicProps" instance=ExtResource("7_8f7r2")]
+transform = Transform3D(-0.061396927, 0, -0.99811345, 0, 1, 0, 0.99811345, 0, -0.061396927, -18.301355, 0.84082687, -10.453747)
+
+[node name="CrateMetal7" parent="DynamicProps" instance=ExtResource("8_b8uio")]
+transform = Transform3D(0.23741049, -0.005741608, -0.9713924, 0.0014362523, 0.99998355, -0.005559578, 0.97140837, -7.526099e-05, 0.23741484, -17.634909, 0.03890109, -10.43063)
+
+[node name="CrateMetal2" parent="DynamicProps" instance=ExtResource("8_b8uio")]
+transform = Transform3D(0.96821314, 0, 0.25012654, 0, 1, 0, -0.25012654, 0, 0.96821314, -10.066767, -0.8227871, 6.8654046)
+
+[node name="Crate3" parent="DynamicProps" instance=ExtResource("7_8f7r2")]
+transform = Transform3D(0.96821314, 0, 0.25012654, 0, 1, 0, -0.25012654, 0, 0.96821314, -9.4534855, 0.102214575, 6.7422814)
+
+[node name="Crate4" parent="DynamicProps" instance=ExtResource("7_8f7r2")]
+transform = Transform3D(0.96821314, 0, 0.25012654, 0, 1, 0, -0.25012654, 0, 0.96821314, -9.327694, 0.2828167, 5.585033)
+
+[node name="Crate5" parent="DynamicProps" instance=ExtResource("7_8f7r2")]
+transform = Transform3D(0.96821314, 0, 0.25012654, 0, 1, 0, -0.25012654, 0, 0.96821314, -9.387292, 1.0858932, 6.278484)
+
+[node name="Crate6" parent="DynamicProps" instance=ExtResource("7_8f7r2")]
+transform = Transform3D(0.96820444, 0.0042411373, 0.25012428, -0.004106325, 0.999991, -0.001060821, -0.25012654, 0, 0.96821314, -9.345533, 0.9209894, 7.460708)
+
+[node name="CrateMetal3" parent="DynamicProps" instance=ExtResource("8_b8uio")]
+transform = Transform3D(0.96821314, 0, 0.25012654, 0, 1, 0, -0.25012654, 0, 0.96821314, -9.073828, -0.7373729, 5.2179236)
+
+[node name="CrateMetal4" parent="DynamicProps" instance=ExtResource("8_b8uio")]
+transform = Transform3D(0.7688976, 0, 0.6393719, 0, 1, 0, -0.6393719, 0, 0.7688976, -9.544945, 2.145062, 6.9734592)
 
 [editable path="Portal"]
 [editable path="Portal/Portal2"]
