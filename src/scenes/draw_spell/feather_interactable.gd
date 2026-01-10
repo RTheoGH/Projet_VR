@@ -42,6 +42,11 @@ func draw_point(body: Node3D):
 func activate(_pressed: bool):
 	is_drawing = _pressed
 	if !is_drawing:
+		if draw_rune.size() < 10:
+			draw_rune.points.clear()
+			draw_rune.normals.clear()
+			return
+			
 		var score = recognizer.Recognize(draw_rune.get_2d_coordinates(recognizer, 0), 0.8)
 		var rune_pos := draw_rune.get_mean_pos()
 		if  $tip.get_collider() is RigidBody3D:
