@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfuhmqrig7mdq"]
+
+[ext_resource type="Texture2D" uid="uid://dyn3g30fgtgw6" path="res://Assets/textures/bois_horrible.jpg" id="1_hcidx"]
+[ext_resource type="ArrayMesh" uid="uid://btu0gdss6bbhh" path="res://Assets/models/panneau.obj" id="2_8f75t"]
+[ext_resource type="Texture2D" uid="uid://b521ohlnt7jhx" path="res://Assets/textures/start.png" id="3_0tqha"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2nq5x"]
+albedo_texture = ExtResource("1_hcidx")
+
+[node name="Panneau" type="Node3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_2nq5x")
+mesh = ExtResource("2_8f75t")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(-5.7379484e-08, 0, 1.3126895, 0, 1.3126895, 0, -1.3126895, 0, -5.7379484e-08, 0.2288773, 0.86301816, 0)
+texture = ExtResource("3_0tqha")

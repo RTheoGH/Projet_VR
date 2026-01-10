@@ -1,0 +1,53 @@
+[gd_scene load_steps=10 format=3 uid="uid://b5b15nfdujkto"]
+
+[ext_resource type="Shader" uid="uid://8vbbjig45bac" path="res://src/shaders/snowshader2.gdshader" id="1_wjdmu"]
+[ext_resource type="Texture2D" uid="uid://bw68faq84t2uf" path="res://Assets/textures/flocon.png" id="2_3kdpl"]
+
+[sub_resource type="Gradient" id="Gradient_5n1y7"]
+offsets = PackedFloat32Array(0, 0.65284973)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_a8j42"]
+gradient = SubResource("Gradient_5n1y7")
+
+[sub_resource type="Curve" id="Curve_wjdmu"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.14611873, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_3kdpl"]
+curve = SubResource("Curve_wjdmu")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mn4od"]
+emission_shape = 3
+emission_box_extents = Vector3(16, 1, 16)
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 3.0
+initial_velocity_max = 6.0
+gravity = Vector3(0, -5.5, 0)
+radial_accel_min = -4.0000024
+radial_accel_max = 3.9999976
+tangential_accel_min = -8.000002
+tangential_accel_max = 7.9999976
+damping_max = 4.0
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_3kdpl")
+color_ramp = SubResource("GradientTexture1D_a8j42")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mn4od"]
+render_priority = 0
+shader = ExtResource("1_wjdmu")
+shader_parameter/tex = ExtResource("2_3kdpl")
+shader_parameter/color = Vector3(1, 1, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_wxeo0"]
+material = SubResource("ShaderMaterial_mn4od")
+size = Vector2(0.4, 0.4)
+
+[node name="Snow" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+amount = 256
+lifetime = 4.0
+speed_scale = 0.5
+process_material = SubResource("ParticleProcessMaterial_mn4od")
+draw_pass_1 = SubResource("QuadMesh_wxeo0")
