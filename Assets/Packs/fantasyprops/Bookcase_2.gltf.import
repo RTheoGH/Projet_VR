@@ -41,7 +41,7 @@ _subresources={
 "nodes": {
 "PATH:Bookcase_2": {
 "generate/physics": true,
-"physics/shape_type": 1
+"physics/shape_type": 2
 }
 }
 }

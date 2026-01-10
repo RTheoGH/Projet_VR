@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://d21osk7g0mhl8"]
+
+[ext_resource type="PackedScene" uid="uid://d2wrb13g232i4" path="res://Assets/Packs/fantasyprops/Candle_2.gltf" id="1_recn2"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_recn2"]
+height = 0.2779541
+radius = 0.049804688
+
+[node name="Candle_22" type="RigidBody3D"]
+
+[node name="Candle_22" parent="." instance=ExtResource("1_recn2")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12886047, 0)
+shape = SubResource("CylinderShape3D_recn2")
