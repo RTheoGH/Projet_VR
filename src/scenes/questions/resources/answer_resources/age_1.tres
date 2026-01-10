@@ -5,4 +5,5 @@
 [resource]
 script = ExtResource("1_kuv86")
 value_text = "18-25"
+value = "18"
 metadata/_custom_type_script = "uid://2cytqirrcfcn"

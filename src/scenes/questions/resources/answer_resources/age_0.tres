@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_w8e5x")
-value_text = "Under 18"
-value = "11.5"
+value_text = "Moins de 18"
+value = "0"
 metadata/_custom_type_script = "uid://2cytqirrcfcn"

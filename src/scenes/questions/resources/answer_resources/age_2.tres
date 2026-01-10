@@ -5,4 +5,5 @@
 [resource]
 script = ExtResource("1_fiea6")
 value_text = "26 - 50"
+value = "26"
 metadata/_custom_type_script = "uid://2cytqirrcfcn"

@@ -9,6 +9,6 @@
 
 [resource]
 script = ExtResource("2_r0ki3")
-question_text = "How old are you ?"
+question_text = "Quel age avez vous ?"
 answers = Array[ExtResource("1_v3iiq")]([ExtResource("2_ibpeo"), ExtResource("3_dfgj5"), ExtResource("4_i3d0s"), ExtResource("5_64btu")])
 metadata/_custom_type_script = "uid://clop87h6b3bhq"

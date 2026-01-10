@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_umver")
-value_text = "50+"
-value = "25"
+value_text = "Plus de 50"
+value = "51"
 metadata/_custom_type_script = "uid://2cytqirrcfcn"
