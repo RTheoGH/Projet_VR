@@ -1,0 +1,13 @@
+[gd_resource type="ORMMaterial3D" load_steps=3 format=3 uid="uid://bkjxqr8wb3c16"]
+
+[ext_resource type="Texture2D" uid="uid://72xkoncofey" path="res://Assets/materials/wallByBogey/wallByBogey_albedo.png" id="1_0sxdf"]
+[ext_resource type="Texture2D" uid="uid://dlbj10tdug01k" path="res://Assets/materials/wallByBogey/wallByBogey_heightmap.png" id="2_wcu8y"]
+
+[resource]
+albedo_texture = ExtResource("1_0sxdf")
+heightmap_enabled = true
+heightmap_deep_parallax = true
+heightmap_min_layers = 16
+heightmap_max_layers = 64
+heightmap_texture = ExtResource("2_wcu8y")
+uv1_scale = Vector3(2.4, 4, 3)

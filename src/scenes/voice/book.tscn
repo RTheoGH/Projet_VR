@@ -19,15 +19,7 @@ size = Vector3(4.499954, 0.6392822, 2.0183105)
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_lyedq")
-enabled = null
 press_to_hold = false
-picked_up_layer = null
-release_mode = null
-ranged_grab_method = null
-second_hand_grab = null
-ranged_grab_speed = null
-picked_by_exclude = null
-picked_by_require = null
 metadata/_custom_type_script = "uid://d2tylielur6l1"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -42,14 +34,18 @@ shape = SubResource("BoxShape3D_5sjlb")
 [node name="pointeur" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15232861, -0.18016648)
 
+[node name="RayCast3D" type="RayCast3D" parent="pointeur"]
+transform = Transform3D(1, 0, 0, 0, -0.06651776, -0.9977852, 0, 0.9977852, -0.06651776, 0, 0, 0)
+target_position = Vector3(0, -50, 0)
+
 [node name="Decal2" type="Decal" parent="."]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.106338695, 0.0013196841, 1.4901161e-08)
-size = Vector3(2.0264893, 0.5500488, 2)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.10228291, 0.0013196841, 0.0030273588)
+size = Vector3(1.9453735, 0.5500488, 2.0605469)
 texture_albedo = ExtResource("4_2nycx")
 
 [node name="Decal" type="Decal" parent="."]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.10667716, 0.0076657236, 0)
-size = Vector3(2, 0.7011719, 2)
+transform = Transform3D(0.09772533, -0.021207534, 0, 0.021207534, 0.09772533, 0, 0, 0, 0.1, -0.10209135, -0.0063284985, 0.008435059)
+size = Vector3(1.9697266, 0.40820313, 1.9880371)
 texture_albedo = ExtResource("5_2nycx")
 
 [node name="GrabPointHandLeft" parent="." instance=ExtResource("5_kltqd")]

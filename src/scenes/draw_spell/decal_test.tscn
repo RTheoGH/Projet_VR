@@ -1,14 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://uf1s3mub1ecn"]
+[gd_scene load_steps=7 format=3 uid="uid://uf1s3mub1ecn"]
 
 [ext_resource type="Script" uid="uid://blq1k0jy3tw4f" path="res://src/scenes/draw_spell/decal_test.gd" id="1_2s3er"]
+[ext_resource type="PackedScene" uid="uid://brcntxdt00g3r" path="res://src/scenes/draw_spell/ink_decal.tscn" id="2_0nkrb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2s3er"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0nkrb"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_yud18"]
+material = SubResource("StandardMaterial3D_0nkrb")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ol3es"]
+size = Vector3(1, 1, 0.018257141)
 
 [node name="DecalTest" type="Node3D"]
 script = ExtResource("1_2s3er")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0117369, 65.2959)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0117369, 25.610613)
+
+[node name="Label3D" type="Label3D" parent="Camera3D"]
+transform = Transform3D(0.36, 0, 0, 0, 0.36, 0, 0, 0, 0.36, 0, -0.419304, -0.60502243)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
@@ -18,3 +30,23 @@ shape = SubResource("BoxShape3D_2s3er")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D"]
 size = Vector3(50, 50, 50)
+
+[node name="Decal" parent="." instance=ExtResource("2_0nkrb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6302986, -2.078747, 25)
+size = Vector3(2, 2, 2)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+light_energy = 0.8
+
+[node name="Decal2" parent="." instance=ExtResource("2_0nkrb")]
+transform = Transform3D(1, 0, 0, 0, 0.10326121, 0.9946543, 0, -0.9946543, 0.10326121, 0, 1.0174588, 25.00563)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9851006, 25.006676)
+gravity_scale = 0.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+mesh = SubResource("QuadMesh_yud18")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("BoxShape3D_ol3es")

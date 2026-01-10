@@ -5,8 +5,16 @@ var explode_strength = 7.0;
 
 # Called when the node enters the scene tree for the first time.
 func _start_spell() -> void:
+	print(caster)
 	
-	var ray : RayCast3D = caster.get_node("tip/RayCast3D")
+	var ray : RayCast3D
+	if caster.name == "Wand":
+		ray = caster.get_node("tip/RayCast3D")
+	elif caster.name == "Book":
+		ray = caster.get_node("pointeur/RayCast3D")
+	else:
+		ray = caster.get_node("tip/RayCast3D")
+	
 	if ray:
 		var collision_point = ray.get_collision_point()
 		if ray.get_collider():
