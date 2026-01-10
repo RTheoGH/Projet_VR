@@ -43,11 +43,14 @@ func _physics_process(delta: float) -> void:
 			
 			var ink = ink_decal.instantiate()
 			ink.position = result["position"]
-			ink.rotation.x = 90
+			ink.rotation.x = atan2(result["normal"].y , result["normal"].z) + 90
+			ink.rotation.y = atan2(result["normal"].x , result["normal"].z)
+			ink.rotation.z = atan2(result["normal"].x , result["normal"].y)
 			#print("ink position : " , ink.position)
 			str_ref += "Vector3" + str(ink.position) + ", "
 			draw_rune.points.append(ink.position)
 			draw_rune.normals.append(result["normal"])
+			print(result["normal"])
 			active_decals.append(ink)
 			add_child(ink)
 		else : 

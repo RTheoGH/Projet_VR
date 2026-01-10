@@ -22,7 +22,7 @@ func get_mean_pos() -> Vector3:
 	
 ## Récup plan orthogonal à la moyenne des normales
 func get_plane() -> Plane:
-	return Plane(mean_normal)
+	return Plane(mean_normal, get_mean_pos())
 	
 func get_projected_points() -> Array[Vector3]:
 	var projected_points : Array[Vector3] = []
@@ -54,6 +54,7 @@ func to_2d_coordinates(points_3d: Array[Vector3]) -> Array[Vector2]:
 		var y = point.dot(basis_y)
 		result.append(Vector2(x, y))
 	
+	print(result)
 	return result
 	
 func get_points_from_2d_points(points_2d : Array[Vector2], recognizer : GestureRecognizer, id : int) -> Array[GestureRecognizer.Point]:
