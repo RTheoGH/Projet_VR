@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://uf1s3mub1ecn"]
+[gd_scene load_steps=9 format=3 uid="uid://uf1s3mub1ecn"]
 
 [ext_resource type="Script" uid="uid://blq1k0jy3tw4f" path="res://src/scenes/draw_spell/decal_test.gd" id="1_2s3er"]
 [ext_resource type="PackedScene" uid="uid://brcntxdt00g3r" path="res://src/scenes/draw_spell/ink_decal.tscn" id="2_0nkrb"]
+[ext_resource type="PackedScene" uid="uid://c17131quqte6e" path="res://src/scenes/objets/crate.tscn" id="3_yud18"]
+[ext_resource type="PackedScene" uid="uid://to3tgnn8fyn3" path="res://src/scenes/draw_spell/feather_interactable.tscn" id="4_ol3es"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2s3er"]
 
@@ -50,3 +52,12 @@ mesh = SubResource("QuadMesh_yud18")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 shape = SubResource("BoxShape3D_ol3es")
+
+[node name="Crate" parent="." instance=ExtResource("3_yud18")]
+transform = Transform3D(0.235, 0, 0, 0, 0.235, 0, 0, 0, 0.235, 0.010147221, 0.916522, 25.181068)
+gravity_scale = 0.0
+
+[node name="FeatherInteractable" parent="." instance=ExtResource("4_ol3es")]
+transform = Transform3D(5.763958e-07, -4.100841e-05, -0.23499998, -0.2344619, -0.015893586, 2.1900032e-06, -0.01589359, 0.23446192, -4.0955845e-05, 0.025242615, 1.1542052, 25.270115)
+gravity_scale = 0.0
+freeze = true
