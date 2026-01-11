@@ -250,7 +250,7 @@ shape = SubResource("BoxShape3D_i4rwx")
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12974644, 1.9967823, 0.8147135)
 light_color = Color(0.1760858, 0.28019315, 0.47748005, 1)
-light_energy = 8.197567
+light_energy = 6.623609
 omni_range = 5.159516
 script = ExtResource("5_78i00")
 base_energy = 9.735

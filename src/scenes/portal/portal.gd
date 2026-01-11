@@ -9,6 +9,12 @@ extends Node3D
 		portal_door_material.set_shader_parameter("Portal_Color", v)
 		portal_particle_material.albedo_color = v * 4.0
 		omni_light_3d.light_color = v
+@export var deactivated := false:
+	set(v):
+		deactivated = v
+		collision_shape_3d.disabled = v
+		node_3d.visible = !v
+		
 @export var use_override_instead_of_next:bool = false
 @export var override_destination:int = 0
 
@@ -17,6 +23,8 @@ extends Node3D
 @onready var area_3d: Area3D = $Area3D
 @onready var portal_door_material: ShaderMaterial = $Node3D/PortalDoor.material_override
 @onready var portal_particle_material: StandardMaterial3D = $Node3D/GPUParticles3D.material_override
+@onready var collision_shape_3d: CollisionShape3D = $Area3D/CollisionShape3D
+@onready var node_3d: Node3D = $Node3D
 
 func _ready():
 	color = color

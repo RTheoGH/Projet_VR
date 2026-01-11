@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://b7px801c0ohkr"]
+[gd_scene load_steps=78 format=3 uid="uid://b7px801c0ohkr"]
 
 [ext_resource type="Script" uid="uid://bda28yntj2wuf" path="res://src/levels/hub.gd" id="1_lg4k7"]
 [ext_resource type="PackedScene" uid="uid://dxx722tqqoo7j" path="res://src/scenes/voice/book.tscn" id="4_jro34"]
@@ -39,6 +39,7 @@
 [ext_resource type="Texture2D" uid="uid://cafeespuidpig" path="res://Assets/textures/program.png" id="37_mqkdr"]
 [ext_resource type="PackedScene" uid="uid://dfuhmqrig7mdq" path="res://src/scenes/panneau/panneau.tscn" id="42_l0i64"]
 [ext_resource type="AudioStream" uid="uid://gffb11dp24q5" path="res://Assets/sounds/portal.wav" id="43_1el7f"]
+[ext_resource type="PackedScene" uid="uid://b2htk0gbblko" path="res://src/scenes/questions/questions.tscn" id="45_wdv0t"]
 [ext_resource type="PackedScene" uid="uid://bed0uh5esvw7l" path="res://Assets/Packs/fantasyprops/Vase_4.gltf" id="50_pgtoj"]
 [ext_resource type="PackedScene" uid="uid://da5jxseviwmja" path="res://Assets/Packs/fantasyprops/Vase_2.gltf" id="51_l0i64"]
 [ext_resource type="PackedScene" uid="uid://crgo0b4waabhs" path="res://Assets/Packs/fantasyprops/Vase_Rubble_Medium.gltf" id="52_0bmb6"]
@@ -178,7 +179,7 @@ shadow_enabled = true
 directional_shadow_mode = 1
 
 [node name="XROrigin3D" parent="." instance=ExtResource("10_waxbk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8389206, 1.0191908, 1.8895483)
+transform = Transform3D(0.052771702, 0, 0.99860656, 0, 1, 0, -0.99860656, 0, 0.052771702, 7.2517014, 1.0191908, 0.02223277)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.11217156, -0.282962, -0.95254916, 0.0056976043, 0.95876634, -0.284138, 0.99367243, 0.026444959, 0.10915855, 5.4608355, 1.6038265, -1.2941315)
@@ -785,3 +786,6 @@ transform = Transform3D(0.12663177, 0, -0.99194974, 0, 1, 0, 0.99194974, 0, 0.12
 
 [node name="dummy2" parent="." instance=ExtResource("55_0bmb6")]
 transform = Transform3D(0.9863719, 0, -0.16453114, 0, 1, 0, 0.16453114, 0, 0.9863719, -6.952208, -0.009487957, 5.963862)
+
+[node name="Questions" parent="." instance=ExtResource("45_wdv0t")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
