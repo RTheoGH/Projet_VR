@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://odtdr45k7ryn"]
+[gd_scene load_steps=59 format=3 uid="uid://odtdr45k7ryn"]
 
 [ext_resource type="PackedScene" uid="uid://bej35ui0rcag0" path="res://Assets/maps/map_1.blend" id="1_g4s23"]
 [ext_resource type="PackedScene" uid="uid://cbtk71x3cwrx6" path="res://src/scenes/torch/torch_metal.tscn" id="2_qe8vo"]
@@ -45,6 +45,7 @@
 [ext_resource type="PackedScene" uid="uid://dmucgha4lsbce" path="res://Assets/Packs/fantasyprops/Anvil.gltf" id="46_qe8vo"]
 [ext_resource type="PackedScene" uid="uid://bfif3pop8a2ib" path="res://Assets/Packs/fantasyprops/Axe_Bronze.gltf" id="47_pmaxw"]
 [ext_resource type="PackedScene" uid="uid://b775n45rj3ya3" path="res://Assets/Packs/fantasyprops/Banner_1.gltf" id="48_lwy6b"]
+[ext_resource type="PackedScene" uid="uid://q2ddqvpmfr2x" path="res://src/scenes/character/character.tscn" id="50_3de7o"]
 [ext_resource type="PackedScene" uid="uid://drv8fl7o2gqas" path="res://src/scenes/objets/shield_wooden_2.tscn" id="50_w71oo"]
 [ext_resource type="PackedScene" uid="uid://cr4vhmosgh853" path="res://src/scenes/objets/sword_bronze_2.tscn" id="51_dcre8"]
 [ext_resource type="FontFile" uid="uid://bfe4fktkasx54" path="res://Assets/police/ancient/Ancient Medium.ttf" id="52_dcre8"]
@@ -100,6 +101,9 @@ transform = Transform3D(-0.99840736, -0.05640484, -0.0011583674, 0.010345455, -0
 light_color = Color(0.5878825, 0.7984465, 1, 1)
 light_energy = 1.25
 shadow_enabled = true
+
+[node name="XROrigin3D" parent="." instance=ExtResource("50_3de7o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.811985, 5.442333, -5.5439544)
 
 [node name="torchs" type="Node3D" parent="."]
 
