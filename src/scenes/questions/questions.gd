@@ -64,15 +64,18 @@ func answer_selected(_body : Node3D , answer_index : int) :
 	if _body.name != "Ball" : 
 		return 
 		
-	print("Hi")
+	var selected_answer= questions[current_question].answers[answer_index]
+	add_to_db(selected_answer)
 
 	if current_question+1 < len(questions):
-		var answer_value = questions[current_question].answers[answer_index].value
-		
 		current_question += 1
 		set_question(current_question)
 		
 	else : 
 		queue_free()
-		
-		
+
+func add_to_db(selected_answer : Answer):
+	var value = selected_answer.value
+	var column = questions[current_question].sql_column
+	
+	Analytics.set_value("player", column, value)
