@@ -8,8 +8,8 @@ extends Node3D
 @onready var game_question : Question = preload("res://src/scenes/questions/resources/question_resources/game_prof_question.tres")
 @onready var vr_question : Question = preload("res://src/scenes/questions/resources/question_resources/vr_prof_question.tres")
 
-
-@onready var answer_scene = preload("res://src/scenes/questions/answer_ball.tscn")
+# @onready var answer_scene = preload("res://src/scenes/questions/answer_ball.tscn")
+@onready var answer_scene = preload("res://src/scenes/questions/answer_ball_vr.tscn")
 @onready var question_label : Label3D = $Question
 @onready var answers_node : Node3D = $Answers
 var questions : Array[Question]
@@ -43,18 +43,27 @@ func set_question(question_index : int) :
 	
 	for i in range(nb_answers) : 
 		var answer_instance = answer_scene.instantiate()
-		answer_instance.position = positions[i]
+
 		answers_node.add_child(answer_instance)
+		
+		answer_instance.global_position = positions[i]
+		answer_instance.target_position = positions[i]
+		
 		answer_instance.create_answer(answers[i])
 		
-	
-		answer_instance.area.body_entered.connect(
-			func(_body: Node3D) :
-				answer_selected(_body , i)
+		answer_instance.area.area_entered.connect(
+			func(_area: Area3D) :
+				if _area.is_in_group("Cauldron") :
+					answer_selected(i)
 		)
+		
+		# answer_instance.selectable.grabbed.connect(
+		# 	func(_pickable : Variant, by:Variant) :
+		# 		answer_selected(by , i)
+		# )
 
-func get_sphere_positions(nb_sphere : int , radius : float = 1.0) :
-	var center = position
+func get_sphere_positions(nb_sphere : int , radius : float = 0.25) :
+	var center = answers_node.global_position
 	var margin = radius * 1.25
 	
 	var positions : Array[Vector3]
@@ -70,12 +79,10 @@ func get_sphere_positions(nb_sphere : int , radius : float = 1.0) :
 		
 	return positions
 	
-func answer_selected(_body : Node3D , answer_index : int) : 
-	if _body.name != "Ball" : 
-		return 
+func answer_selected(answer_index : int) : 
 		
 	var selected_answer= questions[current_question].answers[answer_index]
-	add_to_db(selected_answer	)
+	add_to_db(selected_answer)
 
 	if current_question+1 < len(questions):
 		current_question += 1

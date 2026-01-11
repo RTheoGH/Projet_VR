@@ -1,10 +1,10 @@
-extends Node3D
+extends XRToolsPickable
 
 var value : String
 
-@onready var label : Label3D = $Selectable/AnswerLabel
-@onready var area : Area3D = $Selectable/Area3D
-@onready var selectable : XRToolsPickable = $Selectable
+@onready var label : Label3D = $AnswerLabel
+@onready var area : Area3D = $Area3D
+@onready var selectable : XRToolsPickable = self
 
 var target_position : Vector3
 var fly_towards_target : bool = true
@@ -25,10 +25,14 @@ func create_answer(answer_res : Answer) -> void :
 
 func _on_selectable_grabbed(pickable: Variant, by: Variant) -> void:
 	fly_towards_target = false
+	gravity_scale = 1
+	linear_damp = 0
 
 func _on_selectable_dropped(pickable: Variant) -> void:
 	get_tree().create_timer(2).timeout.connect(
 		func() :
 			fly_towards_target = true
+			gravity_scale = 0
+			linear_damp = 2
 	)
 	

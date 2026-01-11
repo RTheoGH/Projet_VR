@@ -9,22 +9,16 @@
 [node name="QuestionTest" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.564, -0.769)
 
 [node name="Questions" parent="." instance=ExtResource("1_ohr43")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.9385078)
 
-[node name="Ball" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.458, -3.878)
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.790097, 1.6813989, -1.9728374)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ball"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.32173634, 0, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 shape = SubResource("SphereShape3D_ohr43")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ball/CollisionShape3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
 mesh = SubResource("SphereMesh_oeo2s")
-skeleton = NodePath("../../..")
-
-[node name="Area3D" type="Area3D" parent="Ball"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ball/Area3D"]
-shape = SubResource("SphereShape3D_ohr43")

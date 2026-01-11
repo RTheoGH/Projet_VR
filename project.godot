@@ -25,6 +25,10 @@ Analytics="*res://src/globals/analytics.gd"
 
 enabled=PackedStringArray("res://addons/godot-duckdb/plugin.cfg", "res://addons/godot-xr-tools/plugin.cfg")
 
+[global_group]
+
+Cauldron=""
+
 [input]
 
 left={
