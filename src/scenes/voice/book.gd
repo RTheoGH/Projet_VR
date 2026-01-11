@@ -1,3 +1,4 @@
+@tool
 extends XRToolsPickable
 @onready var voice_instance: Node = $Voice
 
