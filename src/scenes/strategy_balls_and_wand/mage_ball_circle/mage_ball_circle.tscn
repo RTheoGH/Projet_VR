@@ -1,7 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://bfs5qsy4dw1iq"]
+[gd_scene load_steps=28 format=3 uid="uid://bfs5qsy4dw1iq"]
 
 [ext_resource type="Script" uid="uid://bemtu0ory61oe" path="res://src/scenes/strategy_balls_and_wand/mage_ball_circle/mage_ball_circle.gd" id="1_lnxqx"]
 [ext_resource type="Shader" uid="uid://bftuhlgbixkst" path="res://src/shaders/ball_links.gdshader" id="2_y3frd"]
+[ext_resource type="PackedScene" uid="uid://on54tjibaiyx" path="res://Assets/models/indicator.blend" id="3_y3frd"]
+[ext_resource type="Texture2D" uid="uid://dgy8a2xotkqa5" path="res://Assets/textures/T_VFX_Noi55.png" id="4_5f2p7"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_lnxqx"]
 radius = 0.09954949
@@ -46,6 +48,145 @@ shader_parameter/width = 1.0
 
 [sub_resource type="ImmediateMesh" id="ImmediateMesh_lnxqx"]
 
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_uicjn"]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(0.02, 0.6)]
+op_type = 0
+operator = 2
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_lljmy"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_4akqp"]
+parameter_name = "FloatParameter"
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_f0wc2"]
+parameter_name = "Fire_color"
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_28eay"]
+expanded_output_ports = [0]
+texture = ExtResource("4_5f2p7")
+texture_type = 1
+
+[sub_resource type="Gradient" id="Gradient_c5wey"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5br4w"]
+gradient = SubResource("Gradient_c5wey")
+fill_from = Vector2(1, 0.7094017)
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_ju36k"]
+expanded_output_ports = [0]
+texture = SubResource("GradientTexture2D_5br4w")
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_wxlx3"]
+operator = 1
+
+[sub_resource type="VisualShaderNodeClamp" id="VisualShaderNodeClamp_78k2d"]
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_eu8te"]
+default_input_values = [1, Vector2(1, 1), 2, Vector2(0.24, 3.94)]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_k44dw"]
+input_name = "time"
+
+[sub_resource type="VisualShader" id="VisualShader_0rw2d"]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, depth_test_default, cull_disabled, diffuse_lambert, specular_schlick_ggx, unshaded, shadows_disabled, ambient_light_disabled;
+
+uniform vec4 Fire_color : source_color;
+uniform sampler2D tex_frg_3 : source_color;
+uniform sampler2D tex_frg_4 : source_color;
+uniform float FloatParameter;
+
+
+
+void fragment() {
+// ColorParameter:2
+	vec4 n_out2p0 = Fire_color;
+
+
+// Input:9
+	float n_out9p0 = TIME;
+
+
+// VectorOp:10
+	vec2 n_in10p1 = vec2(0.02000, 0.60000);
+	vec2 n_out10p0 = vec2(n_out9p0) * n_in10p1;
+
+
+// UVFunc:8
+	vec2 n_in8p1 = vec2(1.00000, 1.00000);
+	vec2 n_out8p0 = n_out10p0 * n_in8p1 + UV;
+
+
+// Texture2D:3
+	vec4 n_out3p0 = texture(tex_frg_3, n_out8p0);
+	float n_out3p1 = n_out3p0.r;
+
+
+// Texture2D:4
+	vec4 n_out4p0 = texture(tex_frg_4, UV);
+	float n_out4p1 = n_out4p0.r;
+
+
+// FloatOp:5
+	float n_out5p0 = n_out3p1 - n_out4p1;
+
+
+// Clamp:7
+	float n_in7p1 = 0.00000;
+	float n_in7p2 = 1.00000;
+	float n_out7p0 = clamp(n_out5p0, n_in7p1, n_in7p2);
+
+
+// FloatParameter:12
+	float n_out12p0 = FloatParameter;
+
+
+// VectorOp:11
+	vec3 n_out11p0 = vec3(n_out2p0.xyz) * vec3(n_out12p0);
+
+
+// Output:0
+	ALBEDO = vec3(n_out2p0.xyz);
+	ALPHA = n_out7p0;
+	EMISSION = n_out11p0;
+
+
+}
+"
+modes/cull = 2
+flags/unshaded = true
+flags/shadows_disabled = true
+flags/ambient_light_disabled = true
+nodes/fragment/2/node = SubResource("VisualShaderNodeColorParameter_f0wc2")
+nodes/fragment/2/position = Vector2(-380, -60)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_28eay")
+nodes/fragment/3/position = Vector2(-440, 820)
+nodes/fragment/4/node = SubResource("VisualShaderNodeTexture_ju36k")
+nodes/fragment/4/position = Vector2(-520, 1220)
+nodes/fragment/5/node = SubResource("VisualShaderNodeFloatOp_wxlx3")
+nodes/fragment/5/position = Vector2(-40, 600)
+nodes/fragment/7/node = SubResource("VisualShaderNodeClamp_78k2d")
+nodes/fragment/7/position = Vector2(160, 560)
+nodes/fragment/8/node = SubResource("VisualShaderNodeUVFunc_eu8te")
+nodes/fragment/8/position = Vector2(-840, 920)
+nodes/fragment/9/node = SubResource("VisualShaderNodeInput_k44dw")
+nodes/fragment/9/position = Vector2(-1480, 520)
+nodes/fragment/10/node = SubResource("VisualShaderNodeVectorOp_uicjn")
+nodes/fragment/10/position = Vector2(-1100, 980)
+nodes/fragment/11/node = SubResource("VisualShaderNodeVectorOp_lljmy")
+nodes/fragment/11/position = Vector2(29.544155, 282.2046)
+nodes/fragment/12/node = SubResource("VisualShaderNodeFloatParameter_4akqp")
+nodes/fragment/12/position = Vector2(-480, 360)
+nodes/fragment/connections = PackedInt32Array(3, 1, 5, 0, 4, 1, 5, 1, 5, 0, 7, 0, 7, 0, 0, 1, 8, 0, 3, 0, 9, 0, 10, 0, 10, 0, 8, 2, 2, 0, 0, 0, 2, 0, 11, 0, 11, 0, 0, 5, 12, 0, 11, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lljmy"]
+render_priority = 0
+shader = SubResource("VisualShader_0rw2d")
+shader_parameter/Fire_color = Color(0.7259271, 0.36621124, 0, 1)
+shader_parameter/FloatParameter = 12.27
+
 [node name="MageBallCircle" type="Node3D"]
 script = ExtResource("1_lnxqx")
 
@@ -67,4 +208,12 @@ skeleton = NodePath("../CollisionShape3D")
 material_override = SubResource("ShaderMaterial_5f2p7")
 mesh = SubResource("ImmediateMesh_lnxqx")
 
+[node name="indicator" parent="." instance=ExtResource("3_y3frd")]
+transform = Transform3D(0.075, 0, 0, 0, 0.075, 0, 0, 0, 0.075, 0, -1, 0)
+
+[node name="Cylinder" parent="indicator" index="0"]
+material_override = SubResource("ShaderMaterial_lljmy")
+
 [connection signal="body_entered" from="finish" to="." method="_on_finish_body_entered"]
+
+[editable path="indicator"]

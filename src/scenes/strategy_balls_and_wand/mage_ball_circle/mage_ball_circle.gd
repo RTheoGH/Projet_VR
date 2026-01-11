@@ -18,9 +18,15 @@ var spellbook : Dictionary[String, Spell] = {
 var spell_buffer: String = ""
 var last_touched: Node3D = null
 var currently_launching := false
-# Called when the node enters the scene tree for the first time.
+
+@onready var indicator: Node3D = $indicator
+
 func _ready() -> void:
 	$links.mesh.clear_surfaces()
+	
+	#place the indicator a little bit under the bottom ball
+	indicator.position.y = -(dist_to_center + 0.13)
+	
 	for i in number_of_balls:
 		var angle := 2.0 * PI / number_of_balls * i
 		
@@ -70,7 +76,6 @@ func add_spell_index(ball: Node3D):
 	#$finish.visible = spellbook.has(spell_buffer)
 	#$finish/CollisionShape3D.disabled = not spellbook.has(spell_buffer)
 
-
 func _on_finish_body_entered(body: Node3D) -> void:
 	#finish_spell()
 	pass
@@ -80,7 +85,6 @@ func add_face(start: Vector3, end: Vector3):
 	
 	var trail: Vector3 = end - start
 	var direction: Vector3 = trail.normalized()
-	var distance: float = trail.length()
 	var dir90: Vector3 = direction.rotated(-Vector3.FORWARD, PI/2)
 
 	var thickness: float = 0.02
