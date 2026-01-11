@@ -4,6 +4,10 @@ extends Node3D
 
 # Questions
 @onready var age_question : Question = preload("res://src/scenes/questions/resources/question_resources/age_question.tres")
+@onready var gender_question : Question = preload("res://src/scenes/questions/resources/question_resources/gender_question.tres")
+@onready var game_question : Question = preload("res://src/scenes/questions/resources/question_resources/game_prof_question.tres")
+@onready var vr_question : Question = preload("res://src/scenes/questions/resources/question_resources/vr_prof_question.tres")
+
 
 @onready var answer_scene = preload("res://src/scenes/questions/answer_ball.tscn")
 @onready var question_label : Label3D = $Question
@@ -15,6 +19,9 @@ var current_question : int = 0
 func _ready() -> void:
 	print(question_label.text)
 	questions.append(age_question)
+	questions.append(gender_question)
+	questions.append(game_question)
+	questions.append(vr_question)
 	set_question(0)
 
 func set_question(question_index : int) :

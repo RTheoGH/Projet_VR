@@ -1,10 +1,15 @@
-[gd_resource type="Resource" script_class="Question" load_steps=3 format=3 uid="uid://cmoccsqrqiqyq"]
+[gd_resource type="Resource" script_class="Question" load_steps=7 format=3 uid="uid://cmoccsqrqiqyq"]
 
 [ext_resource type="Script" uid="uid://2cytqirrcfcn" path="res://src/scenes/questions/answer_res.gd" id="1_vdtck"]
+[ext_resource type="Resource" uid="uid://7ko2oqgyw3jq" path="res://src/scenes/questions/resources/answer_resources/gender_0.tres" id="2_f5oyd"]
 [ext_resource type="Script" uid="uid://clop87h6b3bhq" path="res://src/scenes/questions/question_res.gd" id="2_l5xof"]
+[ext_resource type="Resource" uid="uid://bqw0noyhu5ip6" path="res://src/scenes/questions/resources/answer_resources/gender_1.tres" id="3_acvet"]
+[ext_resource type="Resource" uid="uid://16660yex3ykd" path="res://src/scenes/questions/resources/answer_resources/gender_2.tres" id="4_gkowr"]
+[ext_resource type="Resource" uid="uid://cb68gtl1del7v" path="res://src/scenes/questions/resources/answer_resources/gender_3.tres" id="5_tgd6c"]
 
 [resource]
 script = ExtResource("2_l5xof")
 question_text = "Spécifiez votre genre"
 sql_column = "gender"
+answers = Array[ExtResource("1_vdtck")]([ExtResource("2_f5oyd"), ExtResource("3_acvet"), ExtResource("4_gkowr"), ExtResource("5_tgd6c")])
 metadata/_custom_type_script = "uid://clop87h6b3bhq"
