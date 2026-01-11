@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Answer" load_steps=2 format=3 uid="uid://7ko2oqgyw3jq"]
+
+[ext_resource type="Script" uid="uid://2cytqirrcfcn" path="res://src/scenes/questions/answer_res.gd" id="1_ghe3h"]
+
+[resource]
+script = ExtResource("1_ghe3h")
+value_text = "Homme"
+value = "male"
+metadata/_custom_type_script = "uid://2cytqirrcfcn"

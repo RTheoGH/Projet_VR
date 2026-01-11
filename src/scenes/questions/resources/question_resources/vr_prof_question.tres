@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Question" load_steps=3 format=3 uid="uid://de8e2cqupb8k2"]
+
+[ext_resource type="Script" uid="uid://2cytqirrcfcn" path="res://src/scenes/questions/answer_res.gd" id="1_wb8si"]
+[ext_resource type="Script" uid="uid://clop87h6b3bhq" path="res://src/scenes/questions/question_res.gd" id="2_8bv6b"]
+
+[resource]
+script = ExtResource("2_8bv6b")
+question_text = "Spécifiez votre niveau d'experience en jeux vidéos"
+sql_column = "vr_proficiency"
+metadata/_custom_type_script = "uid://clop87h6b3bhq"

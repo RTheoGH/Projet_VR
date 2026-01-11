@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Answer" load_steps=2 format=3 uid="uid://cbre1gxv5ni2w"]
+
+[ext_resource type="Script" uid="uid://2cytqirrcfcn" path="res://src/scenes/questions/answer_res.gd" id="1_s1fdj"]
+
+[resource]
+script = ExtResource("1_s1fdj")
+value_text = "Joue de régulièrement"
+value = "3"
+metadata/_custom_type_script = "uid://2cytqirrcfcn"

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Question" load_steps=3 format=3 uid="uid://cmoccsqrqiqyq"]
+
+[ext_resource type="Script" uid="uid://2cytqirrcfcn" path="res://src/scenes/questions/answer_res.gd" id="1_vdtck"]
+[ext_resource type="Script" uid="uid://clop87h6b3bhq" path="res://src/scenes/questions/question_res.gd" id="2_l5xof"]
+
+[resource]
+script = ExtResource("2_l5xof")
+question_text = "Spécifiez votre genre"
+sql_column = "gender"
+metadata/_custom_type_script = "uid://clop87h6b3bhq"

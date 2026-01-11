@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Answer" load_steps=2 format=3 uid="uid://bqw0noyhu5ip6"]
+
+[ext_resource type="Script" uid="uid://2cytqirrcfcn" path="res://src/scenes/questions/answer_res.gd" id="1_tkidx"]
+
+[resource]
+script = ExtResource("1_tkidx")
+value_text = "Femme"
+value = "female"
+metadata/_custom_type_script = "uid://2cytqirrcfcn"

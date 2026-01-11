@@ -65,7 +65,7 @@ func answer_selected(_body : Node3D , answer_index : int) :
 		return 
 		
 	var selected_answer= questions[current_question].answers[answer_index]
-	add_to_db(selected_answer)
+	add_to_db(selected_answer	)
 
 	if current_question+1 < len(questions):
 		current_question += 1
