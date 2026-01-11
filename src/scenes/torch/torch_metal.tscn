@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c73y8c5wcxa5v" path="res://Assets/textures/Voronoi01.png" id="3_i1ruj"]
 [ext_resource type="Texture2D" uid="uid://cqp4r7h5rkofa" path="res://Assets/textures/Flame01.png" id="4_dqs0r"]
 [ext_resource type="Texture2D" uid="uid://cui3as50wdf61" path="res://Assets/textures/smoke_06.png" id="5_i1ruj"]
-[ext_resource type="Script" uid="uid://dbva8wdromhk7" path="res://src/classes/light_flicker.gd" id="6_wu81m"]
+[ext_resource type="Script" path="res://src/classes/light_flicker.gd" id="6_wu81m"]
 [ext_resource type="Texture2D" uid="uid://bcm6jxpbr5y1c" path="res://Assets/textures/22 TorchDrippingOrangeBrown .png" id="7_dqs0r"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2w6xy"]
@@ -349,7 +349,7 @@ draw_pass_1 = SubResource("QuadMesh_v0xmx")
 [node name="OmniLight3D" type="OmniLight3D" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014910698, 0.30074513, 0.48418796)
 light_color = Color(0.856458, 0.5672213, 0.1911028, 1)
-light_energy = 4.6686845
+light_energy = 2.8051004
 omni_range = 5.7054963
 script = ExtResource("6_wu81m")
 base_energy = 5.7

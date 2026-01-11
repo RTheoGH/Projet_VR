@@ -116,16 +116,6 @@ void fragment() {
 	n_out3p0 = texture(main, UV);
 
 
-// VectorDecompose:20
-	float n_out20p0 = vec3(n_out3p0.xyz).x;
-	float n_out20p1 = vec3(n_out3p0.xyz).y;
-	float n_out20p2 = vec3(n_out3p0.xyz).z;
-
-
-// VectorCompose:19
-	vec4 n_out19p0 = vec4(n_out20p0, n_out20p1, n_out20p2, n_out20p0);
-
-
 // Input:17
 	vec2 n_out17p0 = UV;
 
@@ -161,7 +151,7 @@ void fragment() {
 
 
 // VectorOp:9
-	vec4 n_out9p0 = n_out19p0 * n_out8p0;
+	vec4 n_out9p0 = n_out3p0 * n_out8p0;
 
 
 // FloatParameter:11
@@ -169,7 +159,7 @@ void fragment() {
 
 
 // Mix:10
-	vec4 n_out10p0 = mix(n_out19p0, n_out9p0, n_out11p0);
+	vec4 n_out10p0 = mix(n_out3p0, n_out9p0, n_out11p0);
 
 
 // VectorOp:6
@@ -233,4 +223,4 @@ nodes/fragment/19/node = SubResource("VisualShaderNodeVectorCompose_unlkm")
 nodes/fragment/19/position = Vector2(-340, 280)
 nodes/fragment/20/node = SubResource("VisualShaderNodeVectorDecompose_qcjmf")
 nodes/fragment/20/position = Vector2(-620, 140)
-nodes/fragment/connections = PackedInt32Array(2, 0, 3, 2, 4, 3, 0, 1, 5, 0, 6, 0, 6, 0, 4, 0, 6, 0, 0, 0, 7, 0, 8, 2, 3, 0, 9, 0, 8, 0, 9, 1, 3, 0, 10, 0, 9, 0, 10, 1, 10, 0, 6, 1, 11, 0, 10, 2, 12, 0, 8, 0, 14, 0, 15, 0, 13, 0, 15, 1, 15, 0, 12, 2, 17, 0, 18, 0, 16, 0, 18, 1, 18, 0, 12, 0, 19, 0, 9, 0, 3, 0, 20, 0, 20, 0, 19, 0, 20, 1, 19, 1, 20, 2, 19, 2, 20, 0, 19, 3, 19, 0, 10, 0)
+nodes/fragment/connections = PackedInt32Array(2, 0, 3, 2, 4, 3, 0, 1, 5, 0, 6, 0, 6, 0, 4, 0, 6, 0, 0, 0, 7, 0, 8, 2, 8, 0, 9, 1, 9, 0, 10, 1, 10, 0, 6, 1, 11, 0, 10, 2, 12, 0, 8, 0, 14, 0, 15, 0, 13, 0, 15, 1, 15, 0, 12, 2, 17, 0, 18, 0, 16, 0, 18, 1, 18, 0, 12, 0, 19, 0, 9, 0, 3, 0, 20, 0, 20, 0, 19, 0, 20, 1, 19, 1, 20, 2, 19, 2, 20, 0, 19, 3, 19, 0, 10, 0, 3, 0, 9, 0, 3, 0, 10, 0)

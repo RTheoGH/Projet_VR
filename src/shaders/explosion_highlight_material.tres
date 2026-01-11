@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dyewsb1kclin2"]
+
+[ext_resource type="Shader" uid="uid://dfpgtefv6e2pd" path="res://src/shaders/explosion_flash.tres" id="1_ivtk2"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ivtk2")

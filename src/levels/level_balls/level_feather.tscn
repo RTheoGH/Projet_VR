@@ -866,7 +866,7 @@ process_material = SubResource("ParticleProcessMaterial_la4ae")
 [node name="OmniLight3D" type="OmniLight3D" parent="Portal"]
 transform = Transform3D(2.020202, 0, 0, 0, 2.020202, 0, 0, 0, 2.020202, -0.12974644, 1.9967823, 1.817276)
 light_color = Color(2.0214916e-06, 0.49184072, 0.76046115, 1)
-light_energy = 3.9041135
+light_energy = 3.639557
 script = ExtResource("6_0y6hl")
 base_energy = 6.25
 flicker_strength = 0.72
@@ -1004,7 +1004,7 @@ transform = Transform3D(0.5288559, 0.034431316, -0.0050690765, -0.034432884, 0.5
 transform = Transform3D(0.9269155, 0, -0.37526998, 0, 1, 0, 0.37526998, 0, 0.9269155, -11.656062, -0.41299868, 1.7292799)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.53069586, -0.0397731, 0.84662867, -0.04055945, 0.99894595, 0.02150463, -0.84659123, -0.022926372, -0.53174955, -10.621226, 1.1705027, 6.5971212)
+transform = Transform3D(-0.5306959, -0.039773095, 0.8466286, -0.040559452, 0.9989457, 0.021504624, -0.8465913, -0.022926377, -0.5317496, 0.6439297, 1.1705025, 2.2080843)
 
 [connection signal="plate_pressed" from="DynamicProps/PressurePlate1" to="." method="_on_pressure_plate_plate_pressed"]
 [connection signal="plate_released" from="DynamicProps/PressurePlate1" to="." method="_on_pressure_plate_plate_released"]

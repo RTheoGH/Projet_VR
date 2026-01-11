@@ -24,7 +24,8 @@ func _physics_process(delta: float) -> void:
 
 func draw_point(body: Node3D):
 	var hit = cast_ray()
-	if hit:
+	var object_collide = $tip.get_collider()
+	if hit && $tip.get_collider() is RigidBody3D:
 		if(active_decals.size() >= max_decals):
 			active_decals.pop_front().queue_free()
 			
@@ -37,7 +38,7 @@ func draw_point(body: Node3D):
 		draw_rune.normals.append(hit[1])
 		
 		active_decals.append(ink)
-		get_parent().add_child(ink)
+		object_collide.add_child(ink)
 	
 func activate(_pressed: bool):
 	is_drawing = _pressed
@@ -49,8 +50,8 @@ func activate(_pressed: bool):
 			
 		var score = recognizer.Recognize(draw_rune.get_2d_coordinates(recognizer, 0), 0.8)
 		var rune_pos := draw_rune.get_mean_pos()
-		if  $tip.get_collider() is RigidBody3D:
-			RuneEffectManager.apply_effect_on_object(rune_pos, $tip.get_collider(), score["name"])
+		if $tip.get_collider() is RigidBody3D:
+			var effect_valid = RuneEffectManager.apply_effect_on_object(rune_pos, $tip.get_collider(), score["name"])
 	else:
 		active_decals.clear()
 		draw_rune.points.clear()

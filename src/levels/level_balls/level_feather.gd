@@ -6,8 +6,12 @@ var duplication_door_opened := false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	RuneEffectManager.explosion_signal.connect(on_explosion_signal)
-	#RuneEffectManager.apply_explosion($DynamicProps/CrateMetal3, $DynamicProps/CrateMetal3.global_position)
-
+	#RuneEffectManager.apply_pickable($DynamicProps/Crate2, $DynamicProps/Crate2.global_position)
+	#RuneEffectManager.apply_effect_on_object($DynamicProps/Crate2.global_position, $DynamicProps/Crate2, "pickable")
+	RuneEffectManager.apply_effect_on_object($DynamicProps/Crate2.global_position, $DynamicProps/Crate2, "gravity")
+	#RuneEffectManager.apply_effect_on_object($DynamicProps/Crate2.global_position, $DynamicProps/Crate2, "explosion")
+	
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
