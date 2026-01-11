@@ -38,6 +38,9 @@ func set_question(question_index : int) :
 	var answers = questions[question_index].answers
 	var nb_answers = len(answers)
 	var positions = get_sphere_positions(nb_answers)
+	
+	await wait(0.3)
+	
 	for i in range(nb_answers) : 
 		var answer_instance = answer_scene.instantiate()
 		answer_instance.position = positions[i]
@@ -86,3 +89,7 @@ func add_to_db(selected_answer : Answer):
 	var column = questions[current_question].sql_column
 	
 	Analytics.set_value("player", column, value)
+	
+func wait(seconds: float) -> void:	
+	print("Wait")
+	await get_tree().create_timer(seconds).timeout

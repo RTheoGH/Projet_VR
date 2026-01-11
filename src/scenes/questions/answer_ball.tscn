@@ -25,7 +25,9 @@ shape = SubResource("SphereShape3D_p3v3m")
 
 [node name="AnswerLabel" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5326419)
-text = "Heyy
+text = "Heyy hey hey hey hey
 "
+autowrap_mode = 3
+width = 250.0
 
 [connection signal="body_entered" from="StaticBody3D/Area3D" to="." method="_on_area_3d_body_entered"]

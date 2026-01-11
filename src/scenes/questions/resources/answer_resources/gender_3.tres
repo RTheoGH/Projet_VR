@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_ipyqx")
-value_text = "Ne preéfère pas dire"
+value_text = "Ne préfère pas préciser"
 value = "dnc"
 metadata/_custom_type_script = "uid://2cytqirrcfcn"

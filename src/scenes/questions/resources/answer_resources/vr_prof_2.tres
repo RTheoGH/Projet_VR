@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_kj8ig")
-value_text = "Joue de temps en tempsd"
+value_text = "Joue de temps en temps"
 value = "1"
 metadata/_custom_type_script = "uid://2cytqirrcfcn"
