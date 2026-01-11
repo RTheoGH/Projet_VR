@@ -29,8 +29,7 @@ func test():
 	await nextLevel()
 	await get_tree().create_timer(2.5).timeout
 #################
-func _process(delta: float) -> void:
-	print(music_lerp_value)
+
 var fadeTween: Tween
 func fade_to_black(time:float):
 	if time <= 0:

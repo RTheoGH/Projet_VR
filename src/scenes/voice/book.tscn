@@ -31,10 +31,10 @@ mesh = ExtResource("1_7y7no")
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.001045227, -0.019854352, 0.008666992)
 shape = SubResource("BoxShape3D_5sjlb")
 
-[node name="pointeur" type="Node3D" parent="."]
+[node name="tip" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15232861, -0.18016648)
 
-[node name="RayCast3D" type="RayCast3D" parent="pointeur"]
+[node name="RayCast3D" type="RayCast3D" parent="tip"]
 transform = Transform3D(1, 0, 0, 0, -0.06651776, -0.9977852, 0, 0.9977852, -0.06651776, 0, 0, 0)
 target_position = Vector3(0, -50, 0)
 
