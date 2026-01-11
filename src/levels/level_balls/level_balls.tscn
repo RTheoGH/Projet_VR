@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://bbc2qfox0hdai"]
+[gd_scene load_steps=64 format=3 uid="uid://bbc2qfox0hdai"]
 
 [ext_resource type="PackedScene" uid="uid://bej35ui0rcag0" path="res://Assets/maps/map_1.blend" id="1_angmx"]
 [ext_resource type="PackedScene" uid="uid://cbtk71x3cwrx6" path="res://src/scenes/torch/torch_metal.tscn" id="2_xcwim"]
@@ -49,6 +49,12 @@
 [ext_resource type="PackedScene" uid="uid://dqwjrt3lnh2p6" path="res://src/scenes/strategy_balls_and_wand/wand/wand.tscn" id="40_1n23o"]
 [ext_resource type="PackedScene" uid="uid://bllnso1625xma" path="res://Assets/Packs/fantasyprops/Banner_2_Cloth.gltf" id="41_m27qg"]
 [ext_resource type="PackedScene" uid="uid://b5teax0lqtyxh" path="res://Assets/Packs/fantasyprops/Stall_Empty.gltf" id="46_0y2vo"]
+[ext_resource type="PackedScene" uid="uid://bjame2c3fnjlb" path="res://src/scenes/electrodoor/elctrodoor.tscn" id="50_vvxhi"]
+[ext_resource type="Texture2D" uid="uid://1b04a6ssvv3k" path="res://Assets/textures/glyphe_thunder.png" id="51_8o2ev"]
+[ext_resource type="Texture2D" uid="uid://c76r0cmb81byg" path="res://Assets/textures/glyphe_light.png" id="52_0y2vo"]
+[ext_resource type="Texture2D" uid="uid://cc61oociq8xfa" path="res://Assets/textures/glyphe_grav.png" id="53_peyjm"]
+[ext_resource type="Texture2D" uid="uid://3eaoa4uicqch" path="res://Assets/textures/glyphe_fire.png" id="54_w64br"]
+[ext_resource type="FontFile" uid="uid://bfe4fktkasx54" path="res://Assets/police/ancient/Ancient Medium.ttf" id="55_wcd0w"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_37yji"]
 sky_top_color = Color(0.33646625, 0.40749058, 0.42967212, 1)
@@ -67,6 +73,25 @@ volumetric_fog_sky_affect = 0.0
 adjustment_enabled = true
 adjustment_contrast = 1.1
 adjustment_saturation = 1.39
+
+[sub_resource type="Gradient" id="Gradient_662um"]
+offsets = PackedFloat32Array(0.068292685, 0.70731705)
+colors = PackedColorArray(0.44131792, 0.2583551, 4.813075e-08, 1, 0.9596419, 0.90520376, 1.540184e-06, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5b58n"]
+fractal_octaves = 10
+fractal_lacunarity = 3.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_05k6y"]
+noise = SubResource("FastNoiseLite_5b58n")
+color_ramp = SubResource("Gradient_662um")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pqiru"]
+albedo_color = Color(0.47230828, 0.22607514, 0, 1)
+albedo_texture = SubResource("NoiseTexture2D_05k6y")
+uv1_scale = Vector3(3, 3, 3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kf4pe"]
 
 [node name="LevelBalls" type="Node3D"]
 
@@ -92,7 +117,7 @@ transform = Transform3D(0.99522746, 0, 0.09758298, -0.0047907215, 0.9987942, 0.0
 transform = Transform3D(0.99854624, 0, 0.053904638, 0, 1, 0, -0.053904638, 0, 0.99854624, -5.8234653, 2.2192721, 2.9947379)
 
 [node name="Torch_Metal11" parent="torchs" instance=ExtResource("2_xcwim")]
-transform = Transform3D(-0.99990237, 0, -0.013979821, 0, 1, 0, 0.013979821, 0, -0.99990237, 1.0744133, 2.148513, 8.070067)
+transform = Transform3D(-0.99990237, 0, -0.013979821, 0, 1, 0, 0.013979821, 0, -0.99990237, 0.43144304, 1.8648081, 8.070067)
 
 [node name="Torch_Metal3" parent="torchs" instance=ExtResource("2_xcwim")]
 transform = Transform3D(0.11485049, 0, 0.9933829, 0, 1, 0, -0.9933829, 0, 0.11485049, -18.368612, 0.563029, 5.2386026)
@@ -438,3 +463,65 @@ transform = Transform3D(0.02, 1.6653345e-16, 8.742278e-10, -2.220446e-16, 0.02, 
 
 [node name="Wand" parent="." instance=ExtResource("40_1n23o")]
 transform = Transform3D(-4.371139e-08, -0.7530584, 0.65795374, 0, 0.65795374, 0.7530584, -1, 3.2917228e-08, -2.8760072e-08, -3.2659879, 1.5739566, 1.3460019)
+
+[node name="Elctrodoor" parent="." instance=ExtResource("50_vvxhi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.406263, 1.7652203, 12.701054)
+
+[node name="decals" type="Node3D" parent="."]
+
+[node name="Decal" type="Decal" parent="decals"]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -20.551262, 1.5455081, 12.053487)
+size = Vector3(2, 0.21826172, 2)
+texture_albedo = ExtResource("51_8o2ev")
+
+[node name="Decal2" type="Decal" parent="decals"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.185137, -1.2142745, 0)
+size = Vector3(2, 0.29071045, 2)
+texture_albedo = ExtResource("52_0y2vo")
+
+[node name="Decal3" type="Decal" parent="decals"]
+transform = Transform3D(1.13133405e-08, -1.0000001, 4.2221966e-08, 1.4901161e-08, -4.222196e-08, -0.9999999, 1, 1.1313339e-08, -2.9802322e-08, -11.783684, 5.6003633, 14.614614)
+size = Vector3(2, 1.3308105, 2.0024414)
+texture_albedo = ExtResource("53_peyjm")
+
+[node name="Decal4" type="Decal" parent="decals"]
+transform = Transform3D(0.9659258, -0.25881904, -1.131334e-08, 0, -4.371139e-08, 1, -0.25881904, -0.9659258, -4.222196e-08, -5.1125197, 1.6143825, 8.449109)
+size = Vector3(2, 0.9199219, 2)
+texture_albedo = ExtResource("54_w64br")
+
+[node name="panneau" type="Node3D" parent="."]
+transform = Transform3D(0.89087975, 0, -0.4542393, 0, 1, 0, 0.4542393, 0, 0.89087975, -0.38264775, 0.43989563, 5.6470747)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="panneau"]
+transform = Transform3D(0.14355077, 0, 1.8626451e-09, 0, 1.4149779, 0, -5.820766e-11, 0, 3.9015586, 3.9422703, 1.5431232, -1.7089367)
+material_override = SubResource("StandardMaterial3D_pqiru")
+mesh = SubResource("BoxMesh_kf4pe")
+skeleton = NodePath("../..")
+
+[node name="Label3D" type="Label3D" parent="panneau"]
+transform = Transform3D(-4.377216e-08, 0, -1, 0, 1, 0, 1, 0, -4.377216e-08, 3.8682756, 1.5779881, -1.7130566)
+modulate = Color(0.53083247, 0.4751135, 0.47058702, 1)
+text = "Examen de lancer de sorts
+offensifs et utilitaires"
+font = ExtResource("55_wcd0w")
+font_size = 48
+
+[node name="Decal" type="Decal" parent="panneau"]
+transform = Transform3D(-0.051986426, -0.99864376, -0.0027100798, 0.0520571, 4.8055053e-08, -0.99864334, 0.9972888, -0.052057028, 0.051986434, 3.8585727, 1.960413, -0.37355423)
+size = Vector3(0.6730957, 0.21826172, 0.57556915)
+texture_albedo = ExtResource("51_8o2ev")
+
+[node name="Decal2" type="Decal" parent="panneau"]
+transform = Transform3D(-0.040486336, -0.9968512, -0.06817365, 0.0022909045, 0.068136655, -0.9976735, 0.99917585, -0.040548295, -0.0004752744, 3.871496, 1.1642231, -2.990596)
+size = Vector3(0.83947754, 0.29071045, 0.70635986)
+texture_albedo = ExtResource("52_0y2vo")
+
+[node name="Decal3" type="Decal" parent="panneau"]
+transform = Transform3D(0, -0.9999999, 4.2221895e-08, 1.4901161e-08, -4.222196e-08, -0.9999999, 0.99999803, -2.9802322e-08, -2.9802292e-08, 3.8633964, 1.2688663, -0.19191837)
+size = Vector3(0.76416016, 0.28625488, 0.7703552)
+texture_albedo = ExtResource("53_peyjm")
+
+[node name="Decal4" type="Decal" parent="panneau"]
+transform = Transform3D(1.4901161e-07, -0.99999964, -4.371139e-08, 0, -4.3711392e-08, 1, -0.99999964, -1.4901161e-07, -3.5527137e-15, 4.005515, 1.8657699, -3.1340845)
+size = Vector3(0.7253418, 0.5854492, 0.76950073)
+texture_albedo = ExtResource("54_w64br")
