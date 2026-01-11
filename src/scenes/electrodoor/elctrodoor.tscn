@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://bjame2c3fnjlb"]
+
+[ext_resource type="PackedScene" uid="uid://hep4upq0cd4v" path="res://Assets/models/generator.blend" id="1_jmnst"]
+[ext_resource type="Script" uid="uid://y5jkgjakxt0b" path="res://src/scenes/electrodoor/elctrodoor.gd" id="1_ojs3n"]
+[ext_resource type="PackedScene" uid="uid://2mamha1gjdph" path="res://Assets/Packs/fantasyprops/Cage_Small.gltf" id="2_wymeb"]
+[ext_resource type="Script" uid="uid://dbwa8hw6gmrwu" path="res://src/scenes/electrodoor/device.gd" id="4_ewg3t"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ojs3n"]
+size = Vector3(0.82910156, 0.7441101, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ewg3t"]
+size = Vector3(1.1367188, 1.7851563, 2.5531006)
+
+[node name="Elctrodoor" type="Node3D"]
+script = ExtResource("1_ojs3n")
+
+[node name="generator" parent="." instance=ExtResource("1_jmnst")]
+transform = Transform3D(0.495, 0, 0, 0, 0.495, 0, 0, 0, 0.495, 0, 0, 0)
+
+[node name="door" parent="." instance=ExtResource("2_wymeb")]
+transform = Transform3D(4.3, 0, 0, 0, 4.612, 0, 0, 0, 0.321, 2.167956, 0.13075513, 1.4538083)
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="door"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="door/AnimatableBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1.0000002, 0, 0, 0, 1.0000001, 0.001511842, 0.35404232, 0)
+shape = SubResource("BoxShape3D_ojs3n")
+
+[node name="device" type="StaticBody3D" parent="." groups=["electric_device"]]
+transform = Transform3D(0.515, 0, 0, 0, 0.515, 0, 0, 0, 0.515, 0, 0, 0)
+script = ExtResource("4_ewg3t")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="device"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99438477, 0.28094482)
+shape = SubResource("BoxShape3D_ewg3t")
+
+[editable path="generator"]

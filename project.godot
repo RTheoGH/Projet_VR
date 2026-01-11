@@ -34,6 +34,7 @@ enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg", "res://addon
 [global_group]
 
 player=""
+electric_device="must have activate() -> void"
 
 [input]
 
