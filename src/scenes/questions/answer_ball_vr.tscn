@@ -95,6 +95,8 @@ shader_parameter/noise = SubResource("NoiseTexture2D_i32ym")
 radius = 0.1373948
 
 [node name="Selectable" type="RigidBody3D"]
+collision_layer = 7
+collision_mask = 7
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true

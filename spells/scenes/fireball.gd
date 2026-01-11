@@ -7,9 +7,9 @@ var explode_strength = 10.0;
 var explosion = preload("res://spells/scenes/explosion.tscn")
 
 # Called when the node enters the scene tree for the first time.
-func _start_spell() -> void:
+func _start_spell(dir: Vector3) -> void:
 	$cast.play()
-	apply_central_impulse(to_global(Vector3.FORWARD * launch_strength))
+	apply_central_impulse(to_global(dir * launch_strength))
 	#add_collision_exception_with(caster)
 	
 func explode():

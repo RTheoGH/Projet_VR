@@ -52,11 +52,11 @@ func start_spell() -> void:
 	currently_launching = true
 	
 
-func finish_spell(launch_transform: Transform3D, caster: Node3D) -> void:
+func finish_spell(pos: Vector3, dir:Vector3, caster: Node3D) -> void:
 	var spell: Spell = get_spell(spell_buffer)
 	if spell:
 		print("Launched " + spell.name)
-		spell.launch(launch_transform, caster)
+		spell.launch(pos, dir, caster)
 	else:
 		print("Spell pas valide")
 	

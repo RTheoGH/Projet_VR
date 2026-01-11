@@ -189,6 +189,8 @@ shader_parameter/FloatParameter = 12.27
 
 [node name="MageBallCircle" type="Node3D"]
 script = ExtResource("1_lnxqx")
+number_of_balls = null
+dist_to_center = null
 
 [node name="finish" type="Area3D" parent="."]
 visible = false

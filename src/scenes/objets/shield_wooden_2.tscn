@@ -1,15 +1,15 @@
 [gd_scene load_steps=19 format=4 uid="uid://drv8fl7o2gqas"]
 
 [ext_resource type="Script" uid="uid://d2tylielur6l1" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_3nu6k"]
-[ext_resource type="Texture2D" uid="uid://dnjhlvjylo1vo" path="res://Assets/Packs/fantasyprops/T_Trim_Furniture_BaseColor.png" id="2_jo6e6"]
+[ext_resource type="Texture2D" uid="uid://caigjctpnhx4s" path="res://Assets/Packs/fantasyprops/T_Trim_Furniture_BaseColor.png" id="2_jo6e6"]
 [ext_resource type="Texture2D" uid="uid://d3iw2ls7oo56j" path="res://Assets/Packs/fantasyprops/T_Trim_Furniture_ORM.png" id="3_7ulu4"]
 [ext_resource type="Texture2D" uid="uid://ck4ngnrhqx6l1" path="res://Assets/Packs/fantasyprops/T_Trim_Furniture_Normal.png" id="4_u4kx8"]
 [ext_resource type="Texture2D" uid="uid://m82mjqo6dsc1" path="res://Assets/Packs/fantasyprops/T_Trim_Metal_BaseColor.png" id="5_4kyre"]
 [ext_resource type="Texture2D" uid="uid://brn5dd4gpeawi" path="res://Assets/Packs/fantasyprops/T_Trim_Metal_ORM.png" id="6_woe3i"]
 [ext_resource type="Texture2D" uid="uid://dqrecnfwitku4" path="res://Assets/Packs/fantasyprops/T_Trim_Metal_Normal.png" id="7_b2uqq"]
-[ext_resource type="Texture2D" uid="uid://bm7d1tuur0jwe" path="res://Assets/Packs/fantasyprops/T_Trim_Props_BaseColor.png" id="8_ksbm0"]
-[ext_resource type="Texture2D" uid="uid://bo0ggq3qybr1m" path="res://Assets/Packs/fantasyprops/T_Trim_Props_ORM.png" id="9_f8208"]
-[ext_resource type="Texture2D" uid="uid://de0k7s586ywb0" path="res://Assets/Packs/fantasyprops/T_Trim_Props_Normal.png" id="10_adm3f"]
+[ext_resource type="Texture2D" uid="uid://ckid5bugfclfq" path="res://Assets/Packs/fantasyprops/T_Trim_Props_BaseColor.png" id="8_ksbm0"]
+[ext_resource type="Texture2D" uid="uid://b0jslqv3fdcu8" path="res://Assets/Packs/fantasyprops/T_Trim_Props_ORM.png" id="9_f8208"]
+[ext_resource type="Texture2D" uid="uid://carapu1qlr0m0" path="res://Assets/Packs/fantasyprops/T_Trim_Props_Normal.png" id="10_adm3f"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="11_gst1t"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="12_utnqv"]
 
@@ -139,6 +139,8 @@ height = 0.17712402
 radius = 0.3178711
 
 [node name="Shield_Wooden2" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 7
 script = ExtResource("1_3nu6k")
 metadata/_custom_type_script = "uid://d2tylielur6l1"
 

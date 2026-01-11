@@ -20,12 +20,12 @@ radius = 0.35205078
 script = ExtResource("1_f0g6l")
 
 [node name="Question" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6206508, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8266046, 0)
 text = "HELLO
 "
 
 [node name="Answers" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.73198134, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1518412, 0)
 
 [node name="Cauldron2" parent="." instance=ExtResource("2_6tcrl")]
 

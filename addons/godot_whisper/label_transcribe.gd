@@ -5,7 +5,7 @@ var thunderbolt = ["thunderbolt","thunder bolt","sandobold","fenderbird","sander
 var light = ["light","lite","lay te","late"]
 var antigrav = ["gravity","gray vity","grave ity"]
 
-var pointeur : Node = null
+var pointeur : Node3D = null
 
 func _ready():
 	custom_minimum_size.x = 400
@@ -52,8 +52,8 @@ func _on_speech_to_text_transcribed_msg(is_partial, new_text):
 	if spellbook.has(spell):
 		var spell_to_launch : Spell = spellbook[spell]
 		if get_parent().launched_from_game:
-			pointeur = get_parent().get_parent().get_node("pointeur")
-			spell_to_launch.launch(pointeur.global_transform,pointeur)
+			pointeur = get_parent().get_parent().get_node("tip")
+			spell_to_launch.launch(pointeur.global_position, -Gamemaster.player.get_node("XRCamera3D").global_transform.basis.z , pointeur.get_parent())
 
 	if is_partial:
 		completed_text += new_text

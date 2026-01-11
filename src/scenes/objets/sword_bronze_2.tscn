@@ -69,6 +69,8 @@ shadow_mesh = SubResource("ArrayMesh_4y8pa")
 size = Vector3(0.2730713, 1.1418457, 0.061462402)
 
 [node name="Sword_Bronze2" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 7
 script = SubResource("GDScript_odopp")
 metadata/_custom_type_script = "uid://d2tylielur6l1"
 

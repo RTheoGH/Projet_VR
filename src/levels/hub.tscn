@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://b7px801c0ohkr"]
+[gd_scene load_steps=79 format=3 uid="uid://b7px801c0ohkr"]
 
 [ext_resource type="Script" uid="uid://bda28yntj2wuf" path="res://src/levels/hub.gd" id="1_lg4k7"]
 [ext_resource type="PackedScene" uid="uid://dxx722tqqoo7j" path="res://src/scenes/voice/book.tscn" id="4_jro34"]
@@ -40,6 +40,7 @@
 [ext_resource type="PackedScene" uid="uid://dfuhmqrig7mdq" path="res://src/scenes/panneau/panneau.tscn" id="42_l0i64"]
 [ext_resource type="AudioStream" uid="uid://gffb11dp24q5" path="res://Assets/sounds/portal.wav" id="43_1el7f"]
 [ext_resource type="PackedScene" uid="uid://b2htk0gbblko" path="res://src/scenes/questions/questions.tscn" id="45_wdv0t"]
+[ext_resource type="PackedScene" uid="uid://to3tgnn8fyn3" path="res://src/scenes/draw_spell/feather_interactable.tscn" id="46_ofc6x"]
 [ext_resource type="PackedScene" uid="uid://bed0uh5esvw7l" path="res://Assets/Packs/fantasyprops/Vase_4.gltf" id="50_pgtoj"]
 [ext_resource type="PackedScene" uid="uid://da5jxseviwmja" path="res://Assets/Packs/fantasyprops/Vase_2.gltf" id="51_l0i64"]
 [ext_resource type="PackedScene" uid="uid://crgo0b4waabhs" path="res://Assets/Packs/fantasyprops/Vase_Rubble_Medium.gltf" id="52_0bmb6"]
@@ -789,3 +790,6 @@ transform = Transform3D(0.9863719, 0, -0.16453114, 0, 1, 0, 0.16453114, 0, 0.986
 
 [node name="Questions" parent="." instance=ExtResource("45_wdv0t")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="FeatherInteractable" parent="." instance=ExtResource("46_ofc6x")]
+transform = Transform3D(0.7656853, 0.64321536, 0, -0.64321536, 0.7656853, 0, 0, 0, 1, 5.559237, 1.1395062, -4.1756587)

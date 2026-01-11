@@ -42,9 +42,10 @@ func draw_point(body: Node3D):
 		object_collide.add_child(ink)
 	
 func activate(_pressed: bool):
+	print('isDRAW? ', _pressed)
 	is_drawing = _pressed
 	if !is_drawing:
-		if draw_rune.size() < 10:
+		if draw_rune.points.size() < 10:
 			draw_rune.points.clear()
 			draw_rune.normals.clear()
 			return

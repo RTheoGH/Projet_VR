@@ -99,7 +99,7 @@ var hub: PackedScene = preload("res://src/levels/hub.tscn")
 var levels: Array[PackedScene] = [
 	preload("res://src/levels/level_balls/level_balls.tscn"),
 	preload("res://src/levels/level_book/level_book.tscn"),
-	preload("res://src/levels/level_balls/level_feather.tscn")
+	preload("res://src/levels/hub.tscn")#preload("res://src/levels/level_feather/level_feather.tscn")
 ]
 var levels_permutation = [0,1,2]
 var current_level_index:int = -1 # -1 is the hub

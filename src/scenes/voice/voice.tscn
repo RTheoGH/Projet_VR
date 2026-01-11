@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cchxk0rvoleg1"]
 
-[ext_resource type="Script" uid="uid://c8mhrwspad232" path="res://addons/godot_whisper/capture_stream_to_text.gd" id="1_4fmax"]
+[ext_resource type="Script" path="res://addons/godot_whisper/capture_stream_to_text.gd" id="1_4fmax"]
 [ext_resource type="Script" uid="uid://dh24t61rughgx" path="res://src/scenes/voice/voice.gd" id="1_bo2ji"]
 [ext_resource type="WhisperResource" uid="uid://dpgrjx6nx11k6" path="res://addons/godot_whisper/models/gglm-tiny.en.bin" id="2_bo2ji"]
 [ext_resource type="Script" uid="uid://bhjqohonu4oy5" path="res://addons/godot_whisper/label_transcribe.gd" id="4_yplad"]
@@ -32,7 +32,6 @@ use_dynamic_audio_context = false
 minimum_sentence_time = 0.0
 maximum_sentence_time = 1.0
 halucinating_count = 0
-audio_effect_capture_index = 1
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamMicrophone_5qmjj")

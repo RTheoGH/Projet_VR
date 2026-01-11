@@ -28,24 +28,24 @@ press_to_hold = false
 metadata/_custom_type_script = "uid://d2tylielur6l1"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.099999994, 0, 0, 0, 0.07202364, 0.06937288, 0, -0.06937288, 0.07202364, 0, -0.011540264, -0.046585333)
+transform = Transform3D(0.099999994, 0, 0, 0, 0.07202364, 0.06937288, 0, -0.06937288, 0.07202364, 0, 0.020010263, -0.017835151)
 material_override = SubResource("StandardMaterial3D_ft546")
 mesh = SubResource("CylinderMesh_jcuqv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.099999994, 0, 0, 0, 0.07202364, 0.06937288, 0, -0.06937288, 0.07202364, 0, -0.011540264, -0.046585333)
+transform = Transform3D(0.099999994, 0, 0, 0, 0.07202364, 0.06937288, 0, -0.06937288, 0.07202364, 0, 0.020010263, -0.017835151)
 shape = SubResource("CylinderShape3D_1eejb")
 
 [node name="GrabPointHandLeft" parent="." instance=ExtResource("2_1eejb")]
-transform = Transform3D(1, 0, 0, 0, 0.98061466, -0.19594613, 0, 0.19594613, 0.98061466, 0.010018587, -0.03547819, -0.08542167)
+transform = Transform3D(1, 0, 0, 0, 0.98061466, -0.19594613, 0, 0.19594613, 0.98061466, 0.010018587, -0.003927663, -0.056671485)
 visible = true
 
 [node name="GrabPointHandRight" parent="." instance=ExtResource("3_rxwv6")]
-transform = Transform3D(1, 0, 0, 0, 0.9806659, -0.1956894, 0, 0.1956894, 0.9806659, -0.010339141, -0.035976306, -0.08535747)
+transform = Transform3D(1, 0, 0, 0, 0.9806659, -0.1956894, 0, 0.1956894, 0.9806659, -0.010339141, -0.004425779, -0.05660729)
 visible = true
 
 [node name="tip" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.66836506, -0.7438334, 0, 0.7438334, 0.66836506, 0, 0.13062927, -0.18300179)
+transform = Transform3D(1, 0, 0, 0, 0.66836506, -0.7438334, 0, 0.7438334, 0.66836506, 0, 0.1621798, -0.1542516)
 collision_layer = 8
 collision_mask = 8
 
@@ -60,4 +60,4 @@ radius = 0.88135165
 
 [node name="RayCast3D" type="RayCast3D" parent="tip"]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
-target_position = Vector3(0, -50, 0)
+target_position = Vector3(0, -8, 0)

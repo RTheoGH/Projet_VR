@@ -8,15 +8,17 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_unuap"]
 size = Vector3(0.09, 0.45, 0.09)
 
-[node name="feather_interactable" type="RigidBody3D"]
+[node name="FeatherInteractable" type="RigidBody3D"]
 collision_layer = 4
 collision_mask = 7
+continuous_cd = true
 script = ExtResource("1_unuap")
 press_to_hold = false
 metadata/_custom_type_script = "uid://d2tylielur6l1"
 
 [node name="Plume" parent="." instance=ExtResource("2_qfjm3")]
 transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0, 0)
+skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18267557, 0)

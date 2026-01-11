@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://cbeofjcj6xxiv"]
+[gd_scene load_steps=32 format=4 uid="uid://cbeofjcj6xxiv"]
 
 [ext_resource type="Material" uid="uid://bwkidg8s7g2wx" path="res://Assets/materials/parallaxIce/ParallaxIceByDroppedBeat.tres" id="1_bbsvl"]
 [ext_resource type="PackedScene" uid="uid://dyqw7qw8os4rv" path="res://Assets/Packs/fantasyprops/Cauldron.gltf" id="1_y80xq"]
@@ -22,7 +22,6 @@
 [ext_resource type="Texture2D" uid="uid://brn5dd4gpeawi" path="res://Assets/Packs/fantasyprops/T_Trim_Metal_ORM.png" id="19_plgra"]
 [ext_resource type="Texture2D" uid="uid://dqrecnfwitku4" path="res://Assets/Packs/fantasyprops/T_Trim_Metal_Normal.png" id="20_jsp06"]
 [ext_resource type="PackedScene" uid="uid://brcntxdt00g3r" path="res://src/scenes/draw_spell/ink_decal.tscn" id="22_r7jlq"]
-[ext_resource type="Material" uid="uid://bf7yv25k3nvb1" path="res://src/shaders/pickable_highlight_material.tres" id="22_wm640"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cl3cs"]
 sky_top_color = Color(0.32795975, 0.3953401, 0.8315651, 1)
@@ -282,17 +281,6 @@ mesh = SubResource("ArrayMesh_ucibk")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="testcube"]
 shape = SubResource("BoxShape3D_y0bif")
 
-[node name="testcube2" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6733046, 1.0241761, 1.8234844)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="testcube2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38842106, -0.86386526, -1.4069211)
-material_overlay = ExtResource("22_wm640")
-mesh = SubResource("ArrayMesh_2bc2y")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="testcube2"]
-shape = SubResource("BoxShape3D_y0bif")
-
 [node name="testcube3" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.229328, 1.0241761, -3.7412214)
 
@@ -327,7 +315,7 @@ shape = SubResource("BoxShape3D_y0bif")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.281964, 2.3646772, -0.81414807)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="testcube6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.52036643, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.840412, -0.52036643, 1.7056985)
 mesh = SubResource("ArrayMesh_2bc2y")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="testcube6"]

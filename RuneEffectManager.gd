@@ -39,6 +39,8 @@ func apply_effect_on_object(draw_pos : Vector3, object : RigidBody3D, effect : S
 func apply_pickable(object : RigidBody3D, draw_pos : Vector3 = Vector3.ZERO):
 	if not object: return
 	var xr_pickable := XRToolsPickable.new()
+	xr_pickable.collision_layer = 0b001
+	xr_pickable.collision_mask = 0b111
 	print(object)
 	var object_pos := object.global_position
 	object.add_child(xr_pickable)

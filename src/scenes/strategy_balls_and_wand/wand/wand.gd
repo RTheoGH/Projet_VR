@@ -15,4 +15,4 @@ func activate_touched(pressed: bool):
 
 func activate(_pressed: bool):
 	if circle:
-		circle.finish_spell($tip.global_transform, self)
+		circle.finish_spell($tip.global_position, ($tip.global_position - global_position).normalized(), self)

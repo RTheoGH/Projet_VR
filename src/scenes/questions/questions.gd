@@ -31,7 +31,7 @@ func set_question(question_index : int) :
 	# Clear the current answers (children of Answers)
 	
 	for child in answers_node.get_children() : 
-		answers_node.remove_child(child)
+		answers_node.remove_child.call_deferred(child)
 		child.queue_free()
 	
 	# Create correct amount of answers
@@ -68,12 +68,12 @@ func get_sphere_positions(nb_sphere : int , radius : float = 0.25) :
 	
 	var positions : Array[Vector3]
 	
-	var total_width = margin * (nb_sphere - 1)
+	var total_width = margin * (nb_sphere)
 	var start_offset = -total_width / 2.0
 	
 	for i in range(nb_sphere) : 
-		var x = center.x + start_offset + (margin * i)
-		var pos = Vector3(x , center.y , center.z)
+		var x = center.z + start_offset + (margin * i)
+		var pos = Vector3(center.x , center.y , center.x)
 		print(center)
 		positions.append(pos)
 		

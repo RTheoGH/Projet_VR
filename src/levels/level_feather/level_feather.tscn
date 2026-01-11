@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://pivwppdcvef"]
+[gd_scene load_steps=81 format=3 uid="uid://pivwppdcvef"]
 
 [ext_resource type="PackedScene" uid="uid://bej35ui0rcag0" path="res://Assets/maps/map_1.blend" id="1_ec3lc"]
 [ext_resource type="Script" uid="uid://bn4cegpesft3x" path="res://src/levels/level_feather/level_feather.gd" id="1_mf5j2"]
@@ -7,9 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://bsxjsfvyuuoyw" path="res://src/scenes/portal/portal.tscn" id="3_annk2"]
 [ext_resource type="PackedScene" uid="uid://huxfne4xebd" path="res://Assets/Packs/fantasyprops/Key_Metal.gltf" id="4_fwcxs"]
 [ext_resource type="PackedScene" uid="uid://0c8nxaqvgixs" path="res://Assets/Packs/fantasyprops/Key_Gold.gltf" id="5_tbu0q"]
-[ext_resource type="Script" uid="uid://dbva8wdromhk7" path="res://src/classes/light_flicker.gd" id="6_0y6hl"]
+[ext_resource type="Script" path="res://src/classes/light_flicker.gd" id="6_0y6hl"]
 [ext_resource type="PackedScene" uid="uid://rdrayle161hy" path="res://Assets/Packs/fantasyprops/Bench.gltf" id="7_0y6hl"]
 [ext_resource type="PackedScene" uid="uid://c17131quqte6e" path="res://src/scenes/objets/crate.tscn" id="7_fwcxs"]
+[ext_resource type="PackedScene" uid="uid://to3tgnn8fyn3" path="res://src/scenes/draw_spell/feather_interactable.tscn" id="8_l572h"]
 [ext_resource type="PackedScene" uid="uid://00n18ca1dd4y" path="res://src/scenes/objets/crate_metal.tscn" id="8_tbu0q"]
 [ext_resource type="Material" uid="uid://cpo30hv0hb0f0" path="res://Assets/materials/wallByBogey/wallByBogey.tres" id="8_ycvd0"]
 [ext_resource type="PackedScene" uid="uid://dcvjhvos6kym8" path="res://Assets/Packs/fantasyprops/Table_Large.gltf" id="12_x8uv0"]
@@ -25,7 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://d4nl1ds0v8hd0" path="res://Assets/Packs/fantasyprops/BookGroup_Small_2.gltf" id="17_66c6l"]
 [ext_resource type="PackedScene" uid="uid://bllnso1625xma" path="res://Assets/Packs/fantasyprops/Banner_2_Cloth.gltf" id="17_l1acf"]
 [ext_resource type="PackedScene" uid="uid://dapcuwulcnmhk" path="res://src/scenes/objets/candle_stick_triple_2.tscn" id="17_mf5j2"]
-[ext_resource type="PackedScene" path="res://src/scenes/objets/cracked_wall.tscn" id="18_l1acf"]
+[ext_resource type="PackedScene" uid="uid://betyyf8h3i8v4" path="res://src/scenes/objets/cracked_wall.tscn" id="18_l1acf"]
 [ext_resource type="PackedScene" uid="uid://dxp4ba453tyxp" path="res://Assets/Packs/fantasyprops/BookGroup_Medium_3.gltf" id="18_svobu"]
 [ext_resource type="FontFile" uid="uid://bfe4fktkasx54" path="res://Assets/police/ancient/Ancient Medium.ttf" id="19_1frgy"]
 [ext_resource type="Texture2D" uid="uid://brsf5nid0mn8y" path="res://Assets/textures/pickable_rune.png" id="19_5u8kh"]
@@ -220,6 +221,15 @@ transform = Transform3D(-0.0035356234, 2.3864508, 0.1301583, 0.06480171, 0.13020
 
 [node name="Table_Large2" parent="StaticProps" instance=ExtResource("12_x8uv0")]
 transform = Transform3D(0.9831753, 0, -0.18266453, 0, 1, 0, 0.18266453, 0, 0.9831753, 1.8847828, 0.13344602, 3.7225037)
+
+[node name="feather_interactable" parent="StaticProps/Table_Large2" instance=ExtResource("8_l572h")]
+transform = Transform3D(-0.07890892, 0.97652096, 0.20045096, -0.97652096, -0.11615075, 0.18142821, 0.20045096, -0.18142822, 0.9627585, -1.236306, 1.3542681, -0.1313231)
+
+[node name="feather_interactable2" parent="StaticProps/Table_Large2" instance=ExtResource("8_l572h")]
+transform = Transform3D(-0.078908935, 0.97652096, 0.20045096, -0.97652096, -0.11615075, 0.18142821, 0.20045096, -0.18142824, 0.96275854, -0.65207386, 1.3542681, 0.21153116)
+
+[node name="feather_interactable3" parent="StaticProps/Table_Large2" instance=ExtResource("8_l572h")]
+transform = Transform3D(-0.078908965, 0.97652096, 0.20045096, -0.97652096, -0.11615075, 0.18142821, 0.20045099, -0.18142827, 0.96275866, -0.5489515, 1.3542681, -0.20833254)
 
 [node name="Table_Large4" parent="StaticProps" instance=ExtResource("12_x8uv0")]
 transform = Transform3D(-0.07289011, 0, -0.9973401, 0, 1, 0, 0.9973401, 0, -0.07289011, -15.728127, -1.2706094, 6.776274)
@@ -725,7 +735,7 @@ transform = Transform3D(0.2687916, 0, 0.41566345, 0, 0.49499997, 0, -0.41566345,
 [node name="Portal#OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(2.020202, 0, 0, 0, 2.020202, 0, 0, 0, 2.020202, -0.12974644, 1.9967823, 1.817276)
 light_color = Color(2.0214916e-06, 0.49184072, 0.76046115, 1)
-light_energy = 4.8676043
+light_energy = 3.8370922
 script = ExtResource("6_0y6hl")
 base_energy = 6.25
 flicker_strength = 0.72

@@ -114,6 +114,8 @@ shadow_mesh = SubResource("ArrayMesh_ab63g")
 size = Vector3(0.021247864, 0.03996277, 0.025543213)
 
 [node name="maxwell" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 7
 script = SubResource("GDScript_5gna6")
 metadata/_custom_type_script = "uid://d2tylielur6l1"
 
