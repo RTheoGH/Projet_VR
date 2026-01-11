@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Answer" load_steps=2 format=3 uid="uid://cb68gtl1del7v"]
+
+[ext_resource type="Script" uid="uid://2cytqirrcfcn" path="res://src/scenes/questions/answer_res.gd" id="1_ipyqx"]
+
+[resource]
+script = ExtResource("1_ipyqx")
+value_text = "Ne préfère pas préciser"
+value = "dnc"
+metadata/_custom_type_script = "uid://2cytqirrcfcn"

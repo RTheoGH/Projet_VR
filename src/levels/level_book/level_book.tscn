@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://odtdr45k7ryn"]
+[gd_scene load_steps=58 format=3 uid="uid://odtdr45k7ryn"]
 
 [ext_resource type="PackedScene" uid="uid://bej35ui0rcag0" path="res://Assets/maps/map_1.blend" id="1_g4s23"]
 [ext_resource type="PackedScene" uid="uid://cbtk71x3cwrx6" path="res://src/scenes/torch/torch_metal.tscn" id="2_qe8vo"]
@@ -15,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://dyqw7qw8os4rv" path="res://Assets/Packs/fantasyprops/Cauldron.gltf" id="13_1me1a"]
 [ext_resource type="PackedScene" uid="uid://dcvjhvos6kym8" path="res://Assets/Packs/fantasyprops/Table_Large.gltf" id="14_h8vqc"]
 [ext_resource type="PackedScene" uid="uid://bsxjsfvyuuoyw" path="res://src/scenes/portal/portal.tscn" id="15_mknqj"]
-[ext_resource type="Script" path="res://src/classes/light_flicker.gd" id="19_rococ"]
 [ext_resource type="PackedScene" uid="uid://dxx722tqqoo7j" path="res://src/scenes/voice/book.tscn" id="20_g0lbh"]
 [ext_resource type="PackedScene" uid="uid://c17131quqte6e" path="res://src/scenes/objets/crate.tscn" id="21_5py3i"]
 [ext_resource type="PackedScene" uid="uid://00n18ca1dd4y" path="res://src/scenes/objets/crate_metal.tscn" id="22_pctsl"]
@@ -470,17 +469,8 @@ transform = Transform3D(0.040699337, 0.0015854533, 0.00095749355, -0.00036005932
 [node name="Rib Cage" parent="StaticProps/Skeleton/Sketchfab_model/Root" index="12"]
 transform = Transform3D(-0.058449782, -0.0037889353, 0.00093890703, 0.00051709544, -0.021480823, -0.05449582, 0.0038692057, -0.054366395, 0.02146652, 6.658101, -1.3537693, 5.176422)
 
-[node name="Portal_Portal2#Portal" parent="." instance=ExtResource("15_mknqj")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.0004429072, 1.0000466, -0.24552089)
-
-[node name="Portal#OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(2.020202, 0, 0, 0, 2.020202, 0, 0, 0, 2.020202, -0.12974644, 1.9967823, 1.817276)
-light_color = Color(0.75338805, 0.29782987, 0.22590923, 1)
-light_energy = 3.4288628
-script = ExtResource("19_rococ")
-base_energy = 6.25
-flicker_strength = 0.72
-flicker_speed = 0.57
+[node name="Portal_Portal2" parent="." instance=ExtResource("15_mknqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0004429072, 0.29589546, -0.24552089)
 
 [node name="SpawnNode" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.525389, 5.295786, -9.148357)

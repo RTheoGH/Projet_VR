@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Question" load_steps=7 format=3 uid="uid://cqktd8vdl7rgy"]
+
+[ext_resource type="Script" uid="uid://2cytqirrcfcn" path="res://src/scenes/questions/answer_res.gd" id="1_v3iiq"]
+[ext_resource type="Resource" uid="uid://b8nxjfmdvr1c0" path="res://src/scenes/questions/resources/answer_resources/age_0.tres" id="2_ibpeo"]
+[ext_resource type="Script" uid="uid://clop87h6b3bhq" path="res://src/scenes/questions/question_res.gd" id="2_r0ki3"]
+[ext_resource type="Resource" uid="uid://dn47v2a205wpx" path="res://src/scenes/questions/resources/answer_resources/age_1.tres" id="3_dfgj5"]
+[ext_resource type="Resource" uid="uid://c773rkabs7wqm" path="res://src/scenes/questions/resources/answer_resources/age_2.tres" id="4_i3d0s"]
+[ext_resource type="Resource" uid="uid://cr18v2d70uiwc" path="res://src/scenes/questions/resources/answer_resources/age_3.tres" id="5_64btu"]
+
+[resource]
+script = ExtResource("2_r0ki3")
+question_text = "Quel age avez vous ?"
+sql_column = "age"
+answers = Array[ExtResource("1_v3iiq")]([ExtResource("2_ibpeo"), ExtResource("3_dfgj5"), ExtResource("4_i3d0s"), ExtResource("5_64btu")])
+metadata/_custom_type_script = "uid://clop87h6b3bhq"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://4sguy8m0l5f1"]
+[gd_scene load_steps=13 format=3 uid="uid://4sguy8m0l5f1"]
 
 [ext_resource type="Script" uid="uid://cenepb50bm688" path="res://spells/scenes/antigrav.gd" id="1_xi7no"]
 [ext_resource type="Material" uid="uid://dc680fknspkha" path="res://Assets/materials/bally_sphere.tres" id="2_c8dta"]
@@ -14,6 +14,91 @@ radius = 3.1620884
 [sub_resource type="SphereMesh" id="SphereMesh_xi7no"]
 radius = 3.0
 height = 6.0
+
+[sub_resource type="Shader" id="Shader_ohg01"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.5.1.stable's StandardMaterial3D.
+
+shader_type spatial;
+render_mode blend_sub, depth_draw_opaque, cull_disabled, diffuse_burley, specular_schlick_ggx;
+
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
+uniform ivec2 albedo_texture_size;
+uniform float point_size : hint_range(0.1, 128.0, 0.1);
+
+uniform float roughness : hint_range(0.0, 1.0);
+uniform sampler2D texture_metallic : hint_default_white, filter_linear_mipmap, repeat_enable;
+uniform vec4 metallic_texture_channel;
+uniform sampler2D texture_roughness : hint_roughness_r, filter_linear_mipmap, repeat_enable;
+
+uniform float specular : hint_range(0.0, 1.0, 0.01);
+uniform float metallic : hint_range(0.0, 1.0, 0.01);
+
+uniform sampler2D texture_emission : source_color, hint_default_black, filter_linear_mipmap, repeat_enable;
+uniform vec4 emission : source_color;
+uniform float emission_energy : hint_range(0.0, 100.0, 0.01);
+
+uniform sampler2D texture_ambient_occlusion : hint_default_white, filter_linear_mipmap, repeat_enable;
+uniform vec4 ao_texture_channel;
+uniform float ao_light_affect : hint_range(0.0, 1.0, 0.01);
+
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+uniform sampler2D noise;
+
+float fresnel(float amount, vec3 normal, vec3 view)
+{
+	return pow((1.0 - clamp(dot(normalize(normal), normalize(view)), 0.0, 1.0 )), amount);
+}
+
+void fragment() {
+	vec2 base_uv = UV;
+	ALBEDO = albedo.rgb;
+	float noise_val = texture(noise, UV + vec2(0.0, TIME / 6.0)).x;
+	float basic_fresnel = fresnel(2.0 + pow(4.0 * noise_val, 2.0), NORMAL, VIEW);
+	// Emission: Enabled
+	vec3 emission_tex = texture(texture_emission, base_uv).rgb;
+	
+	// Emission Operator: Add
+	EMISSION = 0.6 * basic_fresnel * mix(-emission.rgb, albedo.rgb, 1.0 - basic_fresnel * 1.0) * emission_energy;
+	
+	
+	ALPHA = 3.0;
+}
+"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ohg01"]
+noise_type = 3
+frequency = 0.0027
+fractal_gain = 3.35
+cellular_distance_function = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_40lok"]
+noise = SubResource("FastNoiseLite_ohg01")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6j5l7"]
+render_priority = 0
+shader = SubResource("Shader_ohg01")
+shader_parameter/albedo = Color(0.96965617, 0, 0.19827709, 0.2627451)
+shader_parameter/albedo_texture_size = Vector2i(0, 0)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/emission = Color(6.118679, 2.2690585, 1.9537387, 1)
+shader_parameter/emission_energy = 1.0
+shader_parameter/ao_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/ao_light_affect = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/noise = SubResource("NoiseTexture2D_40lok")
 
 [sub_resource type="SphereMesh" id="SphereMesh_c8dta"]
 
@@ -42,6 +127,7 @@ mesh = SubResource("SphereMesh_xi7no")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_6j5l7")
 mesh = SubResource("SphereMesh_c8dta")
 
 [node name="cast" type="AudioStreamPlayer3D" parent="."]

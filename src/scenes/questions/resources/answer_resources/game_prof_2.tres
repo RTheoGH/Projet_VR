@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Answer" load_steps=2 format=3 uid="uid://hfo40j4lkr7j"]
+
+[ext_resource type="Script" uid="uid://2cytqirrcfcn" path="res://src/scenes/questions/answer_res.gd" id="1_8j44g"]
+
+[resource]
+script = ExtResource("1_8j44g")
+value_text = "Joue de temps en temps"
+value = "2"
+metadata/_custom_type_script = "uid://2cytqirrcfcn"

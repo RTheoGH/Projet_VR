@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://bbc2qfox0hdai"]
+[gd_scene load_steps=75 format=3 uid="uid://bbc2qfox0hdai"]
 
 [ext_resource type="PackedScene" uid="uid://bej35ui0rcag0" path="res://Assets/maps/map_1.blend" id="1_angmx"]
 [ext_resource type="Script" uid="uid://bvacm0lb0f1hg" path="res://src/levels/level_balls/level_balls.gd" id="1_by7g0"]
@@ -83,6 +83,9 @@ volumetric_fog_sky_affect = 0.0
 adjustment_enabled = true
 adjustment_contrast = 1.1
 adjustment_saturation = 1.39
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_by7g0"]
+size = Vector3(0.080322266, 0.08517456, 2.0327148)
 
 [sub_resource type="Gradient" id="Gradient_662um"]
 offsets = PackedFloat32Array(0.068292685, 0.70731705)
@@ -232,10 +235,10 @@ transform = Transform3D(0.12355431, -0.25881892, -0.9579911, -0.03310627, -0.965
 transform = Transform3D(0.12355431, -0.25881892, -0.9579911, -0.03310627, -0.9659257, 0.25669286, -0.99178547, 1.1182486e-08, -0.12791282, 2.9807768, 1.0543816, 3.3368)
 
 [node name="Chandelier2" parent="StaticProps" instance=ExtResource("3_no0h4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.574334, 2.7088451, 3.5056927)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.574334, 2.7088451, 3.3762991)
 
 [node name="Chandelier3" parent="StaticProps" instance=ExtResource("3_no0h4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.1576185, 2.708846, 9.574511)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.1576185, 2.708846, 9.677976)
 
 [node name="Chest_Wood" parent="StaticProps" instance=ExtResource("4_la4ae")]
 transform = Transform3D(-0.8708287, -0.09155378, 0.4829864, -0.09483002, 0.9953363, 0.017694298, -0.48235372, -0.03039289, -0.87544924, -16.22895, -1.1178639, 11.736883)
@@ -465,7 +468,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.228212, 5.269497, -9.6298
 [node name="Bottle_15" parent="StaticProps" instance=ExtResource("29_5b58n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.374689, 5.269497, -9.579594)
 
-[node name="Portal_Portal2#Portal" parent="." instance=ExtResource("3_qdqvf")]
+[node name="Portal" parent="." instance=ExtResource("3_qdqvf")]
 transform = Transform3D(0.2687916, 0, 0.41566345, 0, 0.49499997, 0, -0.41566345, 0, 0.2687916, -21.131021, 4.6072383, -9.680573)
 
 [node name="SpawnNode" type="Marker3D" parent="."]
@@ -589,11 +592,32 @@ transform = Transform3D(0.02, 8.7422797e-10, 5.551116e-17, 5.5511164e-17, -8.742
 [node name="Sketchfab_Scene4" parent="Pont" instance=ExtResource("6_wu35s")]
 transform = Transform3D(0.02, 8.7422797e-10, 5.551116e-17, 5.5511164e-17, -8.74228e-10, 0.02, 8.7422775e-10, -0.02, -8.742279e-10, -18.031075, -1.7284975, 3.3588696)
 
+[node name="HingeJoint3D" type="HingeJoint3D" parent="Pont"]
+transform = Transform3D(0.10012767, 0.026190713, -0.99463, 0.20880362, 0.9768402, 0.046742167, 0.9728185, -0.21236259, 0.09233998, -14.7426, 4.4136, -0.035062313)
+node_a = NodePath("../Planche")
+node_b = NodePath("../HingeBase")
+
+[node name="HingeBase" type="StaticBody3D" parent="Pont"]
+transform = Transform3D(0.08056419, -3.14028e-09, -0.99674976, 0.21169202, 0.97718704, 0.017110413, 0.97401047, -0.2123824, 0.07872628, -14.113338, 4.394244, -0.035062313)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pont/HingeBase"]
+transform = Transform3D(1, -2.9802322e-08, -8.7171793e-07, 0, 1, 9.313226e-09, 0, -4.414469e-07, 1, -0.08341563, 0.012102127, 0.5226555)
+shape = SubResource("BoxShape3D_by7g0")
+
 [node name="Planche" parent="Pont" instance=ExtResource("7_b8uio")]
-transform = Transform3D(0.0938998, 0, 0.9955816, 0, 1, 0, -0.9955816, 0, 0.0938998, -13.805458, 3.138503, 6.5051413)
+transform = Transform3D(0.08056418, -1.9397797e-09, -0.9967494, 0.21169198, 0.9771867, 0.017110404, 0.9740101, -0.21238232, 0.07872624, -14.113338, 5.7797627, 6.111095)
 
 [node name="Sketchfab_Scene5" parent="Pont" instance=ExtResource("6_wu35s")]
 transform = Transform3D(0.02, 1.6653345e-16, 8.742278e-10, -2.220446e-16, 0.02, -1.7297442e-17, -8.7422797e-10, -2.220446e-16, 0.02, -18.01509, 2.8, 6.3124466)
+
+[node name="Crate19" parent="Pont" instance=ExtResource("7_8f7r2")]
+transform = Transform3D(0.96820444, 0.0042411373, 0.25012428, -0.004106325, 0.999991, -0.001060821, -0.25012654, 0, 0.96821314, -13.641091, 4.6627426, 12.463303)
+
+[node name="CrateMetal8" parent="Pont" instance=ExtResource("8_b8uio")]
+transform = Transform3D(0.7688976, 0, 0.6393719, 0, 1, 0, -0.6393719, 0, 0.7688976, -13.568581, 5.7953815, 12.331479)
+
+[node name="CrateMetal9" parent="Pont" instance=ExtResource("8_b8uio")]
+transform = Transform3D(0.9869233, 0, -0.16119039, 0, 1, 0, 0.16119039, 0, 0.9869233, -13.568581, 4.8900514, 13.499971)
 
 [node name="Wand" parent="." instance=ExtResource("40_1n23o")]
 transform = Transform3D(-4.371139e-08, -0.7530584, 0.65795374, 0, 0.65795374, 0.7530584, -1, 3.2917228e-08, -2.8760072e-08, -3.2659879, 1.5739566, 1.3460019)

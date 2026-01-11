@@ -1,0 +1,136 @@
+[gd_scene load_steps=10 format=3 uid="uid://yegkggd4mcu2"]
+
+[ext_resource type="Script" uid="uid://c7h3s3hlqcfxk" path="res://src/scenes/questions/answer_ball_vr.gd" id="1_i32ym"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="3_i32ym"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="4_tpx8e"]
+
+[sub_resource type="Shader" id="Shader_ohg01"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.5.1.stable's StandardMaterial3D.
+
+shader_type spatial;
+render_mode blend_sub, depth_draw_opaque, cull_disabled, diffuse_burley, specular_schlick_ggx;
+
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
+uniform ivec2 albedo_texture_size;
+uniform float point_size : hint_range(0.1, 128.0, 0.1);
+
+uniform float roughness : hint_range(0.0, 1.0);
+uniform sampler2D texture_metallic : hint_default_white, filter_linear_mipmap, repeat_enable;
+uniform vec4 metallic_texture_channel;
+uniform sampler2D texture_roughness : hint_roughness_r, filter_linear_mipmap, repeat_enable;
+
+uniform float specular : hint_range(0.0, 1.0, 0.01);
+uniform float metallic : hint_range(0.0, 1.0, 0.01);
+
+uniform sampler2D texture_emission : source_color, hint_default_black, filter_linear_mipmap, repeat_enable;
+uniform vec4 emission : source_color;
+uniform float emission_energy : hint_range(0.0, 100.0, 0.01);
+
+uniform sampler2D texture_ambient_occlusion : hint_default_white, filter_linear_mipmap, repeat_enable;
+uniform vec4 ao_texture_channel;
+uniform float ao_light_affect : hint_range(0.0, 1.0, 0.01);
+
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+uniform sampler2D noise;
+
+float fresnel(float amount, vec3 normal, vec3 view)
+{
+	return pow((1.0 - clamp(dot(normalize(normal), normalize(view)), 0.0, 1.0 )), amount);
+}
+
+void fragment() {
+	vec2 base_uv = UV;
+	ALBEDO = albedo.rgb;
+	float noise_val = texture(noise, UV + vec2(0.0, TIME / 6.0)).x;
+	float basic_fresnel = fresnel(2.0 + pow(4.0 * noise_val, 2.0), NORMAL, VIEW);
+	// Emission: Enabled
+	vec3 emission_tex = texture(texture_emission, base_uv).rgb;
+	
+	// Emission Operator: Add
+	EMISSION = 0.6 * basic_fresnel * mix(-emission.rgb, albedo.rgb, 1.0 - basic_fresnel * 1.0) * emission_energy;
+	
+	
+	ALPHA = 3.0;
+}
+"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_nfk5u"]
+noise_type = 3
+frequency = 0.0027
+fractal_gain = 3.35
+cellular_distance_function = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_i32ym"]
+noise = SubResource("FastNoiseLite_nfk5u")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tpx8e"]
+render_priority = 0
+shader = SubResource("Shader_ohg01")
+shader_parameter/albedo = Color(0.6825946, 0.47793669, 0, 0.2627451)
+shader_parameter/albedo_texture_size = Vector2i(0, 0)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/emission = Color(6.118679, 2.2690585, 1.9537387, 1)
+shader_parameter/emission_energy = 1.0
+shader_parameter/ao_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/ao_light_affect = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/noise = SubResource("NoiseTexture2D_i32ym")
+
+[sub_resource type="SphereMesh" id="SphereMesh_dtn5u"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_p3v3m"]
+radius = 0.1373948
+
+[node name="Selectable" type="RigidBody3D"]
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+gravity_scale = 0.0
+linear_damp = 2.0
+script = ExtResource("1_i32ym")
+metadata/_custom_type_script = "uid://d2tylielur6l1"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_tpx8e")
+mesh = SubResource("SphereMesh_dtn5u")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_p3v3m")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_p3v3m")
+
+[node name="GrabPointHandRight" parent="." instance=ExtResource("3_i32ym")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11988658, 0, -0.09503201)
+visible = true
+
+[node name="GrabPointHandLeft" parent="." instance=ExtResource("4_tpx8e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11987996, 0, -0.07088086)
+visible = true
+
+[node name="AnswerLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.17943418)
+pixel_size = 0.001
+text = "Heyy hey hey hey hey
+"
+font_size = 45
+outline_size = 10
+autowrap_mode = 3
+width = 400.0
