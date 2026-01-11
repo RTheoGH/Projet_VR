@@ -1,3 +1,4 @@
+@tool
 extends XRToolsPickable
 
 var RAY_LENGTH = 1000

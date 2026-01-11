@@ -7,7 +7,8 @@
 [ext_resource type="Script" uid="uid://dylp22mhxk45p" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand.gd" id="5_pndag"]
 
 [sub_resource type="GDScript" id="GDScript_5gna6"]
-script/source = "extends XRToolsPickable
+script/source = "@tool
+extends XRToolsPickable
 
 var mxw : Tween
 

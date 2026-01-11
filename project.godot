@@ -36,9 +36,6 @@ enabled=PackedStringArray("res://addons/godot-duckdb/plugin.cfg", "res://addons/
 
 Cauldron=""
 enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg", "res://addons/godot_whisper/plugin.cfg")
-
-[global_group]
-
 player=""
 electric_device="must have activate() -> void"
 
