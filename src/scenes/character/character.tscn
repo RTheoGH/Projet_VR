@@ -47,4 +47,4 @@ tracker = &"right_hand"
 [node name="Activator" type="Node" parent="controller_r"]
 script = ExtResource("4_fg8a2")
 
-[node name="PlayerBody" parent="." instance=ExtResource("5_fg8a2")]
+[node name="PlayerBody" parent="." groups=["player"] instance=ExtResource("5_fg8a2")]

@@ -2,7 +2,7 @@ extends RigidBody3D
 
 var launch_strength: float = 10.0;
 var caster: Node3D
-var explode_strength = 5.0;
+var explode_strength = 10.0;
 
 var explosion = preload("res://spells/scenes/explosion.tscn")
 
@@ -23,6 +23,7 @@ func explode():
 	get_parent().add_child(effect)
 	effect.get_node("explode").play()
 	queue_free()
+
 func _on_body_entered(body: Node) -> void:
 	explode()
 	print("boum")

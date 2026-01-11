@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://c37l6k3l2f58s"]
+
+[ext_resource type="Texture2D" uid="uid://dyn3g30fgtgw6" path="res://Assets/textures/bois_horrible.jpg" id="1_gkhyu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_834u2"]
+albedo_texture = ExtResource("1_gkhyu")
+uv1_scale = Vector3(4.5, 4.5, 4.5)
+uv1_offset = Vector3(-0.46, 0, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_e8kcx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nk3y7"]
+size = Vector3(10.668182, 0.12207031, 4.258545)
+
+[node name="Planche" type="RigidBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(10.59543, 0, 0, 0, 0.10011834, 0, 0, 0, 4.2167697, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_834u2")
+mesh = SubResource("BoxMesh_e8kcx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000289917, -0.0026855469, 0.0008544922)
+shape = SubResource("BoxShape3D_nk3y7")

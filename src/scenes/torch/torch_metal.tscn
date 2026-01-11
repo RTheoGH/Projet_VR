@@ -1,10 +1,11 @@
-[gd_scene load_steps=55 format=3 uid="uid://cbtk71x3cwrx6"]
+[gd_scene load_steps=56 format=3 uid="uid://cbtk71x3cwrx6"]
 
 [ext_resource type="PackedScene" uid="uid://bmpuau1seojve" path="res://Assets/Packs/fantasyprops/Torch_Metal.gltf" id="1_8aiu0"]
 [ext_resource type="Shader" uid="uid://dya6advfbx480" path="res://src/shaders/torch_metal.tres" id="2_wu81m"]
 [ext_resource type="Texture2D" uid="uid://c73y8c5wcxa5v" path="res://Assets/textures/Voronoi01.png" id="3_i1ruj"]
 [ext_resource type="Texture2D" uid="uid://cqp4r7h5rkofa" path="res://Assets/textures/Flame01.png" id="4_dqs0r"]
-[ext_resource type="Texture2D" uid="uid://cui3as50wdf61" path="res://Assets/textures/smoke_06.png" id="5_i1ruj"]
+[ext_resource type="Shader" uid="uid://cdpqk8eh05qd2" path="res://src/scenes/torch/torch_metal.gdshader" id="5_i1ruj"]
+[ext_resource type="Texture2D" uid="uid://cui3as50wdf61" path="res://Assets/textures/smoke_06.png" id="6_dqs0r"]
 [ext_resource type="Script" path="res://src/classes/light_flicker.gd" id="6_wu81m"]
 [ext_resource type="Texture2D" uid="uid://bcm6jxpbr5y1c" path="res://Assets/textures/22 TorchDrippingOrangeBrown .png" id="7_dqs0r"]
 
@@ -28,25 +29,24 @@ curve = SubResource("Curve_sim3k")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7an1u"]
 direction = Vector3(0, 1, 0)
-spread = 29.0
-initial_velocity_min = 1.0
+spread = 14.904
+initial_velocity_min = 3.0
 initial_velocity_max = 5.0
-gravity = Vector3(0, -16, 0)
+gravity = Vector3(0, -1, 0)
 scale_max = 1.1999999
 color = Color(4.9298563, 2.860959, 2.1032176, 1)
 emission_curve = SubResource("CurveTexture_2w6xy")
+turbulence_enabled = true
+turbulence_noise_strength = 4.84
+turbulence_noise_scale = 58.365
 
 [sub_resource type="QuadMesh" id="QuadMesh_r2j05"]
 size = Vector2(0.015, 0.03)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qasd0"]
 render_priority = 0
-shader = ExtResource("2_wu81m")
-shader_parameter/main = ExtResource("5_i1ruj")
-shader_parameter/DissolveTiling = Vector2(1, 1)
-shader_parameter/DissolveSpeed = Vector2(0, 0)
-shader_parameter/dissolve = ExtResource("3_i1ruj")
-shader_parameter/DIssolveAmount = 0.0
+shader = ExtResource("5_i1ruj")
+shader_parameter/tex = ExtResource("6_dqs0r")
 
 [sub_resource type="Curve" id="Curve_7an1u"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -330,8 +330,8 @@ cast_shadow = 0
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23353222, 0.27187195)
 material_override = SubResource("ShaderMaterial_2w6xy")
-amount = 4
-lifetime = 2.0
+amount = 2
+explosiveness = 0.25
 randomness = 0.89
 transform_align = 2
 process_material = SubResource("ParticleProcessMaterial_7an1u")
@@ -349,7 +349,7 @@ draw_pass_1 = SubResource("QuadMesh_v0xmx")
 [node name="OmniLight3D" type="OmniLight3D" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014910698, 0.30074513, 0.48418796)
 light_color = Color(0.856458, 0.5672213, 0.1911028, 1)
-light_energy = 2.8051004
+light_energy = 4.24947
 omni_range = 5.7054963
 script = ExtResource("6_wu81m")
 base_energy = 5.7
@@ -362,4 +362,4 @@ billboard = 2
 render_priority = 1
 sprite_frames = SubResource("SpriteFrames_bry22")
 autoplay = "default"
-frame_progress = 0.16614053
+frame_progress = 0.62702435

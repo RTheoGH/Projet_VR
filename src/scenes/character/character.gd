@@ -3,6 +3,7 @@ extends XROrigin3D
 @onready var la_boule = $controller_r/RightPhysicsHand/Draw
 
 func _ready() -> void:
+	Gamemaster.player = self
 	la_boule.visible = false
 
 func _process(delta: float) -> void:

@@ -24,11 +24,17 @@ driver/mix_rate=16000
 
 XRToolsUserSettings="*res://addons/godot-xr-tools/user_settings/user_settings.gd"
 XRToolsRumbleManager="*res://addons/godot-xr-tools/rumble/rumble_manager.gd"
+Gamemaster="*res://src/autoloads/gamemaster.tscn"
 RuneEffectManager="*res://RuneEffectManager.gd"
 
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg", "res://addons/godot_whisper/plugin.cfg")
+
+[global_group]
+
+player=""
+electric_device="must have activate() -> void"
 
 [input]
 
