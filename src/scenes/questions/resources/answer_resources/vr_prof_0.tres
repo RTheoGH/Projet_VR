@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Answer" load_steps=2 format=3 uid="uid://b7ivv5ho2ry1c"]
+
+[ext_resource type="Script" uid="uid://2cytqirrcfcn" path="res://src/scenes/questions/answer_res.gd" id="1_rf708"]
+
+[resource]
+script = ExtResource("1_rf708")
+value_text = "Jamais joué"
+value = "0"
+metadata/_custom_type_script = "uid://2cytqirrcfcn"

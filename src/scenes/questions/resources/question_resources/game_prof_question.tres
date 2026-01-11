@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Question" load_steps=7 format=3 uid="uid://c4r18hil6rtau"]
+
+[ext_resource type="Script" uid="uid://2cytqirrcfcn" path="res://src/scenes/questions/answer_res.gd" id="1_vxx2a"]
+[ext_resource type="Resource" uid="uid://dplx6vsn223ax" path="res://src/scenes/questions/resources/answer_resources/game_prof_0.tres" id="2_3vena"]
+[ext_resource type="Script" uid="uid://clop87h6b3bhq" path="res://src/scenes/questions/question_res.gd" id="2_kucu3"]
+[ext_resource type="Resource" uid="uid://g31qkq1jdp1a" path="res://src/scenes/questions/resources/answer_resources/game_prof_1.tres" id="3_7bs26"]
+[ext_resource type="Resource" uid="uid://hfo40j4lkr7j" path="res://src/scenes/questions/resources/answer_resources/game_prof_2.tres" id="4_1lmci"]
+[ext_resource type="Resource" uid="uid://rj43ybh4s0ll" path="res://src/scenes/questions/resources/answer_resources/game_prof_3.tres" id="5_w8kpr"]
+
+[resource]
+script = ExtResource("2_kucu3")
+question_text = "Spécifiez votre niveau d'experience en jeux vidéos"
+sql_column = "videogame_proficiency"
+answers = Array[ExtResource("1_vxx2a")]([ExtResource("2_3vena"), ExtResource("3_7bs26"), ExtResource("4_1lmci"), ExtResource("5_w8kpr")])
+metadata/_custom_type_script = "uid://clop87h6b3bhq"

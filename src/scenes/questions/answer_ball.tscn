@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://u7d48sc3yjir"]
+
+[ext_resource type="Script" uid="uid://bk5ayihrgiluu" path="res://src/scenes/questions/answer_ball.gd" id="1_p3v3m"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_p3v3m"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_dtn5u"]
+
+[node name="AnswerBall" type="Node3D"]
+script = ExtResource("1_p3v3m")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("SphereShape3D_p3v3m")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D"]
+mesh = SubResource("SphereMesh_dtn5u")
+skeleton = NodePath("../../..")
+
+[node name="Area3D" type="Area3D" parent="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/Area3D"]
+shape = SubResource("SphereShape3D_p3v3m")
+
+[node name="AnswerLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5326419)
+text = "Heyy hey hey hey hey
+"
+autowrap_mode = 3
+width = 250.0
+
+[connection signal="body_entered" from="StaticBody3D/Area3D" to="." method="_on_area_3d_body_entered"]

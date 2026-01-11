@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://yegkggd4mcu2"]
+
+[ext_resource type="Script" uid="uid://c7h3s3hlqcfxk" path="res://src/scenes/questions/answer_ball_vr.gd" id="1_i32ym"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="3_i32ym"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="4_tpx8e"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_dtn5u"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_p3v3m"]
+radius = 0.1373948
+
+[node name="Selectable" type="RigidBody3D"]
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+gravity_scale = 0.0
+linear_damp = 2.0
+script = ExtResource("1_i32ym")
+metadata/_custom_type_script = "uid://d2tylielur6l1"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+mesh = SubResource("SphereMesh_dtn5u")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_p3v3m")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_p3v3m")
+
+[node name="GrabPointHandRight" parent="." instance=ExtResource("3_i32ym")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11988658, 0, -0.09503201)
+visible = true
+
+[node name="GrabPointHandLeft" parent="." instance=ExtResource("4_tpx8e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11987996, 0, -0.07088086)
+visible = true
+
+[node name="AnswerLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.17943418)
+pixel_size = 0.001
+text = "Heyy hey hey hey hey
+"
+font_size = 45
+outline_size = 10
+autowrap_mode = 3
+width = 400.0

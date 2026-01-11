@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Answer" load_steps=2 format=3 uid="uid://c773rkabs7wqm"]
+
+[ext_resource type="Script" uid="uid://2cytqirrcfcn" path="res://src/scenes/questions/answer_res.gd" id="1_fiea6"]
+
+[resource]
+script = ExtResource("1_fiea6")
+value_text = "26 - 50"
+value = "26"
+metadata/_custom_type_script = "uid://2cytqirrcfcn"

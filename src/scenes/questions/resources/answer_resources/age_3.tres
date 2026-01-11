@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Answer" load_steps=2 format=3 uid="uid://cr18v2d70uiwc"]
+
+[ext_resource type="Script" uid="uid://2cytqirrcfcn" path="res://src/scenes/questions/answer_res.gd" id="1_umver"]
+
+[resource]
+script = ExtResource("1_umver")
+value_text = "Plus de 50"
+value = "51"
+metadata/_custom_type_script = "uid://2cytqirrcfcn"
