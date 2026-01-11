@@ -1,6 +1,7 @@
-[gd_scene load_steps=64 format=3 uid="uid://bbc2qfox0hdai"]
+[gd_scene load_steps=74 format=3 uid="uid://bbc2qfox0hdai"]
 
 [ext_resource type="PackedScene" uid="uid://bej35ui0rcag0" path="res://Assets/maps/map_1.blend" id="1_angmx"]
+[ext_resource type="Script" uid="uid://bvacm0lb0f1hg" path="res://src/levels/level_balls/level_balls.gd" id="1_by7g0"]
 [ext_resource type="PackedScene" uid="uid://cbtk71x3cwrx6" path="res://src/scenes/torch/torch_metal.tscn" id="2_xcwim"]
 [ext_resource type="PackedScene" uid="uid://cxjt5lc0qgonq" path="res://Assets/Packs/fantasyprops/Chandelier.gltf" id="3_no0h4"]
 [ext_resource type="PackedScene" uid="uid://bsxjsfvyuuoyw" path="res://src/scenes/portal/portal.tscn" id="3_qdqvf"]
@@ -47,7 +48,10 @@
 [ext_resource type="PackedScene" uid="uid://c0j5fjct23x1t" path="res://Assets/Packs/fantasyprops/Banner_1_Cloth.gltf" id="38_t22b2"]
 [ext_resource type="PackedScene" uid="uid://dtsf3m5jrlic2" path="res://Assets/Packs/fantasyprops/Anvil_Log.gltf" id="39_8o2ev"]
 [ext_resource type="PackedScene" uid="uid://dqwjrt3lnh2p6" path="res://src/scenes/strategy_balls_and_wand/wand/wand.tscn" id="40_1n23o"]
+[ext_resource type="PackedScene" uid="uid://b5uxtowmvrtds" path="res://Assets/Packs/fantasyprops/Chain_Coil.gltf" id="40_662um"]
+[ext_resource type="PackedScene" uid="uid://0c8nxaqvgixs" path="res://Assets/Packs/fantasyprops/Key_Gold.gltf" id="41_5b58n"]
 [ext_resource type="PackedScene" uid="uid://bllnso1625xma" path="res://Assets/Packs/fantasyprops/Banner_2_Cloth.gltf" id="41_m27qg"]
+[ext_resource type="PackedScene" uid="uid://bcfo6ry7vsy2h" path="res://Assets/Packs/fantasyprops/Pickaxe_Bronze.gltf" id="42_pqiru"]
 [ext_resource type="PackedScene" uid="uid://b5teax0lqtyxh" path="res://Assets/Packs/fantasyprops/Stall_Empty.gltf" id="46_0y2vo"]
 [ext_resource type="PackedScene" uid="uid://bjame2c3fnjlb" path="res://src/scenes/electrodoor/elctrodoor.tscn" id="50_vvxhi"]
 [ext_resource type="Texture2D" uid="uid://1b04a6ssvv3k" path="res://Assets/textures/glyphe_thunder.png" id="51_8o2ev"]
@@ -55,6 +59,12 @@
 [ext_resource type="Texture2D" uid="uid://cc61oociq8xfa" path="res://Assets/textures/glyphe_grav.png" id="53_peyjm"]
 [ext_resource type="Texture2D" uid="uid://3eaoa4uicqch" path="res://Assets/textures/glyphe_fire.png" id="54_w64br"]
 [ext_resource type="FontFile" uid="uid://bfe4fktkasx54" path="res://Assets/police/ancient/Ancient Medium.ttf" id="55_wcd0w"]
+[ext_resource type="PackedScene" uid="uid://55e7hiutp5n2" path="res://Assets/Packs/fantasyprops/Rope_1.gltf" id="59_kf4pe"]
+[ext_resource type="PackedScene" uid="uid://dsxaq4fuqfsfm" path="res://Assets/Packs/fantasyprops/Rope_3.gltf" id="60_rp16d"]
+[ext_resource type="PackedScene" uid="uid://hcm7pj5n4oj0" path="res://Assets/Packs/fantasyprops/Pouch_Large.gltf" id="61_5b58n"]
+[ext_resource type="PackedScene" uid="uid://be0jub8aexof5" path="res://Assets/Packs/fantasyprops/FarmCrate_Apple.gltf" id="62_kf4pe"]
+[ext_resource type="PackedScene" uid="uid://b2kkplic75mwk" path="res://Assets/Packs/fantasyprops/FarmCrate_Carrot.gltf" id="63_rp16d"]
+[ext_resource type="PackedScene" uid="uid://qvxvrh1imwtv" path="res://Assets/Packs/fantasyprops/SmallBottle.gltf" id="64_rp16d"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_37yji"]
 sky_top_color = Color(0.33646625, 0.40749058, 0.42967212, 1)
@@ -94,6 +104,7 @@ uv1_scale = Vector3(3, 3, 3)
 [sub_resource type="BoxMesh" id="BoxMesh_kf4pe"]
 
 [node name="LevelBalls" type="Node3D"]
+script = ExtResource("1_by7g0")
 
 [node name="map_1" parent="." instance=ExtResource("1_angmx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.153505, 0, 0.78262794)
@@ -331,6 +342,129 @@ transform = Transform3D(0.70710677, -0.61237246, -0.35355335, 0, 0.49999997, -0.
 [node name="Stool4" parent="StaticProps" instance=ExtResource("20_t22b2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.997202, -0.36201626, -10.094208)
 
+[node name="Chain_Coil2" parent="StaticProps" instance=ExtResource("40_662um")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.993406, 2.8920627, 21.722162)
+
+[node name="Chain_Coil3" parent="StaticProps" instance=ExtResource("40_662um")]
+transform = Transform3D(0.8613476, -0.08524303, -0.5008133, 0.073692106, 0.9963602, -0.042846795, 0.5026428, 0, 0.8644942, -18.555527, 1.6405576, 17.964695)
+
+[node name="Key_Metal3" parent="StaticProps" instance=ExtResource("18_itntr")]
+transform = Transform3D(0.7163263, 0, -0.69776547, 0, 1, 0, 0.69776547, 0, 0.7163263, -12.869057, 2.907524, 21.750729)
+
+[node name="Key_Metal4" parent="StaticProps" instance=ExtResource("18_itntr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.846348, 2.9123602, 21.761421)
+
+[node name="Key_Gold2" parent="StaticProps" instance=ExtResource("41_5b58n")]
+transform = Transform3D(0.70997643, 0, -0.7042254, 0, 1, 0, 0.7042254, 0, 0.70997643, -12.974199, 2.8859088, 21.698614)
+
+[node name="Pickaxe_Bronze2" parent="StaticProps" instance=ExtResource("42_pqiru")]
+transform = Transform3D(-0.21529786, 0, -0.97654843, -0.36025196, 0.92946774, 0.0794241, 0.90767026, 0.36890334, -0.20011242, -13.406139, 4.049817, 22.402328)
+
+[node name="Rope_12" parent="StaticProps" instance=ExtResource("59_kf4pe")]
+transform = Transform3D(1, 0, 0, 0, 0.94132334, 0.33750603, 0, -0.33750603, 0.94132334, -15.482765, 3.0043333, 21.779758)
+
+[node name="Rope_32" parent="StaticProps" instance=ExtResource("60_rp16d")]
+transform = Transform3D(1, 0, 0, 0, 0.8920895, 0.45185873, 0, -0.45185873, 0.8920895, -15.86865, 2.732797, 21.392166)
+
+[node name="Bag4" parent="StaticProps" instance=ExtResource("11_gul2x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4712, 2.8779693, 21.794262)
+
+[node name="Barrel13" parent="StaticProps" instance=ExtResource("10_7u65c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.299655, 2.9618502, 21.364841)
+
+[node name="Pouch_Large2" parent="StaticProps" instance=ExtResource("61_5b58n")]
+transform = Transform3D(0.001811143, 0.9994398, 0.033420175, 0.054083377, -0.03346923, 0.99797535, 0.9985348, 0, -0.05411369, -12.33052, 3.8580346, 21.347927)
+
+[node name="Stall_Cart_Empty3" parent="StaticProps" instance=ExtResource("37_uaple")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.528879, 4.459645, -9.613146)
+
+[node name="Workbench4" parent="StaticProps" instance=ExtResource("35_lqam3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.656042, 4.55512, -5.3404474)
+
+[node name="Whetstone3" parent="StaticProps" instance=ExtResource("36_itntr")]
+transform = Transform3D(-0.034602895, 0, -0.9994011, 0, 1, 0, 0.9994011, 0, -0.034602895, -19.263176, 5.4367585, -5.344406)
+
+[node name="Bag5" parent="StaticProps" instance=ExtResource("11_gul2x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.544586, 5.4686956, -5.2204094)
+
+[node name="Bag7" parent="StaticProps" instance=ExtResource("11_gul2x")]
+transform = Transform3D(0.18178926, 0, -0.9833375, 0, 1, 0, 0.9833375, 0, 0.18178926, -16.106281, 5.221507, -3.3341305)
+
+[node name="Bag8" parent="StaticProps" instance=ExtResource("11_gul2x")]
+transform = Transform3D(0.18178928, 0.9697012, -0.16319461, 0, 0.16595982, 0.9861326, 0.9833376, -0.1792683, 0.030169725, -16.330048, 5.2926893, -2.7048578)
+
+[node name="Bag9" parent="StaticProps" instance=ExtResource("11_gul2x")]
+transform = Transform3D(-0.124080785, 0.97876024, -0.16319464, -0.050851755, 0.15797712, 0.98613256, 0.99096835, 0.13065884, 0.03016973, -16.345165, 5.2720933, -2.1134276)
+
+[node name="Bag6" parent="StaticProps" instance=ExtResource("11_gul2x")]
+transform = Transform3D(0.7770362, -0.32393953, -0.5397018, 0, 0.8574099, -0.51463413, 0.62945604, 0.39988926, 0.6662384, -18.041483, 5.414752, -5.667304)
+
+[node name="EtaleFruitsLegumes" type="Node3D" parent="StaticProps"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.745165, 4.929808, -9.89053)
+
+[node name="Workbench3" parent="StaticProps/EtaleFruitsLegumes" instance=ExtResource("35_lqam3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06303978, -0.547977, 0.13514423)
+
+[node name="FarmCrate_Apple2" parent="StaticProps/EtaleFruitsLegumes" instance=ExtResource("62_kf4pe")]
+transform = Transform3D(0.0017976314, 0, -0.9999984, 0, 1, 0, 0.9999984, 0, 0.0017976314, -0.6548252, 0.38158417, 0.0015535355)
+
+[node name="FarmCrate_Apple3" parent="StaticProps/EtaleFruitsLegumes" instance=ExtResource("62_kf4pe")]
+transform = Transform3D(0.103053, 0, -0.9946759, 0, 1, 0, 0.9946759, 0, 0.103053, -0.6597328, 0.6294856, -0.022772789)
+
+[node name="FarmCrate_Empty4" parent="StaticProps/EtaleFruitsLegumes" instance=ExtResource("19_uaple")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.022304535, 0.3815837, 0.42073154)
+
+[node name="FarmCrate_Carrot2" parent="StaticProps/EtaleFruitsLegumes" instance=ExtResource("63_rp16d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013494492, 0.3815837, -0.058465004)
+
+[node name="FarmCrate_Carrot3" parent="StaticProps/EtaleFruitsLegumes" instance=ExtResource("63_rp16d")]
+transform = Transform3D(-0.21407047, 0, -0.9768182, 0, 1, 0, 0.9768182, 0, -0.21407047, 0.6072216, 0.35999393, 0)
+
+[node name="EtaleFruitsLegumes2" type="Node3D" parent="StaticProps"]
+transform = Transform3D(0.052213974, 0, -0.99863595, 0, 1, 0, 0.99863595, 0, 0.052213974, -13.157053, 4.929808, -3.8099763)
+
+[node name="Workbench3" parent="StaticProps/EtaleFruitsLegumes2" instance=ExtResource("35_lqam3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06303978, -0.547977, 0.13514423)
+
+[node name="FarmCrate_Apple2" parent="StaticProps/EtaleFruitsLegumes2" instance=ExtResource("62_kf4pe")]
+transform = Transform3D(0.0017976314, 0, -0.9999984, 0, 1, 0, 0.9999984, 0, 0.0017976314, -0.6548252, 0.38158417, 0.0015535355)
+
+[node name="FarmCrate_Apple3" parent="StaticProps/EtaleFruitsLegumes2" instance=ExtResource("62_kf4pe")]
+transform = Transform3D(0.103053, 0, -0.9946759, 0, 1, 0, 0.9946759, 0, 0.103053, -0.6597328, 0.6294856, -0.022772789)
+
+[node name="FarmCrate_Empty4" parent="StaticProps/EtaleFruitsLegumes2" instance=ExtResource("19_uaple")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.022304535, 0.3815837, 0.42073154)
+
+[node name="FarmCrate_Carrot2" parent="StaticProps/EtaleFruitsLegumes2" instance=ExtResource("63_rp16d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013494492, 0.3815837, -0.058465004)
+
+[node name="FarmCrate_Carrot3" parent="StaticProps/EtaleFruitsLegumes2" instance=ExtResource("63_rp16d")]
+transform = Transform3D(-0.21407047, 0, -0.9768182, 0, 1, 0, 0.9768182, 0, -0.21407047, 0.6072216, 0.35999393, 0)
+
+[node name="Workbench3" parent="StaticProps" instance=ExtResource("35_lqam3")]
+transform = Transform3D(-0.036940128, 0, 0.99931747, 0, 1, 0, -0.99931747, 0, -0.036940128, -15.953658, 4.3713136, -2.6569552)
+
+[node name="Barrel_Apples3" parent="StaticProps" instance=ExtResource("12_ww145")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.24654, 4.3759003, -9.599094)
+
+[node name="SmallBottle2" parent="StaticProps" instance=ExtResource("64_rp16d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.840196, 5.278701, -9.525953)
+
+[node name="SmallBottles_13" parent="StaticProps" instance=ExtResource("8_brfql")]
+transform = Transform3D(0.8007836, 0, 0.59895366, 0, 1, 0, -0.59895366, 0, 0.8007836, -15.038368, 5.3021083, -9.459286)
+
+[node name="Shelf_Small_Bottles3" parent="StaticProps" instance=ExtResource("21_8o2ev")]
+transform = Transform3D(-0.015480421, 0, 0.9998802, 0, 1, 0, -0.9998802, 0, -0.015480421, -23.284937, 6.404591, -6.9958053)
+
+[node name="Bottle_13" parent="StaticProps" instance=ExtResource("29_5b58n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.118377, 5.269497, -9.447123)
+
+[node name="Bottle_14" parent="StaticProps" instance=ExtResource("29_5b58n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.228212, 5.269497, -9.629883)
+
+[node name="Bottle_15" parent="StaticProps" instance=ExtResource("29_5b58n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.374689, 5.269497, -9.579594)
+
 [node name="Portal_Portal2#Portal" parent="." instance=ExtResource("3_qdqvf")]
 transform = Transform3D(0.2687916, 0, 0.41566345, 0, 0.49499997, 0, -0.41566345, 0, 0.2687916, -21.131021, 4.6072383, -9.680573)
 
@@ -439,7 +573,7 @@ transform = Transform3D(0.55113626, 0, 0.83441526, 0, 1, 0, -0.83441526, 0, 0.55
 transform = Transform3D(0.7124426, 0, 0.70173043, 0, 1, 0, -0.70173043, 0, 0.7124426, -20.74996, -0.4249063, -11.246056)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.9370018, 3.4906038e-09, 0.34932443, 0.05725825, 0.9864751, -0.15358527, -0.34459984, 0.16391139, 0.924329, -16.846191, 4.5623283, -6.7921324)
+transform = Transform3D(0.0977593, -0.04708741, -0.9940957, 0.0044980957, 0.9988911, -0.0468722, 0.99520016, 0.00011067069, 0.097862706, -19.471941, 4.6558785, 7.2846584)
 
 [node name="Pont" type="Node3D" parent="."]
 
