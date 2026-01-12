@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://uf1s3mub1ecn"]
+[gd_scene load_steps=9 format=3 uid="uid://uf1s3mub1ecn"]
 
 [ext_resource type="Script" uid="uid://blq1k0jy3tw4f" path="res://src/scenes/draw_spell/decal_test.gd" id="1_2s3er"]
 [ext_resource type="PackedScene" uid="uid://brcntxdt00g3r" path="res://src/scenes/draw_spell/ink_decal.tscn" id="2_0nkrb"]
+[ext_resource type="PackedScene" uid="uid://c17131quqte6e" path="res://src/scenes/objets/crate.tscn" id="3_yud18"]
+[ext_resource type="PackedScene" uid="uid://to3tgnn8fyn3" path="res://src/scenes/draw_spell/feather_interactable.tscn" id="4_ol3es"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2s3er"]
 
@@ -17,7 +19,7 @@ size = Vector3(1, 1, 0.018257141)
 script = ExtResource("1_2s3er")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0117369, 25.610613)
+transform = Transform3D(0.020977244, 0, 0.99978, 0, 1, 0, -0.99978, 0, 0.020977244, 0.26652205, 1.0117369, 25.211191)
 
 [node name="Label3D" type="Label3D" parent="Camera3D"]
 transform = Transform3D(0.36, 0, 0, 0, 0.36, 0, 0, 0, 0.36, 0, -0.419304, -0.60502243)
@@ -50,3 +52,12 @@ mesh = SubResource("QuadMesh_yud18")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 shape = SubResource("BoxShape3D_ol3es")
+
+[node name="Crate" parent="." instance=ExtResource("3_yud18")]
+transform = Transform3D(0.235, 0, 0, 0, 0.235, 0, 0, 0, 0.235, 0.010147221, 0.916522, 25.181068)
+gravity_scale = 0.0
+
+[node name="FeatherInteractable" parent="." instance=ExtResource("4_ol3es")]
+transform = Transform3D(5.7742e-07, 0.23481135, 0.009414602, -0.2344619, 0.00063731335, -0.015880814, -0.015893592, -0.009393007, 0.2342737, 0.17794396, 1.1480701, 25.360624)
+gravity_scale = 0.0
+freeze = true

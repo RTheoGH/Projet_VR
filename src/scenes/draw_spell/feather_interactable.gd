@@ -26,23 +26,29 @@ func _physics_process(delta: float) -> void:
 func draw_point(body: Node3D):
 	var hit = cast_ray()
 	var object_collide = $tip.get_collider()
-	if hit && $tip.get_collider() is RigidBody3D:
+	if hit && object_collide is RigidBody3D:
 		if(active_decals.size() >= max_decals):
 			active_decals.pop_front().queue_free()
 			
 		var ink = ink_decal.instantiate()
-		ink.position = hit[0]
-		ink.rotation.x = atan2(hit[1].y , hit[1].z) + 90
-		ink.rotation.y = atan2(hit[1].x , hit[1].z)
-		ink.rotation.z = atan2(hit[1].x , hit[1].y)
+		object_collide.add_child(ink)
+		ink.global_position = hit[0]
+		print(ink.position)
+		var target = hit[0] + hit[1]
+		ink.look_at(target)
+		ink.rotation.x += 90
+		#ink.rotation.x = atan2(hit[1].y , hit[1].z) + 90
+		#ink.rotation.y = atan2(hit[1].x , hit[1].z)
+		#ink.rotation.z = atan2(hit[1].x , hit[1].y)
 		draw_rune.points.append(hit[0])
 		draw_rune.normals.append(hit[1])
 		
 		active_decals.append(ink)
-		object_collide.add_child(ink)
+		
+		#print(get_parent().get_tree_string_pretty())
 	
 func activate(_pressed: bool):
-	print('isDRAW? ', _pressed)
+	#print('isDRAW? ', _pressed)
 	is_drawing = _pressed
 	if !is_drawing:
 		if draw_rune.points.size() < 10:
@@ -54,6 +60,9 @@ func activate(_pressed: bool):
 		var rune_pos := draw_rune.get_mean_pos()
 		if $tip.get_collider() is RigidBody3D:
 			var effect_valid = RuneEffectManager.apply_effect_on_object(rune_pos, $tip.get_collider(), score["name"])
+			if effect_valid:
+				draw_rune.points.clear()
+				draw_rune.normals.clear()
 	else:
 		active_decals.clear()
 		draw_rune.points.clear()

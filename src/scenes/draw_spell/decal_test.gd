@@ -37,25 +37,35 @@ func _physics_process(delta: float) -> void:
 		var query = PhysicsRayQueryParameters3D.create(start, end)
 		var result = worldspace.intersect_ray(query)
 		
-		if result : 
+		if result and result["collider"] != $FeatherInteractable : 
 			if(active_decals.size() >= max_decals):
 				active_decals.pop_front().queue_free()
 			
-			var ink = ink_decal.instantiate()
-			ink.position = result["position"]
-			ink.rotation.x = atan2(result["normal"].y , result["normal"].z) + 90
-			ink.rotation.y = atan2(result["normal"].x , result["normal"].z)
-			ink.rotation.z = atan2(result["normal"].x , result["normal"].y)
-			#print("ink position : " , ink.position)
-			str_ref += "Vector3" + str(ink.position) + ", "
-			draw_rune.points.append(ink.position)
-			draw_rune.normals.append(result["normal"])
-			print(result["normal"])
-			active_decals.append(ink)
-			add_child(ink)
-		else : 
-			print("not hit")
-		pass
+			var result_pos = result["position"]
+			$FeatherInteractable.global_position = result_pos
+			$FeatherInteractable.position.BACK -= 0.05
+			
+			$FeatherInteractable.activate(true)
+	else:
+		$FeatherInteractable.activate(false)
+			
+			
+			#var ink = ink_decal.instantiate()
+			#result["collider"].add_child(ink)
+			#ink.global_position = result["position"]
+			#ink.look_at(result["position"] + result["normal"])
+			#ink.rotation.x -= 90
+			##ink.rotation.x = atan2(result["normal"].y , result["normal"].z) + 90
+			##ink.rotation.y = atan2(result["normal"].x , result["normal"].z)
+			##ink.rotation.z = atan2(result["normal"].x , result["normal"].y)
+			##print("ink position : " , ink.position)
+			#draw_rune.points.append(ink.global_position)
+			#draw_rune.normals.append(result["normal"])
+			#active_decals.append(ink)
+			#
+		#else : 
+			#print("not hit")
+		#pass
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("draw_mouse_debug"):
@@ -66,6 +76,7 @@ func _input(event: InputEvent) -> void:
 		#for decal in range(active_decals.size()):
 			#active_decals.pop_front().queue_free()
 	if event.is_action_released("draw_mouse_debug"):
+		print("allo")
 		is_drawing = false
 		#print("Not drawing")
 		#print(str_ref + "]")

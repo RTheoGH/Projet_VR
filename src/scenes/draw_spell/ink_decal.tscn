@@ -3,5 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://bydg0phimj8yv" path="res://src/scenes/draw_spell/yellow.png" id="1_qng1k"]
 
 [node name="Decal" type="Decal"]
-size = Vector3(0.032958984, 0.09863281, 0.041992188)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.10206298, 0)
+size = Vector3(0.02, 0.30412596, 0.02)
 texture_albedo = ExtResource("1_qng1k")

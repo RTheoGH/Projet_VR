@@ -144,7 +144,7 @@ func apply_highlight(object, activate, highlight_type):
 			continue
 		if c.get_children(true) != null:
 			apply_highlight(c, activate, highlight_type)
-			print("highlight : ", highlight_type)
+			#print("highlight : ", highlight_type)
 		
 	for m in meshes:
 		if activate:
