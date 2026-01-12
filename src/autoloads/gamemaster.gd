@@ -1,5 +1,5 @@
 extends Control
-@onready var fade_rect: ColorRect = $FadeRect
+@onready var fade_rect: ColorRect = $SubViewport/FadeRect
 
 var player: Node3D
 func _ready():
@@ -134,3 +134,5 @@ func nextLevel() -> void:
 		await load_level(current_level_index+1)
 	return
 	
+func get_ui_viewport_texture() -> ViewportTexture:
+	return ($SubViewport as SubViewport).get_texture()

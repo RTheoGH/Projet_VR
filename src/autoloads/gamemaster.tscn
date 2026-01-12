@@ -14,16 +14,6 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_2sy1y")
 
-[node name="FadeRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
-
 [node name="DungeonMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_eq5kl")
 volume_db = -80.0
@@ -34,3 +24,28 @@ bus = &"Music + ambience"
 stream = ExtResource("3_kqmal")
 autoplay = true
 bus = &"Music + ambience"
+
+[node name="SubViewport" type="SubViewport" parent="."]
+disable_3d = true
+transparent_bg = true
+size = Vector2i(1024, 1024)
+
+[node name="Camera2D" type="Camera2D" parent="SubViewport"]
+
+[node name="FadeRect" type="ColorRect" parent="SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 439.0
+offset_top = 220.0
+offset_right = -73.0
+offset_bottom = -272.0

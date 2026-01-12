@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://q2ddqvpmfr2x"]
+[gd_scene load_steps=15 format=3 uid="uid://q2ddqvpmfr2x"]
 
 [ext_resource type="Script" uid="uid://bustqdra0w5o3" path="res://src/scenes/character/character.gd" id="1_8lldn"]
 [ext_resource type="PackedScene" uid="uid://cy03d57iyrci" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_physics_hand.tscn" id="1_jt2v8"]
@@ -10,10 +10,18 @@
 [ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="4_w375e"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="5_fg8a2"]
 [ext_resource type="PackedScene" uid="uid://bnbb13d0dwsuf" path="res://src/scenes/draw_spell/draw.tscn" id="7_fg8a2"]
+[ext_resource type="Shader" uid="uid://ckvntju886ymc" path="res://src/scenes/character/fulscreenQuad.gdshader" id="11_1lh3m"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wnni4"]
 radius = 0.23144531
 height = 1.5727539
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ti06r"]
+render_priority = 0
+shader = ExtResource("11_1lh3m")
+
+[sub_resource type="QuadMesh" id="QuadMesh_2t2le"]
+size = Vector2(2, 2)
 
 [node name="XROrigin3D" type="XROrigin3D"]
 current = true
@@ -23,12 +31,16 @@ script = ExtResource("1_8lldn")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8064396, 0)
 current = true
 
+[node name="tip" type="Node3D" parent="XRCamera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25560683, 0.20933384, -0.4912013)
+
 [node name="controller_l" type="XRController3D" parent="."]
 tracker = &"left_hand"
 
 [node name="LeftPhysicsHand" parent="controller_l" instance=ExtResource("1_jt2v8")]
 
 [node name="FunctionTeleport" parent="controller_l/LeftPhysicsHand" instance=ExtResource("2_w375e")]
+valid_teleport_mask = 4294966783
 
 [node name="FunctionPickup" parent="controller_l" instance=ExtResource("3_fg8a2")]
 
@@ -58,3 +70,8 @@ script = ExtResource("4_fg8a2")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="playerArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.103759766, 0)
 shape = SubResource("CapsuleShape3D_wnni4")
+
+[node name="FullScreenQuad" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.72657335, -0.84345585)
+material_override = SubResource("ShaderMaterial_ti06r")
+mesh = SubResource("QuadMesh_2t2le")

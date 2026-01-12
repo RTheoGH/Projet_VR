@@ -1,8 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dqwjrt3lnh2p6"]
+[gd_scene load_steps=10 format=3 uid="uid://dqwjrt3lnh2p6"]
 
 [ext_resource type="Script" uid="uid://xc0vw1f3vfdr" path="res://src/scenes/strategy_balls_and_wand/wand/wand.gd" id="1_1eejb"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_1eejb"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="3_rxwv6"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1eejb"]
+rough = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ft546"]
 albedo_color = Color(0.3549141, 0.22762838, 0.095910795, 1)
@@ -19,16 +22,21 @@ radius = 0.2
 [sub_resource type="BoxShape3D" id="BoxShape3D_1eejb"]
 size = Vector3(0.020507813, 0.18905449, 0.01953125)
 
+[sub_resource type="SphereMesh" id="SphereMesh_1eejb"]
+
 [node name="Wand" type="RigidBody3D"]
 collision_layer = 4
 collision_mask = 7
+physics_material_override = SubResource("PhysicsMaterial_1eejb")
 continuous_cd = true
+linear_damp = 1.0
+angular_damp = 1.0
 script = ExtResource("1_1eejb")
 press_to_hold = false
 metadata/_custom_type_script = "uid://d2tylielur6l1"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.099999994, 0, 0, 0, 0.07202364, 0.06937288, 0, -0.06937288, 0.07202364, 0, 0.020010263, -0.017835151)
+transform = Transform3D(0.099999994, 0, 0, 0, 0.07202364, 0.06937288, 0, -0.06937288, 0.07202364, 0, 0.0420096, -0.03508393)
 material_override = SubResource("StandardMaterial3D_ft546")
 mesh = SubResource("CylinderMesh_jcuqv")
 
@@ -61,3 +69,9 @@ radius = 0.88135165
 [node name="RayCast3D" type="RayCast3D" parent="tip"]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 target_position = Vector3(0, -8, 0)
+
+[node name="testSphere" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.13, 0, 0, 0, -0.096698344, -0.08688746, 0, 0.08688746, -0.096698344, 0, 2.2315001, -2.0050952)
+visible = false
+mesh = SubResource("SphereMesh_1eejb")
+skeleton = NodePath("../tip/RayCast3D")

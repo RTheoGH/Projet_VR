@@ -1,6 +1,6 @@
 extends RigidBody3D
 
-var launch_strength: float = 10.0;
+var launch_strength: float = 20.0;
 var caster: Node3D
 var explode_strength = 10.0;
 
@@ -9,7 +9,7 @@ var explosion = preload("res://spells/scenes/explosion.tscn")
 # Called when the node enters the scene tree for the first time.
 func _start_spell(dir: Vector3) -> void:
 	$cast.play()
-	apply_central_impulse(to_global(dir * launch_strength))
+	apply_central_impulse(dir * launch_strength + Vector3.UP * launch_strength / 15.0)
 	#add_collision_exception_with(caster)
 	
 func explode():

@@ -6,7 +6,7 @@ var up_bump = 0.3;
 
 # Called when the node enters the scene tree for the first time.
 func _start_spell(dir: Vector3) -> void:
-	apply_central_impulse(to_global(dir * launch_strength) + Vector3.UP * launch_strength / 10.0)
+	apply_central_impulse(dir * launch_strength + Vector3.UP * launch_strength / 10.0)
 	add_collision_exception_with(caster)
 	$cast.play()
 	
