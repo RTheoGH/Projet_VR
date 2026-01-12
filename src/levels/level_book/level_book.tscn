@@ -273,7 +273,7 @@ transform = Transform3D(-0.3138931, 0, -0.9494584, 0, 1, 0, 0.9494584, 0, -0.313
 transform = Transform3D(-0.7338734, -0.016640829, 0.67908245, -0.20293038, 0.95941836, -0.19579324, -0.64826614, -0.28149393, -0.70746887, -6.4577827, 4.7309465, -12.660992)
 
 [node name="Bench2" parent="StaticProps" instance=ExtResource("10_tsov7")]
-transform = Transform3D(0.099849306, -0.0049561113, 0.9949904, 0.016037008, 0.9998659, 0.0033710448, -0.9948734, 0.015620059, 0.09991538, -2.6221466, -1.1814997, -2.2118425)
+transform = Transform3D(0.099849306, -0.0049561113, 0.9949904, 0.016037008, 0.9998659, 0.0033710448, -0.9948734, 0.015620059, 0.09991538, -2.6221466, -1.147217, -2.2118425)
 
 [node name="Cage_Small2" parent="StaticProps" instance=ExtResource("11_5mhri")]
 transform = Transform3D(4.8584447, 0, 0, 0, 4.8584447, 0, 0, 0, 4.8584447, -6.732933, 1.7794019, -7.4709377)
@@ -626,16 +626,16 @@ transform = Transform3D(-0.40925428, 0, -0.9124204, 0, 1, 0, 0.9124204, 0, -0.40
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.749215, -0.38653362, 8.498647)
 
 [node name="Book_73" parent="DynamicProps" instance=ExtResource("26_4u7ty")]
-transform = Transform3D(0.59211165, 0, 0.80585593, 0, 1, 0, -0.80585593, 0, 0.59211165, -13.494414, -0.36923292, 7.4162016)
+transform = Transform3D(0.59211165, 0, 0.80585593, 0, 1, 0, -0.80585593, 0, 0.59211165, -13.494414, -0.36923292, 7.608176)
 
 [node name="Book_74" parent="DynamicProps" instance=ExtResource("26_4u7ty")]
 transform = Transform3D(0.9991411, 0, -0.04143974, 0, 1, 0, 0.04143974, 0, 0.9991411, -14.771661, -0.5297476, 7.4162016)
 
 [node name="Chalice4" parent="DynamicProps" instance=ExtResource("25_ddmar")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.401335, -0.6813501, 5.1968017)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.401335, -0.62895507, 5.1968017)
 
 [node name="Book_Stack_14" parent="DynamicProps" instance=ExtResource("24_qe1ox")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.410505, -0.67369187, 4.9475036)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.410505, -0.61905986, 4.9475036)
 
 [node name="Book_75" parent="DynamicProps" instance=ExtResource("26_4u7ty")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.694963, 4.520683, -10.56093)
@@ -656,7 +656,7 @@ transform = Transform3D(-0.056326885, -0.9984124, 0, 0.9984124, -0.056326885, 0,
 transform = Transform3D(0.94824797, -0.18753643, 0.2562344, 0.09141862, 0.9340302, 0.34529778, -0.3040865, -0.3040033, 0.90283644, -17.247023, -0.8014418, 0.60989046)
 
 [node name="Sword_Bronze2" parent="." instance=ExtResource("51_dcre8")]
-transform = Transform3D(0.45015326, 0.8833898, -0.13032565, -0.23079142, -0.025889903, -0.97265875, -0.86261094, 0.46792355, 0.19222434, -17.552355, -0.4723787, 2.7295885)
+transform = Transform3D(0.9987285, 0.041919634, 0.028001368, 0.02867569, -0.015570884, -0.9994674, -0.04146126, 0.9989996, -0.016753167, -17.28646, -0.45358872, 2.874138)
 
 [node name="panneau" type="Node3D" parent="."]
 transform = Transform3D(-0.006318094, 0, 0.99998003, 0, 1, 0, -0.99998003, 0, -0.006318094, -17.669777, 4.6165156, -7.735583)
@@ -678,5 +678,14 @@ font_size = 48
 
 [node name="Snow" parent="." instance=ExtResource("53_xtmi3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.860852, 9.953513, 0.15753269)
+
+[node name="Book2" parent="." instance=ExtResource("20_g0lbh")]
+transform = Transform3D(0.6515114, -0.4249503, -0.6284508, 0.017337589, 0.8365164, -0.54766774, 0.7584409, 0.3459159, 0.55236745, -10.7658205, 0.18238553, 4.638648)
+
+[node name="Book3" parent="." instance=ExtResource("20_g0lbh")]
+transform = Transform3D(-0.69926363, -0.58687, -0.40818363, -0.0024306178, 0.5729435, -0.8195913, 0.71485966, -0.5721183, -0.40206498, -11.113297, 0.20198587, 8.916901)
+
+[node name="Book4" parent="." instance=ExtResource("20_g0lbh")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -13.748505, -0.18590552, 7.172954)
 
 [editable path="StaticProps/Skeleton"]
