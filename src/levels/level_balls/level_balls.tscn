@@ -512,7 +512,7 @@ transform = Transform3D(1, 0, 0, 0, 0.999912, -0.013264113, 0, 0.013264113, 0.99
 transform = Transform3D(0.9999989, 0.0014416468, 1.1920929e-06, -0.0014416468, 0.99999756, 0.0016606482, 1.1622906e-06, -0.0016606482, 0.9999987, 0, 0.57768637, 0)
 
 [node name="Portal" parent="." instance=ExtResource("3_qdqvf")]
-transform = Transform3D(0.2687916, 0, 0.41566345, 0, 0.49499997, 0, -0.41566345, 0, 0.2687916, -21.131021, 4.6072383, -9.680573)
+transform = Transform3D(0.5430133, 0, 0.8397241, 0, 1, 0, -0.8397241, 0, 0.5430133, -21.131021, 4.6072383, -9.680573)
 
 [node name="SpawnNode" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0197074, 0.046495914, -0.0066041946)
@@ -576,20 +576,11 @@ transform = Transform3D(0.96820444, 0.0042411373, 0.25012428, -0.004106325, 0.99
 [node name="CrateMetal3" parent="DynamicProps" instance=ExtResource("8_b8uio")]
 transform = Transform3D(0.96821314, 0, 0.25012654, 0, 1, 0, -0.25012654, 0, 0.96821314, -9.073828, -0.7373729, 5.2179236)
 
-[node name="CrateMetal4" parent="DynamicProps" instance=ExtResource("8_b8uio")]
-transform = Transform3D(0.7688976, 0, 0.6393719, 0, 1, 0, -0.6393719, 0, 0.7688976, -9.544945, 2.145062, 6.9734592)
-
 [node name="Crate14" parent="DynamicProps" instance=ExtResource("7_8f7r2")]
 transform = Transform3D(0.9988324, 0, -0.048309356, 0, 1, 0, 0.048309356, 0, 0.9988324, -7.795558, -0.43323052, 7.732506)
 
 [node name="Crate15" parent="DynamicProps" instance=ExtResource("7_8f7r2")]
 transform = Transform3D(0.96821314, 0, 0.25012654, 0, 1, 0, -0.25012654, 0, 0.96821314, -8.154313, -0.2861941, 6.7422814)
-
-[node name="Crate16" parent="DynamicProps" instance=ExtResource("7_8f7r2")]
-transform = Transform3D(0.96821314, 0, 0.25012654, 0, 1, 0, -0.25012654, 0, 0.96821314, -8.028522, -0.10559195, 5.585033)
-
-[node name="Crate17" parent="DynamicProps" instance=ExtResource("7_8f7r2")]
-transform = Transform3D(0.96821314, 0, 0.25012654, 0, 1, 0, -0.25012654, 0, 0.96821314, -8.0881195, 0.6974845, 6.278484)
 
 [node name="Crate18" parent="DynamicProps" instance=ExtResource("7_8f7r2")]
 transform = Transform3D(0.96820444, 0.0042411373, 0.25012428, -0.004106325, 0.999991, -0.001060821, -0.25012654, 0, 0.96821314, -8.046361, 0.53258073, 7.460708)

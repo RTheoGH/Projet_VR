@@ -38,6 +38,8 @@ Cauldron=""
 enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg", "res://addons/godot_whisper/plugin.cfg")
 player=""
 electric_device="must have activate() -> void"
+maxwell="meow"
+maxcage=""
 
 [input]
 

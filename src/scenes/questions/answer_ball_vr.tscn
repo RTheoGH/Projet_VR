@@ -1,8 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://yegkggd4mcu2"]
+[gd_scene load_steps=12 format=3 uid="uid://yegkggd4mcu2"]
 
 [ext_resource type="Script" uid="uid://c7h3s3hlqcfxk" path="res://src/scenes/questions/answer_ball_vr.gd" id="1_i32ym"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="3_i32ym"]
+[ext_resource type="FontFile" uid="uid://ch1qyhbylkrmi" path="res://Assets/police/Cream Cake.otf" id="4_i32ym"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="4_tpx8e"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_i32ym"]
+friction = 0.0
+bounce = 0.8
 
 [sub_resource type="Shader" id="Shader_ohg01"]
 code = "// NOTE: Shader automatically converted from Godot Engine 4.5.1.stable's StandardMaterial3D.
@@ -95,14 +100,16 @@ shader_parameter/noise = SubResource("NoiseTexture2D_i32ym")
 radius = 0.1373948
 
 [node name="Selectable" type="RigidBody3D"]
-collision_layer = 7
-collision_mask = 7
+collision_layer = 2055
+collision_mask = 2055
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
+physics_material_override = SubResource("PhysicsMaterial_i32ym")
 gravity_scale = 0.0
 linear_damp = 2.0
 script = ExtResource("1_i32ym")
+picked_up_layer = 0
 metadata/_custom_type_script = "uid://d2tylielur6l1"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -128,11 +135,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11987996, 0, -0.07088086)
 visible = true
 
 [node name="AnswerLabel" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.17943418)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.033593208, 0.100503966)
 pixel_size = 0.001
-text = "Heyy hey hey hey hey
+text = "Atrappez moi avec la gachette du majeur et jetez moi dans le chaudron !
 "
-font_size = 45
-outline_size = 10
+font = ExtResource("4_i32ym")
+font_size = 60
+outline_size = 15
+vertical_alignment = 2
 autowrap_mode = 3
-width = 400.0
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="dropped" from="." to="." method="_on_dropped"]
+[connection signal="grabbed" from="." to="." method="_on_grabbed"]

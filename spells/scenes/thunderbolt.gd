@@ -31,6 +31,7 @@ func explode():
 	t.tween_property(omni_light_3d, "light_energy", 1000.0, 0.1)
 	t.tween_property(omni_light_3d, "light_energy", 0.0, 0.15)
 	var explode_zone : Vector3 = $Area3D/CollisionShape3D2.global_position
+	await get_tree().process_frame
 	for body in area_3d.get_overlapping_bodies():
 		if body is RigidBody3D:
 			var dist_sq: float = (body.global_position).distance_squared_to(explode_zone)

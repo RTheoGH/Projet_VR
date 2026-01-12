@@ -2,26 +2,16 @@ extends Node3D
 
 
 
-# Questions
-@onready var age_question : Question = preload("res://src/scenes/questions/resources/question_resources/age_question.tres")
-@onready var gender_question : Question = preload("res://src/scenes/questions/resources/question_resources/gender_question.tres")
-@onready var game_question : Question = preload("res://src/scenes/questions/resources/question_resources/game_prof_question.tres")
-@onready var vr_question : Question = preload("res://src/scenes/questions/resources/question_resources/vr_prof_question.tres")
 
 # @onready var answer_scene = preload("res://src/scenes/questions/answer_ball.tscn")
 @onready var answer_scene = preload("res://src/scenes/questions/answer_ball_vr.tscn")
 @onready var question_label : Label3D = $Question
 @onready var answers_node : Node3D = $Answers
-var questions : Array[Question]
+@export var questions : Array[Question]
 var current_question : int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print(question_label.text)
-	questions.append(age_question)
-	questions.append(gender_question)
-	questions.append(game_question)
-	questions.append(vr_question)
 	set_question(0)
 
 func set_question(question_index : int) :
@@ -46,8 +36,8 @@ func set_question(question_index : int) :
 
 		answers_node.add_child(answer_instance)
 		
-		answer_instance.global_position = positions[i]
-		answer_instance.target_position = positions[i]
+		answer_instance.position = positions[i]
+		answer_instance.target_position = to_global(positions[i])
 		
 		answer_instance.create_answer(answers[i])
 		
@@ -63,17 +53,17 @@ func set_question(question_index : int) :
 		# )
 
 func get_sphere_positions(nb_sphere : int , radius : float = 0.25) :
-	var center = answers_node.global_position
+	var center = answers_node.position
 	var margin = radius * 1.25
 	
 	var positions : Array[Vector3]
 	
-	var total_width = margin * (nb_sphere)
+	var total_width = margin * (nb_sphere - 1)
 	var start_offset = -total_width / 2.0
 	
 	for i in range(nb_sphere) : 
 		var x = center.z + start_offset + (margin * i)
-		var pos = Vector3(center.x , center.y , center.x)
+		var pos = Vector3(x , center.y , center.z)
 		print(center)
 		positions.append(pos)
 		
@@ -94,9 +84,16 @@ func answer_selected(answer_index : int) :
 func add_to_db(selected_answer : Answer):
 	var value = selected_answer.value
 	var column = questions[current_question].sql_column
+	if column == "": return
 	
 	Analytics.set_value("player", column, value)
 	
 func wait(seconds: float) -> void:	
 	print("Wait")
 	await get_tree().create_timer(seconds).timeout
+
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body.is_in_group("maxwell"):
+		Gamemaster.jail()
+		body.queue_free()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://pivwppdcvef"]
+[gd_scene load_steps=80 format=3 uid="uid://pivwppdcvef"]
 
 [ext_resource type="PackedScene" uid="uid://bej35ui0rcag0" path="res://Assets/maps/map_1.blend" id="1_ec3lc"]
 [ext_resource type="Script" uid="uid://bn4cegpesft3x" path="res://src/levels/level_feather/level_feather.gd" id="1_mf5j2"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://bsxjsfvyuuoyw" path="res://src/scenes/portal/portal.tscn" id="3_annk2"]
 [ext_resource type="PackedScene" uid="uid://huxfne4xebd" path="res://Assets/Packs/fantasyprops/Key_Metal.gltf" id="4_fwcxs"]
 [ext_resource type="PackedScene" uid="uid://0c8nxaqvgixs" path="res://Assets/Packs/fantasyprops/Key_Gold.gltf" id="5_tbu0q"]
-[ext_resource type="Script" path="res://src/classes/light_flicker.gd" id="6_0y6hl"]
 [ext_resource type="PackedScene" uid="uid://rdrayle161hy" path="res://Assets/Packs/fantasyprops/Bench.gltf" id="7_0y6hl"]
 [ext_resource type="PackedScene" uid="uid://c17131quqte6e" path="res://src/scenes/objets/crate.tscn" id="7_fwcxs"]
 [ext_resource type="PackedScene" uid="uid://to3tgnn8fyn3" path="res://src/scenes/draw_spell/feather_interactable.tscn" id="8_l572h"]
@@ -225,11 +224,17 @@ transform = Transform3D(0.9831753, 0, -0.18266453, 0, 1, 0, 0.18266453, 0, 0.983
 [node name="feather_interactable" parent="StaticProps/Table_Large2" instance=ExtResource("8_l572h")]
 transform = Transform3D(-0.07890892, 0.97652096, 0.20045096, -0.97652096, -0.11615075, 0.18142821, 0.20045096, -0.18142822, 0.9627585, -1.236306, 1.3542681, -0.1313231)
 
+[node name="feather_interactable4" parent="StaticProps/Table_Large2" instance=ExtResource("8_l572h")]
+transform = Transform3D(-0.07890897, 0.976521, 0.20045097, -0.97652096, -0.11615075, 0.18142821, 0.200451, -0.18142828, 0.9627587, -16.737265, -0.25051147, 6.715378)
+
+[node name="feather_interactable5" parent="StaticProps/Table_Large2" instance=ExtResource("8_l572h")]
+transform = Transform3D(-0.078909025, 0.976521, 0.200451, -0.97652096, -0.11615075, 0.18142821, 0.20045105, -0.18142828, 0.9627592, -20.172668, 2.6543539, 7.3536453)
+
 [node name="feather_interactable2" parent="StaticProps/Table_Large2" instance=ExtResource("8_l572h")]
-transform = Transform3D(-0.078908935, 0.97652096, 0.20045096, -0.97652096, -0.11615075, 0.18142821, 0.20045096, -0.18142824, 0.96275854, -0.65207386, 1.3542681, 0.21153116)
+transform = Transform3D(-0.07890895, 0.97652096, 0.20045096, -0.97652096, -0.11615075, 0.18142821, 0.20045097, -0.18142825, 0.9627586, -1.1644884, 1.3542681, 0.29024363)
 
 [node name="feather_interactable3" parent="StaticProps/Table_Large2" instance=ExtResource("8_l572h")]
-transform = Transform3D(-0.078908965, 0.97652096, 0.20045096, -0.97652096, -0.11615075, 0.18142821, 0.20045099, -0.18142827, 0.96275866, -0.5489515, 1.3542681, -0.20833254)
+transform = Transform3D(-0.078909, 0.976521, 0.20045099, -0.97652096, -0.11615075, 0.18142821, 0.20045102, -0.18142828, 0.96275896, -1.1506076, 1.3542681, -0.3198943)
 
 [node name="Table_Large4" parent="StaticProps" instance=ExtResource("12_x8uv0")]
 transform = Transform3D(-0.07289011, 0, -0.9973401, 0, 1, 0, 0.9973401, 0, -0.07289011, -15.728127, -1.2706094, 6.776274)
@@ -730,16 +735,7 @@ transform = Transform3D(0.051115833, 0, -0.99869275, 0, 1, 0, 0.99869275, 0, 0.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.182939, -0.47849607, -9.674365)
 
 [node name="Portal_Portal2#Portal" parent="." instance=ExtResource("3_annk2")]
-transform = Transform3D(0.2687916, 0, 0.41566345, 0, 0.49499997, 0, -0.41566345, 0, 0.2687916, -21.131021, 4.6072383, -9.680573)
-
-[node name="Portal#OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(2.020202, 0, 0, 0, 2.020202, 0, 0, 0, 2.020202, -0.12974644, 1.9967823, 1.817276)
-light_color = Color(2.0214916e-06, 0.49184072, 0.76046115, 1)
-light_energy = 3.8370922
-script = ExtResource("6_0y6hl")
-base_energy = 6.25
-flicker_strength = 0.72
-flicker_speed = 0.57
+transform = Transform3D(0.5430133, 0, 0.8397241, 0, 1, 0, -0.8397241, 0, 0.5430133, -21.118526, 4.6072383, -9.207525)
 
 [node name="SpawnNode" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0197074, 0.046495914, -0.0066041946)

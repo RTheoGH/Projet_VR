@@ -38,6 +38,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25560683, 0.20933384, -0.4
 tracker = &"left_hand"
 
 [node name="LeftPhysicsHand" parent="controller_l" instance=ExtResource("1_jt2v8")]
+collision_layer = 133120
 
 [node name="FunctionTeleport" parent="controller_l/LeftPhysicsHand" instance=ExtResource("2_w375e")]
 valid_teleport_mask = 4294966783
@@ -51,6 +52,7 @@ script = ExtResource("4_fg8a2")
 tracker = &"right_hand"
 
 [node name="RightPhysicsHand" parent="controller_r" instance=ExtResource("3_w375e")]
+collision_layer = 133120
 
 [node name="MovementDirect" parent="controller_r/RightPhysicsHand" instance=ExtResource("3_jt2v8")]
 

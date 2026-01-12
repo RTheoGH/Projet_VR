@@ -1,8 +1,60 @@
-[gd_scene load_steps=7 format=3 uid="uid://b2htk0gbblko"]
+[gd_scene load_steps=22 format=3 uid="uid://b2htk0gbblko"]
 
 [ext_resource type="Script" uid="uid://kucg13q7eeq8" path="res://src/scenes/questions/questions.gd" id="1_f0g6l"]
 [ext_resource type="PackedScene" uid="uid://dyqw7qw8os4rv" path="res://Assets/Packs/fantasyprops/Cauldron.gltf" id="2_6tcrl"]
+[ext_resource type="Script" uid="uid://clop87h6b3bhq" path="res://src/scenes/questions/question_res.gd" id="2_rmevo"]
+[ext_resource type="Resource" uid="uid://ys4kskxl1am5" path="res://src/scenes/questions/resources/question_resources/first_tuto_question.tres" id="3_3ixbt"]
 [ext_resource type="Shader" uid="uid://dxh8m0j0csg3g" path="res://src/scenes/portal/portal.tres" id="3_6tcrl"]
+[ext_resource type="Script" uid="uid://2cytqirrcfcn" path="res://src/scenes/questions/answer_res.gd" id="4_7bpa0"]
+[ext_resource type="Resource" uid="uid://cqktd8vdl7rgy" path="res://src/scenes/questions/resources/question_resources/age_question.tres" id="4_dmvqs"]
+[ext_resource type="Resource" uid="uid://de8e2cqupb8k2" path="res://src/scenes/questions/resources/question_resources/vr_prof_question.tres" id="5_7bpa0"]
+[ext_resource type="Resource" uid="uid://cmoccsqrqiqyq" path="res://src/scenes/questions/resources/question_resources/gender_question.tres" id="6_3w6xh"]
+[ext_resource type="Resource" uid="uid://c4r18hil6rtau" path="res://src/scenes/questions/resources/question_resources/game_prof_question.tres" id="7_15hbj"]
+
+[sub_resource type="Resource" id="Resource_04l0t"]
+script = ExtResource("4_7bpa0")
+value_text = "Suite"
+value = "0"
+metadata/_custom_type_script = "uid://2cytqirrcfcn"
+
+[sub_resource type="Resource" id="Resource_uonia"]
+script = ExtResource("2_rmevo")
+question_text = "Votre objectif est d'apprendre trois systèmes de magie différents au cours de niveaux-énigmes."
+answers = Array[ExtResource("4_7bpa0")]([SubResource("Resource_04l0t")])
+metadata/_custom_type_script = "uid://clop87h6b3bhq"
+
+[sub_resource type="Resource" id="Resource_7bpa0"]
+script = ExtResource("4_7bpa0")
+value_text = "Suite"
+metadata/_custom_type_script = "uid://2cytqirrcfcn"
+
+[sub_resource type="Resource" id="Resource_3w6xh"]
+script = ExtResource("2_rmevo")
+question_text = "Vous pouvez vous déplacer à l'aide de la gachette index gauche ou le joystick droit, et tourner grâce au joystick droit"
+answers = Array[ExtResource("4_7bpa0")]([SubResource("Resource_7bpa0")])
+metadata/_custom_type_script = "uid://clop87h6b3bhq"
+
+[sub_resource type="Resource" id="Resource_hgubs"]
+script = ExtResource("4_7bpa0")
+value_text = "Okay !"
+metadata/_custom_type_script = "uid://2cytqirrcfcn"
+
+[sub_resource type="Resource" id="Resource_15hbj"]
+script = ExtResource("2_rmevo")
+question_text = "Afin de collecter des données magiques, nous allons vous poser quelques questions."
+answers = Array[ExtResource("4_7bpa0")]([SubResource("Resource_hgubs")])
+metadata/_custom_type_script = "uid://clop87h6b3bhq"
+
+[sub_resource type="Resource" id="Resource_82hyo"]
+script = ExtResource("4_7bpa0")
+value_text = "Merci !"
+metadata/_custom_type_script = "uid://2cytqirrcfcn"
+
+[sub_resource type="Resource" id="Resource_n173e"]
+script = ExtResource("2_rmevo")
+question_text = "Voilà ! Dirigez vous maintenant vers le portail. Dans chacun des trois niveaux, trouvez le portail de fin. Bon courage !"
+answers = Array[ExtResource("4_7bpa0")]([SubResource("Resource_82hyo")])
+metadata/_custom_type_script = "uid://clop87h6b3bhq"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qey1e"]
 render_priority = 0
@@ -18,11 +70,15 @@ radius = 0.35205078
 
 [node name="Questions" type="Node3D"]
 script = ExtResource("1_f0g6l")
+questions = Array[ExtResource("2_rmevo")]([ExtResource("3_3ixbt"), SubResource("Resource_uonia"), SubResource("Resource_3w6xh"), SubResource("Resource_15hbj"), ExtResource("4_dmvqs"), ExtResource("6_3w6xh"), ExtResource("7_15hbj"), ExtResource("5_7bpa0"), SubResource("Resource_n173e")])
 
 [node name="Question" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8266046, 0)
-text = "HELLO
-"
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3547403, -0.34011424)
+text = "Vous pouvez vous déplacer à l'aide de la gachette index gauche ou le joystick droit, et tourner gràace au joystick droit"
+font_size = 30
+outline_size = 15
+vertical_alignment = 2
+autowrap_mode = 3
 
 [node name="Answers" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1518412, 0)
@@ -35,7 +91,11 @@ material_override = SubResource("ShaderMaterial_qey1e")
 mesh = SubResource("PlaneMesh_v6nsp")
 
 [node name="Area3D" type="Area3D" parent="Cauldron2" groups=["Cauldron"]]
+collision_layer = 65537
+collision_mask = 65537
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cauldron2/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49663162, 0)
 shape = SubResource("CylinderShape3D_6tcrl")
+
+[connection signal="body_entered" from="Cauldron2/Area3D" to="." method="_on_area_3d_body_entered"]
