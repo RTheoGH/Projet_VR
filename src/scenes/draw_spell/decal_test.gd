@@ -42,26 +42,27 @@ func _physics_process(delta: float) -> void:
 				active_decals.pop_front().queue_free()
 			
 			var result_pos = result["position"]
-			result_pos.z -= 0.05
 			$FeatherInteractable.global_position = result_pos
+			$FeatherInteractable.position.BACK -= 0.05
+			
 			$FeatherInteractable.activate(true)
 	else:
 		$FeatherInteractable.activate(false)
 			
 			
 			#var ink = ink_decal.instantiate()
-			#ink.position = result["position"]
-			#ink.rotation.x = atan2(result["normal"].y , result["normal"].z) + 90
-			#ink.rotation.y = atan2(result["normal"].x , result["normal"].z)
-			#ink.rotation.z = atan2(result["normal"].x , result["normal"].y)
-			#print(result["collider"])
+			#result["collider"].add_child(ink)
+			#ink.global_position = result["position"]
+			#ink.look_at(result["position"] + result["normal"])
+			#ink.rotation.x -= 90
+			##ink.rotation.x = atan2(result["normal"].y , result["normal"].z) + 90
+			##ink.rotation.y = atan2(result["normal"].x , result["normal"].z)
+			##ink.rotation.z = atan2(result["normal"].x , result["normal"].y)
 			##print("ink position : " , ink.position)
-			#str_ref += "Vector3" + str(ink.position) + ", "
-			#draw_rune.points.append(ink.position)
+			#draw_rune.points.append(ink.global_position)
 			#draw_rune.normals.append(result["normal"])
-			#print(result["normal"])
 			#active_decals.append(ink)
-			#add_child(ink)
+			#
 		#else : 
 			#print("not hit")
 		#pass

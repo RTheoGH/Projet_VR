@@ -34,9 +34,12 @@ func draw_point(body: Node3D):
 		object_collide.add_child(ink)
 		ink.global_position = hit[0]
 		print(ink.position)
-		ink.rotation.x = atan2(hit[1].y , hit[1].z) + 90
-		ink.rotation.y = atan2(hit[1].x , hit[1].z)
-		ink.rotation.z = atan2(hit[1].x , hit[1].y)
+		var target = hit[0] + hit[1]
+		ink.look_at(target)
+		ink.rotation.x += 90
+		#ink.rotation.x = atan2(hit[1].y , hit[1].z) + 90
+		#ink.rotation.y = atan2(hit[1].x , hit[1].z)
+		#ink.rotation.z = atan2(hit[1].x , hit[1].y)
 		draw_rune.points.append(hit[0])
 		draw_rune.normals.append(hit[1])
 		
