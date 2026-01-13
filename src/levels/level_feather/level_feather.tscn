@@ -880,9 +880,6 @@ transform = Transform3D(0.9269155, 0, -0.37526998, 0, 1, 0, 0.37526998, 0, 0.926
 [node name="XROrigin3D" parent="." instance=ExtResource("60_4xeyx")]
 transform = Transform3D(-0.9729818, 0, 0.2308819, 0, 1, 0, -0.2308819, 0, -0.9729818, 0, 1.1248434, 0)
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.96483785, 0, 0.26284587, 0, 1, 0, -0.26284587, 0, -0.96483785, -2.3155274, 1.6890874, 4.669258)
-
 [connection signal="plate_pressed" from="DynamicProps/PressurePlate1" to="." method="_on_pressure_plate_plate_pressed"]
 [connection signal="plate_released" from="DynamicProps/PressurePlate1" to="." method="_on_pressure_plate_plate_released"]
 [connection signal="plate_pressed" from="DynamicProps/ButtonWall/PressurePlate2" to="." method="_on_pressure_plate_gravity_pressed"]
