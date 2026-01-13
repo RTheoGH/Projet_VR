@@ -27,16 +27,16 @@ func _on_function_pickup_has_dropped() -> void:
 		activate_touched.disconnect(function_pickup.picked_up_object.activate_touched)
 
 # choisir ici quelle input correspond à quoi
-func _on_controller_button_pressed(name: String) -> void:
+func _on_controller_button_pressed(p_name: String) -> void:
 	#print("button pressed : ", name)
 	
-	if name == "ax_touch":
+	if p_name == "ax_touch":
 		activate_touched.emit(true)
-	elif name == "ax_button":
+	elif p_name == "ax_button":
 		activate.emit(true)
 
-func _on_controller_button_released(name: String) -> void:
-	if name == "ax_touch":
+func _on_controller_button_released(p_name: String) -> void:
+	if p_name == "ax_touch":
 		activate_touched.emit(false)
-	elif name == "ax_button":
+	elif p_name == "ax_button":
 		activate.emit(false)

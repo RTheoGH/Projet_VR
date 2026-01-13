@@ -76,7 +76,7 @@ func add_spell_index(ball: Node3D):
 	#$finish.visible = spellbook.has(spell_buffer)
 	#$finish/CollisionShape3D.disabled = not spellbook.has(spell_buffer)
 
-func _on_finish_body_entered(body: Node3D) -> void:
+func _on_finish_body_entered(_body: Node3D) -> void:
 	#finish_spell()
 	pass
 

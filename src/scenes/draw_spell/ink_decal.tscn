@@ -1,8 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://brcntxdt00g3r"]
 
-[ext_resource type="Texture2D" uid="uid://bydg0phimj8yv" path="res://src/scenes/draw_spell/yellow.png" id="1_qng1k"]
+[ext_resource type="Texture2D" uid="uid://cqswgib8uoib4" path="res://Assets/textures/splat.png" id="1_rb3nt"]
 
 [node name="Decal" type="Decal"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.10206298, 0)
 size = Vector3(0.02, 0.30412596, 0.02)
-texture_albedo = ExtResource("1_qng1k")
+texture_emission = ExtResource("1_rb3nt")
+emission_energy = 1.1
+normal_fade = 0.17

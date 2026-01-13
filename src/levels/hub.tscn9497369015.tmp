@@ -616,7 +616,7 @@ transform = Transform3D(-0.047263402, 0, -0.9988825, 0, 1, 0, 0.9988825, 0, -0.0
 transform = Transform3D(0.09754811, 0, -0.99523085, 0, 1, 0, 0.99523085, 0, 0.09754811, -0.15380192, 3.3510513, 3.039595)
 
 [node name="StartPortal" parent="Interieur" instance=ExtResource("19_qik6l")]
-transform = Transform3D(0.68571234, 0, 0.5153529, 0, 0.857782, 0, -0.5153529, 0, 0.68571234, -7.464661, 0.39328527, -4.823474)
+transform = Transform3D(-3.7494846e-08, 0, 0.857782, 0, 0.857782, 0, -0.857782, 0, -3.7494846e-08, -10.371927, 0.39328527, 0.047949076)
 color = Color(0.6976765, 0.56395966, 0.18131831, 1)
 
 [node name="DebugPortal1" parent="Interieur" instance=ExtResource("19_qik6l")]
@@ -695,16 +695,6 @@ transform = Transform3D(0.8752113, 0, -0.48374075, 0, 1, 0, 0.48374075, 0, 0.875
 
 [node name="CrateMetal6" parent="Interieur" instance=ExtResource("36_swpio")]
 transform = Transform3D(0.19454244, 0, -0.9808941, 0, 1, 0, 0.9808941, 0, 0.19454244, -9.798946, 1.0011339, 4.6372046)
-
-[node name="CrateMetal9" parent="Interieur" instance=ExtResource("36_swpio")]
-transform = Transform3D(-0.008813888, 0, -0.9999613, 0, 1, 0, 0.9999613, 0, -0.008813888, -0.37276268, 1.0341358, 2.4329648)
-freeze = true
-freeze_mode = 1
-
-[node name="CrateMetal10" parent="Interieur" instance=ExtResource("36_swpio")]
-transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, -1.8556122, 1.0341358, 1.4507288)
-freeze = true
-freeze_mode = 1
 
 [node name="Bench3" parent="Interieur" instance=ExtResource("4_om1xx")]
 transform = Transform3D(-0.11656678, 0, -0.99318284, 0, 1, 0, 0.99318284, 0, -0.11656678, 10.128266, 0.013987454, 1.6646428)
@@ -824,7 +814,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.61351, 0.015873075, 6.73117
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.828578, 0.015873075, 6.202495)
 
 [node name="Panneau" parent="Interieur" instance=ExtResource("42_l0i64")]
-transform = Transform3D(0.30682573, 0, -0.3947885, 0, 0.5, 0, 0.3947885, 0, 0.30682573, -4.804257, 1.2922544, -5.917452)
+transform = Transform3D(0.4330127, 0, -0.25, 0, 0.5, 0, 0.25, 0, 0.4330127, -8.692935, 1.2922544, -2.8897116)
 
 [node name="CrateMetal7" parent="Interieur" instance=ExtResource("36_swpio")]
 transform = Transform3D(-0.87203515, 0, -0.4894433, 0, 1, 0, 0.4894433, 0, -0.87203515, 3.0044687, 0.2282455, 6.6675143)
@@ -857,7 +847,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0
 transform = Transform3D(0.7656853, 0.64321536, 0, -0.64321536, 0.7656853, 0, 0, 0, 1, 5.559237, 1.1395062, -4.1756587)
 
 [node name="MaxCage" type="MeshInstance3D" parent="." groups=["maxcage"]]
-transform = Transform3D(-1.2182376, 0, 3.323777, 0, 3.54, 0, -3.323777, 0, -1.2182376, -8.782508, 0.048101246, 0.4253906)
+transform = Transform3D(2.877765, 0, 2.0615692, 0, 3.54, 0, -2.0615692, 0, 2.877765, -6.6658983, 0.048101246, -5.2392426)
 mesh = SubResource("ArrayMesh_gqep6")
 skeleton = NodePath("")
 

@@ -239,6 +239,9 @@ transform = Transform3D(-0.078909, 0.976521, 0.20045099, -0.97652096, -0.1161507
 [node name="Table_Large4" parent="StaticProps" instance=ExtResource("12_x8uv0")]
 transform = Transform3D(-0.07289011, 0, -0.9973401, 0, 1, 0, 0.9973401, 0, -0.07289011, -15.728127, -1.2706094, 6.776274)
 
+[node name="Table_Large7" parent="StaticProps" instance=ExtResource("12_x8uv0")]
+transform = Transform3D(0.99021465, 0, -0.13955337, 0, 1, 0, 0.13955337, 0, 0.99021465, -17.72437, -0.48500788, -4.8547807)
+
 [node name="Table_Large5" parent="StaticProps" instance=ExtResource("12_x8uv0")]
 transform = Transform3D(0.9656407, 0, -0.2598809, 0, 1, 0, 0.2598809, 0, 0.9656407, -13.694015, -1.2420017, 10.645741)
 
@@ -752,10 +755,16 @@ transform = Transform3D(0.064427845, 0, -0.99792236, 0, 1, 0, 0.99792236, 0, 0.0
 transform = Transform3D(0.35751647, -0.0057056095, -0.9338894, 0.001436252, 0.99998343, -0.005559578, 0.93390566, 0.00064633985, 0.35751876, -2.513486, 0.09571582, 6.1408653)
 
 [node name="CrateMetal2" parent="DynamicProps" instance=ExtResource("8_tbu0q")]
-transform = Transform3D(-0.18911842, 0.074372366, -0.9791339, 0.0576747, 0.9962476, 0.06453247, 0.9802592, -0.04426695, -0.19269834, -18.571121, -0.20430267, -4.9636855)
+transform = Transform3D(-0.18911842, 0.074372366, -0.9791339, 0.0576747, 0.9962476, 0.06453247, 0.9802592, -0.04426695, -0.19269834, -17.801725, 0.48224664, -4.9636855)
 
 [node name="CrateMetal3" parent="DynamicProps" instance=ExtResource("8_tbu0q")]
 transform = Transform3D(-0.1977035, -0.20792355, -0.95795673, 0.0023393433, 0.9771429, -0.21257071, 0.9802591, -0.044266943, -0.19269834, -16.730013, 2.1291184, 19.29865)
+
+[node name="CrateMetal4" parent="DynamicProps" instance=ExtResource("8_tbu0q")]
+transform = Transform3D(-0.1977035, -0.20792355, -0.95795673, 0.0023393433, 0.9771429, -0.21257071, 0.9802591, -0.044266943, -0.19269834, -16.849869, 3.0987794, 19.29865)
+
+[node name="CrateMetal5" parent="DynamicProps" instance=ExtResource("8_tbu0q")]
+transform = Transform3D(-0.1977035, -0.20792355, -0.95795673, 0.0023393433, 0.9771429, -0.21257071, 0.9802591, -0.044266943, -0.19269834, -15.731734, 2.480618, 19.29865)
 
 [node name="Book_Stack_12" parent="DynamicProps" instance=ExtResource("14_b2h5y")]
 transform = Transform3D(0.91009873, 0, 0.41439146, 0, 1, 0, -0.41439146, 0, 0.91009873, 2.872285, 0.9481151, 3.7183661)
@@ -794,7 +803,7 @@ skeleton = NodePath("../../..")
 shape = SubResource("ConvexPolygonShape3D_rycp2")
 
 [node name="PressurePlate2" parent="DynamicProps/ButtonWall" instance=ExtResource("19_mf5j2")]
-transform = Transform3D(0.08465326, 0.0076220683, 0.00085580896, 0.0007205635, 0.001539106, -0.08498301, -0.0076360414, 0.08464358, 0.0014682135, -0.28156376, 0, 0.50211436)
+transform = Transform3D(0.054994058, 0.00079066167, -0.00017321872, 0.00078742154, -0.054985467, -0.0009891493, -0.00018739255, 0.0009865621, -0.05499085, 0.7311306, 0.82789564, 13.880285)
 one_time_press = true
 
 [node name="DuplicationPlates" type="Node3D" parent="DynamicProps"]
@@ -868,11 +877,11 @@ transform = Transform3D(0.5288559, 0.034431316, -0.0050690765, -0.034432884, 0.5
 [node name="Book_Stack_23" parent="DynamicProps" instance=ExtResource("15_nwdj5")]
 transform = Transform3D(0.9269155, 0, -0.37526998, 0, 1, 0, 0.37526998, 0, 0.9269155, -11.656062, -0.41299868, 1.7292799)
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.5306959, -0.039773095, 0.8466286, -0.040559452, 0.9989457, 0.021504624, -0.8465913, -0.022926377, -0.5317496, 0.6439297, 1.1705025, 2.2080843)
-
 [node name="XROrigin3D" parent="." instance=ExtResource("60_4xeyx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3569662, 1.2786987, 3.6766129)
+transform = Transform3D(-0.9729818, 0, 0.2308819, 0, 1, 0, -0.2308819, 0, -0.9729818, 0, 1.1248434, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.96483785, 0, 0.26284587, 0, 1, 0, -0.26284587, 0, -0.96483785, -2.3155274, 1.6890874, 4.669258)
 
 [connection signal="plate_pressed" from="DynamicProps/PressurePlate1" to="." method="_on_pressure_plate_plate_pressed"]
 [connection signal="plate_released" from="DynamicProps/PressurePlate1" to="." method="_on_pressure_plate_plate_released"]

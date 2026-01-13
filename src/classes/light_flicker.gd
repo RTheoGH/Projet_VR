@@ -7,6 +7,6 @@ extends OmniLight3D
 
 static var noise : FastNoiseLite = FastNoiseLite.new()
 
-func _process(delta:float):
+func _process(_delta:float):
 	var val: float = 0.1 * flicker_speed * ((Time.get_ticks_msec() % 10000) + global_position.length_squared())
 	light_energy = base_energy - (flicker_strength * base_energy * (noise.get_noise_1d(val) + 1.0) / 2.0)

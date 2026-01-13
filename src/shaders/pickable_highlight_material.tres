@@ -3,6 +3,6 @@
 [ext_resource type="Shader" uid="uid://cxls6wlm34mph" path="res://src/shaders/pickable_highlight.tres" id="1_c1ekb"]
 
 [resource]
+resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("1_c1ekb")
-shader_parameter/Emission_color = Color(0.3667802, 0.0017396378, 0.7826598, 1)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://q2ddqvpmfr2x"]
+[gd_scene load_steps=14 format=3 uid="uid://q2ddqvpmfr2x"]
 
 [ext_resource type="Script" uid="uid://bustqdra0w5o3" path="res://src/scenes/character/character.gd" id="1_8lldn"]
 [ext_resource type="PackedScene" uid="uid://cy03d57iyrci" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_physics_hand.tscn" id="1_jt2v8"]
@@ -10,18 +10,39 @@
 [ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="4_w375e"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="5_fg8a2"]
 [ext_resource type="PackedScene" uid="uid://bnbb13d0dwsuf" path="res://src/scenes/draw_spell/draw.tscn" id="7_fg8a2"]
-[ext_resource type="Shader" uid="uid://ckvntju886ymc" path="res://src/scenes/character/fulscreenQuad.gdshader" id="11_1lh3m"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wnni4"]
+albedo_color = Color(0.29586652, 0.2958665, 0.29586646, 1)
+
+[sub_resource type="GDScript" id="GDScript_wnni4"]
+script/source = "extends CSGBox3D
+
+var balls: Array[CSGSphere3D] = []
+
+func _ready() -> void:
+	for p in 300:
+		var ball: CSGSphere3D = CSGSphere3D.new()
+		ball.scale *= 0.05
+		add_child(ball)
+		ball.position.z = 0.1
+		balls.append(ball)
+
+func plotPoints(points: Array[Vector2]):
+	if !visible:
+		return
+	
+	for p in balls.size():
+		if p < points.size():
+			balls[p].position.x = points[p].x
+			balls[p].position.y = points[p].y
+			balls[p].visible = true
+		else:
+			balls[p].visible = false
+"
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wnni4"]
 radius = 0.23144531
 height = 1.5727539
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ti06r"]
-render_priority = 0
-shader = ExtResource("11_1lh3m")
-
-[sub_resource type="QuadMesh" id="QuadMesh_2t2le"]
-size = Vector2(2, 2)
 
 [node name="XROrigin3D" type="XROrigin3D"]
 current = true
@@ -33,6 +54,13 @@ current = true
 
 [node name="tip" type="Node3D" parent="XRCamera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25560683, 0.20933384, -0.4912013)
+
+[node name="drawingPreview" type="CSGBox3D" parent="XRCamera3D"]
+transform = Transform3D(0.22962674, 0.00703884, 0.06944075, 0, 0.23877648, -0.024203513, -0.06979659, 0.023157384, 0.22845611, -0.5497775, 0.13327533, -0.9149977)
+sorting_offset = 1.585
+size = Vector3(1.9411621, 1.8544922, 0.03149414)
+material = SubResource("StandardMaterial3D_wnni4")
+script = SubResource("GDScript_wnni4")
 
 [node name="controller_l" type="XRController3D" parent="."]
 tracker = &"left_hand"
@@ -72,8 +100,3 @@ script = ExtResource("4_fg8a2")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="playerArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.103759766, 0)
 shape = SubResource("CapsuleShape3D_wnni4")
-
-[node name="FullScreenQuad" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.72657335, -0.84345585)
-material_override = SubResource("ShaderMaterial_ti06r")
-mesh = SubResource("QuadMesh_2t2le")

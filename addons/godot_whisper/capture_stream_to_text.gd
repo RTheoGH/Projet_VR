@@ -147,5 +147,5 @@ func _remove_special_characters(message: String):
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		recording = false
-		if thread.is_alive():
+		if thread && thread.is_alive():
 			thread.wait_to_finish()

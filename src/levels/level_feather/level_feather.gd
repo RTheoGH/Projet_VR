@@ -8,7 +8,7 @@ func _ready() -> void:
 	RuneEffectManager.explosion_signal.connect(on_explosion_signal)
 	#RuneEffectManager.apply_pickable($DynamicProps/Crate2, $DynamicProps/Crate2.global_position)
 	#RuneEffectManager.apply_effect_on_object($DynamicProps/Crate2.global_position, $DynamicProps/Crate2, "pickable")
-	RuneEffectManager.apply_effect_on_object($DynamicProps/Crate2.global_position, $DynamicProps/Crate2, "gravity")
+	#RuneEffectManager.apply_effect_on_object($DynamicProps/Crate2.global_position, $DynamicProps/Crate2, "gravity")
 	#RuneEffectManager.apply_effect_on_object($DynamicProps/Crate2.global_position, $DynamicProps/Crate2, "explosion")
 	
 	
@@ -26,12 +26,14 @@ func _on_pressure_plate_plate_released() -> void:
 	create_tween().tween_property($StaticProps/Wall1, "global_position", Vector3(-8.546, 1.126, 6.601), 1.0)
 
 func on_explosion_signal(pos : Vector3, explosion_range : float):
-	var wall_pos = $StaticProps/Wall2.global_position
-	if (wall_pos - pos).length() <= explosion_range:
-		var wall_explodes = load("res://spells/scenes/explosion.tscn").instantiate()
-		add_child(wall_explodes)
-		wall_explodes.global_position = wall_pos
-		$StaticProps/Wall2.queue_free()
+	var explodables = get_tree().get_nodes_in_group("explodableWall")
+	for w in explodables:
+		var wall_pos = w.global_position
+		if (wall_pos - pos).length() <= explosion_range:
+			var wall_explodes = load("res://spells/scenes/explosion.tscn").instantiate()
+			add_child(wall_explodes)
+			wall_explodes.global_position = wall_pos
+			w.queue_free()
 		
 
 func _on_pressure_plate_duplication_pressed() -> void:

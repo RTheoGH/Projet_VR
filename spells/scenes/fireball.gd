@@ -24,6 +24,6 @@ func explode():
 	effect.get_node("explode").play()
 	queue_free()
 
-func _on_body_entered(body: Node) -> void:
+func _on_body_entered(_body: Node) -> void:
 	explode()
 	print("boum")

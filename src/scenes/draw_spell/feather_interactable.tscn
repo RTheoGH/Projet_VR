@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_lte1l"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_unuap"]
-size = Vector3(0.09, 0.45, 0.09)
+size = Vector3(0.048828125, 0.45, 0.052734375)
 
 [node name="FeatherInteractable" type="RigidBody3D"]
 collision_layer = 4
@@ -24,11 +24,19 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18267557, 0)
 shape = SubResource("BoxShape3D_unuap")
 
-[node name="GrabPointHandLeft" parent="." instance=ExtResource("3_unuap")]
-transform = Transform3D(1, 0, 0, 0, 0.7067117, 0.70750153, 0, -0.70750153, 0.7067117, 0, 0.024175063, -0.08000471)
-
-[node name="GrabPointHandRight" parent="." instance=ExtResource("4_lte1l")]
-transform = Transform3D(1, 0, 0, 0, 0.7067117, 0.70750153, 0, -0.70750153, 0.7067117, 0, 0.024175063, -0.08000471)
-
 [node name="tip" type="RayCast3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.3085019, 0)
+
+[node name="GrabPointHandLeft" parent="." instance=ExtResource("3_unuap")]
+transform = Transform3D(0.96974003, 0, -0.24413973, 0.20134662, 0.56554294, 0.79976285, 0.13807146, -0.8247189, 0.54842955, 0.026911661, 0.0372684, -0.05941833)
+visible = true
+
+[node name="GrabPointHandRight" parent="." instance=ExtResource("4_lte1l")]
+transform = Transform3D(0.96388185, 9.754039e-09, 0.26633003, -0.21964742, 0.56554276, 0.79493153, -0.15062106, -0.8247188, 0.5451165, -0.041008912, 0.034763962, -0.061135735)
+visible = true
+
+[node name="target" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7680755, -0.19467932)
+
+[connection signal="dropped" from="." to="." method="_on_dropped"]
+[connection signal="grabbed" from="." to="." method="_on_grabbed"]

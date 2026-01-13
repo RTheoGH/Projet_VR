@@ -2,9 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://72jwxcohi1av" path="res://Assets/Packs/Pressure_plate.glb" id="1_gdrof"]
 [ext_resource type="Material" uid="uid://cpo30hv0hb0f0" path="res://Assets/materials/wallByBogey/wallByBogey.tres" id="2_40mwx"]
-[ext_resource type="Script" uid="uid://m7srdndum3xv" path="res://src/classes/pressure_plate.gd" id="3_gdrof"]
+[ext_resource type="Script" path="res://src/classes/pressure_plate.gd" id="3_gdrof"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nrdby"]
+resource_local_to_scene = true
 albedo_color = Color(0.999999, 0.42634332, 0.24420664, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_brjbh"]

@@ -3,7 +3,7 @@ extends XRToolsPickable
 
 const MAGE_BALL_CIRCLE = preload("uid://bfs5qsy4dw1iq")
 
-func _process(delta: float):
+func _process(_delta: float):
 	$testSphere.global_position = -$tip.global_basis.z * 3.0
 
 var circle: Node3D

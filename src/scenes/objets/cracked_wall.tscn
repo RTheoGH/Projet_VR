@@ -4,20 +4,20 @@
 [ext_resource type="Texture2D" uid="uid://chgkxiy78ypi1" path="res://Assets/textures/T_cracks35.png" id="2_j4lbo"]
 [ext_resource type="Texture2D" uid="uid://qo06s8ax3x4b" path="res://Assets/textures/T_cracks33_E3.jpg" id="3_j4lbo"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_rycp2"]
-points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+[sub_resource type="BoxShape3D" id="BoxShape3D_j4lbo"]
+size = Vector3(0.7236328, 3.9294434, 3.977539)
 
 [sub_resource type="BoxMesh" id="BoxMesh_wmvs2"]
 material = ExtResource("1_hh2jl")
 
-[node name="StaticBody3D" type="RigidBody3D"]
+[node name="StaticBody3D" type="RigidBody3D" groups=["explodableWall"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0, 0, 0)
 mass = 100.0
 freeze = true
 freeze_mode = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("ConvexPolygonShape3D_rycp2")
+shape = SubResource("BoxShape3D_j4lbo")
 
 [node name="Wall2" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.71, 0, 0, 0, 4.032, 0, 0, 0, 3.986, 0, 0, 0)
@@ -25,8 +25,9 @@ mesh = SubResource("BoxMesh_wmvs2")
 skeleton = NodePath("../..")
 
 [node name="Decal" type="Decal" parent="Wall2"]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1.0001416, -0.04174793, -0.0007782228, -0.017345278)
-size = Vector3(1.0097656, 1.8786082, 0.9909668)
+transform = Transform3D(-4.3711392e-08, -1.0000001, 0, 1, -4.371139e-08, 0, 0, 0, 1.0001504, -0.041747935, -0.0007782228, -0.017345283)
+sorting_offset = -0.08
+size = Vector3(1.0097656, 1.3378906, 0.9909668)
 texture_albedo = ExtResource("2_j4lbo")
 texture_emission = ExtResource("3_j4lbo")
 emission_energy = 0.5

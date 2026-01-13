@@ -69,7 +69,7 @@ var music_lerp_value:= 0.0: # 0 = only hub ambience, 1 = only dungeon music
 	set(v):
 		music_lerp_value = v
 		dungeon_music.volume_linear = v
-		hub_ambience.volume_linear 	= 1.0-v
+		hub_ambience.volume_linear 	= 0.9-v
 		
 var musicTween: Tween
 func fade_to_ambience():
@@ -97,8 +97,10 @@ func fade_to_music() -> void:
 
 var hub: PackedScene = preload("res://src/levels/hub.tscn")
 var levels: Array[PackedScene] = [
-	preload("res://src/levels/level_balls/level_balls.tscn"),
-	preload("res://src/levels/level_book/level_book.tscn"),
+	#preload("res://src/levels/level_balls/level_balls.tscn"),
+	#preload("res://src/levels/level_book/level_book.tscn"),
+	preload("res://src/levels/level_feather/level_feather.tscn"),
+	preload("res://src/levels/level_feather/level_feather.tscn"),
 	preload("res://src/levels/level_feather/level_feather.tscn")
 ]
 var levels_permutation = [0,1,2]

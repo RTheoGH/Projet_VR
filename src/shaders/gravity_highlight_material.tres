@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://b5xtcbu3d1jc1"]
+
+[ext_resource type="Shader" uid="uid://cxls6wlm34mph" path="res://src/shaders/pickable_highlight.tres" id="1_16rb3"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_16rb3")
+shader_parameter/Emission_color = Color(0.50687194, 0.21325132, 0.5136612, 1)
