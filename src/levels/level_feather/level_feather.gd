@@ -51,6 +51,18 @@ func _on_pressure_plate_duplication_pressed() -> void:
 func _on_pressure_plate_duplication_released() -> void:
 	duplication_plates_count -= 1
 
+
+var gravity_tween: Tween
 func _on_pressure_plate_gravity_pressed() -> void:
-	create_tween().tween_property($DynamicProps/ButtonWall, "global_position", Vector3(-11.144, 6.05, -0.854), 1.0)
-	create_tween().tween_property($StaticProps/Bench4, "global_position", Vector3(-13.762, 3.668, 6.819), 3)
+	gravity_tween = create_tween()
+	gravity_tween.tween_property($DynamicProps/ButtonWall/Wall4, "global_position", Vector3(-11.144, 6.05, -0.854), 1.0)
+	gravity_tween.parallel().tween_property($StaticProps/Bench4, "global_position", Vector3(-13.762, 3.668, 6.819), 3)
+
+
+@onready var original_wall_pos: Vector3 =$DynamicProps/ButtonWall/Wall4.global_position
+@onready var original_bench_pos: Vector3 = $StaticProps/Bench4.global_position
+
+func _on_pressure_plate_2_plate_released() -> void:
+	gravity_tween = create_tween()
+	gravity_tween.tween_property($DynamicProps/ButtonWall/Wall4, "global_position", original_wall_pos, 1.0)
+	gravity_tween.parallel().tween_property($StaticProps/Bench4, "global_position", original_bench_pos, 3)

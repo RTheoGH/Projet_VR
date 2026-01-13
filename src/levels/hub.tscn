@@ -680,29 +680,38 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4497414, 0, -5.9810715)
 
 [node name="CrateMetal3" parent="Interieur" instance=ExtResource("36_swpio")]
 transform = Transform3D(-0.14338905, 0, -0.98966646, 0, 1, 0, 0.98966646, 0, -0.14338905, -7.9675903, 0.08437872, 5.8262978)
+collision_layer = 1
+collision_mask = 1
 
 [node name="CrateMetal4" parent="Interieur" instance=ExtResource("36_swpio")]
 transform = Transform3D(-0.019284725, 0, -0.99981403, 0, 1, 0, 0.99981403, 0, -0.019284725, -9.798946, 0.11194897, 4.6372046)
+collision_layer = 1
+collision_mask = 1
 
 [node name="Crate5" parent="Interieur" instance=ExtResource("35_5tst5")]
 transform = Transform3D(-0.59597266, 0, -0.80300474, 0, 1, 0, 0.80300474, 0, -0.59597266, -8.028683, 1.0392884, 6.346815)
+collision_layer = 1
+collision_mask = 1
 
 [node name="CrateMetal5" parent="Interieur" instance=ExtResource("36_swpio")]
 transform = Transform3D(0.05547294, 0, -0.9984602, 0, 1, 0, 0.9984602, 0, 0.05547294, -7.9667635, 0.17753088, 6.762032)
+collision_layer = 1
+collision_mask = 1
 
 [node name="Crate6" parent="Interieur" instance=ExtResource("35_5tst5")]
 transform = Transform3D(0.8752113, 0, -0.48374075, 0, 1, 0, 0.48374075, 0, 0.8752113, -8.973068, 0.35248333, 5.387682)
+collision_layer = 1
+collision_mask = 1
 
 [node name="CrateMetal6" parent="Interieur" instance=ExtResource("36_swpio")]
 transform = Transform3D(0.19454244, 0, -0.9808941, 0, 1, 0, 0.9808941, 0, 0.19454244, -9.798946, 1.0011339, 4.6372046)
-
-[node name="CrateMetal9" parent="Interieur" instance=ExtResource("36_swpio")]
-transform = Transform3D(0.10404236, 0, -0.994573, 0, 1, 0, 0.994573, 0, 0.10404236, -0.37276268, 1.0341358, 2.4329648)
-freeze = true
-freeze_mode = 1
+collision_layer = 1
+collision_mask = 1
 
 [node name="CrateMetal10" parent="Interieur" instance=ExtResource("36_swpio")]
-transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, -1.8556122, 1.0341358, 1.4507288)
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -2.1582994, 1.0341358, 1.7509558)
+collision_layer = 1
+collision_mask = 1
 freeze = true
 freeze_mode = 1
 
@@ -828,12 +837,18 @@ transform = Transform3D(0.30682573, 0, -0.3947885, 0, 0.5, 0, 0.3947885, 0, 0.30
 
 [node name="CrateMetal7" parent="Interieur" instance=ExtResource("36_swpio")]
 transform = Transform3D(-0.87203515, 0, -0.4894433, 0, 1, 0, 0.4894433, 0, -0.87203515, 3.0044687, 0.2282455, 6.6675143)
+collision_layer = 1
+collision_mask = 1
 
 [node name="CrateMetal8" parent="Interieur" instance=ExtResource("36_swpio")]
 transform = Transform3D(-0.2111201, 0, -0.97746015, 0, 1, 0, 0.97746015, 0, -0.2111201, 2.7603574, 0.26878536, 5.3787756)
+collision_layer = 1
+collision_mask = 1
 
 [node name="Crate7" parent="Interieur" instance=ExtResource("35_5tst5")]
 transform = Transform3D(0.8752113, 0, -0.48374075, 0, 1, 0, 0.48374075, 0, 0.8752113, 2.051533, 0.35248333, 6.1998253)
+collision_layer = 1
+collision_mask = 1
 
 [node name="Banner_24" parent="Interieur" instance=ExtResource("10_f75sj")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 11.032305, 4.308358, -3.6898186)

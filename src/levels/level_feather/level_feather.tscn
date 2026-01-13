@@ -803,8 +803,7 @@ skeleton = NodePath("../../..")
 shape = SubResource("ConvexPolygonShape3D_rycp2")
 
 [node name="PressurePlate2" parent="DynamicProps/ButtonWall" instance=ExtResource("19_mf5j2")]
-transform = Transform3D(0.054994058, 0.00079066167, -0.00017321872, 0.00078742154, -0.054985467, -0.0009891493, -0.00018739255, 0.0009865621, -0.05499085, 0.7311306, 0.82789564, 13.880285)
-one_time_press = true
+transform = Transform3D(0.054994065, 0.00079066167, -0.00017321872, 0.00078742154, -0.054985467, -0.0009891493, -0.00018739255, 0.0009865621, -0.054990858, 0.7311306, 1.0493298, 13.880285)
 
 [node name="DuplicationPlates" type="Node3D" parent="DynamicProps"]
 
@@ -878,11 +877,12 @@ transform = Transform3D(0.5288559, 0.034431316, -0.0050690765, -0.034432884, 0.5
 transform = Transform3D(0.9269155, 0, -0.37526998, 0, 1, 0, 0.37526998, 0, 0.9269155, -11.656062, -0.41299868, 1.7292799)
 
 [node name="XROrigin3D" parent="." instance=ExtResource("60_4xeyx")]
-transform = Transform3D(-0.9729818, 0, 0.2308819, 0, 1, 0, -0.2308819, 0, -0.9729818, 0, 1.1248434, 0)
+transform = Transform3D(-0.9729818, 0, 0.2308819, 0, 1, 0, -0.2308819, 0, -0.9729818, -13.77666, 5.6398444, 16.10857)
 
 [connection signal="plate_pressed" from="DynamicProps/PressurePlate1" to="." method="_on_pressure_plate_plate_pressed"]
 [connection signal="plate_released" from="DynamicProps/PressurePlate1" to="." method="_on_pressure_plate_plate_released"]
 [connection signal="plate_pressed" from="DynamicProps/ButtonWall/PressurePlate2" to="." method="_on_pressure_plate_gravity_pressed"]
+[connection signal="plate_released" from="DynamicProps/ButtonWall/PressurePlate2" to="." method="_on_pressure_plate_2_plate_released"]
 [connection signal="plate_pressed" from="DynamicProps/DuplicationPlates/Pressure_plate" to="." method="_on_pressure_plate_duplication_pressed"]
 [connection signal="plate_released" from="DynamicProps/DuplicationPlates/Pressure_plate" to="." method="_on_pressure_plate_duplication_released"]
 [connection signal="plate_pressed" from="DynamicProps/DuplicationPlates/Pressure_plate2" to="." method="_on_pressure_plate_duplication_pressed"]

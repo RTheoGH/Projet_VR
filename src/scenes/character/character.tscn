@@ -69,7 +69,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25560683, 0.20933384, -0.4
 
 [node name="drawingPreview" type="CSGBox3D" parent="XRCamera3D"]
 transform = Transform3D(0.22962674, 0.00703884, 0.06944075, 0, 0.23877648, -0.024203513, -0.06979659, 0.023157384, 0.22845611, -0.5497775, 0.13327533, -0.9149977)
-visible = false
 sorting_offset = 1.585
 size = Vector3(1.9411621, 1.8544922, 0.03149414)
 material = SubResource("StandardMaterial3D_wnni4")
