@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=4 uid="uid://b7px801c0ohkr"]
+[gd_scene load_steps=86 format=4 uid="uid://b7px801c0ohkr"]
 
 [ext_resource type="Script" uid="uid://bda28yntj2wuf" path="res://src/levels/hub.gd" id="1_lg4k7"]
 [ext_resource type="PackedScene" uid="uid://dxx722tqqoo7j" path="res://src/scenes/voice/book.tscn" id="4_jro34"]
@@ -166,6 +166,9 @@ albedo_color = Color(0.55581766, 0.28437915, 0, 1)
 albedo_texture = SubResource("NoiseTexture2D_6y7ho")
 
 [sub_resource type="BoxMesh" id="BoxMesh_h6kcb"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1eejb"]
+rough = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x6jdk"]
 resource_name = "MI_Trim_Metal"
@@ -694,7 +697,7 @@ transform = Transform3D(0.8752113, 0, -0.48374075, 0, 1, 0, 0.48374075, 0, 0.875
 transform = Transform3D(0.19454244, 0, -0.9808941, 0, 1, 0, 0.9808941, 0, 0.19454244, -9.798946, 1.0011339, 4.6372046)
 
 [node name="CrateMetal9" parent="Interieur" instance=ExtResource("36_swpio")]
-transform = Transform3D(-0.008813888, 0, -0.9999613, 0, 1, 0, 0.9999613, 0, -0.008813888, -0.37276268, 1.0341358, 2.4329648)
+transform = Transform3D(0.10404236, 0, -0.994573, 0, 1, 0, 0.994573, 0, 0.10404236, -0.37276268, 1.0341358, 2.4329648)
 freeze = true
 freeze_mode = 1
 
@@ -852,6 +855,10 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0
 
 [node name="FeatherInteractable" parent="." instance=ExtResource("46_ofc6x")]
 transform = Transform3D(0.7656853, 0.64321536, 0, -0.64321536, 0.7656853, 0, 0, 0, 1, 5.559237, 1.1395062, -4.1756587)
+physics_material_override = SubResource("PhysicsMaterial_1eejb")
+linear_damp = 10.228
+angular_damp = 9.571
+press_to_hold = true
 
 [node name="MaxCage" type="MeshInstance3D" parent="." groups=["maxcage"]]
 transform = Transform3D(-1.2182376, 0, 3.323777, 0, 3.54, 0, -3.323777, 0, -1.2182376, -8.782508, 0.048101246, 0.4253906)
@@ -875,3 +882,5 @@ shape = SubResource("BoxShape3D_f5v5g")
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="MaxCage/StaticBody3D"]
 transform = Transform3D(-8.940697e-08, 0, -0.9999999, 0, 1, 0, 0.9999999, 0, -8.940697e-08, -0.404531, 0.4084399, 0.024466753)
 shape = SubResource("BoxShape3D_f5v5g")
+
+[node name="Wand2" parent="." instance=ExtResource("11_6yhae")]

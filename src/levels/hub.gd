@@ -18,8 +18,8 @@ func _ready() -> void:
 	Gamemaster.fade_from_black(4.0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
+func _process(delta: float) -> void:
+	$Interieur/CrateMetal10.rotate_y(delta)
 
 #func maxwell():
 	#if mxw:
