@@ -1,6 +1,7 @@
 extends XROrigin3D
 
 @onready var la_boule = $controller_r/RightPhysicsHand/Draw
+@onready var fade_rect: MeshInstance3D = $XRCamera3D/blackPlane
 
 func _ready() -> void:
 	Gamemaster.player = self

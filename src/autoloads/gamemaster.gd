@@ -1,22 +1,14 @@
 extends Control
-@onready var fade_rect: ColorRect = $SubViewport/FadeRect
 
 var player: Node3D
 func _ready():
-	fade_rect.color.a = 0.0
-	music_lerp_value = 0.0
 	levels_permutation.shuffle()
 	#just a cool fadein of the ambience
 	hub_ambience.volume_db = -80 
-	musicTween = get_tree().create_tween()
-	musicTween.tween_property(
-		hub_ambience,
-		"volume_linear",
-		1.0,
-		3.5
-	)
+	music_lerp_value = 0.0
 	#test()
-	
+
+
 func test():
 	
 	await musicTween.finished
@@ -32,14 +24,19 @@ func test():
 
 var fadeTween: Tween
 func fade_to_black(time:float):
+	if not is_instance_valid(player):
+		return
+	var fade_rect: MeshInstance3D = player.fade_rect
 	if time <= 0:
-		fade_rect.color.a = 1.0
+		fade_rect.show()
+		fade_rect.material_override.albedo_color.a = 1.0
 		fadeTween = null
 	else:
+		fade_rect.show()
 		fadeTween = get_tree().create_tween()
 		fadeTween.tween_property(
-			fade_rect,
-			"color:a",
+			fade_rect.material_override,
+			"albedo_color:a",
 			1.0,
 			time
 		)
@@ -47,18 +44,24 @@ func fade_to_black(time:float):
 	return
 
 func fade_from_black(time:float) -> void:
+	if not is_instance_valid(player):
+		return
+	var fade_rect: MeshInstance3D = player.fade_rect
 	if time <= 0:
-		fade_rect.color.a = 0.0
+		fade_rect.material_override.albedo_color.a = 0.0
+		fade_rect.hide()
 		fadeTween = null
 	else:
 		fadeTween = get_tree().create_tween()
 		fadeTween.tween_property(
-			fade_rect,
-			"color:a",
+			fade_rect.material_override,
+			"albedo_color:a",
 			0.0,
 			time
 		)
 		await fadeTween.finished
+		if is_instance_valid(fade_rect):
+			fade_rect.hide()
 		
 	return 
 
@@ -69,7 +72,7 @@ var music_lerp_value:= 0.0: # 0 = only hub ambience, 1 = only dungeon music
 	set(v):
 		music_lerp_value = v
 		dungeon_music.volume_linear = v
-		hub_ambience.volume_linear 	= 0.9-v
+		hub_ambience.volume_linear 	= 0.9- v * 0.9
 		
 var musicTween: Tween
 func fade_to_ambience():

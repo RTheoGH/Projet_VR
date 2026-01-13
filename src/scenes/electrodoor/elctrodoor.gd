@@ -14,7 +14,5 @@ func activate():
 	).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
 	
 
-#func _ready():
-	#await get_tree().create_timer(2.0).timeout
-	#
-	#$Thunderbolt.explode()
+func _ready():
+	pass

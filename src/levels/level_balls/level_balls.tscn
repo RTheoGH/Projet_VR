@@ -609,10 +609,6 @@ transform = Transform3D(0.55113626, 0, 0.83441526, 0, 1, 0, -0.83441526, 0, 0.55
 [node name="dummy4" parent="DynamicProps" instance=ExtResource("37_ycwpw")]
 transform = Transform3D(0.7124426, 0, 0.70173043, 0, 1, 0, -0.70173043, 0, 0.7124426, -20.74996, -0.4249063, -11.246056)
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.9996104, 0.0057828673, 0.027310528, 0.0044980943, 0.99889076, -0.04687219, -0.027551375, -0.046731107, -0.99852747, -19.471941, 4.6558785, 7.2846584)
-current = true
-
 [node name="Pont" type="Node3D" parent="."]
 
 [node name="Sketchfab_Scene" parent="Pont" instance=ExtResource("6_wu35s")]
@@ -670,7 +666,7 @@ transform = Transform3D(-0.025200097, -0.77148294, 0.63575083, -0.7530584, 0.432
 transform = Transform3D(-0.99584633, -0.06856572, 0.05990647, -1.7763568e-15, 0.65795374, 0.7530584, -0.09104967, 0.74993044, -0.6552208, 0.63038766, 0.9003576, 6.876979)
 
 [node name="Wand4" parent="." instance=ExtResource("40_1n23o")]
-transform = Transform3D(-0.99584633, -0.06856572, 0.05990647, -1.7763568e-15, 0.65795374, 0.7530584, -0.09104967, 0.74993044, -0.6552208, -22.015665, 2.905864, 7.6231675)
+transform = Transform3D(-0.38664672, -0.69449145, 0.60678345, -2.547728e-08, 0.6579538, 0.7530585, -0.92222816, 0.2911675, -0.25439563, -22.015665, 2.905864, 7.6231675)
 
 [node name="Wand5" parent="." instance=ExtResource("40_1n23o")]
 transform = Transform3D(-0.99584633, -0.06856572, 0.05990647, -1.7763568e-15, 0.65795374, 0.7530584, -0.09104967, 0.74993044, -0.6552208, -22.198898, 2.905864, 7.5948653)
@@ -781,8 +777,10 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.6
 shape = SubResource("BoxShape3D_6m702")
 
 [node name="XROrigin3D" parent="." instance=ExtResource("71_02kv4")]
-transform = Transform3D(-0.98580325, 0, -0.16790438, 0, 1, 0, 0.16790438, 0, -0.98580325, 0.053100586, 1.1480194, 4.341667)
+transform = Transform3D(-0.98580325, 0, -0.16790438, 0, 1, 0, 0.16790438, 0, -0.98580325, -0.55679893, 0.86690545, 1.1522982)
 current = false
 
 [editable path="Pont/Sketchfab_Scene"]
 [editable path="Pont/Sketchfab_Scene2"]
+[editable path="Elctrodoor"]
+[editable path="Elctrodoor/generator"]

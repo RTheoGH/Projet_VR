@@ -6,6 +6,8 @@
 size = Vector3(0.8590164, 0.8594341, 0.86125946)
 
 [node name="CrateMetal" type="RigidBody3D"]
+collision_layer = 131073
+collision_mask = 131073
 mass = 10.0
 
 [node name="Crate_Metal2" parent="." instance=ExtResource("1_nt5ft")]

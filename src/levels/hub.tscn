@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=4 uid="uid://b7px801c0ohkr"]
+[gd_scene load_steps=85 format=4 uid="uid://b7px801c0ohkr"]
 
 [ext_resource type="Script" uid="uid://bda28yntj2wuf" path="res://src/levels/hub.gd" id="1_lg4k7"]
 [ext_resource type="PackedScene" uid="uid://dxx722tqqoo7j" path="res://src/scenes/voice/book.tscn" id="4_jro34"]
@@ -12,7 +12,6 @@
 [ext_resource type="Material" uid="uid://bkjxqr8wb3c16" path="res://Assets/materials/mur_test.tres" id="11_0bmb6"]
 [ext_resource type="PackedScene" uid="uid://dqwjrt3lnh2p6" path="res://src/scenes/strategy_balls_and_wand/wand/wand.tscn" id="11_6yhae"]
 [ext_resource type="PackedScene" uid="uid://dlaweh6gwj5ad" path="res://Assets/Packs/fantasyprops/Barrel.gltf" id="11_lg4k7"]
-[ext_resource type="PackedScene" uid="uid://clc5dre31iskm" path="res://addons/godot-xr-tools/xr/start_xr.tscn" id="12_dt5un"]
 [ext_resource type="PackedScene" uid="uid://dk2274l4w31g7" path="res://Assets/Packs/fantasyprops/Barrel_Apples.gltf" id="12_estxj"]
 [ext_resource type="PackedScene" uid="uid://cgwr6uxxeehph" path="res://src/scenes/objets/boule.tscn" id="13_lntfs"]
 [ext_resource type="PackedScene" uid="uid://kuxcq1xy7sel" path="res://Assets/Packs/fantasyprops/Barrel_Holder.gltf" id="13_qik6l"]
@@ -240,8 +239,6 @@ current = true
 
 [node name="Book" parent="." instance=ExtResource("4_jro34")]
 transform = Transform3D(-0.8500674, 0, -0.526674, 0, 1, 0, 0.526674, 0, -0.8500674, -1.4538283, 1.0353491, 4.433082)
-
-[node name="StartXR" parent="." instance=ExtResource("12_dt5un")]
 
 [node name="Node3D2" parent="." instance=ExtResource("13_lntfs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4334407, 1.0311188, 5.1540213)
