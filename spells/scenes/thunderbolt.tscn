@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bnl42dpsvlfna"]
+[gd_scene load_steps=9 format=3 uid="uid://bnl42dpsvlfna"]
 
 [ext_resource type="Script" uid="uid://yxgmdxxplcff" path="res://spells/scenes/thunderbolt.gd" id="1_8glic"]
 [ext_resource type="ArrayMesh" uid="uid://j8y3k7sryw3s" path="res://Assets/thunderbolt_editable.tres" id="1_p41p7"]
@@ -24,8 +24,6 @@ size = Vector3(5.6153564, 24.23172, 6.0981293)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_p41p7"]
 radius = 5.826789
-
-[sub_resource type="SphereMesh" id="SphereMesh_wex3t"]
 
 [node name="Thunderbolt" type="Node3D"]
 script = ExtResource("1_8glic")
@@ -59,12 +57,7 @@ volume_db = -15.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6915033, 0)
 light_color = Color(0.9077687, 0.84117085, 0.4893819, 1)
 light_energy = 0.0
-light_volumetric_fog_energy = 1.791
 omni_range = 14.60457
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(4.565, 0, 0, 0, 4.565, 0, 0, 0, 4.565, 0, 0, 0)
-mesh = SubResource("SphereMesh_wex3t")
 
 [connection signal="finished" from="GPUParticles3D" to="." method="_on_gpu_particles_3d_finished"]
 [connection signal="finished" from="impact" to="." method="_on_impact_finished"]

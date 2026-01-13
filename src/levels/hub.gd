@@ -7,11 +7,15 @@ extends Node3D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#maxwell()
-	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
+	Gamemaster.musicTween = get_tree().create_tween()
+	Gamemaster.musicTween.tween_property(
+		Gamemaster.hub_ambience,
+		"volume_linear",
+		1.0,
+		3.5
+	)
+	Gamemaster.fade_to_black(0)
+	Gamemaster.fade_from_black(4.0)
 
 #func maxwell():
 	#if mxw:

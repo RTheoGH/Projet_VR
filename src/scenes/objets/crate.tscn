@@ -6,6 +6,8 @@
 size = Vector3(0.8369446, 0.91012573, 0.8913269)
 
 [node name="Crate" type="RigidBody3D"]
+collision_layer = 131073
+collision_mask = 131073
 
 [node name="Crate_Wooden2" parent="." instance=ExtResource("1_2vmgn")]
 

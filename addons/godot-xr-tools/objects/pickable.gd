@@ -65,7 +65,7 @@ const DEFAULT_LAYER := 0b0000_0000_0000_0001_0000_0000_0000_0000
 @export var enabled : bool = true
 
 ## If true, the grip control must be held to keep the object picked up
-@export var press_to_hold : bool = true
+@export var press_to_hold : bool = false
 
 ## Layer for this object while picked up
 @export_flags_3d_physics var picked_up_layer : int = DEFAULT_LAYER

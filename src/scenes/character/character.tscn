@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://q2ddqvpmfr2x"]
+[gd_scene load_steps=16 format=3 uid="uid://q2ddqvpmfr2x"]
 
 [ext_resource type="Script" uid="uid://bustqdra0w5o3" path="res://src/scenes/character/character.gd" id="1_8lldn"]
 [ext_resource type="PackedScene" uid="uid://cy03d57iyrci" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_physics_hand.tscn" id="1_jt2v8"]
@@ -40,6 +40,18 @@ func plotPoints(points: Array[Vector2]):
 			balls[p].visible = false
 "
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1lh3m"]
+transparency = 1
+depth_draw_mode = 2
+no_depth_test = true
+shading_mode = 0
+disable_ambient_light = true
+disable_fog = true
+disable_specular_occlusion = true
+albedo_color = Color(0, 0, 0, 0)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ti06r"]
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wnni4"]
 radius = 0.23144531
 height = 1.5727539
@@ -61,6 +73,13 @@ sorting_offset = 1.585
 size = Vector3(1.9411621, 1.8544922, 0.03149414)
 material = SubResource("StandardMaterial3D_wnni4")
 script = SubResource("GDScript_wnni4")
+
+[node name="blackPlane" type="MeshInstance3D" parent="XRCamera3D"]
+transform = Transform3D(0.83, 0, 0, 0, -3.628045e-08, -0.83, 0, 0.83, -3.628045e-08, 0, 0, -0.6030322)
+visible = false
+material_override = SubResource("StandardMaterial3D_1lh3m")
+mesh = SubResource("PlaneMesh_ti06r")
+skeleton = NodePath("../drawingPreview")
 
 [node name="controller_l" type="XRController3D" parent="."]
 tracker = &"left_hand"

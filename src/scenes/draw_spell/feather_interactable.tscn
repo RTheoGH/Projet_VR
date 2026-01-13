@@ -13,7 +13,6 @@ collision_layer = 4
 collision_mask = 7
 continuous_cd = true
 script = ExtResource("1_unuap")
-press_to_hold = false
 metadata/_custom_type_script = "uid://d2tylielur6l1"
 
 [node name="Plume" parent="." instance=ExtResource("2_qfjm3")]
@@ -27,16 +26,16 @@ shape = SubResource("BoxShape3D_unuap")
 [node name="tip" type="RayCast3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.3085019, 0)
 
-[node name="GrabPointHandLeft" parent="." instance=ExtResource("3_unuap")]
-transform = Transform3D(0.96974003, 0, -0.24413973, 0.20134662, 0.56554294, 0.79976285, 0.13807146, -0.8247189, 0.54842955, 0.026911661, 0.0372684, -0.05941833)
-visible = true
-
-[node name="GrabPointHandRight" parent="." instance=ExtResource("4_lte1l")]
-transform = Transform3D(0.96388185, 9.754039e-09, 0.26633003, -0.21964742, 0.56554276, 0.79493153, -0.15062106, -0.8247188, 0.5451165, -0.041008912, 0.034763962, -0.061135735)
-visible = true
-
 [node name="target" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7680755, -0.19467932)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20205736, -0.6864024, -0.7096514)
+
+[node name="GrabPointHandLeft2" parent="." instance=ExtResource("3_unuap")]
+transform = Transform3D(1, 0, 0, 0, 0.5229895, 0.8523391, 0, -0.8523391, 0.5229895, 0.010018587, 0.0846911, -0.06366207)
+visible = true
+
+[node name="GrabPointHandRight2" parent="." instance=ExtResource("4_lte1l")]
+transform = Transform3D(1, 0, 0, 0, 0.5227664, 0.8524761, 0, -0.8524761, 0.5227664, -0.010339141, 0.08457907, -0.06317249)
+visible = true
 
 [connection signal="dropped" from="." to="." method="_on_dropped"]
 [connection signal="grabbed" from="." to="." method="_on_grabbed"]

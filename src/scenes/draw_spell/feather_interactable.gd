@@ -10,7 +10,7 @@ var max_decals = 200 # Technically can have more but it is counted with some typ
 var active_decals : Array[Decal]
 var collision_body : Node3D
 var draw_rune : DrawRune = DrawRune.new()
-var recognizer
+static var recognizer
 
 var camera : Camera3D
 var currently_grabbed_old_damping: float
@@ -24,20 +24,22 @@ func align_with_y(xform, new_y):
 	return xform
 
 func _ready():
+	super()
 	camera = get_viewport().get_camera_3d()
-	recognizer = GestureRecognizer.new()
-	recognizer.LoadGesturesFromResources("res://addons/Gesture_recognizer/resources/gestures/")
+	if not recognizer:
+		recognizer = GestureRecognizer.new()
+		recognizer.LoadGesturesFromResources("res://addons/Gesture_recognizer/resources/gestures/")
 
-var last_pos: Vector3
+var last_position: Vector3
 func _physics_process(_delta: float) -> void:
+	
 	if is_instance_valid(currently_grabbed):
 		var dir := (target.global_position - currently_grabbed.global_position)
 		currently_grabbed.apply_central_force(dir * 25.0)
 	
-	if is_drawing && last_pos.distance_squared_to(global_position) >= min_move_dist**2:
+	if is_drawing && last_position.distance_squared_to(global_position) >= min_move_dist**2:
 		draw_point(collision_body)
-		last_pos = global_position
-		
+		last_position = global_position
 
 func draw_point(_body: Node3D):
 	var hit = cast_ray()
@@ -59,6 +61,7 @@ func draw_point(_body: Node3D):
 		active_decals.append(ink)
 	
 func activate(_pressed: bool):
+	
 	#print('isDRAW? ', _pressed)
 	is_drawing = _pressed
 	
@@ -73,7 +76,8 @@ func activate(_pressed: bool):
 			draw_rune.points.clear()
 			draw_rune.normals.clear()
 			return
-			
+		
+		#recognizer.AddGesture("res://addons/Gesture_recognizer/resources/gestures/", "gravity", draw_rune.get_2d_coordinates(recognizer, 0)) 
 		var score = recognizer.Recognize(draw_rune.get_2d_coordinates(recognizer, 0), 0.8)
 		var rune_pos := draw_rune.get_mean_pos()
 		if $tip.get_collider() is RigidBody3D:
@@ -107,6 +111,7 @@ func _on_grabbed(_pickable: Variant, _by: Variant) -> void:
 
 
 func _on_dropped(_pickable: Variant) -> void:
+	
 	if is_instance_valid(currently_grabbed):
 		RuneEffectManager.next_highlight(currently_grabbed, "pickable")
 		currently_grabbed.gravity_scale = 1.0
