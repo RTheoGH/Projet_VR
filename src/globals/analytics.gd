@@ -42,6 +42,20 @@ func _ready():
 			completion_time REAL DEFAULT -1,
 			first_spell_time REAL DEFAULT -1,
 		);
+		
+		CREATE TABLE system_book (
+		    id INT PRIMARY KEY DEFAULT nextval('id_sequence_book'),
+			positions REAL[3][] DEFAULT [],
+			completion_time REAL DEFAULT -1,
+			first_spell_time REAL DEFAULT -1,
+		);
+		
+		CREATE TABLE system_feather (
+		    id INT PRIMARY KEY DEFAULT nextval('id_sequence_feather'),
+			positions REAL[3][] DEFAULT [],
+			completion_time REAL DEFAULT -1,
+			first_spell_time REAL DEFAULT -1,
+		);
 		")
 	db.get_query_result()
 	new_session()

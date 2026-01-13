@@ -22,7 +22,8 @@ script = ExtResource("1_2s3er")
 transform = Transform3D(0.020977244, 0, 0.99978, 0, 1, 0, -0.99978, 0, 0.020977244, 0.26652205, 1.0117369, 25.211191)
 
 [node name="Label3D" type="Label3D" parent="Camera3D"]
-transform = Transform3D(0.36, 0, 0, 0, 0.36, 0, 0, 0, 0.36, 0, -0.419304, -0.60502243)
+transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -6.705523e-10, -0.07572678, -0.14019898)
+text = "azfqezqzefzef"
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
