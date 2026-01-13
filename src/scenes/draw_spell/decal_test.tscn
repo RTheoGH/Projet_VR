@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://uf1s3mub1ecn"]
+[gd_scene load_steps=10 format=3 uid="uid://uf1s3mub1ecn"]
 
 [ext_resource type="Script" uid="uid://blq1k0jy3tw4f" path="res://src/scenes/draw_spell/decal_test.gd" id="1_2s3er"]
 [ext_resource type="PackedScene" uid="uid://brcntxdt00g3r" path="res://src/scenes/draw_spell/ink_decal.tscn" id="2_0nkrb"]
 [ext_resource type="PackedScene" uid="uid://c17131quqte6e" path="res://src/scenes/objets/crate.tscn" id="3_yud18"]
 [ext_resource type="PackedScene" uid="uid://to3tgnn8fyn3" path="res://src/scenes/draw_spell/feather_interactable.tscn" id="4_ol3es"]
+[ext_resource type="PackedScene" uid="uid://q2ddqvpmfr2x" path="res://src/scenes/character/character.tscn" id="5_wi3qh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2s3er"]
 
@@ -18,8 +19,13 @@ size = Vector3(1, 1, 0.018257141)
 [node name="DecalTest" type="Node3D"]
 script = ExtResource("1_2s3er")
 
+[node name="XROrigin3D" parent="." instance=ExtResource("5_wi3qh")]
+process_mode = 4
+transform = Transform3D(-0.03964358, 0, 0.9992139, 0, 1, 0, -0.9992139, 0, -0.03964358, 0.5253788, 0.25299752, 25.043318)
+
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.020977244, 0, 0.99978, 0, 1, 0, -0.99978, 0, 0.020977244, 0.26652205, 1.0117369, 25.211191)
+current = true
 
 [node name="Label3D" type="Label3D" parent="Camera3D"]
 transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, -6.705523e-10, -0.07572678, -0.14019898)

@@ -76,8 +76,8 @@ func _input(event: InputEvent) -> void:
 		#print("Draw")
 		str_ref += "["
 		draw_rune.points.clear()
-		#for decal in range(active_decals.size()):
-			#active_decals.pop_front().queue_free()
+		for decal in range(active_decals.size()):
+			active_decals.pop_front().queue_free()
 	if event.is_action_released("draw_mouse_debug"):
 		print("allo")
 		is_drawing = false
@@ -90,8 +90,10 @@ func _input(event: InputEvent) -> void:
 			draw_rune.points.clear()
 			draw_rune.normals.clear()
 			return
-			
+
+		Gamemaster.player = $XROrigin3D
 		var score = recognizer.Recognize(draw_rune.get_2d_coordinates(recognizer, 0), 0.8)
+		recognizer.AddGesture("res://addons/Gesture_recognizer/resources/gestures/", "pickable", draw_rune.get_2d_coordinates(recognizer, 0))
 		$Camera3D/Label3D.text = "Rune reconnue : " + score["name"] + ", score : " + str(score["score"])
 		print(score)
 		RuneEffectManager.apply_effect_on_object(Vector3.ZERO, $RigidBody3D, score["name"])

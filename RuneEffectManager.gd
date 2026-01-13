@@ -10,13 +10,13 @@ var highlight_duplication = preload("res://src/shaders/duplication_highlight_mat
 var current_feather: Node3D
 
 func apply_effect_on_object(draw_pos : Vector3, object : RigidBody3D, effect : String) -> bool:
-	if object == null or effect == "No match":
+	if object == null or effect == "No Match":
 		return false
 	if activated_rune_effects.keys().has(object):
 		activated_rune_effects[object].append(effect)
 	else :
 		activated_rune_effects[object] = [effect]
-		print(activated_rune_effects)
+
 		
 	match effect:
 		"pickable":
