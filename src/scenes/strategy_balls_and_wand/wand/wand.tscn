@@ -25,7 +25,6 @@ continuous_cd = true
 linear_damp = 10.228
 angular_damp = 9.571
 script = ExtResource("1_1eejb")
-press_to_hold = false
 metadata/_custom_type_script = "uid://d2tylielur6l1"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

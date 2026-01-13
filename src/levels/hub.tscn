@@ -708,13 +708,6 @@ transform = Transform3D(0.19454244, 0, -0.9808941, 0, 1, 0, 0.9808941, 0, 0.1945
 collision_layer = 1
 collision_mask = 1
 
-[node name="CrateMetal10" parent="Interieur" instance=ExtResource("36_swpio")]
-transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -2.1582994, 1.0341358, 1.7509558)
-collision_layer = 1
-collision_mask = 1
-freeze = true
-freeze_mode = 1
-
 [node name="Bench3" parent="Interieur" instance=ExtResource("4_om1xx")]
 transform = Transform3D(-0.11656678, 0, -0.99318284, 0, 1, 0, 0.99318284, 0, -0.11656678, 10.128266, 0.013987454, 1.6646428)
 
@@ -899,3 +892,4 @@ transform = Transform3D(-8.940697e-08, 0, -0.9999999, 0, 1, 0, 0.9999999, 0, -8.
 shape = SubResource("BoxShape3D_f5v5g")
 
 [node name="Wand2" parent="." instance=ExtResource("11_6yhae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3008504, 1.2473435, -4.415474)

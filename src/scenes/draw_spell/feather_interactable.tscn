@@ -27,7 +27,7 @@ shape = SubResource("BoxShape3D_unuap")
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.3085019, 0)
 
 [node name="target" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20205736, -0.6864024, -0.7096514)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20205736, -1.071498, -0.9644695)
 
 [node name="GrabPointHandLeft2" parent="." instance=ExtResource("3_unuap")]
 transform = Transform3D(1, 0, 0, 0, 0.5229895, 0.8523391, 0, -0.8523391, 0.5229895, 0.010018587, 0.0846911, -0.06366207)

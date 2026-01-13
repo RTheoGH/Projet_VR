@@ -103,8 +103,8 @@ var levels: Array[PackedScene] = [
 	#preload("res://src/levels/level_balls/level_balls.tscn"),
 	#preload("res://src/levels/level_book/level_book.tscn"),
 	preload("res://src/levels/level_feather/level_feather.tscn"),
-	preload("res://src/levels/level_feather/level_feather.tscn"),
-	preload("res://src/levels/level_feather/level_feather.tscn")
+	preload("res://src/levels/level_balls/level_balls.tscn"),
+	preload("res://src/levels/level_book/level_book.tscn")
 ]
 var levels_permutation = [0,1,2]
 var current_level_index:int = -1 # -1 is the hub
@@ -138,6 +138,12 @@ func nextLevel() -> void:
 	else:
 		await load_level(current_level_index+1)
 	return
+func prevLevel() -> void:
+	if current_level_index < 1:
+		await load_hub()
+	else:
+		await load_level(current_level_index-1)
+	return
 	
 func get_ui_viewport_texture() -> ViewportTexture:
 	return ($SubViewport as SubViewport).get_texture()
@@ -146,3 +152,9 @@ func jail():
 	load_hub()
 	var pos: Vector3 = get_tree().get_nodes_in_group("maxcage").pick_random().global_position
 	player.global_position = pos + 1.0 * Vector3.UP
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("next_level"):
+		nextLevel()
+	elif event.is_action_pressed("prev_level"):
+		prevLevel()
