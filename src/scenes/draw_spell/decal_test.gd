@@ -43,7 +43,7 @@ func _physics_process(delta: float) -> void:
 			
 			var result_pos = result["position"]
 			$FeatherInteractable.global_position = result_pos
-			$FeatherInteractable.position.BACK -= 0.05
+			$FeatherInteractable.position.z -= 0.05
 			
 			$FeatherInteractable.activate(true)
 	else:
