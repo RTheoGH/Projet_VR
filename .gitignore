@@ -2,3 +2,5 @@
 .godot/
 /android/
 addons/godot_whisper/models/
+db_outputs*
+db*

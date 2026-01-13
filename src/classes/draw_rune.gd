@@ -88,5 +88,6 @@ func get_points_from_2d_points(points_2d : Array[Vector2], recognizer : GestureR
 func get_2d_coordinates(recognizer : GestureRecognizer, id : int) -> Array[GestureRecognizer.Point]:
 	compute_mean_normal()
 	var p_2d := get_projected_points()
+	print()
 	Gamemaster.player.get_node("XRCamera3D/drawingPreview").plotPoints(p_2d)
 	return get_points_from_2d_points(p_2d, recognizer, id)
