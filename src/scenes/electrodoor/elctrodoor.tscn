@@ -87,7 +87,4 @@ script = ExtResource("4_ewg3t")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99438477, 0.28094482)
 shape = SubResource("BoxShape3D_ewg3t")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.96698815, 0, 0.25482133, 0, 1, 0, -0.25482133, 0, -0.96698815, 3.7888284, 1.7524352, -2.317418)
-
 [editable path="generator"]

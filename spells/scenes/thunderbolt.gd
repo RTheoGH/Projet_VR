@@ -28,7 +28,7 @@ func explode():
 	impact.play()
 	$GPUParticles3D.emitting = true
 	var t := get_tree().create_tween()
-	t.tween_property(omni_light_3d, "light_energy", 1000.0, 0.1)
+	t.tween_property(omni_light_3d, "light_energy", 100.0, 0.1)
 	t.tween_property(omni_light_3d, "light_energy", 0.0, 0.15)
 	var explode_zone : Vector3 = $Area3D/CollisionShape3D2.global_position
 	await get_tree().physics_frame
